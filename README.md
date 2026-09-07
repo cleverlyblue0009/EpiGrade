@@ -29,21 +29,45 @@ its own.
 See [docs/METHODS.md](docs/METHODS.md), [docs/LIMITATIONS.md](docs/LIMITATIONS.md), and
 [docs/DATA_PROVENANCE.md](docs/DATA_PROVENANCE.md) for the full picture.
 
-## Reproducing the demo
+## Run the app (zero downloads)
+
+A demo resource ships in the repo (`results/resource/epigrade_v1.json`), so the app runs on a
+fresh clone with no setup beyond installing dependencies:
 
 ```
-# one-time setup (see docs/METHODS.md for the venv/data-root layout)
-python scripts/demo_sotos.py
+pip install -r requirements.txt && pip install -e .
+streamlit run src/epigrade/app/main.py
 ```
 
-This reproduces the Choufani et al. 2015 Sotos syndrome classifier from GSE74432: discovery
-cohort separation, the 8 Weaver-syndrome negative controls, and the 9/7 split of the 16 NSD1
-missense variants of uncertain significance.
+Four pages: **Grade a score**, **Calibration curves**, **Cohort audit**, **Cross-disorder
+matrix**. The app never recomputes anything - if you want fresher numbers, rerun the pipeline
+below and then `python -m epigrade.report.resource` to rebuild the resource it reads.
+
+## Reproducing the full pipeline
+
+Requires network access to NCBI GEO (see `config/paths.yaml` for where downloads land - large
+files never go in the repo). Each step is idempotent and caches its output:
+
+```
+python -m epigrade.acquire.harvest              # phase 1: metadata for all 18 accessions
+python scripts/phase1_report.py                 # triage log + hand-curation cross-check
+python scripts/demo_sotos.py                    # phase 3: THE reproduction (downloads GSE74432)
+python scripts/phase5_calibration.py            # evidence bands + attainable ceiling
+python scripts/phase4_6_srs_and_matrix.py       # cross-disorder matrix + leave-one-study-out
+python scripts/phase6_confounding_gate.py       # confounding gate, all 12 in-scope disorders
+python scripts/generate_provenance.py           # docs/DATA_PROVENANCE.md
+python -m epigrade.report.resource              # rebuild results/resource/epigrade_v1.json
+```
+
+This reproduces the Choufani et al. 2015 Sotos syndrome classifier from GSE74432 exactly:
+19/19 discovery cases positive, 53/53 controls negative, 8/8 Weaver-syndrome samples negative,
+and the 16 NSD1 missense VOUS splitting 9 positive / 7 negative - all three of the paper's
+published results, verified before anything else in this pipeline was built.
 
 ## Layout
 
 - `src/epigrade/` - library code (acquire, preprocess, signature, calibrate, audit, report, app)
-- `config/` - paths and evidence-band tables (never hardcoded in source)
-- `scripts/` - one-command entry points (e.g. the Sotos demo)
-- `results/` - tracked tables and figures produced by scripts (never hand-edited)
+- `config/` - paths, label vocabulary, and evidence-band tables (never hardcoded in source)
+- `scripts/` - one-command entry points, one per pipeline phase
+- `results/` - tracked tables, figures, and the app's resource JSON (never hand-edited)
 - `data/` - gitignored; see `config/paths.yaml` for where bulk data actually lives on disk

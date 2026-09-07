@@ -1,0 +1,1496 @@
+{
+  "resource_version": "epigrade_v1",
+  "generated_from": {
+    "git_sha": "33ac7b6204694ef333e27a9a11d97942cbec6e3f",
+    "config_hash": "1e47b6d8cfdc6f59",
+    "generated_at_utc": "2026-09-07T07:56:18.530237+00:00"
+  },
+  "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
+  "confounding_gate": [
+    {
+      "disorder": "Sotos syndrome",
+      "n_cases": 38,
+      "n_studies": 1,
+      "studies": "GSE74432",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 38 cases come from a single study (GSE74432) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    },
+    {
+      "disorder": "Down syndrome",
+      "n_cases": 29,
+      "n_studies": 1,
+      "studies": "GSE52588",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 29 cases come from a single study (GSE52588) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    },
+    {
+      "disorder": "Coffin-Siris syndrome",
+      "n_cases": 21,
+      "n_studies": 1,
+      "studies": "GSE116992",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 21 cases come from a single study (GSE116992) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    },
+    {
+      "disorder": "Williams syndrome",
+      "n_cases": 20,
+      "n_studies": 1,
+      "studies": "GSE66552",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 20 cases come from a single study (GSE66552) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    },
+    {
+      "disorder": "CHARGE syndrome",
+      "n_cases": 19,
+      "n_studies": 1,
+      "studies": "GSE97362",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 19 cases come from a single study (GSE97362) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    },
+    {
+      "disorder": "ICF syndrome",
+      "n_cases": 15,
+      "n_studies": 1,
+      "studies": "GSE95040",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 15 cases come from a single study (GSE95040) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    },
+    {
+      "disorder": "7q11.23 duplication syndrome",
+      "n_cases": 10,
+      "n_studies": 1,
+      "studies": "GSE66552",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 10 cases come from a single study (GSE66552) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    },
+    {
+      "disorder": "Weaver syndrome",
+      "n_cases": 8,
+      "n_studies": 1,
+      "studies": "GSE74432",
+      "confounded_by_design": true,
+      "status": "not-testable",
+      "reason": "only 8 confirmed case(s) (< 10 minimum to attempt building a classifier at all)"
+    },
+    {
+      "disorder": "Claes-Jensen syndrome",
+      "n_cases": 6,
+      "n_studies": 1,
+      "studies": "GSE108423",
+      "confounded_by_design": true,
+      "status": "not-testable",
+      "reason": "only 6 confirmed case(s) (< 10 minimum to attempt building a classifier at all)"
+    },
+    {
+      "disorder": "Silver-Russell syndrome",
+      "n_cases": 63,
+      "n_studies": 2,
+      "studies": "GSE104451, GSE55491",
+      "confounded_by_design": false,
+      "status": "pass-structural",
+      "reason": "63 cases span 2 independent studies (GSE104451, GSE55491) - a genuine leave-one-study-out test is structurally possible. See results/tables/srs_leave_one_study_out.tsv for whether a classifier could actually be derived and how it generalized, if this disorder was attempted this session."
+    },
+    {
+      "disorder": "Kabuki syndrome type 1",
+      "n_cases": 37,
+      "n_studies": 2,
+      "studies": "GSE116300, GSE97362",
+      "confounded_by_design": false,
+      "status": "pass-structural",
+      "reason": "37 cases span 2 independent studies (GSE116300, GSE97362) - a genuine leave-one-study-out test is structurally possible. See results/tables/srs_leave_one_study_out.tsv for whether a classifier could actually be derived and how it generalized, if this disorder was attempted this session."
+    },
+    {
+      "disorder": "Nicolaides-Baraitser syndrome",
+      "n_cases": 16,
+      "n_studies": 2,
+      "studies": "GSE116992, GSE125367",
+      "confounded_by_design": false,
+      "status": "pass-structural",
+      "reason": "16 cases span 2 independent studies (GSE116992, GSE125367) - a genuine leave-one-study-out test is structurally possible. See results/tables/srs_leave_one_study_out.tsv for whether a classifier could actually be derived and how it generalized, if this disorder was attempted this session."
+    }
+  ],
+  "demo": {
+    "disorder": "Sotos syndrome",
+    "reproduction_summary": [
+      {
+        "check": "discovery_separation",
+        "expected": "19 Sotos cases separate cleanly from 53 controls (score > 0 vs < 0)",
+        "observed": "n_case=19, n_control=53; case scores [0.027, 0.158], control scores [-0.157, -0.098]; clean_separation=True; case>0: 19/19; control<0: 53/53",
+        "reproduced": true
+      },
+      {
+        "check": "weaver_negative",
+        "expected": "all 8 Weaver (EZH2) samples score negative",
+        "observed": "8/8 scored negative; scores=[-0.134, -0.136, -0.147, -0.121, -0.152, -0.105, -0.146, -0.14]",
+        "reproduced": true
+      },
+      {
+        "check": "missense_split",
+        "expected": "16 NSD1 missense VOUS split 9 positive (pathogenic-like) / 7 negative (benign-like)",
+        "observed": "n=16, positive=9, negative=7",
+        "reproduced": true
+      },
+      {
+        "check": "replication_cohort (bonus, not in the original 3 checks)",
+        "expected": "19 replication Sotos LOF cases (held out of discovery) mostly score positive",
+        "observed": "n=19, positive=19",
+        "reproduced": NaN
+      }
+    ],
+    "scores": [
+      {
+        "gsm_accession": "GSM1920348",
+        "cohort": "discovery_control",
+        "score": -0.1452847134397874,
+        "r_case": 0.8161984500409464,
+        "r_control": 0.9614831634807338,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920349",
+        "cohort": "discovery_control",
+        "score": -0.1451284868877241,
+        "r_case": 0.8128954007564811,
+        "r_control": 0.9580238876442052,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920350",
+        "cohort": "discovery_control",
+        "score": -0.1486387473157671,
+        "r_case": 0.8104338707041218,
+        "r_control": 0.9590726180198887,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920351",
+        "cohort": "discovery_control",
+        "score": -0.0980443614056679,
+        "r_case": 0.8424577748156681,
+        "r_control": 0.940502136221336,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920352",
+        "cohort": "discovery_control",
+        "score": -0.1229397410198277,
+        "r_case": 0.8367448221112007,
+        "r_control": 0.9596845631310283,
+        "n_probes_used": 7068
+      },
+      {
+        "gsm_accession": "GSM1920353",
+        "cohort": "discovery_control",
+        "score": -0.143752104435034,
+        "r_case": 0.7854269525979164,
+        "r_control": 0.9291790570329505,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920354",
+        "cohort": "discovery_control",
+        "score": -0.1404454911865803,
+        "r_case": 0.8027008869090125,
+        "r_control": 0.9431463780955928,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920355",
+        "cohort": "discovery_control",
+        "score": -0.135025162405687,
+        "r_case": 0.8092712475084484,
+        "r_control": 0.9442964099141354,
+        "n_probes_used": 7076
+      },
+      {
+        "gsm_accession": "GSM1920356",
+        "cohort": "discovery_control",
+        "score": -0.1298889513313829,
+        "r_case": 0.8318964913173063,
+        "r_control": 0.9617854426486891,
+        "n_probes_used": 7072
+      },
+      {
+        "gsm_accession": "GSM1920357",
+        "cohort": "discovery_control",
+        "score": -0.1231733141384879,
+        "r_case": 0.8377724707219527,
+        "r_control": 0.9609457848604408,
+        "n_probes_used": 7066
+      },
+      {
+        "gsm_accession": "GSM1920358",
+        "cohort": "discovery_control",
+        "score": -0.1371809477990424,
+        "r_case": 0.8252555507045023,
+        "r_control": 0.9624364985035448,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920359",
+        "cohort": "discovery_control",
+        "score": -0.1313419029624534,
+        "r_case": 0.8296500007406786,
+        "r_control": 0.960991903703132,
+        "n_probes_used": 7072
+      },
+      {
+        "gsm_accession": "GSM1920360",
+        "cohort": "discovery_control",
+        "score": -0.1383563312886084,
+        "r_case": 0.8221598652327853,
+        "r_control": 0.9605161965213938,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920361",
+        "cohort": "discovery_control",
+        "score": -0.1466267744893375,
+        "r_case": 0.8147130569325637,
+        "r_control": 0.9613398314219012,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920362",
+        "cohort": "discovery_control",
+        "score": -0.1425553968647898,
+        "r_case": 0.8121893650745998,
+        "r_control": 0.9547447619393896,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920363",
+        "cohort": "discovery_control",
+        "score": -0.1210663910873687,
+        "r_case": 0.8373168239795438,
+        "r_control": 0.9583832150669124,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920364",
+        "cohort": "discovery_control",
+        "score": -0.1236323624538161,
+        "r_case": 0.8288744256872305,
+        "r_control": 0.9525067881410466,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920365",
+        "cohort": "discovery_control",
+        "score": -0.1392919269340247,
+        "r_case": 0.8112717685714822,
+        "r_control": 0.9505636955055068,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920366",
+        "cohort": "discovery_control",
+        "score": -0.15346179795559,
+        "r_case": 0.7987457672862825,
+        "r_control": 0.9522075652418726,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920367",
+        "cohort": "discovery_control",
+        "score": -0.1277042712251022,
+        "r_case": 0.8261911015872341,
+        "r_control": 0.9538953728123364,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920368",
+        "cohort": "discovery_control",
+        "score": -0.1556368647762043,
+        "r_case": 0.7970076383166973,
+        "r_control": 0.9526445030929016,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920369",
+        "cohort": "discovery_control",
+        "score": -0.1483374628467653,
+        "r_case": 0.8025754240603388,
+        "r_control": 0.950912886907104,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920370",
+        "cohort": "discovery_control",
+        "score": -0.1413944464883667,
+        "r_case": 0.8233468875000981,
+        "r_control": 0.9647413339884648,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920371",
+        "cohort": "discovery_control",
+        "score": -0.1350017861290844,
+        "r_case": 0.8215082983307467,
+        "r_control": 0.9565100844598312,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920372",
+        "cohort": "discovery_control",
+        "score": -0.1572509775025934,
+        "r_case": 0.8062506161466858,
+        "r_control": 0.9635015936492792,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920373",
+        "cohort": "discovery_control",
+        "score": -0.113504540929828,
+        "r_case": 0.8413226089625477,
+        "r_control": 0.9548271498923758,
+        "n_probes_used": 7061
+      },
+      {
+        "gsm_accession": "GSM1920374",
+        "cohort": "discovery_control",
+        "score": -0.1324138595920144,
+        "r_case": 0.8261382371230702,
+        "r_control": 0.9585520967150848,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920375",
+        "cohort": "discovery_control",
+        "score": -0.1303625989953387,
+        "r_case": 0.8315452251235622,
+        "r_control": 0.961907824118901,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920376",
+        "cohort": "discovery_control",
+        "score": -0.1502778010068594,
+        "r_case": 0.8024195973499161,
+        "r_control": 0.9526973983567756,
+        "n_probes_used": 7066
+      },
+      {
+        "gsm_accession": "GSM1920377",
+        "cohort": "discovery_control",
+        "score": -0.1551883681502649,
+        "r_case": 0.8011516808112947,
+        "r_control": 0.9563400489615596,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920378",
+        "cohort": "discovery_control",
+        "score": -0.1298782778253737,
+        "r_case": 0.8284456662176524,
+        "r_control": 0.958323944043026,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920379",
+        "cohort": "discovery_control",
+        "score": -0.1338777046239674,
+        "r_case": 0.8277801704079322,
+        "r_control": 0.9616578750318996,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920380",
+        "cohort": "discovery_control",
+        "score": -0.1356079420931801,
+        "r_case": 0.8039476240300371,
+        "r_control": 0.9395555661232172,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920381",
+        "cohort": "discovery_control",
+        "score": -0.1574419248354921,
+        "r_case": 0.8024166089607842,
+        "r_control": 0.9598585337962764,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920382",
+        "cohort": "discovery_control",
+        "score": -0.1318760586252811,
+        "r_case": 0.823110417582521,
+        "r_control": 0.9549864762078022,
+        "n_probes_used": 7074
+      },
+      {
+        "gsm_accession": "GSM1920383",
+        "cohort": "discovery_control",
+        "score": -0.1509377970785865,
+        "r_case": 0.7964379869287213,
+        "r_control": 0.9473757840073078,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920384",
+        "cohort": "discovery_control",
+        "score": -0.1512993363862285,
+        "r_case": 0.8101217901583144,
+        "r_control": 0.9614211265445428,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920385",
+        "cohort": "discovery_control",
+        "score": -0.1496161602911363,
+        "r_case": 0.7796852129282137,
+        "r_control": 0.92930137321935,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920386",
+        "cohort": "discovery_control",
+        "score": -0.1327968662632719,
+        "r_case": 0.8188959318595446,
+        "r_control": 0.9516927981228164,
+        "n_probes_used": 7076
+      },
+      {
+        "gsm_accession": "GSM1920387",
+        "cohort": "discovery_control",
+        "score": -0.1193451573464355,
+        "r_case": 0.8279197315401741,
+        "r_control": 0.9472648888866096,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920388",
+        "cohort": "discovery_control",
+        "score": -0.1350396645264605,
+        "r_case": 0.8139077623587176,
+        "r_control": 0.9489474268851782,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920389",
+        "cohort": "discovery_control",
+        "score": -0.1344798317767823,
+        "r_case": 0.8262031260101538,
+        "r_control": 0.960682957786936,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920390",
+        "cohort": "discovery_control",
+        "score": -0.1330809534866582,
+        "r_case": 0.8285817762725688,
+        "r_control": 0.9616627297592272,
+        "n_probes_used": 7073
+      },
+      {
+        "gsm_accession": "GSM1920391",
+        "cohort": "discovery_control",
+        "score": -0.1456271132017103,
+        "r_case": 0.8104276227249342,
+        "r_control": 0.9560547359266444,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920392",
+        "cohort": "discovery_control",
+        "score": -0.1141065731327454,
+        "r_case": 0.8364435209286586,
+        "r_control": 0.950550094061404,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920393",
+        "cohort": "discovery_control",
+        "score": -0.1443311264383783,
+        "r_case": 0.7930367532250393,
+        "r_control": 0.9373678796634176,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920394",
+        "cohort": "discovery_control",
+        "score": -0.1410716925927648,
+        "r_case": 0.8211443627195875,
+        "r_control": 0.9622160553123524,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920395",
+        "cohort": "discovery_control",
+        "score": -0.1402565990407563,
+        "r_case": 0.8062665432576696,
+        "r_control": 0.946523142298426,
+        "n_probes_used": 7076
+      },
+      {
+        "gsm_accession": "GSM1920396",
+        "cohort": "discovery_control",
+        "score": -0.1266240964923729,
+        "r_case": 0.8305975568382714,
+        "r_control": 0.9572216533306444,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920397",
+        "cohort": "discovery_control",
+        "score": -0.1301880202871607,
+        "r_case": 0.8276668357270944,
+        "r_control": 0.9578548560142552,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920398",
+        "cohort": "discovery_control",
+        "score": -0.1142084075634587,
+        "r_case": 0.8297777442540708,
+        "r_control": 0.9439861518175297,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920399",
+        "cohort": "discovery_control",
+        "score": -0.137328711538497,
+        "r_case": 0.8198843351402874,
+        "r_control": 0.9572130466787844,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920400",
+        "cohort": "discovery_control",
+        "score": -0.1344127881655916,
+        "r_case": 0.8211696818617564,
+        "r_control": 0.955582470027348,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920405",
+        "cohort": "discovery_case",
+        "score": 0.1397661231814656,
+        "r_case": 0.91396992228705,
+        "r_control": 0.7742037991055845,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920406",
+        "cohort": "discovery_case",
+        "score": 0.143142628919301,
+        "r_case": 0.9288353818757252,
+        "r_control": 0.785692752956424,
+        "n_probes_used": 7085
+      },
+      {
+        "gsm_accession": "GSM1920407",
+        "cohort": "discovery_case",
+        "score": 0.135043325301738,
+        "r_case": 0.945227823103548,
+        "r_control": 0.8101844978018099,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920408",
+        "cohort": "discovery_case",
+        "score": 0.1153855968890702,
+        "r_case": 0.923210964246273,
+        "r_control": 0.8078253673572028,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920409",
+        "cohort": "discovery_case",
+        "score": 0.030997908921635,
+        "r_case": 0.8834922069830055,
+        "r_control": 0.8524942980613704,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920410",
+        "cohort": "discovery_case",
+        "score": 0.1244105881304883,
+        "r_case": 0.9400928642643273,
+        "r_control": 0.8156822761338388,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920411",
+        "cohort": "discovery_case",
+        "score": 0.1486876752988823,
+        "r_case": 0.9152741857468129,
+        "r_control": 0.7665865104479304,
+        "n_probes_used": 7058
+      },
+      {
+        "gsm_accession": "GSM1920412",
+        "cohort": "discovery_case",
+        "score": 0.1575753229859072,
+        "r_case": 0.9363760247304516,
+        "r_control": 0.7788007017445443,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920413",
+        "cohort": "discovery_case",
+        "score": 0.0946668116739027,
+        "r_case": 0.9409493536183174,
+        "r_control": 0.8462825419444147,
+        "n_probes_used": 7075
+      },
+      {
+        "gsm_accession": "GSM1920414",
+        "cohort": "discovery_case",
+        "score": 0.1414173822066633,
+        "r_case": 0.9555841183185904,
+        "r_control": 0.814166736111927,
+        "n_probes_used": 7078
+      },
+      {
+        "gsm_accession": "GSM1920415",
+        "cohort": "discovery_case",
+        "score": 0.0270671258365869,
+        "r_case": 0.8810427984327808,
+        "r_control": 0.8539756725961938,
+        "n_probes_used": 7068
+      },
+      {
+        "gsm_accession": "GSM1920416",
+        "cohort": "discovery_case",
+        "score": 0.1181689301781202,
+        "r_case": 0.9308217422219404,
+        "r_control": 0.81265281204382,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920417",
+        "cohort": "discovery_case",
+        "score": 0.1296098407230563,
+        "r_case": 0.9474074844135292,
+        "r_control": 0.8177976436904727,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920418",
+        "cohort": "discovery_case",
+        "score": 0.1262323013424234,
+        "r_case": 0.9172679557801046,
+        "r_control": 0.7910356544376811,
+        "n_probes_used": 7076
+      },
+      {
+        "gsm_accession": "GSM1920419",
+        "cohort": "discovery_case",
+        "score": 0.1053299945470068,
+        "r_case": 0.9310542900623766,
+        "r_control": 0.8257242955153697,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920420",
+        "cohort": "discovery_case",
+        "score": 0.1099059700107967,
+        "r_case": 0.9141304962151368,
+        "r_control": 0.8042245262043402,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920421",
+        "cohort": "discovery_case",
+        "score": 0.1574765796372312,
+        "r_case": 0.8714547291212837,
+        "r_control": 0.7139781494840525,
+        "n_probes_used": 7067
+      },
+      {
+        "gsm_accession": "GSM1920422",
+        "cohort": "discovery_case",
+        "score": 0.132280704205604,
+        "r_case": 0.9322980372093604,
+        "r_control": 0.8000173330037563,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920423",
+        "cohort": "discovery_case",
+        "score": 0.1318634383944036,
+        "r_case": 0.9338158161382344,
+        "r_control": 0.8019523777438308,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920427",
+        "cohort": "replication_case",
+        "score": 0.1503961425994334,
+        "r_case": 0.9290901473217614,
+        "r_control": 0.778694004722328,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920428",
+        "cohort": "replication_case",
+        "score": 0.1501468001529251,
+        "r_case": 0.9218937805233752,
+        "r_control": 0.77174698037045,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920429",
+        "cohort": "replication_case",
+        "score": 0.1209279724048072,
+        "r_case": 0.9371336336803708,
+        "r_control": 0.8162056612755636,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920430",
+        "cohort": "replication_case",
+        "score": 0.1326564547538323,
+        "r_case": 0.9108161842090056,
+        "r_control": 0.7781597294551731,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920431",
+        "cohort": "replication_case",
+        "score": 0.1475652398389263,
+        "r_case": 0.9435742968898556,
+        "r_control": 0.7960090570509294,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920432",
+        "cohort": "replication_case",
+        "score": 0.0933418912239306,
+        "r_case": 0.925481829250512,
+        "r_control": 0.8321399380265813,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920433",
+        "cohort": "replication_case",
+        "score": 0.1502255243087015,
+        "r_case": 0.9354950702974384,
+        "r_control": 0.7852695459887369,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920434",
+        "cohort": "replication_case",
+        "score": 0.1399095602404297,
+        "r_case": 0.927779158619708,
+        "r_control": 0.7878695983792783,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920435",
+        "cohort": "replication_case",
+        "score": 0.1326534998267119,
+        "r_case": 0.9317428452075284,
+        "r_control": 0.7990893453808164,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920436",
+        "cohort": "replication_case",
+        "score": 0.1275235305798773,
+        "r_case": 0.9411747590224468,
+        "r_control": 0.8136512284425695,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920437",
+        "cohort": "replication_case",
+        "score": 0.1210904573548746,
+        "r_case": 0.9463574116735564,
+        "r_control": 0.8252669543186818,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920438",
+        "cohort": "replication_case",
+        "score": 0.1131876333282383,
+        "r_case": 0.9383420856412348,
+        "r_control": 0.8251544523129966,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920439",
+        "cohort": "replication_case",
+        "score": 0.1349760313644037,
+        "r_case": 0.9293252918151712,
+        "r_control": 0.7943492604507674,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920440",
+        "cohort": "replication_case",
+        "score": 0.1512518876900378,
+        "r_case": 0.9405198385369103,
+        "r_control": 0.7892679508468725,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920441",
+        "cohort": "replication_case",
+        "score": 0.1236936061066998,
+        "r_case": 0.9392375492182656,
+        "r_control": 0.8155439431115658,
+        "n_probes_used": 7076
+      },
+      {
+        "gsm_accession": "GSM1920442",
+        "cohort": "replication_case",
+        "score": 0.1346908400455623,
+        "r_case": 0.9238630186289164,
+        "r_control": 0.789172178583354,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920443",
+        "cohort": "replication_case",
+        "score": 0.1280390110332435,
+        "r_case": 0.9190447022868484,
+        "r_control": 0.791005691253605,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920444",
+        "cohort": "replication_case",
+        "score": 0.1510309992678185,
+        "r_case": 0.9369663039788944,
+        "r_control": 0.7859353047110759,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920445",
+        "cohort": "replication_case",
+        "score": 0.091525570016261,
+        "r_case": 0.9320448410733876,
+        "r_control": 0.8405192710571266,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920446",
+        "cohort": "weaver",
+        "score": -0.1344696105284364,
+        "r_case": 0.7866299398004635,
+        "r_control": 0.9210995503289,
+        "n_probes_used": 7073
+      },
+      {
+        "gsm_accession": "GSM1920447",
+        "cohort": "weaver",
+        "score": -0.1360305580240389,
+        "r_case": 0.7819594801574417,
+        "r_control": 0.9179900381814806,
+        "n_probes_used": 7071
+      },
+      {
+        "gsm_accession": "GSM1920448",
+        "cohort": "weaver",
+        "score": -0.1465767543990689,
+        "r_case": 0.7726433101586104,
+        "r_control": 0.9192200645576794,
+        "n_probes_used": 7074
+      },
+      {
+        "gsm_accession": "GSM1920449",
+        "cohort": "weaver",
+        "score": -0.1214213597518335,
+        "r_case": 0.7868626971797335,
+        "r_control": 0.908284056931567,
+        "n_probes_used": 7077
+      },
+      {
+        "gsm_accession": "GSM1920450",
+        "cohort": "weaver",
+        "score": -0.1520001070951355,
+        "r_case": 0.779440759631206,
+        "r_control": 0.9314408667263416,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920451",
+        "cohort": "weaver",
+        "score": -0.104792043007668,
+        "r_case": 0.8336716138793663,
+        "r_control": 0.9384636568870344,
+        "n_probes_used": 7064
+      },
+      {
+        "gsm_accession": "GSM1920452",
+        "cohort": "weaver",
+        "score": -0.1461914288619303,
+        "r_case": 0.7933374237012241,
+        "r_control": 0.9395288525631544,
+        "n_probes_used": 7073
+      },
+      {
+        "gsm_accession": "GSM1920453",
+        "cohort": "weaver",
+        "score": -0.1395263219404202,
+        "r_case": 0.7906903758396524,
+        "r_control": 0.9302166977800728,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920454",
+        "cohort": "missense_variant",
+        "score": 0.0767972557872869,
+        "r_case": 0.9063691653863896,
+        "r_control": 0.8295719095991025,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920455",
+        "cohort": "missense_variant",
+        "score": 0.1097370522362216,
+        "r_case": 0.8919650566023852,
+        "r_control": 0.7822280043661636,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920456",
+        "cohort": "missense_variant",
+        "score": 0.0681750727997591,
+        "r_case": 0.8940520110793104,
+        "r_control": 0.8258769382795513,
+        "n_probes_used": 7083
+      },
+      {
+        "gsm_accession": "GSM1920457",
+        "cohort": "missense_variant",
+        "score": -0.1405759933844306,
+        "r_case": 0.7976586142032213,
+        "r_control": 0.938234607587652,
+        "n_probes_used": 7058
+      },
+      {
+        "gsm_accession": "GSM1920458",
+        "cohort": "missense_variant",
+        "score": -0.1368102557399135,
+        "r_case": 0.8218091654345502,
+        "r_control": 0.9586194211744636,
+        "n_probes_used": 7076
+      },
+      {
+        "gsm_accession": "GSM1920459",
+        "cohort": "missense_variant",
+        "score": 0.148131805354803,
+        "r_case": 0.92480908840926,
+        "r_control": 0.776677283054457,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920460",
+        "cohort": "missense_variant",
+        "score": -0.1218756994446795,
+        "r_case": 0.8193967110063562,
+        "r_control": 0.9412724104510358,
+        "n_probes_used": 7080
+      },
+      {
+        "gsm_accession": "GSM1920461",
+        "cohort": "missense_variant",
+        "score": -0.1307845547488694,
+        "r_case": 0.8105468865267913,
+        "r_control": 0.9413314412756608,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920462",
+        "cohort": "missense_variant",
+        "score": 0.0959755812018061,
+        "r_case": 0.9107653080972644,
+        "r_control": 0.8147897268954584,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920463",
+        "cohort": "missense_variant",
+        "score": 0.1218512422054111,
+        "r_case": 0.9276192494174964,
+        "r_control": 0.8057680072120853,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920464",
+        "cohort": "missense_variant",
+        "score": -0.148584292231139,
+        "r_case": 0.8073246854113861,
+        "r_control": 0.9559089776425252,
+        "n_probes_used": 7079
+      },
+      {
+        "gsm_accession": "GSM1920465",
+        "cohort": "missense_variant",
+        "score": 0.0159573040505195,
+        "r_case": 0.9014588268120346,
+        "r_control": 0.8855015227615151,
+        "n_probes_used": 7084
+      },
+      {
+        "gsm_accession": "GSM1920466",
+        "cohort": "missense_variant",
+        "score": 0.0885243770975742,
+        "r_case": 0.9234112671350044,
+        "r_control": 0.8348868900374303,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920467",
+        "cohort": "missense_variant",
+        "score": 0.1307641477417684,
+        "r_case": 0.9315088443746936,
+        "r_control": 0.8007446966329251,
+        "n_probes_used": 7082
+      },
+      {
+        "gsm_accession": "GSM1920468",
+        "cohort": "missense_variant",
+        "score": -0.138760764406649,
+        "r_case": 0.8040130496806064,
+        "r_control": 0.9427738140872556,
+        "n_probes_used": 7081
+      },
+      {
+        "gsm_accession": "GSM1920469",
+        "cohort": "missense_variant",
+        "score": -0.1210353003265941,
+        "r_case": 0.8333291824386013,
+        "r_control": 0.9543644827651956,
+        "n_probes_used": 7082
+      }
+    ],
+    "probe_filtering": {
+      "total_probes_before_filtering": 424586,
+      "cross_reactive_probes_in_chen_list": 30969,
+      "cross_reactive_probes_actually_present_in_data": 0,
+      "probes_retained": 424586,
+      "paper_target_retained_424586": 424586,
+      "difference_from_paper_target": 0,
+      "note": "The downloaded series matrix already arrived with exactly 424,586 probes and zero of the 30,969 known Chen et al. cross-reactive probes present in it - the original depositors evidently filtered it (cross-reactive and presumably SNP-containing probes) before uploading to GEO. This module's own filtering step was therefore a no-op here; the match to the paper's target reflects the deposited data, not this code. We still could not independently source Chen et al.'s own SNP-probe list as a machine-readable file - see docs/LIMITATIONS.md."
+    },
+    "confounding": {
+      "disorder": "Sotos syndrome",
+      "n_cases": 38,
+      "n_studies": 1,
+      "studies": "GSE74432",
+      "confounded_by_design": true,
+      "status": "fail",
+      "reason": "all 38 cases come from a single study (GSE74432) - disease status and study-of-origin/batch are fully confounded by design. A within-study case/control separation, however clean, cannot be attributed to the disorder rather than to batch. NOT REPORTABLE at face value regardless of how good the numbers look."
+    }
+  },
+  "evidence_bands": [
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "typical_case_score",
+      "query_score": 0.1321,
+      "prior": 0.05,
+      "lr_point_estimate": 142.41593570327453,
+      "lr_ci_low": 142.41593570327453,
+      "lr_ci_high": 142.41593570327453,
+      "points_conservative": 6.770848289926471,
+      "band": "Strong",
+      "posterior_prob": 0.8822916714064276,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "typical_case_score",
+      "query_score": 0.1321,
+      "prior": 0.1,
+      "lr_point_estimate": 142.41593570327453,
+      "lr_ci_low": 142.41593570327453,
+      "lr_ci_high": 142.41593570327453,
+      "points_conservative": 6.770848289926471,
+      "band": "Strong",
+      "posterior_prob": 0.9405610779460029,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "typical_case_score",
+      "query_score": 0.1321,
+      "prior": 0.2,
+      "lr_point_estimate": 142.41593570327453,
+      "lr_ci_low": 142.41593570327453,
+      "lr_ci_high": 142.41593570327453,
+      "points_conservative": 6.770848289926471,
+      "band": "Strong",
+      "posterior_prob": 0.972680569360248,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "typical_missense_vous_score",
+      "query_score": 0.0421,
+      "prior": 0.05,
+      "lr_point_estimate": 4.27991793208837,
+      "lr_ci_low": 4.27991793208837,
+      "lr_ci_high": 4.27991793208837,
+      "points_conservative": 1.985250646765076,
+      "band": "Supporting",
+      "posterior_prob": 0.1838459201004766,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "typical_missense_vous_score",
+      "query_score": 0.0421,
+      "prior": 0.1,
+      "lr_point_estimate": 4.27991793208837,
+      "lr_ci_low": 4.27991793208837,
+      "lr_ci_high": 4.27991793208837,
+      "points_conservative": 1.985250646765076,
+      "band": "Supporting",
+      "posterior_prob": 0.3222849684745996,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "typical_missense_vous_score",
+      "query_score": 0.0421,
+      "prior": 0.2,
+      "lr_point_estimate": 4.27991793208837,
+      "lr_ci_low": 4.27991793208837,
+      "lr_ci_high": 4.27991793208837,
+      "points_conservative": 1.985250646765076,
+      "band": "Supporting",
+      "posterior_prob": 0.5169034243083234,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "borderline_score_zero",
+      "query_score": 0.0,
+      "prior": 0.05,
+      "lr_point_estimate": 1.7583256997321135,
+      "lr_ci_low": 1.7583256997321135,
+      "lr_ci_high": 1.7583256997321135,
+      "points_conservative": 0.7705991130203804,
+      "band": "No evidence",
+      "posterior_prob": 0.0847046011882743,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "borderline_score_zero",
+      "query_score": 0.0,
+      "prior": 0.1,
+      "lr_point_estimate": 1.7583256997321135,
+      "lr_ci_low": 1.7583256997321135,
+      "lr_ci_high": 1.7583256997321135,
+      "points_conservative": 0.7705991130203804,
+      "band": "No evidence",
+      "posterior_prob": 0.1634386008387807,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    },
+    {
+      "disorder": "Sotos syndrome",
+      "query_point": "borderline_score_zero",
+      "query_score": 0.0,
+      "prior": 0.2,
+      "lr_point_estimate": 1.7583256997321135,
+      "lr_ci_low": 1.7583256997321135,
+      "lr_ci_high": 1.7583256997321135,
+      "points_conservative": 0.7705991130203804,
+      "band": "No evidence",
+      "posterior_prob": 0.3053536377447204,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 38,
+      "n_control": 53,
+      "n_studies_case": 1,
+      "confounded_by_design": true,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
+    }
+  ],
+  "attainable_ceiling": [
+    {
+      "n_case": 200,
+      "n_studies_case_assumed": 2,
+      "lr_point_estimate": 1428.432010777012,
+      "points_conservative": 9.322987984957788,
+      "attainable_band": "Very Strong",
+      "confounded_by_design": false
+    },
+    {
+      "n_case": 100,
+      "n_studies_case_assumed": 2,
+      "lr_point_estimate": 774.1426903942437,
+      "points_conservative": 8.643796274705089,
+      "attainable_band": "Very Strong",
+      "confounded_by_design": false
+    },
+    {
+      "n_case": 63,
+      "n_studies_case_assumed": 2,
+      "lr_point_estimate": 391.30990676377775,
+      "points_conservative": 7.779100522983218,
+      "attainable_band": "Strong",
+      "confounded_by_design": false
+    },
+    {
+      "n_case": 38,
+      "n_studies_case_assumed": 2,
+      "lr_point_estimate": 369.8641594260511,
+      "points_conservative": 7.318648802886307,
+      "attainable_band": "Strong",
+      "confounded_by_design": false
+    },
+    {
+      "n_case": 37,
+      "n_studies_case_assumed": 2,
+      "lr_point_estimate": 290.54443400489265,
+      "points_conservative": 7.196039081406935,
+      "attainable_band": "Strong",
+      "confounded_by_design": false
+    },
+    {
+      "n_case": 29,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 202.0594670626688,
+      "points_conservative": 7.2484909442993475,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 21,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 227.85929207891516,
+      "points_conservative": 7.412570028044038,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 20,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 205.88137294128265,
+      "points_conservative": 7.274076579736696,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 19,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 119.82945220226092,
+      "points_conservative": 6.535061874381768,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 16,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 128.5148610278421,
+      "points_conservative": 6.630608181155366,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 15,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 147.75603642809216,
+      "points_conservative": 6.821110747786326,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 10,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 86.93281246579122,
+      "points_conservative": 6.096847756600816,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 8,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 57.67348341062608,
+      "points_conservative": 5.536558255875762,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 6,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 53.34269664830588,
+      "points_conservative": 5.429971886328201,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    },
+    {
+      "n_case": 5,
+      "n_studies_case_assumed": 1,
+      "lr_point_estimate": 57.43154462671527,
+      "points_conservative": 5.530818247361144,
+      "attainable_band": "Strong",
+      "confounded_by_design": true
+    }
+  ],
+  "cross_disorder_matrix": {
+    "computed": [
+      {
+        "classifier": "Sotos syndrome",
+        "scored_disorder": "Silver-Russell syndrome",
+        "n": 63,
+        "fraction_positive": 0.0,
+        "note": "7085 shared probes between Sotos signature and the SRS-series beta matrices"
+      },
+      {
+        "classifier": "Sotos syndrome",
+        "scored_disorder": "Sotos syndrome (self)",
+        "n": 38,
+        "fraction_positive": 1.0,
+        "note": "from phase 3 (leave-one-out guarded for discovery samples)"
+      },
+      {
+        "classifier": "Sotos syndrome",
+        "scored_disorder": "Weaver syndrome",
+        "n": 8,
+        "fraction_positive": 0.0,
+        "note": "n=8 < 10: too small to interpret precisely, shown for reference"
+      }
+    ],
+    "not_computed": [
+      {
+        "classifier": "Kabuki syndrome type 1",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "Kabuki syndrome type 2",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "CHARGE syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "Coffin-Siris syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "Nicolaides-Baraitser syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "Down syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "Williams syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "7q11.23 duplication syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "ICF syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      },
+      {
+        "classifier": "Claes-Jensen syndrome",
+        "scored_disorder": "NOT COMPUTED",
+        "n": NaN,
+        "fraction_positive": NaN,
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+      }
+    ]
+  },
+  "leave_one_study_out": {
+    "silver_russell_syndrome": [
+      {
+        "train_study": "GSE104451",
+        "test_study": "GSE55491",
+        "n_signature_probes": 0,
+        "test_case_sensitivity": "NA - Path B found 66 probes with >20% effect size but none reached genome-wide Bonferroni significance (smallest p=2.8e-7 vs ~1.0e-7 threshold) at n=21 LOM-confirmed cases/16 controls - underpowered, not signal-free; no classifier built rather than forced",
+        "test_control_specificity": NaN
+      },
+      {
+        "train_study": "GSE55491",
+        "test_study": "GSE104451",
+        "n_signature_probes": 0,
+        "test_case_sensitivity": "NA - could not build classifier (18 cases, 6 controls: too few controls for a stable Path B derivation)",
+        "test_control_specificity": NaN
+      }
+    ]
+  },
+  "harmonisation": {
+    "n_samples_total": 774,
+    "n_flagged_or_excluded": 774,
+    "hand_curation_agreement_rate": 1.0,
+    "hand_curation_n_scoreable": 100,
+    "hand_curation_note": "AI-performed cross-check against a second independent implementation of the same judgment, not independent human clinical curation - see docs/METHODS.md."
+  }
+}
