@@ -34,6 +34,23 @@ def test_checked_in_resource_file_is_valid_json_and_matches_shape():
     assert isinstance(resource["confounding_gate"], list) and len(resource["confounding_gate"]) > 0
 
 
+def test_resource_json_is_strictly_valid_no_nan_tokens():
+    """Regression test for a real bug caught during Task 2's clean-clone check: pandas'
+    default read_csv NA-string handling silently turned our literal band="NA" text into a
+    float NaN, which json.dump then wrote as the non-standard `NaN` token - not valid JSON per
+    spec, and would fail to parse in most non-Python JSON consumers."""
+    text = RESOURCE_PATH.read_text(encoding="utf-8")
+    assert "NaN" not in text, "resource JSON contains a non-standard NaN token"
+
+
+def test_na_band_survives_as_the_string_na_not_null_or_nan():
+    with open(RESOURCE_PATH, encoding="utf-8") as f:
+        resource = json.load(f)
+    na_rows = [r for r in resource["evidence_bands"] if r["disorder"] == "Sotos syndrome"]
+    assert na_rows, "expected at least one Sotos evidence row"
+    assert all(r["band"] == "NA" for r in na_rows)
+
+
 def test_sotos_fails_its_own_confounding_gate_in_the_resource():
     """The app must refuse to grade Sotos even though its reproduction is fully verified -
     that's the whole point of the gate. Locking this in as a regression test."""

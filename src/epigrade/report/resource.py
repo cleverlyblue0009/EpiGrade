@@ -39,7 +39,14 @@ def _read_tsv(name: str) -> list[dict]:
     p = paths.tables_dir() / name
     if not p.exists():
         return []
-    return pd.read_csv(p, sep="\t").to_dict(orient="records")
+    # keep_default_na=False + na_values=[""] : pandas' default NA-string list includes the
+    # literal text "NA", which silently turns our own band="NA" refusal (Task 1) into a null
+    # value indistinguishable from a formatting glitch - caught by the Task 2 clean-clone check,
+    # where the resource JSON came out with "band": NaN (not even valid JSON) instead of the
+    # string "NA". Only genuinely empty cells (how a NaN float is actually written by to_csv)
+    # should become null; the text "NA" must survive as text.
+    df = pd.read_csv(p, sep="\t", keep_default_na=False, na_values=[""])
+    return df.to_dict(orient="records")
 
 
 def build_resource() -> dict:
@@ -105,13 +112,30 @@ def build_resource() -> dict:
     return resource
 
 
+def _sanitize_nans(obj):
+    """Recursively replace float NaN with None (JSON null). Plain json.dump happily emits the
+    non-standard `NaN` token for a float NaN, which is not valid JSON per the spec and would
+    fail to parse in a strict JSON consumer (e.g. most non-Python languages) - a real
+    reproducibility concern for a file meant to be portable. `allow_nan=False` below then
+    asserts this sanitizer actually caught everything, rather than silently emitting bad JSON
+    again if some other NaN sneaks in later.
+    """
+    if isinstance(obj, float) and obj != obj:  # NaN != NaN is the standard float NaN check
+        return None
+    if isinstance(obj, dict):
+        return {k: _sanitize_nans(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_sanitize_nans(v) for v in obj]
+    return obj
+
+
 def main() -> None:
-    resource = build_resource()
+    resource = _sanitize_nans(build_resource())
     out_dir = paths.resource_dir()
 
     json_path = out_dir / f"{RESOURCE_VERSION}.json"
     with open(json_path, "w", encoding="utf-8") as f:
-        json.dump(resource, f, indent=2, default=str)
+        json.dump(resource, f, indent=2, default=str, allow_nan=False)
     print(f"Wrote {json_path}")
 
     # Flat TSV mirror of the top-level confounding gate + demo summary, for anyone who'd rather
