@@ -103,7 +103,7 @@ disorders:
 role_keywords:
   unaffected_relative:
     ["case parent", "unaffected relative", "female relative", "male relative", "sibling of",
-     "mother of", "father of", "relative without", "_mother", "_father", "relative"]
+     "mother of", "father of", "relative without", "_mother", "_father", "_sibling", "relative"]
   under_test:
     ["sequence variant", "test variant", "validation cohort", "vus", "variant of unknown",
      "under test", "nsd1 variant"]
