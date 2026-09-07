@@ -106,3 +106,13 @@ here should inform a clinical decision on its own.
     3x3 matrix would have been: it demonstrates, with a specific near-miss margin, that small
     public GEO cohorts can hold back even disorders with genuinely robust real signatures -
     which is precisely the private-vs-public-data gap this project exists to make visible.
+- **A third real bug, found during the documentation truth pass**: `resource.py`'s harmonisation
+  agreement aggregation used `r.get("agree") is not None` to filter out the 19 `UNRESOLVABLE`
+  hand-curation rows - but those rows read back from the TSV as a float `NaN` (pandas' `to_dict`
+  conversion), not a Python `None`, and `NaN is not None` evaluates to `True`. Worse, `bool(nan)`
+  is *also* `True` in Python, so all 19 were silently counted as both "scoreable" and "agreed",
+  inflating the denominator from 81 to 100. The reported agreement rate still came out as 100%
+  either way (all 81 genuinely scoreable rows did agree), which is exactly why it went unnoticed
+  until checked explicitly rather than trusted at face value - a dataset with any real
+  disagreement would have silently under-reported it. Fixed with `pd.notna()`; regression test
+  in `tests/test_resource.py` locks the correct denominator (81) in place.

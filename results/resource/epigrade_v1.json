@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "11485984dffaad4b818fc99b2f60a47bac55e60f",
+    "git_sha": "8613cb57ef3ea17b1a42c428079f6c7322520d99",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-09-07T16:00:31.504737+00:00"
+    "generated_at_utc": "2026-09-07T16:05:40.546677+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -1645,7 +1645,7 @@
     "n_samples_total": 871,
     "n_flagged_or_excluded": 871,
     "hand_curation_agreement_rate": 1.0,
-    "hand_curation_n_scoreable": 100,
+    "hand_curation_n_scoreable": 81,
     "hand_curation_note": "AI-performed cross-check against a second independent implementation of the same judgment, not independent human clinical curation - see docs/METHODS.md."
   }
 }

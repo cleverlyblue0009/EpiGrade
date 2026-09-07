@@ -51,6 +51,19 @@ def test_na_band_survives_as_the_string_na_not_null_or_nan():
     assert all(r["band"] == "NA" for r in na_rows)
 
 
+def test_harmonisation_scoreable_count_excludes_unresolvable_rows():
+    """Regression test for a real bug: r.get('agree') is not None doesn't catch a float NaN
+    (the 19 UNRESOLVABLE hand-curation rows read back from the TSV as NaN, not None), so they
+    were being silently counted as both scoreable and 'agreed' (bool(nan) is True in Python),
+    inflating n_scoreable from 81 to 100. Fixed with pd.notna()."""
+    resource = build_resource()
+    h = resource["harmonisation"]
+    assert h["hand_curation_n_scoreable"] == 81, (
+        f"expected exactly 81 scoreable rows (100 sampled - 19 UNRESOLVABLE), "
+        f"got {h['hand_curation_n_scoreable']}"
+    )
+
+
 def test_sotos_fails_its_own_confounding_gate_in_the_resource():
     """The app must refuse to grade Sotos even though its reproduction is fully verified -
     that's the whole point of the gate. Locking this in as a regression test."""

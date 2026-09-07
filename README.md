@@ -90,6 +90,29 @@ that also passed the effect-size filter. Both are reported as honest negative re
 diagnostics, not hidden or forced through - see
 [docs/LIMITATIONS.md](docs/LIMITATIONS.md#finish-today-session-fixes-and-a-genuine-negative-result).
 
+## Current results at a glance
+
+Every number below is produced by a script and lands in `results/tables/` or
+`results/resource/epigrade_v1.json` - none are typed by hand (see "no_hand_typed_numbers" in
+the project's own working rules).
+
+| | |
+|---|---|
+| Sotos reproduction (phase 3) | 19/19 discovery cases positive, 53/53 controls negative, 8/8 Weaver negative, missense VOUS split 9 positive/7 negative - all exact matches to the paper |
+| Label harmonization (AI cross-check) | 81/81 (100%) agreement on scoreable samples (19 of the 100 sampled marked `UNRESOLVABLE` from public metadata, correctly excluded rather than guessed) - `results/tables/harmonisation_agreement.tsv` |
+| Label harmonization (human curation) | **pending** - a 30-row template weighted toward hard cases is generated (`data/external/human_curated.csv`) but not yet filled in by a person; `scripts/score_human_curation.py` reports this status honestly rather than substituting the AI number |
+| Confounding gate (12 in-scope disorders) | 7 fail (single-study, confounded by design - including Sotos itself), 2 not-testable (n<10), 3 pass-structural (span >=2 studies) - `results/tables/confounding_gate.tsv` |
+| Cross-disorder matrix | 3 real rows, all from the one working classifier (Sotos). Kabuki and CHARGE were both attempted with the same rigor and both honestly failed to clear this project's reliability bar (see above) - `results/tables/cross_disorder_matrix.tsv` and `..._not_computed.tsv` |
+| Evidence bands | Sotos gets `band="NA"` at every query point - a single-study cohort makes the required study-level bootstrap degenerate, so no band is assigned no matter how clean the separation looks - `results/tables/evidence_bands.tsv` |
+
+One correction to the original project brief worth stating plainly: its note that naively
+counting GSE97362's validation/sequence-variant samples as cases "inflates cohort sizes to 59
+and 26" only reconciles for 26 (the KMT2D-variant total). No combination of the harvested
+fields produces 59 for the CHD7 side - the actual CHD7-related totals in the data are 19
+confirmed discovery cases, 13 sequence-variant, and 40+ validation-cohort samples (72 total if
+naively pooled, not 59). Reported here rather than silently forced to match - see
+[docs/METHODS.md](docs/METHODS.md) for the full reconciliation.
+
 ## Layout
 
 - `src/epigrade/` - library code (acquire, preprocess, signature, calibrate, audit, report, app)

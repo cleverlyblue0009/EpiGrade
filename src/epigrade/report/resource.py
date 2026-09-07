@@ -64,7 +64,13 @@ def build_resource() -> dict:
     triage = _read_tsv("sample_triage.tsv")
     agreement = _read_tsv("harmonisation_agreement.tsv")
 
-    scoreable_agreement = [r for r in agreement if r.get("agree") is not None]
+    # `r.get("agree") is not None` is NOT sufficient here: the 19 UNRESOLVABLE rows read back
+    # from the TSV as float NaN, not Python None (pandas' to_dict conversion), and `NaN is not
+    # None` is True - so they were silently counted as "scoreable" AND, because bool(nan) is
+    # also True in Python, as "agreed", inflating the denominator from 81 to 100. Both counts
+    # happened to still read 100% here (all 81 genuinely scoreable rows did agree), which is
+    # exactly why this went unnoticed until checked explicitly - pd.notna() is the fix.
+    scoreable_agreement = [r for r in agreement if pd.notna(r.get("agree"))]
     agreement_rate = (
         sum(1 for r in scoreable_agreement if r["agree"]) / len(scoreable_agreement)
         if scoreable_agreement else None
