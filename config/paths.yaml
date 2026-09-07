@@ -1,0 +1,17 @@
+# Central path configuration. Nothing in src/ should hardcode a data path -
+# everything reads from here, so moving data_root only ever means editing this file.
+#
+# Rationale: the C: drive this project started on had limited free space, so all
+# bulk data (GEO downloads, cached beta matrices, the venv) lives on D:. Only
+# code, config, and small tracked results (tables/figures) live in the git repo.
+
+data_root: "D:/epigrade_data"          # GEO series matrices, cached parquet beta matrices, supplementary files
+geo_cache_dir: "D:/epigrade_data/geo_cache"
+external_dir: "D:/epigrade_data/external"   # e.g. Choufani et al. Supplementary Data 3/7 XLSX
+interim_dir: "D:/epigrade_data/interim"     # samples.parquet, beta matrices, covariates
+
+repo_root: "."                          # resolved relative to this file's parent
+results_dir: "results"
+tables_dir: "results/tables"
+figures_dir: "results/figures"
+resource_dir: "results/resource"

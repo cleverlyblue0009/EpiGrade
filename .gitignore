@@ -1,0 +1,35 @@
+# --- Data must never be committed. Everything under data/ is a downloaded or generated artifact. ---
+data/
+geo_cache/
+*.idat
+*_series_matrix*
+*.gz
+
+# --- Large/regenerable result artifacts (tables and figures ARE tracked; parquet caches are not) ---
+results/*.parquet
+results/**/*.parquet
+
+# --- Environments ---
+.venv/
+venv/
+env/
+.env
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Local secrets / config overrides ---
+*.key
+secrets.yaml
