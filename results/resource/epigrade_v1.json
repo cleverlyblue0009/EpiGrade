@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "77d08b830195de9c55cb1cafc9f08d2d67e64178",
+    "git_sha": "11485984dffaad4b818fc99b2f60a47bac55e60f",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-09-07T15:34:09.445830+00:00"
+    "generated_at_utc": "2026-09-07T16:00:31.504737+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -151,7 +151,8 @@
         "score": -0.1452847134397874,
         "r_case": 0.8161984500409464,
         "r_control": 0.9614831634807338,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920349",
@@ -159,7 +160,8 @@
         "score": -0.1451284868877241,
         "r_case": 0.8128954007564811,
         "r_control": 0.9580238876442052,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920350",
@@ -167,7 +169,8 @@
         "score": -0.1486387473157671,
         "r_case": 0.8104338707041218,
         "r_control": 0.9590726180198887,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920351",
@@ -175,7 +178,8 @@
         "score": -0.0980443614056679,
         "r_case": 0.8424577748156681,
         "r_control": 0.940502136221336,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920352",
@@ -183,7 +187,8 @@
         "score": -0.1229397410198277,
         "r_case": 0.8367448221112007,
         "r_control": 0.9596845631310283,
-        "n_probes_used": 7068
+        "n_probes_used": 7068,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920353",
@@ -191,7 +196,8 @@
         "score": -0.143752104435034,
         "r_case": 0.7854269525979164,
         "r_control": 0.9291790570329505,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920354",
@@ -199,7 +205,8 @@
         "score": -0.1404454911865803,
         "r_case": 0.8027008869090125,
         "r_control": 0.9431463780955928,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920355",
@@ -207,7 +214,8 @@
         "score": -0.135025162405687,
         "r_case": 0.8092712475084484,
         "r_control": 0.9442964099141354,
-        "n_probes_used": 7076
+        "n_probes_used": 7076,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920356",
@@ -215,7 +223,8 @@
         "score": -0.1298889513313829,
         "r_case": 0.8318964913173063,
         "r_control": 0.9617854426486891,
-        "n_probes_used": 7072
+        "n_probes_used": 7072,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920357",
@@ -223,7 +232,8 @@
         "score": -0.1231733141384879,
         "r_case": 0.8377724707219527,
         "r_control": 0.9609457848604408,
-        "n_probes_used": 7066
+        "n_probes_used": 7066,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920358",
@@ -231,7 +241,8 @@
         "score": -0.1371809477990424,
         "r_case": 0.8252555507045023,
         "r_control": 0.9624364985035448,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920359",
@@ -239,7 +250,8 @@
         "score": -0.1313419029624534,
         "r_case": 0.8296500007406786,
         "r_control": 0.960991903703132,
-        "n_probes_used": 7072
+        "n_probes_used": 7072,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920360",
@@ -247,7 +259,8 @@
         "score": -0.1383563312886084,
         "r_case": 0.8221598652327853,
         "r_control": 0.9605161965213938,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920361",
@@ -255,7 +268,8 @@
         "score": -0.1466267744893375,
         "r_case": 0.8147130569325637,
         "r_control": 0.9613398314219012,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920362",
@@ -263,7 +277,8 @@
         "score": -0.1425553968647898,
         "r_case": 0.8121893650745998,
         "r_control": 0.9547447619393896,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920363",
@@ -271,7 +286,8 @@
         "score": -0.1210663910873687,
         "r_case": 0.8373168239795438,
         "r_control": 0.9583832150669124,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920364",
@@ -279,7 +295,8 @@
         "score": -0.1236323624538161,
         "r_case": 0.8288744256872305,
         "r_control": 0.9525067881410466,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920365",
@@ -287,7 +304,8 @@
         "score": -0.1392919269340247,
         "r_case": 0.8112717685714822,
         "r_control": 0.9505636955055068,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920366",
@@ -295,7 +313,8 @@
         "score": -0.15346179795559,
         "r_case": 0.7987457672862825,
         "r_control": 0.9522075652418726,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920367",
@@ -303,7 +322,8 @@
         "score": -0.1277042712251022,
         "r_case": 0.8261911015872341,
         "r_control": 0.9538953728123364,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920368",
@@ -311,7 +331,8 @@
         "score": -0.1556368647762043,
         "r_case": 0.7970076383166973,
         "r_control": 0.9526445030929016,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920369",
@@ -319,7 +340,8 @@
         "score": -0.1483374628467653,
         "r_case": 0.8025754240603388,
         "r_control": 0.950912886907104,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920370",
@@ -327,7 +349,8 @@
         "score": -0.1413944464883667,
         "r_case": 0.8233468875000981,
         "r_control": 0.9647413339884648,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920371",
@@ -335,7 +358,8 @@
         "score": -0.1350017861290844,
         "r_case": 0.8215082983307467,
         "r_control": 0.9565100844598312,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920372",
@@ -343,7 +367,8 @@
         "score": -0.1572509775025934,
         "r_case": 0.8062506161466858,
         "r_control": 0.9635015936492792,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920373",
@@ -351,7 +376,8 @@
         "score": -0.113504540929828,
         "r_case": 0.8413226089625477,
         "r_control": 0.9548271498923758,
-        "n_probes_used": 7061
+        "n_probes_used": 7061,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920374",
@@ -359,7 +385,8 @@
         "score": -0.1324138595920144,
         "r_case": 0.8261382371230702,
         "r_control": 0.9585520967150848,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920375",
@@ -367,7 +394,8 @@
         "score": -0.1303625989953387,
         "r_case": 0.8315452251235622,
         "r_control": 0.961907824118901,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920376",
@@ -375,7 +403,8 @@
         "score": -0.1502778010068594,
         "r_case": 0.8024195973499161,
         "r_control": 0.9526973983567756,
-        "n_probes_used": 7066
+        "n_probes_used": 7066,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920377",
@@ -383,7 +412,8 @@
         "score": -0.1551883681502649,
         "r_case": 0.8011516808112947,
         "r_control": 0.9563400489615596,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920378",
@@ -391,7 +421,8 @@
         "score": -0.1298782778253737,
         "r_case": 0.8284456662176524,
         "r_control": 0.958323944043026,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920379",
@@ -399,7 +430,8 @@
         "score": -0.1338777046239674,
         "r_case": 0.8277801704079322,
         "r_control": 0.9616578750318996,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920380",
@@ -407,7 +439,8 @@
         "score": -0.1356079420931801,
         "r_case": 0.8039476240300371,
         "r_control": 0.9395555661232172,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920381",
@@ -415,7 +448,8 @@
         "score": -0.1574419248354921,
         "r_case": 0.8024166089607842,
         "r_control": 0.9598585337962764,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920382",
@@ -423,7 +457,8 @@
         "score": -0.1318760586252811,
         "r_case": 0.823110417582521,
         "r_control": 0.9549864762078022,
-        "n_probes_used": 7074
+        "n_probes_used": 7074,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920383",
@@ -431,7 +466,8 @@
         "score": -0.1509377970785865,
         "r_case": 0.7964379869287213,
         "r_control": 0.9473757840073078,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920384",
@@ -439,7 +475,8 @@
         "score": -0.1512993363862285,
         "r_case": 0.8101217901583144,
         "r_control": 0.9614211265445428,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920385",
@@ -447,7 +484,8 @@
         "score": -0.1496161602911363,
         "r_case": 0.7796852129282137,
         "r_control": 0.92930137321935,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920386",
@@ -455,7 +493,8 @@
         "score": -0.1327968662632719,
         "r_case": 0.8188959318595446,
         "r_control": 0.9516927981228164,
-        "n_probes_used": 7076
+        "n_probes_used": 7076,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920387",
@@ -463,7 +502,8 @@
         "score": -0.1193451573464355,
         "r_case": 0.8279197315401741,
         "r_control": 0.9472648888866096,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920388",
@@ -471,7 +511,8 @@
         "score": -0.1350396645264605,
         "r_case": 0.8139077623587176,
         "r_control": 0.9489474268851782,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920389",
@@ -479,7 +520,8 @@
         "score": -0.1344798317767823,
         "r_case": 0.8262031260101538,
         "r_control": 0.960682957786936,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920390",
@@ -487,7 +529,8 @@
         "score": -0.1330809534866582,
         "r_case": 0.8285817762725688,
         "r_control": 0.9616627297592272,
-        "n_probes_used": 7073
+        "n_probes_used": 7073,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920391",
@@ -495,7 +538,8 @@
         "score": -0.1456271132017103,
         "r_case": 0.8104276227249342,
         "r_control": 0.9560547359266444,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920392",
@@ -503,7 +547,8 @@
         "score": -0.1141065731327454,
         "r_case": 0.8364435209286586,
         "r_control": 0.950550094061404,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920393",
@@ -511,7 +556,8 @@
         "score": -0.1443311264383783,
         "r_case": 0.7930367532250393,
         "r_control": 0.9373678796634176,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920394",
@@ -519,7 +565,8 @@
         "score": -0.1410716925927648,
         "r_case": 0.8211443627195875,
         "r_control": 0.9622160553123524,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920395",
@@ -527,7 +574,8 @@
         "score": -0.1402565990407563,
         "r_case": 0.8062665432576696,
         "r_control": 0.946523142298426,
-        "n_probes_used": 7076
+        "n_probes_used": 7076,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920396",
@@ -535,7 +583,8 @@
         "score": -0.1266240964923729,
         "r_case": 0.8305975568382714,
         "r_control": 0.9572216533306444,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920397",
@@ -543,7 +592,8 @@
         "score": -0.1301880202871607,
         "r_case": 0.8276668357270944,
         "r_control": 0.9578548560142552,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920398",
@@ -551,7 +601,8 @@
         "score": -0.1142084075634587,
         "r_case": 0.8297777442540708,
         "r_control": 0.9439861518175297,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920399",
@@ -559,7 +610,8 @@
         "score": -0.137328711538497,
         "r_case": 0.8198843351402874,
         "r_control": 0.9572130466787844,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920400",
@@ -567,7 +619,8 @@
         "score": -0.1344127881655916,
         "r_case": 0.8211696818617564,
         "r_control": 0.955582470027348,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920405",
@@ -575,7 +628,8 @@
         "score": 0.1397661231814656,
         "r_case": 0.91396992228705,
         "r_control": 0.7742037991055845,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920406",
@@ -583,7 +637,8 @@
         "score": 0.143142628919301,
         "r_case": 0.9288353818757252,
         "r_control": 0.785692752956424,
-        "n_probes_used": 7085
+        "n_probes_used": 7085,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920407",
@@ -591,7 +646,8 @@
         "score": 0.135043325301738,
         "r_case": 0.945227823103548,
         "r_control": 0.8101844978018099,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920408",
@@ -599,7 +655,8 @@
         "score": 0.1153855968890702,
         "r_case": 0.923210964246273,
         "r_control": 0.8078253673572028,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920409",
@@ -607,7 +664,8 @@
         "score": 0.030997908921635,
         "r_case": 0.8834922069830055,
         "r_control": 0.8524942980613704,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920410",
@@ -615,7 +673,8 @@
         "score": 0.1244105881304883,
         "r_case": 0.9400928642643273,
         "r_control": 0.8156822761338388,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920411",
@@ -623,7 +682,8 @@
         "score": 0.1486876752988823,
         "r_case": 0.9152741857468129,
         "r_control": 0.7665865104479304,
-        "n_probes_used": 7058
+        "n_probes_used": 7058,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920412",
@@ -631,7 +691,8 @@
         "score": 0.1575753229859072,
         "r_case": 0.9363760247304516,
         "r_control": 0.7788007017445443,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920413",
@@ -639,7 +700,8 @@
         "score": 0.0946668116739027,
         "r_case": 0.9409493536183174,
         "r_control": 0.8462825419444147,
-        "n_probes_used": 7075
+        "n_probes_used": 7075,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920414",
@@ -647,7 +709,8 @@
         "score": 0.1414173822066633,
         "r_case": 0.9555841183185904,
         "r_control": 0.814166736111927,
-        "n_probes_used": 7078
+        "n_probes_used": 7078,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920415",
@@ -655,7 +718,8 @@
         "score": 0.0270671258365869,
         "r_case": 0.8810427984327808,
         "r_control": 0.8539756725961938,
-        "n_probes_used": 7068
+        "n_probes_used": 7068,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920416",
@@ -663,7 +727,8 @@
         "score": 0.1181689301781202,
         "r_case": 0.9308217422219404,
         "r_control": 0.81265281204382,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920417",
@@ -671,7 +736,8 @@
         "score": 0.1296098407230563,
         "r_case": 0.9474074844135292,
         "r_control": 0.8177976436904727,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920418",
@@ -679,7 +745,8 @@
         "score": 0.1262323013424234,
         "r_case": 0.9172679557801046,
         "r_control": 0.7910356544376811,
-        "n_probes_used": 7076
+        "n_probes_used": 7076,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920419",
@@ -687,7 +754,8 @@
         "score": 0.1053299945470068,
         "r_case": 0.9310542900623766,
         "r_control": 0.8257242955153697,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920420",
@@ -695,7 +763,8 @@
         "score": 0.1099059700107967,
         "r_case": 0.9141304962151368,
         "r_control": 0.8042245262043402,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920421",
@@ -703,7 +772,8 @@
         "score": 0.1574765796372312,
         "r_case": 0.8714547291212837,
         "r_control": 0.7139781494840525,
-        "n_probes_used": 7067
+        "n_probes_used": 7067,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920422",
@@ -711,7 +781,8 @@
         "score": 0.132280704205604,
         "r_case": 0.9322980372093604,
         "r_control": 0.8000173330037563,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920423",
@@ -719,7 +790,8 @@
         "score": 0.1318634383944036,
         "r_case": 0.9338158161382344,
         "r_control": 0.8019523777438308,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920427",
@@ -727,7 +799,8 @@
         "score": 0.1503961425994334,
         "r_case": 0.9290901473217614,
         "r_control": 0.778694004722328,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920428",
@@ -735,7 +808,8 @@
         "score": 0.1501468001529251,
         "r_case": 0.9218937805233752,
         "r_control": 0.77174698037045,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920429",
@@ -743,7 +817,8 @@
         "score": 0.1209279724048072,
         "r_case": 0.9371336336803708,
         "r_control": 0.8162056612755636,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920430",
@@ -751,7 +826,8 @@
         "score": 0.1326564547538323,
         "r_case": 0.9108161842090056,
         "r_control": 0.7781597294551731,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920431",
@@ -759,7 +835,8 @@
         "score": 0.1475652398389263,
         "r_case": 0.9435742968898556,
         "r_control": 0.7960090570509294,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920432",
@@ -767,7 +844,8 @@
         "score": 0.0933418912239306,
         "r_case": 0.925481829250512,
         "r_control": 0.8321399380265813,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920433",
@@ -775,7 +853,8 @@
         "score": 0.1502255243087015,
         "r_case": 0.9354950702974384,
         "r_control": 0.7852695459887369,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920434",
@@ -783,7 +862,8 @@
         "score": 0.1399095602404297,
         "r_case": 0.927779158619708,
         "r_control": 0.7878695983792783,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920435",
@@ -791,7 +871,8 @@
         "score": 0.1326534998267119,
         "r_case": 0.9317428452075284,
         "r_control": 0.7990893453808164,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920436",
@@ -799,7 +880,8 @@
         "score": 0.1275235305798773,
         "r_case": 0.9411747590224468,
         "r_control": 0.8136512284425695,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920437",
@@ -807,7 +889,8 @@
         "score": 0.1210904573548746,
         "r_case": 0.9463574116735564,
         "r_control": 0.8252669543186818,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920438",
@@ -815,7 +898,8 @@
         "score": 0.1131876333282383,
         "r_case": 0.9383420856412348,
         "r_control": 0.8251544523129966,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920439",
@@ -823,7 +907,8 @@
         "score": 0.1349760313644037,
         "r_case": 0.9293252918151712,
         "r_control": 0.7943492604507674,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920440",
@@ -831,7 +916,8 @@
         "score": 0.1512518876900378,
         "r_case": 0.9405198385369103,
         "r_control": 0.7892679508468725,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920441",
@@ -839,7 +925,8 @@
         "score": 0.1236936061066998,
         "r_case": 0.9392375492182656,
         "r_control": 0.8155439431115658,
-        "n_probes_used": 7076
+        "n_probes_used": 7076,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920442",
@@ -847,7 +934,8 @@
         "score": 0.1346908400455623,
         "r_case": 0.9238630186289164,
         "r_control": 0.789172178583354,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920443",
@@ -855,7 +943,8 @@
         "score": 0.1280390110332435,
         "r_case": 0.9190447022868484,
         "r_control": 0.791005691253605,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920444",
@@ -863,7 +952,8 @@
         "score": 0.1510309992678185,
         "r_case": 0.9369663039788944,
         "r_control": 0.7859353047110759,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920445",
@@ -871,7 +961,8 @@
         "score": 0.091525570016261,
         "r_case": 0.9320448410733876,
         "r_control": 0.8405192710571266,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920446",
@@ -879,7 +970,8 @@
         "score": -0.1344696105284364,
         "r_case": 0.7866299398004635,
         "r_control": 0.9210995503289,
-        "n_probes_used": 7073
+        "n_probes_used": 7073,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920447",
@@ -887,7 +979,8 @@
         "score": -0.1360305580240389,
         "r_case": 0.7819594801574417,
         "r_control": 0.9179900381814806,
-        "n_probes_used": 7071
+        "n_probes_used": 7071,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920448",
@@ -895,7 +988,8 @@
         "score": -0.1465767543990689,
         "r_case": 0.7726433101586104,
         "r_control": 0.9192200645576794,
-        "n_probes_used": 7074
+        "n_probes_used": 7074,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920449",
@@ -903,7 +997,8 @@
         "score": -0.1214213597518335,
         "r_case": 0.7868626971797335,
         "r_control": 0.908284056931567,
-        "n_probes_used": 7077
+        "n_probes_used": 7077,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920450",
@@ -911,7 +1006,8 @@
         "score": -0.1520001070951355,
         "r_case": 0.779440759631206,
         "r_control": 0.9314408667263416,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920451",
@@ -919,7 +1015,8 @@
         "score": -0.104792043007668,
         "r_case": 0.8336716138793663,
         "r_control": 0.9384636568870344,
-        "n_probes_used": 7064
+        "n_probes_used": 7064,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920452",
@@ -927,7 +1024,8 @@
         "score": -0.1461914288619303,
         "r_case": 0.7933374237012241,
         "r_control": 0.9395288525631544,
-        "n_probes_used": 7073
+        "n_probes_used": 7073,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920453",
@@ -935,7 +1033,8 @@
         "score": -0.1395263219404202,
         "r_case": 0.7906903758396524,
         "r_control": 0.9302166977800728,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920454",
@@ -943,7 +1042,8 @@
         "score": 0.0767972557872869,
         "r_case": 0.9063691653863896,
         "r_control": 0.8295719095991025,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920455",
@@ -951,7 +1051,8 @@
         "score": 0.1097370522362216,
         "r_case": 0.8919650566023852,
         "r_control": 0.7822280043661636,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920456",
@@ -959,7 +1060,8 @@
         "score": 0.0681750727997591,
         "r_case": 0.8940520110793104,
         "r_control": 0.8258769382795513,
-        "n_probes_used": 7083
+        "n_probes_used": 7083,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920457",
@@ -967,7 +1069,8 @@
         "score": -0.1405759933844306,
         "r_case": 0.7976586142032213,
         "r_control": 0.938234607587652,
-        "n_probes_used": 7058
+        "n_probes_used": 7058,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920458",
@@ -975,7 +1078,8 @@
         "score": -0.1368102557399135,
         "r_case": 0.8218091654345502,
         "r_control": 0.9586194211744636,
-        "n_probes_used": 7076
+        "n_probes_used": 7076,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920459",
@@ -983,7 +1087,8 @@
         "score": 0.148131805354803,
         "r_case": 0.92480908840926,
         "r_control": 0.776677283054457,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920460",
@@ -991,7 +1096,8 @@
         "score": -0.1218756994446795,
         "r_case": 0.8193967110063562,
         "r_control": 0.9412724104510358,
-        "n_probes_used": 7080
+        "n_probes_used": 7080,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920461",
@@ -999,7 +1105,8 @@
         "score": -0.1307845547488694,
         "r_case": 0.8105468865267913,
         "r_control": 0.9413314412756608,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920462",
@@ -1007,7 +1114,8 @@
         "score": 0.0959755812018061,
         "r_case": 0.9107653080972644,
         "r_control": 0.8147897268954584,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920463",
@@ -1015,7 +1123,8 @@
         "score": 0.1218512422054111,
         "r_case": 0.9276192494174964,
         "r_control": 0.8057680072120853,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920464",
@@ -1023,7 +1132,8 @@
         "score": -0.148584292231139,
         "r_case": 0.8073246854113861,
         "r_control": 0.9559089776425252,
-        "n_probes_used": 7079
+        "n_probes_used": 7079,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920465",
@@ -1031,7 +1141,8 @@
         "score": 0.0159573040505195,
         "r_case": 0.9014588268120346,
         "r_control": 0.8855015227615151,
-        "n_probes_used": 7084
+        "n_probes_used": 7084,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920466",
@@ -1039,7 +1150,8 @@
         "score": 0.0885243770975742,
         "r_case": 0.9234112671350044,
         "r_control": 0.8348868900374303,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920467",
@@ -1047,7 +1159,8 @@
         "score": 0.1307641477417684,
         "r_case": 0.9315088443746936,
         "r_control": 0.8007446966329251,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920468",
@@ -1055,7 +1168,8 @@
         "score": -0.138760764406649,
         "r_case": 0.8040130496806064,
         "r_control": 0.9427738140872556,
-        "n_probes_used": 7081
+        "n_probes_used": 7081,
+        "signature_source": "published_probe_list"
       },
       {
         "gsm_accession": "GSM1920469",
@@ -1063,7 +1177,8 @@
         "score": -0.1210353003265941,
         "r_case": 0.8333291824386013,
         "r_control": 0.9543644827651956,
-        "n_probes_used": 7082
+        "n_probes_used": 7082,
+        "signature_source": "published_probe_list"
       }
     ],
     "probe_filtering": {

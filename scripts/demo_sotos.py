@@ -149,43 +149,62 @@ def main() -> None:
     make_figures(beta_filtered, present_probes, meta, cohort, scores)
 
 
-def make_figures(beta, probes, meta, cohort, scores):
-    # Strip/box plot of scores by cohort, zero line marked
-    order = [
-        "discovery_control", "discovery_case", "replication_case", "weaver", "missense_variant",
-    ]
-    fig, ax = plt.subplots(figsize=(9, 5))
-    plot_df = scores[scores.cohort.isin(order)].copy()
-    plot_df["cohort"] = pd.Categorical(plot_df["cohort"], categories=order, ordered=True)
-    positions = range(len(order))
-    for pos, name in zip(positions, order):
-        vals = plot_df.loc[plot_df.cohort == name, "score"]
-        jitter = np.random.default_rng(0).normal(0, 0.06, size=len(vals))
-        ax.scatter([pos] * len(vals) + jitter, vals, alpha=0.7, s=25)
-        ax.hlines(vals.median(), pos - 0.2, pos + 0.2, color="black", linewidth=2)
-    ax.axhline(0, color="red", linestyle="--", linewidth=1)
-    ax.set_xticks(list(positions))
-    ax.set_xticklabels(order, rotation=20, ha="right")
-    ax.set_ylabel("SS score (r_case - r_control)")
-    ax.set_title("Choufani et al. Sotos classifier scores by cohort (GSE74432 reproduction)")
-    fig.tight_layout()
-    fig.savefig(paths.figures_dir() / "sotos_scores.png", dpi=150)
-    plt.close(fig)
+def _render_figures(beta, probes, meta, cohort, scores, out_dir, dpi, rc):
+    """Renders both Sotos figures into out_dir at the given dpi/rcParams. Called twice from
+    main() - once for the original figures, once (Task 6) for a projector-legible 200dpi/
+    larger-font version in results/figures/slides/, without touching the originals."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    with plt.rc_context(rc):
+        # Strip/box plot of scores by cohort, zero line marked
+        order = [
+            "discovery_control", "discovery_case", "replication_case", "weaver",
+            "missense_variant",
+        ]
+        fig, ax = plt.subplots(figsize=(9, 5))
+        plot_df = scores[scores.cohort.isin(order)].copy()
+        plot_df["cohort"] = pd.Categorical(plot_df["cohort"], categories=order, ordered=True)
+        positions = range(len(order))
+        for pos, name in zip(positions, order):
+            vals = plot_df.loc[plot_df.cohort == name, "score"]
+            jitter = np.random.default_rng(0).normal(0, 0.06, size=len(vals))
+            ax.scatter([pos] * len(vals) + jitter, vals, alpha=0.7, s=25)
+            ax.hlines(vals.median(), pos - 0.2, pos + 0.2, color="black", linewidth=2)
+        ax.axhline(0, color="red", linestyle="--", linewidth=1)
+        ax.set_xticks(list(positions))
+        ax.set_xticklabels(order, rotation=20, ha="right")
+        ax.set_ylabel("SS score (r_case - r_control)")
+        ax.set_title("Choufani et al. Sotos classifier scores by cohort (GSE74432 reproduction)")
+        fig.tight_layout()
+        fig.savefig(out_dir / "sotos_scores.png", dpi=dpi)
+        plt.close(fig)
 
-    # Heatmap of signature probes, samples clustered by cohort then score
-    scored_ids = scores.sort_values(["cohort", "score"])["gsm_accession"].tolist()
-    heat_probes = list(probes)[:300]  # cap for a legible/renderable figure
-    mat = beta.loc[heat_probes, scored_ids]
-    fig2, ax2 = plt.subplots(figsize=(10, 8))
-    im = ax2.imshow(mat.values, aspect="auto", cmap="RdBu_r", vmin=0, vmax=1)
-    ax2.set_xlabel(f"{len(scored_ids)} samples (grouped by cohort, sorted by score)")
-    ax2.set_ylabel(f"{len(heat_probes)} of {len(probes)} signature CpGs shown")
-    ax2.set_title("Sotos NSD1+/- signature beta values (GSE74432 reproduction)")
-    fig2.colorbar(im, ax=ax2, label="beta value")
-    fig2.tight_layout()
-    fig2.savefig(paths.figures_dir() / "sotos_heatmap.png", dpi=150)
-    plt.close(fig2)
-    print(f"\nWrote figures -> {paths.figures_dir()}")
+        # Heatmap of signature probes, samples clustered by cohort then score
+        scored_ids = scores.sort_values(["cohort", "score"])["gsm_accession"].tolist()
+        heat_probes = list(probes)[:300]  # cap for a legible/renderable figure
+        mat = beta.loc[heat_probes, scored_ids]
+        fig2, ax2 = plt.subplots(figsize=(10, 8))
+        im = ax2.imshow(mat.values, aspect="auto", cmap="RdBu_r", vmin=0, vmax=1)
+        ax2.set_xlabel(f"{len(scored_ids)} samples (grouped by cohort, sorted by score)")
+        ax2.set_ylabel(f"{len(heat_probes)} of {len(probes)} signature CpGs shown")
+        ax2.set_title("Sotos NSD1+/- signature beta values (GSE74432 reproduction)")
+        fig2.colorbar(im, ax=ax2, label="beta value")
+        fig2.tight_layout()
+        fig2.savefig(out_dir / "sotos_heatmap.png", dpi=dpi)
+        plt.close(fig2)
+    print(f"Wrote figures -> {out_dir} (dpi={dpi})")
+
+
+def make_figures(beta, probes, meta, cohort, scores):
+    # Original figures - dpi/fonts unchanged from before Task 6.
+    _render_figures(beta, probes, meta, cohort, scores, paths.figures_dir(), dpi=150, rc={})
+    # Task 6: a projector-legible version alongside, not replacing, the originals.
+    slide_rc = {
+        "font.size": 14, "axes.titlesize": 16, "axes.labelsize": 14,
+        "xtick.labelsize": 13, "ytick.labelsize": 13, "legend.fontsize": 13,
+    }
+    _render_figures(
+        beta, probes, meta, cohort, scores, paths.figures_dir() / "slides", dpi=200, rc=slide_rc,
+    )
 
 
 if __name__ == "__main__":

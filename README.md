@@ -69,6 +69,7 @@ python scripts/phase4_6_srs_and_matrix.py       # cross-disorder matrix + leave-
 python scripts/phase4_kabuki_charge.py          # Kabuki/CHARGE classifier attempts (see below)
 python scripts/phase5_calibration.py            # evidence bands + attainable ceiling
 python scripts/phase6_confounding_gate.py       # confounding gate, all 12 in-scope disorders
+python scripts/make_summary_figure.py           # case-count summary bar chart (+ slides/)
 python scripts/generate_provenance.py           # docs/DATA_PROVENANCE.md
 python -m epigrade.report.resource              # rebuild results/resource/epigrade_v1.json
 ```
@@ -94,5 +95,7 @@ diagnostics, not hidden or forced through - see
 - `src/epigrade/` - library code (acquire, preprocess, signature, calibrate, audit, report, app)
 - `config/` - paths, label vocabulary, and evidence-band tables (never hardcoded in source)
 - `scripts/` - one-command entry points, one per pipeline phase
-- `results/` - tracked tables, figures, and the app's resource JSON (never hand-edited)
+- `results/` - tracked tables, figures, and the app's resource JSON (never hand-edited).
+  `results/figures/slides/` mirrors the same figures at 200dpi with projector-legible fonts,
+  for a talk/slide deck - the originals in `results/figures/` are untouched.
 - `data/` - gitignored; see `config/paths.yaml` for where bulk data actually lives on disk

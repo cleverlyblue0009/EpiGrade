@@ -13,7 +13,7 @@ beats an all-or-nothing one, consistent with the rest of this project.
 
 Network/download stages (need GEO access): harvest, sotos_demo, srs_matrix, kabuki_charge.
 Cached-data-only stages (--quick runs only these): triage_report, calibration,
-confounding_gate, provenance, resource_export.
+confounding_gate, summary_figure, provenance, resource_export.
 """
 
 from __future__ import annotations
@@ -36,6 +36,7 @@ STAGES = [
     ("kabuki_charge", "phase4_kabuki_charge", True),
     ("calibration", "phase5_calibration", False),
     ("confounding_gate", "phase6_confounding_gate", False),
+    ("summary_figure", "make_summary_figure", False),
     ("provenance", "generate_provenance", False),
     ("resource_export", "epigrade.report.resource", False),
 ]
