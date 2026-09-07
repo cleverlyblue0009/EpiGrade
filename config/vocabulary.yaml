@@ -1,0 +1,118 @@
+# Canonical disorder/gene vocabulary for the label harmonizer.
+#
+# Built empirically from the actual harvested GEO metadata for the 18 accessions in this
+# corpus (see results/tables/sample_triage.tsv for the per-sample decisions), cross-checked
+# against the three accessions with published ground truth (GSE74432, GSE97362, GSE116300) -
+# all three matched exactly. This is NOT a generic disorder ontology; it only covers what is
+# actually present in this corpus, plus the aliases needed to catch how each depositor phrased it.
+#
+# Each entry:
+#   canonical: the disorder name used everywhere downstream
+#   gene: gene(s)/locus implicated (informational, not used for matching)
+#   in_scope: true if this is an episignature disorder EpiGrade can build a classifier for;
+#             false for unrelated diseases present in the corpus as population data (RA, IBD)
+#   aliases: substrings matched case-insensitively against title / disease_state / group /
+#            genotype_variation / simplified_diagnosis / characteristics_raw
+
+disorders:
+  - canonical: "Sotos syndrome"
+    gene: "NSD1"
+    in_scope: true
+    aliases: ["sotos", "nsd1 variant"]
+
+  - canonical: "Weaver syndrome"
+    gene: "EZH2"
+    in_scope: true
+    aliases: ["weaver"]
+
+  - canonical: "CHARGE syndrome"
+    gene: "CHD7"
+    in_scope: true
+    aliases: ["charge", "chd7"]
+
+  - canonical: "Kabuki syndrome type 1"
+    gene: "KMT2D"
+    in_scope: true
+    aliases: ["kabuki", "kmt2d", " ks "]
+
+  - canonical: "Kabuki syndrome type 2"
+    gene: "KDM6A"
+    in_scope: true
+    aliases: ["kdm6a"]
+
+  - canonical: "Silver-Russell syndrome"
+    gene: "11p15 imprinting / UPD(7)"
+    in_scope: true
+    aliases: ["silver-russell", "silver russell", " srs", "11p15 lom", "upd(7)", "clinical srs"]
+
+  - canonical: "Claes-Jensen syndrome"
+    gene: "KDM5C"
+    in_scope: true
+    aliases: ["kdm5c", "claes-jensen", "claes jensen"]
+
+  - canonical: "Coffin-Siris syndrome"
+    gene: "ARID1B / BAF complex"
+    in_scope: true
+    aliases: ["coffin-siris", "coffin siris"]
+
+  - canonical: "Nicolaides-Baraitser syndrome"
+    gene: "SMARCA2"
+    in_scope: true
+    aliases: ["nicolaides-baraitser", "nicolaides baraitser", "ncbrs", "smarca2"]
+
+  - canonical: "Down syndrome"
+    gene: "trisomy 21"
+    in_scope: true
+    aliases: ["down syndrome", "down's syndrome"]
+
+  - canonical: "Williams syndrome"
+    gene: "7q11.23 deletion"
+    in_scope: true
+    aliases: [" ws ", "^ws$", "williams syndrome"]
+
+  - canonical: "7q11.23 duplication syndrome"
+    gene: "7q11.23 duplication"
+    in_scope: true
+    aliases: ["dup7", "7q11.23 duplication"]
+
+  - canonical: "ICF syndrome"
+    gene: "DNMT3B / ZBTB24 / CDCA7 / HELLS"
+    in_scope: true
+    aliases: ["icf1", "icf2", "icf3", "icf4", "icf syndrome"]
+
+  # --- Present in the corpus but NOT an episignature disorder in scope: kept as
+  #     population/exclusion data, never scored by a disorder classifier. ---
+  - canonical: "Rheumatoid arthritis"
+    gene: null
+    in_scope: false
+    aliases: ["rheumatoid arthritis"]
+
+  - canonical: "Inflammatory bowel disease (Crohn's)"
+    gene: null
+    in_scope: false
+    aliases: ["^cd$"]
+
+  - canonical: "Inflammatory bowel disease (ulcerative colitis)"
+    gene: null
+    in_scope: false
+    aliases: ["^uc$"]
+
+# Generic, disorder-independent role keywords. Checked against title / disease_state / group /
+# case_status / genotype_variation / source_name_ch1 / characteristics_raw, in this priority
+# order (first match wins) - AFTER a disorder-in-scope match has already been attempted.
+role_keywords:
+  unaffected_relative:
+    ["case parent", "unaffected relative", "female relative", "male relative", "sibling of",
+     "mother of", "father of", "relative without", "_mother", "_father", "relative"]
+  under_test:
+    ["sequence variant", "test variant", "validation cohort", "vus", "variant of unknown",
+     "under test", "nsd1 variant"]
+  cell_line:
+    ["lymphoblastoid", "cell line", "lcl"]
+  matched_control:
+    ["control", "normal", "healthy", "^td control$"]
+
+# Tissue tokens used for the wrong_tissue rule: a sample is flagged wrong_tissue when its
+# tissue/source_name token differs from the majority tissue for its series (e.g. the 7
+# GSE74432 fibroblast samples against a whole-blood-majority series).
+blood_tissue_tokens: ["blood", "pbl", "pbmc", "whole blood", "granulocytes", "lymphocytes"]
