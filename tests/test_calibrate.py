@@ -86,27 +86,36 @@ def test_not_confounded_when_cases_span_multiple_studies():
     assert result.confounded_by_design is False
 
 
-def test_single_study_cohort_gets_no_band_not_a_confident_one():
-    """The Task 1 regression test: a single-study cohort must never receive a real band, even
-    when the underlying separation is strong - a degenerate (zero-width) bootstrap CI is not
-    evidence of precision, it's an artifact of resampling one study against itself."""
+def test_single_study_cohort_never_gets_a_between_study_bound():
+    """The Task 1 regression test, updated for the within-study-scoped band: a single-study
+    cohort must never be assigned a BETWEEN-STUDY confidence bound (lr_ci_low/high stay NaN,
+    a degenerate zero-width interval is not evidence of precision, it's an artifact of
+    resampling one study against itself) - but it IS now given a real, clearly-scoped band
+    computed from the within-study bootstrap instead of a blanket refusal."""
     df = _make_df(n_case=38, n_control=53, case_mean=2.0, control_mean=-2.0, sd=0.3,
                    n_studies_case=1, n_studies_control=1)
     result = evaluate_score("single_study_strong_separation", df, query_score=2.0)
-    assert result.band == "NA"
-    assert np.isnan(result.points)
+    # the refusal that must stay: no between-study bound, ever, for a single-study cohort
     assert np.isnan(result.lr_ci_low) and np.isnan(result.lr_ci_high)
-    assert "degenerate" in result.reason
+    assert result.interpretation_scope == "within_study_only"
+    assert "between-study" in result.reason
+    # but a real band/points/within-study CI IS now computed and shown, given the strong,
+    # cleanly-separated synthetic data - not silently withheld
+    assert result.band not in ("NA",)
+    assert not np.isnan(result.points)
+    assert not np.isnan(result.within_study_ci_low) and not np.isnan(result.within_study_ci_high)
 
 
 def test_control_side_single_study_is_also_flagged_confounded():
     """The specific gap the original bug missed: cases span multiple studies but controls all
-    come from one - the bootstrap is just as degenerate on that side."""
+    come from one - the bootstrap is just as degenerate on that side. Still within_study_only
+    scoped, still no between-study bound, but still a real computed band."""
     df = _make_df(n_case=40, n_control=40, case_mean=1.0, control_mean=-1.0,
                    n_studies_case=3, n_studies_control=1)
     result = evaluate_score("control_side_confounded", df, query_score=1.0)
     assert result.confounded_by_design is True
-    assert result.band == "NA"
+    assert result.interpretation_scope == "within_study_only"
+    assert np.isnan(result.lr_ci_low) and np.isnan(result.lr_ci_high)
 
 
 def test_multi_study_cohort_gets_a_nonzero_width_ci():
@@ -114,10 +123,24 @@ def test_multi_study_cohort_gets_a_nonzero_width_ci():
                    n_studies_case=3, n_studies_control=3)
     result = evaluate_score("multi_study_nonzero_ci", df, query_score=1.5)
     assert result.confounded_by_design is False
+    assert result.interpretation_scope == "between_study"
     assert not np.isnan(result.lr_ci_low) and not np.isnan(result.lr_ci_high)
     assert result.lr_ci_high > result.lr_ci_low, (
         "a genuine multi-study bootstrap must not collapse to a zero-width interval"
     )
+
+
+def test_single_study_null_case_gets_within_study_no_evidence():
+    """When cases and controls are indistinguishable AND the cohort is single-study, the
+    within-study bootstrap should itself span LR=1, so the result is 'No evidence' - not
+    'NA' (a real within-study bootstrap did run and converge, it just found nothing) and
+    still correctly scoped as within_study_only, not silently upgraded to between_study."""
+    df = _make_df(n_case=40, n_control=40, case_mean=0.0, control_mean=0.0, sd=0.5,
+                   n_studies_case=1, n_studies_control=1)
+    result = evaluate_score("single_study_null", df, query_score=0.0)
+    assert result.interpretation_scope == "within_study_only"
+    assert result.band in ("No evidence", "NA")
+    assert np.isnan(result.lr_ci_low) and np.isnan(result.lr_ci_high)
 
 
 @pytest.mark.parametrize("n", [200, 50, 20, 10])

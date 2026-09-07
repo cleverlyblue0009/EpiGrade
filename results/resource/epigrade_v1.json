@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "8613cb57ef3ea17b1a42c428079f6c7322520d99",
+    "git_sha": "28b2e09a8ed58a2bd4cb3564c697d27ecbad8c35",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-09-07T16:05:40.546677+00:00"
+    "generated_at_utc": "2026-09-07T17:26:18.353133+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -1209,8 +1209,8 @@
       "lr_point_estimate": 142.41593570327453,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 5.9372615708486505,
+      "band": "Strong",
       "posterior_prob": 0.8822916714064276,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1218,9 +1218,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 77.34374836525056,
-      "within_study_ci_high": 1680.755346451072
+      "within_study_ci_high": 1680.755346451072,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1230,8 +1231,8 @@
       "lr_point_estimate": 142.41593570327453,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 5.9372615708486505,
+      "band": "Strong",
       "posterior_prob": 0.9405610779460029,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1239,9 +1240,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 77.34374836525056,
-      "within_study_ci_high": 1680.755346451072
+      "within_study_ci_high": 1680.755346451072,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1251,8 +1253,8 @@
       "lr_point_estimate": 142.41593570327453,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 5.9372615708486505,
+      "band": "Strong",
       "posterior_prob": 0.972680569360248,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1260,9 +1262,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 77.34374836525056,
-      "within_study_ci_high": 1680.755346451072
+      "within_study_ci_high": 1680.755346451072,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1272,8 +1275,8 @@
       "lr_point_estimate": 4.27991793208837,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 1.4867435457903144,
+      "band": "Supporting",
       "posterior_prob": 0.1838459201004766,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1281,9 +1284,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 2.970835537840676,
-      "within_study_ci_high": 15.009361375238754
+      "within_study_ci_high": 15.009361375238754,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1293,8 +1297,8 @@
       "lr_point_estimate": 4.27991793208837,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 1.4867435457903144,
+      "band": "Supporting",
       "posterior_prob": 0.3222849684745996,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1302,9 +1306,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 2.970835537840676,
-      "within_study_ci_high": 15.009361375238754
+      "within_study_ci_high": 15.009361375238754,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1314,8 +1319,8 @@
       "lr_point_estimate": 4.27991793208837,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 1.4867435457903144,
+      "band": "Supporting",
       "posterior_prob": 0.5169034243083234,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1323,9 +1328,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 2.970835537840676,
-      "within_study_ci_high": 15.009361375238754
+      "within_study_ci_high": 15.009361375238754,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1335,8 +1341,8 @@
       "lr_point_estimate": 1.7583256997321135,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 0.4402857314438327,
+      "band": "No evidence",
       "posterior_prob": 0.0847046011882743,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1344,9 +1350,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 1.3805074290170605,
-      "within_study_ci_high": 5.369881184525508
+      "within_study_ci_high": 5.369881184525508,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1356,8 +1363,8 @@
       "lr_point_estimate": 1.7583256997321135,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 0.4402857314438327,
+      "band": "No evidence",
       "posterior_prob": 0.1634386008387807,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1365,9 +1372,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 1.3805074290170605,
-      "within_study_ci_high": 5.369881184525508
+      "within_study_ci_high": 5.369881184525508,
+      "interpretation_scope": "within_study_only"
     },
     {
       "disorder": "Sotos syndrome",
@@ -1377,8 +1385,8 @@
       "lr_point_estimate": 1.7583256997321135,
       "lr_ci_low": null,
       "lr_ci_high": null,
-      "points_conservative": null,
-      "band": "NA",
+      "points_conservative": 0.4402857314438327,
+      "band": "No evidence",
       "posterior_prob": 0.3053536377447204,
       "evidence_anchor": "PP4_diagnostic",
       "n_case": 38,
@@ -1386,9 +1394,10 @@
       "n_studies_case": 1,
       "n_studies_control": 1,
       "confounded_by_design": true,
-      "reason": "single-study cohort: study-level bootstrap is degenerate (all resamples identical), so no between-study confidence bound can be estimated",
+      "reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "within_study_ci_low": 1.3805074290170605,
-      "within_study_ci_high": 5.369881184525508
+      "within_study_ci_high": 5.369881184525508,
+      "interpretation_scope": "within_study_only"
     }
   ],
   "attainable_ceiling": [
@@ -1398,7 +1407,8 @@
       "lr_point_estimate": 1428.432010777012,
       "points_conservative": 9.296842146147958,
       "attainable_band": "Very Strong",
-      "confounded_by_design": false
+      "confounded_by_design": false,
+      "interpretation_scope": "between_study"
     },
     {
       "n_case": 100,
@@ -1406,7 +1416,8 @@
       "lr_point_estimate": 774.1426903942437,
       "points_conservative": 8.641118240530492,
       "attainable_band": "Very Strong",
-      "confounded_by_design": false
+      "confounded_by_design": false,
+      "interpretation_scope": "between_study"
     },
     {
       "n_case": 63,
@@ -1414,7 +1425,8 @@
       "lr_point_estimate": 391.30990676377775,
       "points_conservative": 7.773216129315945,
       "attainable_band": "Strong",
-      "confounded_by_design": false
+      "confounded_by_design": false,
+      "interpretation_scope": "between_study"
     },
     {
       "n_case": 38,
@@ -1422,7 +1434,8 @@
       "lr_point_estimate": 369.8641594260511,
       "points_conservative": 7.318648802886307,
       "attainable_band": "Strong",
-      "confounded_by_design": false
+      "confounded_by_design": false,
+      "interpretation_scope": "between_study"
     },
     {
       "n_case": 37,
@@ -1430,87 +1443,98 @@
       "lr_point_estimate": 290.54443400489265,
       "points_conservative": 7.175904184041025,
       "attainable_band": "Strong",
-      "confounded_by_design": false
+      "confounded_by_design": false,
+      "interpretation_scope": "between_study"
     },
     {
       "n_case": 29,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 202.0594670626688,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 6.534531180021496,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 21,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 227.85929207891516,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 5.780050241632194,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 20,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 205.88137294128265,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 5.864925781493225,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 19,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 119.82945220226092,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 5.878084176166855,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 16,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 128.5148610278421,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 5.541005229913649,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 15,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 147.75603642809216,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 5.479402584454735,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 10,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 86.93281246579122,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 4.713451918515598,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 8,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 57.67348341062608,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 4.758655008489758,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 6,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 53.34269664830588,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 4.966743574742715,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     },
     {
       "n_case": 5,
       "n_studies_case_assumed": 1,
       "lr_point_estimate": 57.43154462671527,
-      "points_conservative": null,
-      "attainable_band": "NA",
-      "confounded_by_design": true
+      "points_conservative": 5.49287575717228,
+      "attainable_band": "Strong",
+      "confounded_by_design": true,
+      "interpretation_scope": "within_study_only"
     }
   ],
   "cross_disorder_matrix": {

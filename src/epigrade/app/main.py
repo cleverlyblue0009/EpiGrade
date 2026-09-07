@@ -46,40 +46,60 @@ def page_grade(resource: dict) -> None:
         "strength it can honestly support - or why grading is refused."
     )
 
-    disorders = sorted({row["disorder"] for row in resource["confounding_gate"]})
-    disorder = st.selectbox("Disorder", disorders)
+    # Cohorts that pass the gate first (so the default selection - index 0 - is a disorder that
+    # can show a genuine between-study result, not a confounded one), then single-study
+    # (fail) cohorts, then not-testable ones last.
+    status_priority = {"pass-structural": 0, "fail": 1, "not-testable": 2}
+    gate_rows = sorted(
+        resource["confounding_gate"],
+        key=lambda r: (status_priority.get(r["status"], 9), r["disorder"]),
+    )
+    disorders = [r["disorder"] for r in gate_rows]
+    status_by_disorder = {r["disorder"]: r["status"] for r in gate_rows}
+    status_icon = {"pass-structural": "✅", "fail": "⚠️", "not-testable": "🚫"}
+    disorder = st.selectbox(
+        "Disorder", disorders,
+        format_func=lambda d: f"{status_icon.get(status_by_disorder[d], '')} {d}",
+    )
     gate = confounding_status(resource, disorder)
 
     if gate is None:
         st.error("No confounding-gate record for this disorder - cannot grade.")
         return
 
-    if gate["status"] == "fail":
-        st.error(
-            f"**Grading refused.** {disorder} fails the confounding gate: {gate['reason']}",
-            icon="🚫",
-        )
-        st.info(
-            "This applies even to Sotos syndrome, whose reproduction is otherwise verified "
-            "exactly against the published paper (see the Cohort audit page) - a clean "
-            "within-study separation still cannot be told apart from a batch effect when "
-            "every case comes from one study. That is the point of this gate."
-        )
-        return
     if gate["status"] == "not-testable":
+        # Genuinely nothing to show: too few cases even to attempt building a classifier, so
+        # there is no evidence_bands data for this disorder at all - unlike "fail" below, this
+        # isn't a scoping question, there's no number to scope.
         st.error(
             f"**Grading refused.** {disorder}: {gate['reason']}", icon="🚫",
         )
         return
 
-    st.success(f"{disorder} passes the confounding gate (structural): {gate['reason']}")
+    if gate["status"] == "fail":
+        # Confounded by design (single study) - this used to hard-stop grading entirely. It no
+        # longer does: the confounding explanation is shown here, alongside (not instead of)
+        # whatever within-study-scoped result is available below. The refusal that DOES still
+        # hold is a between-study confidence bound - see each row's interpretation_scope.
+        st.warning(
+            f"**{disorder} fails the confounding gate**: {gate['reason']}", icon="⚠️",
+        )
+        st.caption(
+            "This applies even to Sotos syndrome, whose reproduction is otherwise verified "
+            "exactly against the published paper (see the Cohort audit page) - a clean "
+            "within-study separation still cannot be told apart from a batch effect when "
+            "every case comes from one study. What follows below, if anything, is scoped "
+            "accordingly - within this one study only, not a validated cross-study result."
+        )
+    else:
+        st.success(f"{disorder} passes the confounding gate (structural): {gate['reason']}")
 
     evidence_rows = [r for r in resource["evidence_bands"] if r["disorder"] == disorder]
     if not evidence_rows:
-        st.warning(
-            "This disorder passes the structural confounding gate, but no evidence-band "
-            "results have been computed for it yet in this resource (no classifier was "
-            "successfully built/scored this session - see the Cross-disorder matrix page)."
+        st.info(
+            "No evidence-band results have been computed for this disorder yet in this "
+            "resource (no classifier was successfully built/scored this session - see the "
+            "Cross-disorder matrix page)."
         )
         return
 
@@ -93,25 +113,31 @@ def page_grade(resource: dict) -> None:
         st.subheader(row["query_point"].replace("_", " "))
 
         if row["band"] == "NA":
-            # A per-row refusal, distinct from (and in addition to) the confounding-gate
-            # refusal above: even a disorder that passes the structural gate can still hit
-            # this if, say, a bootstrap failed to converge for one specific query point.
+            # A per-row refusal: even the within-study bootstrap failed to converge (or, for a
+            # non-confounded cohort, the between-study one did) - there is truly no band here,
+            # not just a scoping caveat on one.
             st.error(f"**No band assigned.** {row['reason']}", icon="🚫")
-            wl, wh = row.get("within_study_ci_low"), row.get("within_study_ci_high")
-            if wl is not None and wh is not None:
-                st.caption(
-                    f"For reference only (never used to assign a band): a within-study "
-                    f"sample-level bootstrap gives LR ∈ [{wl:.2f}, {wh:.2f}]. This ignores "
-                    "study structure entirely and says nothing about between-study "
-                    "generalization - it is not a substitute for the refused band above."
-                )
             continue
 
-        c1, c2, c3 = st.columns(3)
+        scope = row.get("interpretation_scope", "between_study")
+        if scope == "within_study_only":
+            st.warning(
+                "**Within-study only** - no between-study confidence bound exists for this "
+                "single-study cohort. The band below describes how stable the estimate is "
+                "inside this one dataset, not whether it would generalize to an independent "
+                "study.",
+                icon="⚠️",
+            )
+
+        c1, c2, c3, c4 = st.columns(4)
         c1.metric("LR (point estimate)", f"{row['lr_point_estimate']:.2f}")
-        c2.metric("Evidence band (conservative)", row["band"])
+        c2.metric(
+            "Evidence band" + (" (within-study)" if scope == "within_study_only" else ""),
+            row["band"],
+        )
         c3.metric("Posterior probability", f"{row['posterior_prob']:.1%}"
                   if row["posterior_prob"] is not None else "NA")
+        c4.metric("Cohort size", f"{row['n_case']} case / {row['n_control']} control")
         st.caption(row["reason"])
 
 
@@ -130,7 +156,12 @@ def page_calibration(resource: dict) -> None:
         st.line_chart(ceiling_df.set_index("n_case")["points_conservative"])
         st.caption(
             "A PERFECT classifier's attainable evidence points at each cohort size, "
-            "independent of any real classifier's quality - see docs/METHODS.md."
+            "independent of any real classifier's quality - see docs/METHODS.md. Rows with "
+            "interpretation_scope='within_study_only' (typically n<30, single assumed study) "
+            "show what a perfect classifier's within-dataset stability looks like, not a "
+            "validated between-study bound - a perfectly-separable toy classifier can look "
+            "'Strong' even at very small n for exactly this reason, which is itself the "
+            "point: within-study numbers alone can be misleadingly reassuring."
         )
         st.dataframe(ceiling_df, use_container_width=True)
 

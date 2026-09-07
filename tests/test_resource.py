@@ -43,12 +43,24 @@ def test_resource_json_is_strictly_valid_no_nan_tokens():
     assert "NaN" not in text, "resource JSON contains a non-standard NaN token"
 
 
-def test_na_band_survives_as_the_string_na_not_null_or_nan():
+def test_sotos_evidence_rows_are_within_study_scoped_not_between_study():
+    """Sotos is single-study, so its evidence rows must never claim a between-study confidence
+    bound (lr_ci_low/high stay null - a degenerate zero-width interval is not real precision).
+    They DO now get a real, computed band instead of a blanket 'NA' refusal, explicitly labeled
+    interpretation_scope='within_study_only' so the app can show the number and the caveat
+    together rather than one instead of the other."""
     with open(RESOURCE_PATH, encoding="utf-8") as f:
         resource = json.load(f)
-    na_rows = [r for r in resource["evidence_bands"] if r["disorder"] == "Sotos syndrome"]
-    assert na_rows, "expected at least one Sotos evidence row"
-    assert all(r["band"] == "NA" for r in na_rows)
+    sotos_rows = [r for r in resource["evidence_bands"] if r["disorder"] == "Sotos syndrome"]
+    assert sotos_rows, "expected at least one Sotos evidence row"
+    for r in sotos_rows:
+        assert r["interpretation_scope"] == "within_study_only"
+        assert r["lr_ci_low"] is None and r["lr_ci_high"] is None, (
+            "a single-study cohort must never be given a between-study confidence bound"
+        )
+        assert r["band"] != "NA", "a real within-study-scoped band should be computed here"
+        assert r["within_study_ci_low"] is not None and r["within_study_ci_high"] is not None
+        assert "between-study" in r["reason"]
 
 
 def test_harmonisation_scoreable_count_excludes_unresolvable_rows():

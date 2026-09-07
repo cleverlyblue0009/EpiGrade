@@ -41,11 +41,21 @@ class EvidenceResult:
     n_studies_control: int
     confounded_by_design: bool
     reason: str
-    # Within-study (sample-level, not study-level) bootstrap - a diagnostic only. Never used to
-    # assign a band, and never a substitute for the between-study CI: it treats every sample as
-    # independent, which is exactly the assumption study-level resampling exists to avoid.
+    # Within-study (sample-level, not study-level) bootstrap. For a confounded (single-study)
+    # cohort, THIS is the CI the band below is actually derived from - see interpretation_scope.
+    # For a non-confounded cohort it remains a secondary diagnostic only, never used for the
+    # band: it treats every sample as independent, which is exactly the assumption study-level
+    # resampling exists to guard against.
     within_study_ci_low: float = float("nan")
     within_study_ci_high: float = float("nan")
+    # "between_study": band comes from the study-level bootstrap - the ordinary, generalizable
+    #   case (this project's default whenever >=2 studies exist on both sides).
+    # "within_study_only": the cohort is confounded by design (a single study on the case or
+    #   control side, or both), so no between-study confidence bound exists at all - but the
+    #   band below is still computed and shown, from the within-study (sample-level) bootstrap.
+    #   It describes how stable the estimate is INSIDE this one dataset, not whether it would
+    #   hold up in an independent study - see `reason` for the caveat that must travel with it.
+    interpretation_scope: str = "between_study"
 
 
 def _knn_radius(sorted_scores: np.ndarray, query_score: float, k: int) -> float:
@@ -250,19 +260,51 @@ def evaluate_score(
     within_lo, within_hi = within_study_bootstrap_ci(df, query_score)
 
     reason = ""
+    interpretation_scope = "between_study"
     if confounded:
-        # Refuse to assign a band at all: with fewer than 2 studies on the case or control
-        # side, every study-level bootstrap resample is identical to the original data (see
-        # bootstrap_lr_ci), so the "interval" has zero width by construction, not because the
-        # estimate is precise. Assigning a band from that would misrepresent a single-study
-        # point estimate as a validated confidence bound. The within-study CI above is reported
-        # for reference only and must never be used here.
-        band = "NA"
-        conservative_points = float("nan")
-        reason = (
-            "single-study cohort: study-level bootstrap is degenerate (all resamples "
-            "identical), so no between-study confidence bound can be estimated"
-        )
+        # A between-study confidence bound is structurally impossible here: with fewer than 2
+        # studies on the case or control side, every study-level bootstrap resample is
+        # identical to the original data (see bootstrap_lr_ci), so that "interval" would have
+        # zero width by construction, not because the estimate is precise - reporting a band
+        # from it would misrepresent a single-study point estimate as a validated cross-study
+        # bound. That refusal stays. But refusing the between-study claim is not the same as
+        # having nothing to say: the within-study (sample-level) bootstrap above is a real
+        # procedure that describes how stable the estimate is inside this one dataset, so it
+        # is used here to compute a real band, explicitly scoped as within_study_only rather
+        # than silently omitted or conflated with a validated result.
+        interpretation_scope = "within_study_only"
+        if np.isnan(within_lo) or np.isnan(within_hi):
+            band = "NA"
+            conservative_points = float("nan")
+            reason = (
+                "single-study cohort: no between-study confidence bound can be estimated "
+                "(study-level bootstrap is degenerate - every resample is identical to the "
+                "original data), and the within-study bootstrap also failed to converge, so "
+                "no band at all is reported here"
+            )
+        elif within_lo <= 1.0 <= within_hi:
+            band = "No evidence"
+            conservative_points = 0.0
+            reason = (
+                "single-study cohort: no between-study confidence bound can be estimated "
+                "(study-level bootstrap is degenerate - see within_study_ci_low/high, "
+                "computed instead as a within-study, sample-level bootstrap); that "
+                "within-study interval spans LR=1, so even scoped to this one study alone "
+                "there is no evidence either way"
+            )
+        else:
+            conservative_lr = within_lo if point >= 1 else within_hi
+            conservative_points = lr_to_points(conservative_lr, base)
+            band = points_to_band(conservative_points, cfg["bands"])
+            reason = (
+                "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence "
+                "bound can be estimated (study-level bootstrap is degenerate - every "
+                "resample is identical to the original data). This band is instead the "
+                "conservative bound of a within-study (sample-level) bootstrap - it "
+                "describes how stable the estimate is inside this one dataset, not whether "
+                "it would hold up in an independent study. Treat it as illustrative, not "
+                "validated evidence."
+            )
     elif np.isnan(ci_low) or np.isnan(ci_high):
         band = "NA"
         conservative_points = float("nan")
@@ -308,6 +350,7 @@ def evaluate_score(
         reason=reason,
         within_study_ci_low=within_lo,
         within_study_ci_high=within_hi,
+        interpretation_scope=interpretation_scope,
     )
 
 
@@ -377,7 +420,8 @@ def evidence_ceiling(n_case: int, n_control: int, n_studies_case: int = 1,
         n_studies_case=template.n_studies_case,
         n_studies_control=template.n_studies_control,
         confounded_by_design=template.confounded_by_design,
-        reason=f"median of {n_repeats} independent simulated draws",
+        reason=f"median of {n_repeats} independent simulated draws ({template.reason})",
         within_study_ci_low=_median_field("within_study_ci_low"),
         within_study_ci_high=_median_field("within_study_ci_high"),
+        interpretation_scope=template.interpretation_scope,
     )
