@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "75b8419ec05e9b5d3791be50662891767ccbf78f",
+    "git_sha": "77d08b830195de9c55cb1cafc9f08d2d67e64178",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-09-07T08:49:17.404594+00:00"
+    "generated_at_utc": "2026-09-07T15:34:09.445830+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -1405,93 +1405,106 @@
         "scored_disorder": "Silver-Russell syndrome",
         "n": 63,
         "fraction_positive": 0.0,
-        "note": "7085 shared probes between Sotos signature and the SRS-series beta matrices"
+        "note": "7085 shared probes between Sotos signature and the SRS-series beta matrices",
+        "signature_source": "published_probe_list"
       },
       {
         "classifier": "Sotos syndrome",
         "scored_disorder": "Sotos syndrome (self)",
         "n": 38,
         "fraction_positive": 1.0,
-        "note": "from phase 3 (leave-one-out guarded for discovery samples)"
+        "note": "from phase 3 (leave-one-out guarded for discovery samples)",
+        "signature_source": "published_probe_list"
       },
       {
         "classifier": "Sotos syndrome",
         "scored_disorder": "Weaver syndrome",
         "n": 8,
         "fraction_positive": 0.0,
-        "note": "n=8 < 10: too small to interpret precisely, shown for reference"
+        "note": "n=8 < 10: too small to interpret precisely, shown for reference",
+        "signature_source": "published_probe_list"
       }
     ],
     "not_computed": [
-      {
-        "classifier": "Kabuki syndrome type 1",
-        "scored_disorder": "NOT COMPUTED",
-        "n": null,
-        "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
-      },
       {
         "classifier": "Kabuki syndrome type 2",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
-      },
-      {
-        "classifier": "CHARGE syndrome",
-        "scored_disorder": "NOT COMPUTED",
-        "n": null,
-        "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
       },
       {
         "classifier": "Coffin-Siris syndrome",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
       },
       {
         "classifier": "Nicolaides-Baraitser syndrome",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
       },
       {
         "classifier": "Down syndrome",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
       },
       {
         "classifier": "Williams syndrome",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
       },
       {
         "classifier": "7q11.23 duplication syndrome",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
       },
       {
         "classifier": "ICF syndrome",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
       },
       {
         "classifier": "Claes-Jensen syndrome",
         "scored_disorder": "NOT COMPUTED",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
+        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
+        "reason": null
+      },
+      {
+        "classifier": "Kabuki syndrome type 1",
+        "scored_disorder": "(classifier build)",
+        "n": null,
+        "fraction_positive": null,
+        "note": null,
+        "reason": "GSE116300 alone: Path B found 0 significant probes at n_case=26, n_control=9: 44 probes show >20% effect size, but the smallest Mann-Whitney p-value (1.84e-05) is close to but mostly does not reach the genome-wide Bonferroni threshold (1.04e-07 for 482879 tests) - a real statistical-power limitation given this cohort's size, not evidence of no signal. | Pooled with GSE97362's KMT2D LOF cohort: Path B found 0 significant probes at n_case=37, n_control=20: 16 probes show >20% effect size, but the smallest Mann-Whitney p-value (5.25e-08) is close to but mostly does not reach the genome-wide Bonferroni threshold (1.04e-07 for 482879 tests) - a real statistical-power limitation given this cohort's size, not evidence of no signal."
+      },
+      {
+        "classifier": "CHARGE syndrome",
+        "scored_disorder": "(classifier build)",
+        "n": null,
+        "fraction_positive": null,
+        "note": null,
+        "reason": "Path B found only 3 significant probes (below the minimum reliable signature size of 10 - a classifier this thin would be dominated by a handful of individual probe readings, unlike Sotos's robust 7,085-probe signature) at n_case=19, n_control=29: 32 probes show >20% effect size, but the smallest Mann-Whitney p-value (9.79e-09) is close to but mostly does not reach the genome-wide Bonferroni threshold (1.03e-07 for 485577 tests) - a real statistical-power limitation given this cohort's size, not evidence of no signal. Of 485577 tests, 35 probes are Bonferroni-significant on their own and 32 show >20% effect size on their own, but only 3 probes satisfy both criteria together - the two are not the same probes, not a lack of any significant signal."
       }
     ]
   },
@@ -1514,8 +1527,8 @@
     ]
   },
   "harmonisation": {
-    "n_samples_total": 774,
-    "n_flagged_or_excluded": 774,
+    "n_samples_total": 871,
+    "n_flagged_or_excluded": 871,
     "hand_curation_agreement_rate": 1.0,
     "hand_curation_n_scoreable": 100,
     "hand_curation_note": "AI-performed cross-check against a second independent implementation of the same judgment, not independent human clinical curation - see docs/METHODS.md."

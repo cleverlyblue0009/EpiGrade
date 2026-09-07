@@ -1,5 +1,18 @@
 # EpiGrade
 
+```
+python -m venv .venv && .venv/Scripts/pip install -r requirements.txt -e .   # or source .venv/bin/activate on macOS/Linux
+python scripts/reproduce.py
+```
+
+One command, from a clean clone to every figure and table. Network-bound and variable - NCBI
+GEO's FTP was anywhere from fast to very slow in development (a single ~215MB file once took
+~45 minutes); budget **30-90 minutes** and **~1.1 GB** downloaded to `D:/epigrade_data` (never
+into the repo - see `config/paths.yaml`). Safe to re-run or interrupt: each stage is skipped
+once it's already succeeded (`--force` reruns everything). For a fast, network-free pass that
+just regenerates reports and the app's resource file from whatever is already cached, use
+`python scripts/reproduce.py --quick` (seconds, not minutes).
+
 An open, reproducible benchmark for DNA methylation episignature classifiers.
 
 Rebuilds published episignature classifiers from public GEO data alone, cross-checks them
@@ -43,26 +56,38 @@ Four pages: **Grade a score**, **Calibration curves**, **Cohort audit**, **Cross
 matrix**. The app never recomputes anything - if you want fresher numbers, rerun the pipeline
 below and then `python -m epigrade.report.resource` to rebuild the resource it reads.
 
-## Reproducing the full pipeline
+## What `scripts/reproduce.py` actually runs
 
-Requires network access to NCBI GEO (see `config/paths.yaml` for where downloads land - large
-files never go in the repo). Each step is idempotent and caches its output:
+Each stage is idempotent (a marker under `D:/epigrade_data/interim/.reproduce_markers/` skips it
+on the next run) and independently invocable, if you want to run or inspect one on its own:
 
 ```
 python -m epigrade.acquire.harvest              # phase 1: metadata for all 18 accessions
 python scripts/phase1_report.py                 # triage log + hand-curation cross-check
 python scripts/demo_sotos.py                    # phase 3: THE reproduction (downloads GSE74432)
-python scripts/phase5_calibration.py            # evidence bands + attainable ceiling
 python scripts/phase4_6_srs_and_matrix.py       # cross-disorder matrix + leave-one-study-out
+python scripts/phase4_kabuki_charge.py          # Kabuki/CHARGE classifier attempts (see below)
+python scripts/phase5_calibration.py            # evidence bands + attainable ceiling
 python scripts/phase6_confounding_gate.py       # confounding gate, all 12 in-scope disorders
 python scripts/generate_provenance.py           # docs/DATA_PROVENANCE.md
 python -m epigrade.report.resource              # rebuild results/resource/epigrade_v1.json
 ```
 
-This reproduces the Choufani et al. 2015 Sotos syndrome classifier from GSE74432 exactly:
-19/19 discovery cases positive, 53/53 controls negative, 8/8 Weaver-syndrome samples negative,
-and the 16 NSD1 missense VOUS splitting 9 positive / 7 negative - all three of the paper's
-published results, verified before anything else in this pipeline was built.
+## What it reproduces
+
+**The Sotos syndrome reproduction (phase 3) is exact and fully verified** - the paper's three
+published results, checked programmatically, not eyeballed: 19/19 discovery cases score
+positive, 53/53 discovery controls score negative (clean separation), all 8 Weaver-syndrome
+samples score negative, and the 16 NSD1 missense VOUS split exactly 9 positive / 7 negative.
+
+**Kabuki syndrome and CHARGE syndrome do not.** The same rigorous procedure was applied to both
+(re-deriving a signature via Mann-Whitney U / Bonferroni / effect-size filtering, since neither
+has a published probe list available to this project), and neither clears this project's own
+reliability bar from the publicly available GEO cohorts - Kabuki came within a factor of 2x in
+p-value after pooling two studies, CHARGE found 35 genome-wide-significant probes but only 3
+that also passed the effect-size filter. Both are reported as honest negative results with full
+diagnostics, not hidden or forced through - see
+[docs/LIMITATIONS.md](docs/LIMITATIONS.md#finish-today-session-fixes-and-a-genuine-negative-result).
 
 ## Layout
 
