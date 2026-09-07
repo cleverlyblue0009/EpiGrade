@@ -86,6 +86,40 @@ def test_not_confounded_when_cases_span_multiple_studies():
     assert result.confounded_by_design is False
 
 
+def test_single_study_cohort_gets_no_band_not_a_confident_one():
+    """The Task 1 regression test: a single-study cohort must never receive a real band, even
+    when the underlying separation is strong - a degenerate (zero-width) bootstrap CI is not
+    evidence of precision, it's an artifact of resampling one study against itself."""
+    df = _make_df(n_case=38, n_control=53, case_mean=2.0, control_mean=-2.0, sd=0.3,
+                   n_studies_case=1, n_studies_control=1)
+    result = evaluate_score("single_study_strong_separation", df, query_score=2.0)
+    assert result.band == "NA"
+    assert np.isnan(result.points)
+    assert np.isnan(result.lr_ci_low) and np.isnan(result.lr_ci_high)
+    assert "degenerate" in result.reason
+
+
+def test_control_side_single_study_is_also_flagged_confounded():
+    """The specific gap the original bug missed: cases span multiple studies but controls all
+    come from one - the bootstrap is just as degenerate on that side."""
+    df = _make_df(n_case=40, n_control=40, case_mean=1.0, control_mean=-1.0,
+                   n_studies_case=3, n_studies_control=1)
+    result = evaluate_score("control_side_confounded", df, query_score=1.0)
+    assert result.confounded_by_design is True
+    assert result.band == "NA"
+
+
+def test_multi_study_cohort_gets_a_nonzero_width_ci():
+    df = _make_df(n_case=60, n_control=60, case_mean=1.5, control_mean=-1.5, sd=0.6,
+                   n_studies_case=3, n_studies_control=3)
+    result = evaluate_score("multi_study_nonzero_ci", df, query_score=1.5)
+    assert result.confounded_by_design is False
+    assert not np.isnan(result.lr_ci_low) and not np.isnan(result.lr_ci_high)
+    assert result.lr_ci_high > result.lr_ci_low, (
+        "a genuine multi-study bootstrap must not collapse to a zero-width interval"
+    )
+
+
 @pytest.mark.parametrize("n", [200, 50, 20, 10])
 def test_evidence_ceiling_degrades_monotonically_as_n_shrinks(n):
     """A perfect classifier's attainable evidence points should never increase as n shrinks -

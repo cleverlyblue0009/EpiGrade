@@ -38,8 +38,14 @@ class EvidenceResult:
     n_case: int
     n_control: int
     n_studies_case: int
+    n_studies_control: int
     confounded_by_design: bool
     reason: str
+    # Within-study (sample-level, not study-level) bootstrap - a diagnostic only. Never used to
+    # assign a band, and never a substitute for the between-study CI: it treats every sample as
+    # independent, which is exactly the assumption study-level resampling exists to avoid.
+    within_study_ci_low: float = float("nan")
+    within_study_ci_high: float = float("nan")
 
 
 def _knn_radius(sorted_scores: np.ndarray, query_score: float, k: int) -> float:
@@ -148,9 +154,21 @@ def bootstrap_lr_ci(
 
     case_studies = df.loc[df.label == 1, "study_id"].unique()
     control_studies = df.loc[df.label == 0, "study_id"].unique()
-    confounded = len(case_studies) <= 1
+    # Confounded (degenerate) whenever EITHER side has fewer than 2 studies: rng.choice on a
+    # size-1 array returns that same single study on every replicate, so every bootstrap
+    # resample is identical to the original data and the "interval" has zero width by
+    # construction - not because the estimate is precise, but because the resampling procedure
+    # cannot vary at all. This was previously checked on the case side only; a single-study
+    # control arm degenerates the same way and was missed.
+    confounded = len(case_studies) < 2 or len(control_studies) < 2
 
     point = estimator(df["score"].values, df["label"].values, query_score)
+
+    if confounded:
+        # Do not run a bootstrap that can only ever reproduce the same point estimate 1000
+        # times - that is not a confidence interval, it is the point estimate wearing a
+        # disguise. Report it plainly as unavailable instead.
+        return point, float("nan"), float("nan"), confounded
 
     rng = np.random.default_rng(0)
     boot_lrs = []
@@ -180,6 +198,40 @@ def bootstrap_lr_ci(
     return point, float(ci_low), float(ci_high), confounded
 
 
+def within_study_bootstrap_ci(
+    df: pd.DataFrame, query_score: float, estimator=local_likelihood_ratio,
+    n_boot: int = 500,
+) -> tuple[float, float]:
+    """Sample-level (not study-level) bootstrap - a DIAGNOSTIC ONLY, reported for reference
+    alongside a degenerate between-study CI, never used to assign an evidence band. It treats
+    every sample as independent, which is exactly the assumption study-level resampling exists
+    to guard against - a tight within-study interval says only "this dataset is internally
+    consistent," not "this would generalize to a new study."
+    """
+    rng = np.random.default_rng(1)
+    scores = df["score"].values
+    labels = df["label"].values
+    case_idx = np.where(labels == 1)[0]
+    control_idx = np.where(labels == 0)[0]
+    if len(case_idx) == 0 or len(control_idx) == 0:
+        return float("nan"), float("nan")
+
+    boot_lrs = []
+    for _ in range(n_boot):
+        boot_case = rng.choice(case_idx, size=len(case_idx), replace=True)
+        boot_control = rng.choice(control_idx, size=len(control_idx), replace=True)
+        boot_scores = np.concatenate([scores[boot_case], scores[boot_control]])
+        boot_labels = np.concatenate([labels[boot_case], labels[boot_control]])
+        lr = estimator(boot_scores, boot_labels, query_score)
+        if not np.isnan(lr) and not np.isinf(lr):
+            boot_lrs.append(lr)
+
+    if len(boot_lrs) < n_boot * 0.5:
+        return float("nan"), float("nan")
+    lo, hi = np.percentile(boot_lrs, [2.5, 97.5])
+    return float(lo), float(hi)
+
+
 def evaluate_score(
     disorder: str, df: pd.DataFrame, query_score: float, prior: float | None = None,
     n_boot: int | None = None,
@@ -195,9 +247,23 @@ def evaluate_score(
     base = cfg["odds_path_base"]
 
     point, ci_low, ci_high, confounded = bootstrap_lr_ci(df, query_score, n_boot=n_boot)
+    within_lo, within_hi = within_study_bootstrap_ci(df, query_score)
 
     reason = ""
-    if np.isnan(ci_low) or np.isnan(ci_high):
+    if confounded:
+        # Refuse to assign a band at all: with fewer than 2 studies on the case or control
+        # side, every study-level bootstrap resample is identical to the original data (see
+        # bootstrap_lr_ci), so the "interval" has zero width by construction, not because the
+        # estimate is precise. Assigning a band from that would misrepresent a single-study
+        # point estimate as a validated confidence bound. The within-study CI above is reported
+        # for reference only and must never be used here.
+        band = "NA"
+        conservative_points = float("nan")
+        reason = (
+            "single-study cohort: study-level bootstrap is degenerate (all resamples "
+            "identical), so no between-study confidence bound can be estimated"
+        )
+    elif np.isnan(ci_low) or np.isnan(ci_high):
         band = "NA"
         conservative_points = float("nan")
         reason = "bootstrap failed to converge (too few resamples produced a valid estimator)"
@@ -237,8 +303,11 @@ def evaluate_score(
         n_case=int((df.label == 1).sum()),
         n_control=int((df.label == 0).sum()),
         n_studies_case=df.loc[df.label == 1, "study_id"].nunique(),
+        n_studies_control=df.loc[df.label == 0, "study_id"].nunique(),
         confounded_by_design=confounded,
         reason=reason,
+        within_study_ci_low=within_lo,
+        within_study_ci_high=within_hi,
     )
 
 
@@ -268,8 +337,11 @@ def evidence_ceiling(n_case: int, n_control: int, n_studies_case: int = 1,
         rng = np.random.default_rng(1000 + seed)
         case_scores = rng.normal(1.0, 0.05, n_case)
         control_scores = rng.normal(-1.0, 0.05, n_control)
-        studies_case = [f"study{i % n_studies_case}" for i in range(n_case)]
-        studies_control = ["study_ctrl"] * n_control
+        studies_case = [f"case_study{i % n_studies_case}" for i in range(n_case)]
+        # Controls must vary across at least as many studies as cases, or the bootstrap is
+        # degenerate on the control side even when cases span multiple studies (bootstrap_lr_ci
+        # now checks both sides - see Task 1's fix).
+        studies_control = [f"control_study{i % n_studies_case}" for i in range(n_control)]
 
         df = pd.DataFrame({
             "score": np.concatenate([case_scores, control_scores]),
@@ -303,6 +375,9 @@ def evidence_ceiling(n_case: int, n_control: int, n_studies_case: int = 1,
         n_case=template.n_case,
         n_control=template.n_control,
         n_studies_case=template.n_studies_case,
+        n_studies_control=template.n_studies_control,
         confounded_by_design=template.confounded_by_design,
         reason=f"median of {n_repeats} independent simulated draws",
+        within_study_ci_low=_median_field("within_study_ci_low"),
+        within_study_ci_high=_median_field("within_study_ci_high"),
     )

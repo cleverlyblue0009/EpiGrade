@@ -1,10 +1,16 @@
 """Phase 5: apply calibration to the real Sotos classifier scores (from phase 3), plus the
 evidence-ceiling table across a range of cohort sizes actually seen in this corpus.
 
-Sotos is single-study (GSE74432 only), so its bootstrap CI is correctly flagged
-confounded_by_design=True - this is not a special case, it's what the pipeline is supposed to
-report whenever it's true (see phase 6). Every disorder in phase 4's cross-disorder matrix that
-also has a real classifier gets the same treatment in this table as data becomes available.
+Sotos is single-study (GSE74432 only), so its band is correctly "NA": a study-level bootstrap
+with exactly one case study and one control study is degenerate by construction (every resample
+is identical to the original data - see epigrade.calibrate.calibrate.bootstrap_lr_ci), so no
+real between-study confidence bound exists to assign a band from. This is not a special case,
+it's what the pipeline reports whenever it's true (see phase 6's confounding gate, which flags
+the same cohorts as failing for the same reason). `within_study_ci_low/high` columns are reported
+alongside for reference ONLY - a sample-level bootstrap that ignores study structure entirely,
+never used to assign a band, since that's exactly the independence assumption being guarded
+against. Every disorder in phase 4's cross-disorder matrix that also has a real classifier and
+spans >=2 studies on both sides gets a real band as data becomes available.
 """
 
 from __future__ import annotations
@@ -55,8 +61,11 @@ def sotos_evidence_rows() -> list[dict]:
                 "n_case": result.n_case,
                 "n_control": result.n_control,
                 "n_studies_case": result.n_studies_case,
+                "n_studies_control": result.n_studies_control,
                 "confounded_by_design": result.confounded_by_design,
                 "reason": result.reason,
+                "within_study_ci_low": result.within_study_ci_low,
+                "within_study_ci_high": result.within_study_ci_high,
             })
     return rows
 

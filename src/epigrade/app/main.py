@@ -91,6 +91,22 @@ def page_grade(resource: dict) -> None:
         if row["prior"] != prior:
             continue
         st.subheader(row["query_point"].replace("_", " "))
+
+        if row["band"] == "NA":
+            # A per-row refusal, distinct from (and in addition to) the confounding-gate
+            # refusal above: even a disorder that passes the structural gate can still hit
+            # this if, say, a bootstrap failed to converge for one specific query point.
+            st.error(f"**No band assigned.** {row['reason']}", icon="🚫")
+            wl, wh = row.get("within_study_ci_low"), row.get("within_study_ci_high")
+            if wl is not None and wh is not None:
+                st.caption(
+                    f"For reference only (never used to assign a band): a within-study "
+                    f"sample-level bootstrap gives LR ∈ [{wl:.2f}, {wh:.2f}]. This ignores "
+                    "study structure entirely and says nothing about between-study "
+                    "generalization - it is not a substitute for the refused band above."
+                )
+            continue
+
         c1, c2, c3 = st.columns(3)
         c1.metric("LR (point estimate)", f"{row['lr_point_estimate']:.2f}")
         c2.metric("Evidence band (conservative)", row["band"])
