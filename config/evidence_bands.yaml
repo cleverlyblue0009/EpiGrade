@@ -1,0 +1,32 @@
+# Bayesian evidence-point thresholds, from Tavtigian et al. 2018 (base = 2.08, i.e. one
+# "point" of evidence corresponds to a likelihood ratio of 2.08). points = log(LR) / log(2.08).
+# Kept in config, not hardcoded in calibrate.py, per project convention.
+
+odds_path_base: 2.08
+
+# A band is assigned by the LOWEST threshold the (conservative, bootstrap-lower-bound) points
+# value clears. Negative points mirror the same thresholds in the exculpatory direction.
+bands:
+  - name: "Very Strong"
+    min_points: 8
+  - name: "Strong"
+    min_points: 4
+  - name: "Moderate"
+    min_points: 2
+  - name: "Supporting"
+    min_points: 1
+  - name: "No evidence"
+    min_points: -1000  # catch-all floor; also forced whenever the CI spans LR=1
+
+default_prior: 0.10
+prior_sensitivity_grid: [0.05, 0.10, 0.20]
+
+bootstrap:
+  n_boot: 1000
+  resample_level: "study"   # never "sample" - samples within a study are not independent
+  ci_percentiles: [2.5, 97.5]
+
+evidence_anchor: "PP4_diagnostic"
+# This project's corpus has no independent benign-variant truthset (see LIMITATIONS.md), so
+# PS3_functional must never be emitted - enforced in code, not just here in config.
+forbidden_anchors: ["PS3_functional"]
