@@ -54,18 +54,33 @@ def filter_probes(beta_df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     total_before = len(beta_df)
     mask = ~beta_df.index.isin(cross_reactive)
     filtered = beta_df[mask]
+    n_removed = total_before - int(mask.sum())
+
+    if n_removed == 0 and total_before == PAPER_TARGET_RETAINED:
+        note = (
+            "The downloaded series matrix already arrived with exactly 424,586 probes and "
+            "zero of the 30,969 known Chen et al. cross-reactive probes present in it - the "
+            "original depositors evidently filtered it (cross-reactive and presumably "
+            "SNP-containing probes) before uploading to GEO. This module's own filtering step "
+            "was therefore a no-op here; the match to the paper's target reflects the "
+            "deposited data, not this code. We still could not independently source Chen et "
+            "al.'s own SNP-probe list as a machine-readable file - see docs/LIMITATIONS.md."
+        )
+    else:
+        note = (
+            "Cross-reactive filter applied by this module (exact Chen et al. list). The "
+            "paper's SNP-containing probe exclusion could not be sourced as a direct "
+            "machine-readable file from a public mirror in this session - see "
+            "docs/LIMITATIONS.md. Reported honestly rather than forced to match 424,586."
+        )
+
     report = {
         "total_probes_before_filtering": total_before,
         "cross_reactive_probes_in_chen_list": len(cross_reactive),
-        "cross_reactive_probes_actually_present_in_data": total_before - mask.sum(),
+        "cross_reactive_probes_actually_present_in_data": n_removed,
         "probes_retained": len(filtered),
         "paper_target_retained_424586": PAPER_TARGET_RETAINED,
         "difference_from_paper_target": len(filtered) - PAPER_TARGET_RETAINED,
-        "note": (
-            "Cross-reactive filter only (exact Chen et al. list). The paper's SNP-containing "
-            "probe exclusion could not be sourced as a direct machine-readable file from a "
-            "public mirror in this session - see docs/LIMITATIONS.md. This is reported "
-            "honestly rather than forced to match 424,586."
-        ),
+        "note": note,
     }
     return filtered, report

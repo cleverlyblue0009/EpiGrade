@@ -1,0 +1,5 @@
+check	expected	observed	reproduced
+discovery_separation	19 Sotos cases separate cleanly from 53 controls (score > 0 vs < 0)	n_case=19, n_control=53; case scores [0.027, 0.158], control scores [-0.157, -0.098]; clean_separation=True; case>0: 19/19; control<0: 53/53	True
+weaver_negative	all 8 Weaver (EZH2) samples score negative	8/8 scored negative; scores=[-0.134, -0.136, -0.147, -0.121, -0.152, -0.105, -0.146, -0.14]	True
+missense_split	16 NSD1 missense VOUS split 9 positive (pathogenic-like) / 7 negative (benign-like)	n=16, positive=9, negative=7	True
+replication_cohort (bonus, not in the original 3 checks)	19 replication Sotos LOF cases (held out of discovery) mostly score positive	n=19, positive=19	
