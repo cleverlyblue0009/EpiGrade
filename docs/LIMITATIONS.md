@@ -54,3 +54,55 @@ here should inform a clinical decision on its own.
   no covariate adjustment), so they were deprioritized behind getting the three published results
   reproduced. GSE35069 (the Reinius et al. blood-cell-type reference panel) is present in this
   corpus and is the natural reference for a Houseman implementation if/when it is built.
+
+## Finish-today session: fixes and a genuine negative result
+
+- **A real bug, found and fixed**: every Sotos row in `evidence_bands.tsv` had
+  `lr_ci_low == lr_ci_high == point_estimate`, because a single-study cohort makes study-level
+  bootstrap resampling degenerate (every resample is identical to the original data). A "Strong"
+  band was still being assigned from that zero-width, non-informative interval. Fixed: a cohort
+  with fewer than 2 studies on either the case or control side now gets `band="NA"` with an
+  explicit reason, never a band from a degenerate CI. A within-study (sample-level) bootstrap is
+  reported alongside for reference only, explicitly labeled as never substituting for the
+  refused band. See `tests/test_calibrate.py` for the regression tests.
+- **A second real bug, found via a clean-clone check**: pandas' default `read_csv` NA-string
+  handling treats the literal text `"NA"` as null. The `band="NA"` refusal above was therefore
+  silently becoming a float `NaN` on the TSV->JSON path, which `json.dump` then wrote as the
+  non-standard `NaN` token - not valid JSON per spec. Fixed by reading with
+  `keep_default_na=False` and sanitizing any residual NaN to `null` before writing, with
+  `allow_nan=False` so a future regression fails loudly instead of silently re-corrupting the
+  file. Neither bug would have been visible from a quick read of the numbers - both were only
+  caught by writing tests that check the *shape* of a refusal, not just that one exists.
+- **Kabuki syndrome (GSE116300) and CHARGE syndrome (GSE97362) do not clear this project's own
+  reliability bar for a re-derived classifier**, despite both being genuinely real, well-
+  established episignatures in the literature. This was investigated thoroughly, not assumed:
+  - Kabuki (GSE116300 alone: 26 confirmed cases, 9 controls): 44 probes show >20% effect size,
+    but the smallest Mann-Whitney p-value (1.84e-05) is nowhere near the genome-wide Bonferroni
+    threshold (1.04e-07). Pooling with GSE97362's own 11 KMT2D-LOF-discovery Kabuki cases and 11
+    matched controls (the same legitimate technique already used for Silver-Russell syndrome)
+    raises the cohort to 37 cases/20 controls and gets dramatically closer - smallest p=5.25e-08
+    vs a 1.04e-07 threshold, off by less than 2x - but still does not clear it. This is a
+    genuinely close miss, illustrating concretely how much cohort size, not biology, is the
+    limiting factor here.
+  - CHARGE (GSE97362, 19 discovery-LOF cases, 29 matched controls): a *different* failure shape.
+    35 probes ARE genome-wide Bonferroni-significant, and 32 separately show >20% effect size,
+    but only 3 probes satisfy both criteria at once - the smallest p-values belong to probes
+    with small, highly consistent differences, not the probes with the largest raw effect size.
+    A 3-probe signature was initially built (technically "passing" the original criteria) and
+    then produced zero usable sample scores downstream (`score_samples` requires 10 valid probes
+    per sample), crashing the pipeline. Fixed by adding `MIN_SIGNATURE_SIZE=10` to
+    `build_classifier` itself: a handful of significant probes is now treated as equally
+    underpowered as finding none, consistently, rather than silently accepted and breaking later.
+  - Neither result is a workaround-and-retry situation: no threshold was loosened, no
+    alternative statistical test was substituted, and no correction method was switched, in
+    either direction, specifically to make either disorder pass. The same Mann-Whitney U /
+    Bonferroni / >20% effect-size procedure, and the same `MIN_SIGNATURE_SIZE=10` bar, were
+    applied uniformly to Sotos (worked, via the published list, not this procedure), Silver-
+    Russell (failed), Kabuki (failed even pooled), and CHARGE (failed). The cross-disorder
+    matrix (`results/tables/cross_disorder_matrix.tsv`) therefore still contains only the three
+    Sotos-classifier rows established in phase 4/6; `cross_disorder_matrix_not_computed.tsv`
+    carries the full diagnosis for every disorder that didn't make it in, including these two.
+  - This is arguably a more informative result for a reproducibility benchmark than a working
+    3x3 matrix would have been: it demonstrates, with a specific near-miss margin, that small
+    public GEO cohorts can hold back even disorders with genuinely robust real signatures -
+    which is precisely the private-vs-public-data gap this project exists to make visible.

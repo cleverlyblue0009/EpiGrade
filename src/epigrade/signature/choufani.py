@@ -34,6 +34,11 @@ from epigrade import paths
 
 SIGNATURE_PATH = "choufani_2015/SupplementaryData3_signature_probes.xlsx"
 EXPECTED_SIGNATURE_SIZE = 7085
+# The one classifier in this project using the paper's own published probe list, not a
+# re-derivation - see epigrade.signature.generic.REDERIVED_NOT_PUBLISHED for every other
+# classifier. Carried into every output row so a re-derived signature can never be mistaken
+# for a reproduction of a published one.
+SIGNATURE_SOURCE = "published_probe_list"
 
 
 def load_signature() -> pd.DataFrame:
@@ -129,6 +134,7 @@ def score_cohort(beta: pd.DataFrame, cohort: pd.Series, signature_probes: pd.Ind
             "r_case": r_case,
             "r_control": r_control,
             "n_probes_used": int(valid.sum()),
+            "signature_source": SIGNATURE_SOURCE,
         })
 
     return pd.DataFrame(rows)

@@ -1,4 +1,4 @@
-classifier	scored_disorder	n	fraction_positive	note
-Sotos syndrome	Silver-Russell syndrome	63	0.0	7085 shared probes between Sotos signature and the SRS-series beta matrices
-Sotos syndrome	Sotos syndrome (self)	38	1.0	from phase 3 (leave-one-out guarded for discovery samples)
-Sotos syndrome	Weaver syndrome	8	0.0	n=8 < 10: too small to interpret precisely, shown for reference
+classifier	scored_disorder	n	fraction_positive	note	signature_source
+Sotos syndrome	Silver-Russell syndrome	63	0.0	7085 shared probes between Sotos signature and the SRS-series beta matrices	published_probe_list
+Sotos syndrome	Sotos syndrome (self)	38	1.0	from phase 3 (leave-one-out guarded for discovery samples)	published_probe_list
+Sotos syndrome	Weaver syndrome	8	0.0	n=8 < 10: too small to interpret precisely, shown for reference	published_probe_list
