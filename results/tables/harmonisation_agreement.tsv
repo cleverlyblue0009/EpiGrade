@@ -1,0 +1,101 @@
+gsm_accession	series_id	hand_role	hand_disorder	auto_role	auto_disorder	agree
+GSM2334461	GSE87571	population_control		population_control		True
+GSM2897982	GSE108423	unaffected_relative	Claes-Jensen syndrome	unaffected_relative	Claes-Jensen syndrome	True
+GSM2800676	GSE104451	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM2337613	GSE87648	UNRESOLVABLE		population_control		
+GSM1920395	GSE74432	matched_control		matched_control		True
+GSM2260486	GSE85210	population_control		population_control		True
+GSM861635	GSE35069	UNRESOLVABLE		population_control		
+GSM1272144	GSE52588	case	Down syndrome	case	Down syndrome	True
+GSM2495045	GSE95040	case	ICF syndrome	case	ICF syndrome	True
+GSM2897979	GSE108423	case	Claes-Jensen syndrome	case	Claes-Jensen syndrome	True
+GSM2337573	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)	exclude_other	Inflammatory bowel disease (ulcerative colitis)	True
+GSM2337491	GSE87648	UNRESOLVABLE		population_control		
+GSM2800663	GSE104451	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM2337596	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)	exclude_other	Inflammatory bowel disease (ulcerative colitis)	True
+GSM3267131	GSE116992	case	Coffin-Siris syndrome	case	Coffin-Siris syndrome	True
+GSM2260684	GSE85210	population_control		population_control		True
+GSM1624856	GSE66552	case	Williams syndrome	case	Williams syndrome	True
+GSM2334538	GSE87571	population_control		population_control		True
+GSM2656180	GSE99863	population_control		population_control		True
+GSM1272198	GSE52588	unaffected_relative	Down syndrome	unaffected_relative	Down syndrome	True
+GSM3227792	GSE116300	case	Kabuki syndrome type 1	case	Kabuki syndrome type 1	True
+GSM1051811	GSE42861	population_control		population_control		True
+GSM1920352	GSE74432	matched_control		matched_control		True
+GSM3572705	GSE125367	UNRESOLVABLE		matched_control		
+GSM3267112	GSE116992	case	Coffin-Siris syndrome	case	Coffin-Siris syndrome	True
+GSM861640	GSE35069	UNRESOLVABLE		population_control		
+GSM1272189	GSE52588	unaffected_relative	Down syndrome	unaffected_relative	Down syndrome	True
+GSM2562826	GSE97362	matched_control		matched_control	CHARGE syndrome	True
+GSM3227791	GSE116300	case	Kabuki syndrome type 1	case	Kabuki syndrome type 1	True
+GSM1272148	GSE52588	case	Down syndrome	case	Down syndrome	True
+GSM2366512	GSE89353	unaffected_relative		unaffected_relative		True
+GSM2367109	GSE89353	UNRESOLVABLE		population_control		
+GSM2897975	GSE108423	case	Claes-Jensen syndrome	case	Claes-Jensen syndrome	True
+GSM861680	GSE35069	UNRESOLVABLE		population_control		
+GSM1624855	GSE66552	matched_control		matched_control		True
+GSM2656357	GSE99863	population_control		population_control		True
+GSM3572714	GSE125367	UNRESOLVABLE		case	Nicolaides-Baraitser syndrome	
+GSM1051843	GSE42861	population_control		population_control		True
+GSM2800718	GSE104451	matched_control		matched_control		True
+GSM1338109	GSE55491	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM2656177	GSE99863	population_control		population_control		True
+GSM1051861	GSE42861	exclude_other	Rheumatoid arthritis	exclude_other	Rheumatoid arthritis	True
+GSM861689	GSE35069	UNRESOLVABLE		population_control		
+GSM3227789	GSE116300	case	Kabuki syndrome type 1	case	Kabuki syndrome type 1	True
+GSM2337509	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)	exclude_other	Inflammatory bowel disease (Crohn's)	True
+GSM861648	GSE35069	UNRESOLVABLE		population_control		
+GSM2260688	GSE85210	population_control		population_control		True
+GSM2897991	GSE108423	matched_control		matched_control		True
+GSM1272122	GSE52588	case	Down syndrome	case	Down syndrome	True
+GSM1920388	GSE74432	matched_control		matched_control		True
+GSM2334508	GSE87571	population_control		population_control		True
+GSM3572716	GSE125367	UNRESOLVABLE		case	Nicolaides-Baraitser syndrome	
+GSM3267120	GSE116992	case	Nicolaides-Baraitser syndrome	case	Nicolaides-Baraitser syndrome	True
+GSM2495044	GSE95040	case	ICF syndrome	case	ICF syndrome	True
+GSM2656201	GSE99863	population_control		population_control		True
+GSM3572704	GSE125367	UNRESOLVABLE		matched_control		
+GSM2260559	GSE85210	population_control		population_control		True
+GSM1338116	GSE55491	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM3227779	GSE116300	case	Kabuki syndrome type 1	case	Kabuki syndrome type 1	True
+GSM3572717	GSE125367	UNRESOLVABLE		under_test	Nicolaides-Baraitser syndrome	
+GSM2800694	GSE104451	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM3227795	GSE116300	unaffected_relative		unaffected_relative		True
+GSM1051782	GSE42861	population_control		population_control		True
+GSM2897989	GSE108423	matched_control		matched_control		True
+GSM2366441	GSE89353	UNRESOLVABLE		population_control		
+GSM2897974	GSE108423	case	Claes-Jensen syndrome	case	Claes-Jensen syndrome	True
+GSM2260597	GSE85210	population_control		population_control		True
+GSM2495047	GSE95040	matched_control		matched_control		True
+GSM2562708	GSE97362	case	CHARGE syndrome	case	CHARGE syndrome	True
+GSM1624869	GSE66552	case	7q11.23 duplication syndrome	case	7q11.23 duplication syndrome	True
+GSM1338100	GSE55491	matched_control		matched_control		True
+GSM2333934	GSE87571	population_control		population_control		True
+GSM1272134	GSE52588	case	Down syndrome	case	Down syndrome	True
+GSM2562906	GSE97362	matched_control		matched_control		True
+GSM1920393	GSE74432	matched_control		matched_control		True
+GSM2656253	GSE99863	population_control		population_control		True
+GSM2367085	GSE89353	UNRESOLVABLE		population_control		
+GSM1051736	GSE42861	exclude_other	Rheumatoid arthritis	exclude_other	Rheumatoid arthritis	True
+GSM1624865	GSE66552	case	7q11.23 duplication syndrome	case	7q11.23 duplication syndrome	True
+GSM1338108	GSE55491	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM2495059	GSE95040	matched_control		matched_control		True
+GSM1624873	GSE66552	matched_control		matched_control		True
+GSM2334361	GSE87571	population_control		population_control		True
+GSM861671	GSE35069	UNRESOLVABLE		population_control		
+GSM2562808	GSE97362	under_test	Kabuki syndrome type 2	under_test	Kabuki syndrome type 2	True
+GSM1624871	GSE66552	case	7q11.23 duplication syndrome	case	7q11.23 duplication syndrome	True
+GSM1920437	GSE74432	case	Sotos syndrome	case	Sotos syndrome	True
+GSM2495052	GSE95040	case	ICF syndrome	case	ICF syndrome	True
+GSM1052180	GSE42861	exclude_other	Rheumatoid arthritis	exclude_other	Rheumatoid arthritis	True
+GSM3572720	GSE125367	UNRESOLVABLE		under_test	Nicolaides-Baraitser syndrome	
+GSM2562768	GSE97362	under_test	CHARGE syndrome	under_test	CHARGE syndrome	True
+GSM2800668	GSE104451	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM1338111	GSE55491	case	Silver-Russell syndrome	case	Silver-Russell syndrome	True
+GSM3267126	GSE116992	case	Coffin-Siris syndrome	case	Coffin-Siris syndrome	True
+GSM2800709	GSE104451	matched_control		matched_control		True
+GSM3267113	GSE116992	case	Coffin-Siris syndrome	case	Coffin-Siris syndrome	True
+GSM2366729	GSE89353	UNRESOLVABLE		population_control		
+GSM2562879	GSE97362	matched_control		matched_control		True
+GSM2334201	GSE87571	population_control		population_control		True
+GSM2366474	GSE89353	UNRESOLVABLE		population_control		

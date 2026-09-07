@@ -16,7 +16,7 @@ Role enum: case | matched_control | population_control | unaffected_relative | u
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import pandas as pd
 import yaml
@@ -112,7 +112,10 @@ def _tissue_token(row: pd.Series, vocab: Vocabulary) -> str | None:
     return None
 
 
-def harmonize_row(row: pd.Series, vocab: Vocabulary, series_majority_is_blood: bool) -> dict:
+def harmonize_row(
+    row: pd.Series, vocab: Vocabulary, series_majority_is_blood: bool,
+    series_has_in_scope_disorder: bool,
+) -> dict:
     disorder, disorder_field, disorder_conf = _find_disorder(row, vocab)
     role_kw, role_field, role_conf = _find_role_keyword(row, vocab)
 
@@ -121,7 +124,17 @@ def harmonize_row(row: pd.Series, vocab: Vocabulary, series_majority_is_blood: b
     in_scope = bool(disorder and disorder.get("in_scope", True))
 
     reason_parts = []
-    if role_kw:
+    # "matched_control" only means something when this row's own series actually has an
+    # in-scope disorder to be matched against; otherwise "normal"/"healthy"/"control" text is
+    # unselected population data (e.g. GSE87571's aging cohort, GSE42861's non-RA subjects).
+    if role_kw == "matched_control" and not series_has_in_scope_disorder:
+        role = "population_control"
+        confidence = role_conf
+        reason_parts.append(
+            "'matched_control' keyword matched via " + role_field +
+            ", but series has no in-scope disorder to match against -> population_control"
+        )
+    elif role_kw:
         role = role_kw
         confidence = role_conf
         reason_parts.append(f"role keyword '{role_kw}' matched via {role_field}")
@@ -165,13 +178,28 @@ def harmonize(df: pd.DataFrame) -> pd.DataFrame:
 
     # Per-series majority tissue (blood vs not), used for the wrong_tissue override.
     series_is_blood = {}
+    # Per-series: does ANY sample carry an in-scope disorder match? Used to distinguish
+    # matched_control (paired within a disorder study) from population_control (no disorder
+    # in this series at all).
+    series_has_disorder = {}
     for series_id, g in df.groupby("series_id"):
         toks = [_tissue_token(r, vocab) for _, r in g.iterrows()]
         blood_count = sum(1 for t in toks if t in vocab.blood_tissue_tokens)
         series_is_blood[series_id] = blood_count >= len(g) / 2
 
+        has_disorder = False
+        for _, r in g.iterrows():
+            d, _, _ = _find_disorder(r, vocab)
+            if d is not None and d.get("in_scope", True):
+                has_disorder = True
+                break
+        series_has_disorder[series_id] = has_disorder
+
     results = [
-        harmonize_row(row, vocab, series_is_blood[row["series_id"]])
+        harmonize_row(
+            row, vocab, series_is_blood[row["series_id"]],
+            series_has_disorder[row["series_id"]],
+        )
         for _, row in df.iterrows()
     ]
     result_df = pd.DataFrame(results)
@@ -183,9 +211,12 @@ def harmonize(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> None:
+    from epigrade.acquire.llm_escalate import escalate
+
     samples_path = paths.interim_dir() / "samples.parquet"
     df = pd.read_parquet(samples_path)
     harmonized = harmonize(df)
+    harmonized = escalate(harmonized)
 
     out_path = paths.interim_dir() / "samples_harmonized.parquet"
     harmonized.to_parquet(out_path, index=False)

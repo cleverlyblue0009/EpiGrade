@@ -1,0 +1,775 @@
+gsm_accession	series_id	role	disorder	gene	confidence	resolution_status	rule_rationale
+GSM2897980	GSE108423	unaffected_relative	Claes-Jensen syndrome	KDM5C	0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2897981	GSE108423	unaffected_relative	Claes-Jensen syndrome	KDM5C	0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2897982	GSE108423	unaffected_relative	Claes-Jensen syndrome	KDM5C	0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM3227793	GSE116300	unaffected_relative			0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM3227794	GSE116300	unaffected_relative			0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM3227795	GSE116300	unaffected_relative			0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM3227796	GSE116300	unaffected_relative			0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM3227797	GSE116300	unaffected_relative			0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM3227798	GSE116300	unaffected_relative			0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM3227766	GSE116300	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM3227767	GSE116300	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM3227768	GSE116300	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM3572709	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572715	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572717	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572718	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572719	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572720	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572721	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572722	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM3572723	GSE125367	under_test	Nicolaides-Baraitser syndrome	SMARCA2	0.75	auto_accepted	role keyword 'under_test' matched via freetext
+GSM1051525	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051526	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051527	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051528	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051529	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051530	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051531	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051532	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051546	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051547	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051548	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051554	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051598	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051600	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051611	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051612	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051613	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051614	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051615	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051616	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051617	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051636	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051637	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051640	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051670	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051676	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051677	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051678	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051679	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051680	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051681	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051682	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051683	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051684	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051685	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051686	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051694	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051695	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051696	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051697	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051698	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051699	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051700	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051701	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051702	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051703	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051704	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051705	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051706	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051707	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051708	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051709	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051711	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051718	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051719	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051720	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051721	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051722	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051723	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051724	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051725	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051728	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051729	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051734	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051735	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051736	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051737	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051738	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051739	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051740	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051741	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051743	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051747	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051748	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051750	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051753	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051776	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051778	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051779	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051780	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051783	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051785	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051794	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051795	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051796	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051797	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051798	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051799	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051800	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051801	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051818	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051819	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051829	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051830	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051849	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051856	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051858	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051861	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051866	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051867	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051868	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051869	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051870	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051871	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051872	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051875	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051877	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051878	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051879	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051880	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051881	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051882	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051885	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051886	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051887	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051888	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051889	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051890	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051891	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051892	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051893	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051894	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051895	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051896	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051897	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051898	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051899	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051900	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051908	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051909	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051910	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051911	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051912	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051913	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051914	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051915	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051916	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051917	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051918	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051919	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051920	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051921	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051922	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051930	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051931	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051932	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051933	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051934	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051935	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051936	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051937	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051938	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051939	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051940	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051941	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051942	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051943	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051944	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051945	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051946	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051947	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051948	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051956	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051957	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051958	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051959	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051960	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051961	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051969	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051970	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051971	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051972	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051973	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051974	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051975	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051976	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051977	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051978	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051979	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051980	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051981	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051982	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051983	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051984	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051985	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051986	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051987	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051988	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051989	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051990	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051991	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051992	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051993	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051994	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051995	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051996	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051997	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051998	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1051999	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052000	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052001	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052002	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052003	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052004	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052005	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052006	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052007	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052008	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052009	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052010	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052011	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052012	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052013	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052014	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052023	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052024	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052025	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052026	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052027	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052028	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052029	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052030	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052031	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052032	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052033	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052042	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052043	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052044	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052045	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052046	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052052	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052053	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052054	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052055	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052056	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052057	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052058	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052059	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052060	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052061	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052062	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052063	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052064	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052065	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052066	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052067	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052068	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052069	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052070	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052071	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052072	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052073	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052074	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052075	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052076	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052077	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052078	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052079	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052080	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052081	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052082	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052083	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052084	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052085	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052086	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052087	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052088	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052089	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052090	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052091	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052092	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052093	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052094	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052095	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052096	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052097	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052098	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052105	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052106	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052107	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052108	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052109	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052110	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052111	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052112	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052113	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052114	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052115	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052116	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052117	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052118	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052119	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052120	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052121	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052138	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052139	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052140	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052141	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052142	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052143	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052144	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052145	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052146	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052147	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052148	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052149	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052150	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052151	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052152	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052153	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052154	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052155	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052156	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052157	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052158	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052159	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052160	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052161	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052162	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052163	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052164	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052165	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052166	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052167	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052168	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052169	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052170	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052171	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052172	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052173	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052174	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052175	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052176	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052177	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052178	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052179	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052180	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052181	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052182	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052183	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052184	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052185	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052186	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052187	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052196	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052197	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052198	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052199	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052200	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052201	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052202	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052203	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052204	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1052205	GSE42861	exclude_other	Rheumatoid arthritis		0.95	auto_accepted	disorder 'Rheumatoid arthritis' matched via disease_state
+GSM1272151	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272152	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272153	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272154	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272155	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272156	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272157	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272158	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272159	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272160	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272161	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272162	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272163	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272164	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272165	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272166	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272167	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272168	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272169	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272170	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272171	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272172	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272173	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272174	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272175	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272176	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272177	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272178	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272179	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272180	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272181	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272182	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272183	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272184	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272185	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272186	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272187	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272188	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272189	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272190	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272191	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272192	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272193	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272194	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272195	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272196	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272197	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272198	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272199	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272200	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272201	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272202	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272203	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272204	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272205	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272206	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272207	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1272208	GSE52588	unaffected_relative	Down syndrome	trisomy 21	0.9	auto_accepted	role keyword 'unaffected_relative' matched via structured
+GSM1920454	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920455	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920456	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920457	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920458	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920459	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920460	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920461	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920462	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920463	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920464	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920465	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920466	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920467	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920468	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920469	GSE74432	under_test	Sotos syndrome	NSD1	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM1920401	GSE74432	wrong_tissue			0.9	auto_accepted	role keyword 'matched_control' matched via structured; tissue 'fibroblast genomic dna' mismatches series-majority blood tissue
+GSM1920402	GSE74432	wrong_tissue			0.9	auto_accepted	role keyword 'matched_control' matched via structured; tissue 'fibroblast genomic dna' mismatches series-majority blood tissue
+GSM1920403	GSE74432	wrong_tissue			0.9	auto_accepted	role keyword 'matched_control' matched via structured; tissue 'fibroblast genomic dna' mismatches series-majority blood tissue
+GSM1920404	GSE74432	wrong_tissue			0.9	auto_accepted	role keyword 'matched_control' matched via structured; tissue 'fibroblast genomic dna' mismatches series-majority blood tissue
+GSM1920424	GSE74432	wrong_tissue	Sotos syndrome	NSD1	0.9	auto_accepted	disorder 'Sotos syndrome' matched via disease_state; tissue 'fibroblast genomic dna' mismatches series-majority blood tissue
+GSM1920425	GSE74432	wrong_tissue	Sotos syndrome	NSD1	0.9	auto_accepted	disorder 'Sotos syndrome' matched via disease_state; tissue 'fibroblast genomic dna' mismatches series-majority blood tissue
+GSM1920426	GSE74432	wrong_tissue	Sotos syndrome	NSD1	0.9	auto_accepted	disorder 'Sotos syndrome' matched via disease_state; tissue 'fibroblast genomic dna' mismatches series-majority blood tissue
+GSM2337241	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337244	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337246	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337248	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337249	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337250	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337254	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337257	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337259	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337260	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337262	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337263	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337264	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337265	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337266	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337268	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337270	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337273	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337276	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337277	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337278	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337279	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337281	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337284	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337285	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337287	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337291	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337293	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337294	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337295	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337299	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337300	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337302	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337303	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337305	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337306	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337308	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337310	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337315	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337316	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337318	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337320	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337321	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337323	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337325	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337328	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337330	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337333	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337335	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337336	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337337	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337340	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337341	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337345	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337347	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337348	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337350	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337351	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337353	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337354	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337357	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337358	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337360	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337363	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337364	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337366	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337368	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337369	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337370	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337373	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337374	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337376	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337378	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337379	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337381	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337382	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337386	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337389	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337390	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337391	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337392	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337395	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337396	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337398	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337399	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337401	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337405	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337407	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337408	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337411	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337412	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337413	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337416	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337419	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337420	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337424	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337426	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337429	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337430	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337431	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337432	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337433	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337434	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337435	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337439	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337440	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337442	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337444	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337445	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337446	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337449	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337450	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337451	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337453	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337454	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337458	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337460	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337463	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337464	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337465	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337467	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337468	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337469	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337470	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337472	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337475	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337476	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337477	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337478	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337481	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337482	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337483	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337484	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337487	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337490	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337496	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337497	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337498	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337502	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337503	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337504	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337506	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337507	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337508	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337509	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337512	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337516	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337518	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337520	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337521	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337523	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337525	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337526	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337530	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337531	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337532	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337534	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337535	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337536	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337538	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337542	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337547	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337548	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337549	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337551	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337552	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337553	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337554	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337555	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337559	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337561	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337562	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337564	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337565	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337566	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337567	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337568	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337569	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337573	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337575	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337580	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337582	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337583	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337586	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337587	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337588	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337589	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337591	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337593	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337596	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337598	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337599	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337601	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337603	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337604	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337605	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337607	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337609	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337614	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337615	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337616	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337619	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2337620	GSE87648	exclude_other	Inflammatory bowel disease (Crohn's)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (Crohn's)' matched via simplified_diagnosis
+GSM2337624	GSE87648	exclude_other	Inflammatory bowel disease (ulcerative colitis)		0.95	auto_accepted	disorder 'Inflammatory bowel disease (ulcerative colitis)' matched via simplified_diagnosis
+GSM2366508	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366509	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366510	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366511	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366512	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366513	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366514	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366515	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366516	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366517	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366518	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366519	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366520	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366521	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366522	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366523	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366524	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366525	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366526	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366527	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366528	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366529	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366770	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366777	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366778	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366779	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366780	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366781	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366782	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366783	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366784	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366785	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366786	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2366787	GSE89353	unaffected_relative			0.75	auto_accepted	role keyword 'unaffected_relative' matched via freetext
+GSM2562718	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562719	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562720	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562721	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562722	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562723	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562724	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562725	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562726	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562727	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562728	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562729	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562730	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562731	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562732	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562733	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562734	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562735	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562736	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562737	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562738	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562739	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562740	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562741	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562742	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562743	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562744	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562745	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562746	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562747	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562748	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562749	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562750	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562751	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562752	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562753	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562754	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562755	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562756	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562757	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562758	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562759	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562760	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562761	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562762	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562763	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562764	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562765	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562766	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562767	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562768	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562769	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562770	GSE97362	under_test	CHARGE syndrome	CHD7	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562782	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562783	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562784	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562785	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562786	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562787	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562788	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562789	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562790	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562791	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562792	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562793	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562794	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562795	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562796	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562797	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562798	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562799	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562800	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562801	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562802	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562803	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562804	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562805	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562806	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562807	GSE97362	under_test	Kabuki syndrome type 1	KMT2D	0.9	auto_accepted	role keyword 'under_test' matched via structured
+GSM2562808	GSE97362	under_test	Kabuki syndrome type 2	KDM6A	0.9	auto_accepted	role keyword 'under_test' matched via structured
