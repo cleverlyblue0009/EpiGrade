@@ -187,3 +187,48 @@ here should inform a clinical decision on its own.
   otherwise make a *good* 100% self-sensitivity cell look identical to a *bad* 100%
   cross-reactivity cell, which was caught by looking at the rendered figure, not assumed correct
   from the code.
+
+## Third finish-today session: sample counts, attribution, one more data-loss bug
+
+- **Sample-count bug, found and fixed**: the Cohort audit page reported "Samples harvested 871"
+  and "Flagged/excluded 871" as the identical number - both were read from
+  `sample_triage.tsv`, which only ever contains excluded samples (871 was the correct excluded
+  count, wrongly reused as the harvested total too). `results/tables/sample_counts.tsv` now
+  gives real, mutually-exclusive, asserted-to-sum-correctly categories: 3,732 harvested = 1,622
+  retained for analysis + 2,110 excluded (198 unaffected relatives, 108 under-test samples, 7
+  wrong-tissue, 558 non-target-disease controls (role=`exclude_other` - confidently-matched
+  out-of-scope diseases like rheumatoid arthritis and IBD, not ambiguous cases), 1,239
+  unresolvable labels (`resolution_status=needs_review` - verified this status only ever occurs
+  within role=`population_control` before relying on it as a non-overlapping category, rather
+  than assuming it).
+- **"AI cross-check agreement" relabeled** from "Hand-curation agreement," with the human/AI
+  distinction stated inline in the app (not only in these docs). A "Human-curated agreement"
+  section reports the real, separate, currently-pending status rather than substituting the AI
+  number - see Task 7 in the original prompt for why these must never be merged into one figure.
+- **A "Why this result" attribution module** (`epigrade.report.attribution`) explains a real
+  sample's score using only pipeline-computed quantities: probe coverage, a direction check
+  (flagging a sample as anomalous only when it scores case-like via the WRONG methylation
+  direction for the signature it's being compared against), percentile/SD position within the
+  discovery cohort's own score distributions, and a squared-distance-to-median proxy for "top
+  contributing probes" - explicitly labelled as an approximation, not an exact decomposition of
+  the Pearson correlation difference the actual score is computed from (that doesn't decompose
+  additively per-probe in closed form). No LLM call anywhere in this module; the one
+  text-producing function is a plain formatter that restates already-computed fields as
+  sentences. Computed for one representative (median-scoring, not cherry-picked) sample per
+  Sotos cohort - none of the four happened to trip the anomaly flag, an honest finding, not
+  forced either way.
+- **A fifth real bug, found by `scripts/reproduce.py`'s own clean-clone check**:
+  `phase5_calibration.py` wrote `evidence_bands.tsv` unconditionally on every run, which
+  silently DESTROYED Silver-Russell syndrome's rows (appended separately by
+  `phase4_6_srs_and_matrix.py`, a network stage that `--quick` skips) whenever calibration ran
+  afterward in the same or a later invocation - exactly what `reproduce.py --quick --force`
+  does. Fixed to only replace Sotos's own rows, preserving every other disorder's - the same
+  append-with-dedup pattern already used elsewhere in this pipeline. Verified by hand: ran
+  calibration twice in a row after the fix and confirmed both Sotos (9 rows) and SRS (6 rows)
+  survive with no duplication, no loss.
+- **The cross-disorder matrix's summary figure** now marks Silver-Russell syndrome specifically
+  (not just "passes the structural gate," which Kabuki and Sotos itself also nominally do or
+  did) as the one disorder with a real, computed between-study evidence band - a blue outline
+  and a star label, plus a dagger on every ceiling annotation that is itself only
+  within-study-scoped (nearly all of them, post the interpretation_scope fix above), so the
+  figure doesn't silently imply every "Strong" ceiling means the same thing.

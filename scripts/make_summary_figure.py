@@ -32,14 +32,29 @@ def _nearest_ceiling(ceiling_df: pd.DataFrame, n_case: int) -> pd.Series:
     return ceiling_df.loc[idx]
 
 
+def _disorders_with_a_real_between_study_band() -> set[str]:
+    """The headline distinction this figure should highlight: not just 'passes the structural
+    gate' (>=2 studies exist) but 'actually has a real, computed between-study evidence band'
+    (evidence_bands.tsv, interpretation_scope=='between_study') - currently only Silver-Russell
+    syndrome, since it's the only disorder with a classifier that both builds AND was evaluated
+    across both of its studies with real study_id tags."""
+    path = paths.tables_dir() / "evidence_bands.tsv"
+    if not path.exists():
+        return set()
+    df = pd.read_csv(path, sep="\t")
+    return set(df.loc[df["interpretation_scope"] == "between_study", "disorder"].unique())
+
+
 def main() -> None:
     gate = pd.read_csv(paths.tables_dir() / "confounding_gate.tsv", sep="\t")
     ceiling = pd.read_csv(paths.tables_dir() / "attainable_ceiling.tsv", sep="\t")
+    highlighted = _disorders_with_a_real_between_study_band()
 
     gate = gate.sort_values("n_cases", ascending=False).reset_index(drop=True)
     ceilings = [_nearest_ceiling(ceiling, n) for n in gate["n_cases"]]
     gate["ceiling_band"] = [c["attainable_band"] for c in ceilings]
     gate["ceiling_n_match"] = [c["n_case"] for c in ceilings]
+    gate["ceiling_scope"] = [c.get("interpretation_scope") for c in ceilings]
 
     targets = [(paths.figures_dir(), 150, {}), (paths.figures_dir() / "slides", 200, RC)]
     for out_dir, dpi, rc in targets:
@@ -51,15 +66,37 @@ def main() -> None:
             bars = ax.bar(
                 gate["disorder"], gate["n_cases"], color=bar_colors, edgecolor="black",
             )
-            for bar, confounded in zip(bars, gate["confounded_by_design"]):
+            for bar, confounded, disorder in zip(
+                bars, gate["confounded_by_design"], gate["disorder"],
+            ):
                 if confounded:
                     bar.set_hatch("///")
+                if disorder in highlighted:
+                    bar.set_linewidth(3)
+                    bar.set_edgecolor("#0033cc")
+                    ax.text(
+                        bar.get_x() + bar.get_width() / 2, -gate["n_cases"].max() * 0.04,
+                        "★ real between-study result", ha="center", va="top",
+                        fontsize=rc.get("font.size", 9) - 3 if rc else 7.5,
+                        color="#0033cc", fontweight="bold",
+                    )
 
-            ceiling_pairs = zip(bars, gate["ceiling_band"], gate["ceiling_n_match"])
-            for bar, ceiling_band, n_match in ceiling_pairs:
+            ceiling_pairs = zip(
+                bars, gate["ceiling_band"], gate["ceiling_n_match"], gate["ceiling_scope"],
+            )
+            for bar, ceiling_band, n_match, ceiling_scope in ceiling_pairs:
                 label = ceiling_band if pd.notna(ceiling_band) else "NA"
+                # A dagger marks an illustrative within-study-only ceiling (this project's own
+                # simulated-perfect-classifier caveat - see docs/METHODS.md): even a perfect toy
+                # classifier looks clean within its own single-study dataset regardless of n, so
+                # this "Strong" is NOT the same claim as a genuine between-study "Strong" would
+                # be. Without this marker, every bar would read "ceiling: Strong" identically,
+                # erasing exactly the between-study-vs-within-study distinction this whole
+                # figure exists to make visible.
+                marker = "†" if ceiling_scope == "within_study_only" else ""
                 ax.annotate(
-                    f"ceiling:\n{label}", xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),
+                    f"ceiling:\n{label}{marker}",
+                    xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),
                     xytext=(0, 4), textcoords="offset points", ha="center", va="bottom",
                     fontsize=rc.get("font.size", 9) - 2 if rc else 8,
                 )
@@ -67,9 +104,12 @@ def main() -> None:
             ax.set_ylabel("Confirmed cases (role=case)")
             ax.set_title(
                 "Confirmed case counts by disorder, with attainable evidence ceiling\n"
-                "(hatched = single-study, confounded by design)"
+                "(hatched = single-study; ceiling† = illustrative within-study-only, "
+                "not a validated between-study bound)"
             )
-            ax.set_ylim(0, gate["n_cases"].max() * 1.15)  # headroom for the top annotation
+            # headroom above for the ceiling annotation, below for the "real result" star label
+            ax.set_ylim(-gate["n_cases"].max() * 0.10, gate["n_cases"].max() * 1.15)
+            ax.axhline(0, color="black", linewidth=0.8)
             plt.setp(ax.get_xticklabels(), rotation=35, ha="right")
 
             from matplotlib.patches import Patch
