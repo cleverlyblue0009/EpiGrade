@@ -49,6 +49,14 @@ def _read_tsv(name: str) -> list[dict]:
     return df.to_dict(orient="records")
 
 
+def _read_json(name: str):
+    p = paths.tables_dir() / name
+    if not p.exists():
+        return None
+    with open(p, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def build_resource() -> dict:
     confounding = _read_tsv("confounding_gate.tsv")
     confounding_by_disorder = {row["disorder"]: row for row in confounding}
@@ -68,6 +76,7 @@ def build_resource() -> dict:
     sample_counts = _read_tsv("sample_counts.tsv")
     agreement = _read_tsv("harmonisation_agreement.tsv")
     human_curation_rows = _read_tsv("human_curation_agreement.tsv")
+    attribution = _read_json("attribution.json")
 
     # `r.get("agree") is not None` is NOT sufficient here: the 19 UNRESOLVABLE rows read back
     # from the TSV as float NaN, not Python None (pandas' to_dict conversion), and `NaN is not
@@ -145,6 +154,7 @@ def build_resource() -> dict:
             ),
         },
         "human_curation": human_curation,
+        "attribution": attribution,
     }
     return resource
 

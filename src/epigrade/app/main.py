@@ -140,6 +140,49 @@ def page_grade(resource: dict) -> None:
         c4.metric("Cohort size", f"{row['n_case']} case / {row['n_control']} control")
         st.caption(row["reason"])
 
+        render_why_this_result(resource, disorder, row["query_point"])
+
+
+# Which attribution exemplar cohort(s) a given query point corresponds to - matches how
+# scripts/compute_attribution.py assigned query points to cohorts.
+_QUERY_POINT_COHORTS = {
+    "typical_case_score": ("discovery_case", "discovery_control", "weaver"),
+    "typical_missense_vous_score": ("missense_variant",),
+}
+
+
+def render_why_this_result(resource: dict, disorder: str, query_point: str) -> None:
+    """Task 5: an expandable panel explaining a real, computed exemplar sample's score using
+    only quantities the pipeline already worked out (epigrade.report.attribution) - no LLM
+    narrative, no biological inference beyond what was computed."""
+    attribution = resource.get("attribution")
+    if not attribution or attribution.get("disorder") != disorder:
+        return
+    wanted_cohorts = _QUERY_POINT_COHORTS.get(query_point, ())
+    examples = [e for e in attribution["examples"] if e["cohort_label"] in wanted_cohorts]
+    if not examples:
+        return
+
+    with st.expander(f"Why this result? ({len(examples)} example sample(s))"):
+        st.caption(
+            "Computed numbers only - no language model, no biological inference beyond what "
+            "was directly derived from the classifier and the beta values below."
+        )
+        for ex in examples:
+            st.markdown(f"**{ex['gsm_accession']}** ({ex['cohort_label']}) - "
+                        f"score {ex['score']:+.3f}")
+            for line in ex["explanation"]:
+                st.write(f"- {line}")
+            if ex.get("direction_anomalous"):
+                st.error(
+                    "Flagged anomalous: scores case-like but most signature probes do not "
+                    "move in the expected direction.", icon="🚩",
+                )
+            top_df = pd.DataFrame(ex["top_probes"])
+            if not top_df.empty:
+                st.caption(f"Top contributing probes ({ex['contribution_method']}):")
+                st.dataframe(top_df, use_container_width=True, hide_index=True)
+
 
 def page_calibration(resource: dict) -> None:
     st.header("Calibration curves")

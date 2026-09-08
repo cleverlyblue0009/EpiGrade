@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "db0155f4520a8a0ebdb3c9197c3ed930c7102e47",
+    "git_sha": "6c9128b793daa7d9ae099b5a52a039d633043ffb",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-09-08T04:49:11.507790+00:00"
+    "generated_at_utc": "2026-09-08T04:58:01.491117+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -1943,5 +1943,454 @@
   "human_curation": {
     "status": "pending",
     "reason": "template generated (30 rows) but not yet filled in by a curator"
+  },
+  "attribution": {
+    "disorder": "Sotos syndrome",
+    "examples": [
+      {
+        "gsm_accession": "GSM1920417",
+        "disorder": "Sotos syndrome",
+        "score": 0.13695473903060962,
+        "cohort_label": "discovery_case",
+        "n_signature_probes": 7085,
+        "n_probes_present": 7083,
+        "n_probes_missing": 2,
+        "expected_direction": "loss",
+        "pct_probes_matching_expected_direction": 0.9932232105040237,
+        "direction_anomalous": false,
+        "percentile_within_cases": 68.42105263157895,
+        "percentile_within_controls": 100.0,
+        "sd_from_control_mean": 21.9913117714348,
+        "sd_from_case_mean": 0.4880533739018854,
+        "contribution_method": "squared-distance-to-median proxy per probe (dist_to_control - dist_to_case); NOT an exact algebraic decomposition of the Pearson correlation difference",
+        "top_probes": [
+          {
+            "probe_id": "cg21105875",
+            "sample_beta": 0.0569,
+            "median_case_beta": 0.0875,
+            "median_control_beta": 0.8393,
+            "contribution": 0.61133,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg00701051",
+            "sample_beta": 0.1374,
+            "median_case_beta": 0.2092,
+            "median_control_beta": 0.8971,
+            "contribution": 0.57193,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg24187351",
+            "sample_beta": 0.0629,
+            "median_case_beta": 0.1152,
+            "median_control_beta": 0.8044,
+            "contribution": 0.54707,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg05820861",
+            "sample_beta": 0.1163,
+            "median_case_beta": 0.17,
+            "median_control_beta": 0.8489,
+            "contribution": 0.53382,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg02781088",
+            "sample_beta": 0.1841,
+            "median_case_beta": 0.3567,
+            "median_control_beta": 0.9273,
+            "contribution": 0.52262,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg12363903",
+            "sample_beta": 0.1972,
+            "median_case_beta": 0.2319,
+            "median_control_beta": 0.919,
+            "contribution": 0.51971,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg23731272",
+            "sample_beta": 0.0573,
+            "median_case_beta": 0.1562,
+            "median_control_beta": 0.7812,
+            "contribution": 0.51424,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg23634477",
+            "sample_beta": 0.1447,
+            "median_case_beta": 0.3243,
+            "median_control_beta": 0.8809,
+            "contribution": 0.5097,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg03133378",
+            "sample_beta": 0.1733,
+            "median_case_beta": 0.2064,
+            "median_control_beta": 0.8852,
+            "contribution": 0.50561,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg23218354",
+            "sample_beta": 0.0948,
+            "median_case_beta": 0.1055,
+            "median_control_beta": 0.7967,
+            "contribution": 0.49253,
+            "pulls_toward": "case"
+          }
+        ],
+        "band": "Strong",
+        "lr_point_estimate": 142.41593570327453,
+        "interpretation_scope": "within_study_only",
+        "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
+        "explanation": [
+          "Score +0.137 for GSM1920417 (discovery_case), Sotos syndrome.",
+          "Signature coverage: 7083/7085 probes present (2 missing on this sample's platform/array).",
+          "Falls at the 68th percentile of the discovery case-score distribution and the 100th percentile of the control-score distribution.",
+          "+21.99 SD from the control mean, +0.49 SD from the case mean.",
+          "99% of present signature probes show the expected 'loss' direction at this sample.",
+          "Evidence band: Strong (LR=142.42, scope=within_study_only). WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence."
+        ]
+      },
+      {
+        "gsm_accession": "GSM1920380",
+        "disorder": "Sotos syndrome",
+        "score": -0.13748684189726035,
+        "cohort_label": "discovery_control",
+        "n_signature_probes": 7085,
+        "n_probes_present": 7082,
+        "n_probes_missing": 3,
+        "expected_direction": "loss",
+        "pct_probes_matching_expected_direction": 0.38280146851171987,
+        "direction_anomalous": false,
+        "percentile_within_cases": 0.0,
+        "percentile_within_controls": 45.28301886792453,
+        "sd_from_control_mean": -0.07655940479407713,
+        "sd_from_case_mean": -7.151726131587252,
+        "contribution_method": "squared-distance-to-median proxy per probe (dist_to_control - dist_to_case); NOT an exact algebraic decomposition of the Pearson correlation difference",
+        "top_probes": [
+          {
+            "probe_id": "cg07600533",
+            "sample_beta": 0.9128,
+            "median_case_beta": 0.106,
+            "median_control_beta": 0.7951,
+            "contribution": -0.63694,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg19092981",
+            "sample_beta": 0.8795,
+            "median_case_beta": 0.0841,
+            "median_control_beta": 0.6665,
+            "contribution": -0.58723,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg24187351",
+            "sample_beta": 0.8769,
+            "median_case_beta": 0.1152,
+            "median_control_beta": 0.8044,
+            "contribution": -0.57493,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg21105875",
+            "sample_beta": 0.8455,
+            "median_case_beta": 0.0875,
+            "median_control_beta": 0.8393,
+            "contribution": -0.57455,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg25334934",
+            "sample_beta": 0.8575,
+            "median_case_beta": 0.1207,
+            "median_control_beta": 0.749,
+            "contribution": -0.53104,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg13502125",
+            "sample_beta": 0.8338,
+            "median_case_beta": 0.0988,
+            "median_control_beta": 0.6726,
+            "contribution": -0.51423,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg03133378",
+            "sample_beta": 0.9168,
+            "median_case_beta": 0.2064,
+            "median_control_beta": 0.8852,
+            "contribution": -0.50364,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg22249529",
+            "sample_beta": 0.8444,
+            "median_case_beta": 0.1226,
+            "median_control_beta": 0.6893,
+            "contribution": -0.49696,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg13568106",
+            "sample_beta": 0.9074,
+            "median_case_beta": 0.2098,
+            "median_control_beta": 0.8861,
+            "contribution": -0.48619,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg06423211",
+            "sample_beta": 0.8715,
+            "median_case_beta": 0.1472,
+            "median_control_beta": 0.6736,
+            "contribution": -0.48546,
+            "pulls_toward": "control"
+          }
+        ],
+        "band": "Strong",
+        "lr_point_estimate": 142.41593570327453,
+        "interpretation_scope": "within_study_only",
+        "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
+        "explanation": [
+          "Score -0.137 for GSM1920380 (discovery_control), Sotos syndrome.",
+          "Signature coverage: 7082/7085 probes present (3 missing on this sample's platform/array).",
+          "Falls at the 0th percentile of the discovery case-score distribution and the 45th percentile of the control-score distribution.",
+          "-0.08 SD from the control mean, -7.15 SD from the case mean.",
+          "38% of present signature probes show the expected 'loss' direction at this sample.",
+          "Evidence band: Strong (LR=142.42, scope=within_study_only). WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence."
+        ]
+      },
+      {
+        "gsm_accession": "GSM1920447",
+        "disorder": "Sotos syndrome",
+        "score": -0.13603055802403896,
+        "cohort_label": "weaver",
+        "n_signature_probes": 7085,
+        "n_probes_present": 7071,
+        "n_probes_missing": 14,
+        "expected_direction": "loss",
+        "pct_probes_matching_expected_direction": 0.5669636543628906,
+        "direction_anomalous": false,
+        "percentile_within_cases": 0.0,
+        "percentile_within_controls": 49.056603773584904,
+        "sd_from_control_mean": 0.040540506967164346,
+        "sd_from_case_mean": -7.11118676560927,
+        "contribution_method": "squared-distance-to-median proxy per probe (dist_to_control - dist_to_case); NOT an exact algebraic decomposition of the Pearson correlation difference",
+        "top_probes": [
+          {
+            "probe_id": "cg24187351",
+            "sample_beta": 0.9295,
+            "median_case_beta": 0.1152,
+            "median_control_beta": 0.8044,
+            "contribution": -0.6474,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg07600533",
+            "sample_beta": 0.8837,
+            "median_case_beta": 0.106,
+            "median_control_beta": 0.7951,
+            "contribution": -0.59687,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg05820861",
+            "sample_beta": 0.9228,
+            "median_case_beta": 0.17,
+            "median_control_beta": 0.8489,
+            "contribution": -0.56133,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg12109823",
+            "sample_beta": 0.8883,
+            "median_case_beta": 0.1319,
+            "median_control_beta": 0.7315,
+            "contribution": -0.54754,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg26865747",
+            "sample_beta": 0.8729,
+            "median_case_beta": 0.1311,
+            "median_control_beta": 0.7415,
+            "contribution": -0.533,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg00701051",
+            "sample_beta": 0.9372,
+            "median_case_beta": 0.2092,
+            "median_control_beta": 0.8971,
+            "contribution": -0.52839,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg08620329",
+            "sample_beta": 0.9267,
+            "median_case_beta": 0.1935,
+            "median_control_beta": 0.7957,
+            "contribution": -0.52042,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg23218354",
+            "sample_beta": 0.821,
+            "median_case_beta": 0.1055,
+            "median_control_beta": 0.7967,
+            "contribution": -0.51141,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg26942432",
+            "sample_beta": 0.827,
+            "median_case_beta": 0.1146,
+            "median_control_beta": 0.736,
+            "contribution": -0.49922,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg19817652",
+            "sample_beta": 0.871,
+            "median_case_beta": 0.1717,
+            "median_control_beta": 0.74,
+            "contribution": -0.47188,
+            "pulls_toward": "control"
+          }
+        ],
+        "band": "Strong",
+        "lr_point_estimate": 142.41593570327453,
+        "interpretation_scope": "within_study_only",
+        "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
+        "explanation": [
+          "Score -0.136 for GSM1920447 (weaver), Sotos syndrome.",
+          "Signature coverage: 7071/7085 probes present (14 missing on this sample's platform/array).",
+          "Falls at the 0th percentile of the discovery case-score distribution and the 49th percentile of the control-score distribution.",
+          "+0.04 SD from the control mean, -7.11 SD from the case mean.",
+          "57% of present signature probes show the expected 'loss' direction at this sample.",
+          "Evidence band: Strong (LR=142.42, scope=within_study_only). WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence."
+        ]
+      },
+      {
+        "gsm_accession": "GSM1920465",
+        "disorder": "Sotos syndrome",
+        "score": 0.01595730405051954,
+        "cohort_label": "missense_variant",
+        "n_signature_probes": 7085,
+        "n_probes_present": 7084,
+        "n_probes_missing": 1,
+        "expected_direction": "loss",
+        "pct_probes_matching_expected_direction": 0.9760022586109542,
+        "direction_anomalous": false,
+        "percentile_within_cases": 0.0,
+        "percentile_within_controls": 100.0,
+        "sd_from_control_mean": 12.261897596049543,
+        "sd_from_case_mean": -2.8802180114047027,
+        "contribution_method": "squared-distance-to-median proxy per probe (dist_to_control - dist_to_case); NOT an exact algebraic decomposition of the Pearson correlation difference",
+        "top_probes": [
+          {
+            "probe_id": "cg21105875",
+            "sample_beta": 0.07,
+            "median_case_beta": 0.0875,
+            "median_control_beta": 0.8393,
+            "contribution": 0.59164,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg00701051",
+            "sample_beta": 0.852,
+            "median_case_beta": 0.2092,
+            "median_control_beta": 0.8971,
+            "contribution": -0.41119,
+            "pulls_toward": "control"
+          },
+          {
+            "probe_id": "cg15371801",
+            "sample_beta": 0.0531,
+            "median_case_beta": 0.0171,
+            "median_control_beta": 0.6277,
+            "contribution": 0.32882,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg23689428",
+            "sample_beta": 0.3062,
+            "median_case_beta": 0.224,
+            "median_control_beta": 0.8595,
+            "contribution": 0.29932,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg16293892",
+            "sample_beta": 0.105,
+            "median_case_beta": 0.0577,
+            "median_control_beta": 0.6535,
+            "contribution": 0.29863,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg26153054",
+            "sample_beta": 0.2379,
+            "median_case_beta": 0.1867,
+            "median_control_beta": 0.7757,
+            "contribution": 0.28662,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg09634707",
+            "sample_beta": 0.1146,
+            "median_case_beta": 0.1121,
+            "median_control_beta": 0.6386,
+            "contribution": 0.27456,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg19786602",
+            "sample_beta": 0.0633,
+            "median_case_beta": 0.0832,
+            "median_control_beta": 0.5832,
+            "contribution": 0.26995,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg04157161",
+            "sample_beta": 0.3946,
+            "median_case_beta": 0.4263,
+            "median_control_beta": 0.9117,
+            "contribution": 0.26631,
+            "pulls_toward": "case"
+          },
+          {
+            "probe_id": "cg01996116",
+            "sample_beta": 0.2165,
+            "median_case_beta": 0.106,
+            "median_control_beta": 0.7431,
+            "contribution": 0.26517,
+            "pulls_toward": "case"
+          }
+        ],
+        "band": "Supporting",
+        "lr_point_estimate": 4.27991793208837,
+        "interpretation_scope": "within_study_only",
+        "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
+        "explanation": [
+          "Score +0.016 for GSM1920465 (missense_variant), Sotos syndrome.",
+          "Signature coverage: 7084/7085 probes present (1 missing on this sample's platform/array).",
+          "Falls at the 0th percentile of the discovery case-score distribution and the 100th percentile of the control-score distribution.",
+          "+12.26 SD from the control mean, -2.88 SD from the case mean.",
+          "98% of present signature probes show the expected 'loss' direction at this sample.",
+          "Evidence band: Supporting (LR=4.28, scope=within_study_only). WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence."
+        ]
+      }
+    ]
   }
 }
