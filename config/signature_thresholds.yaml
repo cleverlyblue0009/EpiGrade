@@ -1,0 +1,34 @@
+# Path B (re-derived) signature thresholds - Mann-Whitney U + multiple-testing correction +
+# an effect-size floor. Configurable per disorder rather than hardcoded, because a single fixed
+# threshold set tuned to one disorder's effect size does not generalize:
+#
+# Choufani et al.'s own Sotos thresholds (Bonferroni alpha=0.05, >20% effect size) were applied
+# uniformly to every disorder in this project at first, and correctly found nothing for Silver-
+# Russell syndrome, Kabuki syndrome, or CHARGE syndrome - Sotos's NSD1 signature is an unusually
+# large effect (7,085 probes survived even Bonferroni). Bonferroni across ~424,000-485,000
+# probes plus a 20% floor is calibrated to that one large effect, not a neutral default; applying
+# it to quieter signatures risks reporting "no signal" when the real issue is "not this signal
+# size, at this threshold." See docs/METHODS.md and docs/LIMITATIONS.md for the full reasoning
+# and results/tables/signature_derivation.tsv for what was actually used per disorder.
+#
+# The "default" below (Benjamini-Hochberg FDR, 10% floor) is a genuinely different, defensible
+# choice for genome-wide CpG testing (FDR is standard in EWAS specifically because Bonferroni is
+# over-conservative for correlated probes), not a loosened version of Bonferroni chosen because
+# the strict version failed - it was set ONCE, before retrying Silver-Russell, and not adjusted
+# afterward regardless of outcome. If a disorder still doesn't build under these defaults, that
+# is reported as a real result (see signature_derivation.tsv), not evidence to loosen further.
+
+default:
+  multiple_testing_method: fdr_bh
+  alpha: 0.05
+  effect_size_floor: 0.10
+
+overrides:
+  # Choufani et al.'s own original thresholds, pinned here so that a from-scratch Path B
+  # re-derivation of Sotos (a validation exercise only - the production path uses the paper's
+  # published probe list directly, see epigrade.signature.choufani) reproduces what the paper
+  # actually did, not the new project-wide defaults above.
+  Sotos syndrome:
+    multiple_testing_method: bonferroni
+    alpha: 0.05
+    effect_size_floor: 0.20

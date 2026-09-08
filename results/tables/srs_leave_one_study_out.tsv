@@ -1,3 +1,3 @@
-train_study	test_study	n_signature_probes	test_case_sensitivity	test_control_specificity
-GSE104451	GSE55491	0	NA - Path B found 66 probes with >20% effect size but none reached genome-wide Bonferroni significance (smallest p=2.8e-7 vs ~1.0e-7 threshold) at n=21 LOM-confirmed cases/16 controls - underpowered, not signal-free; no classifier built rather than forced	NA
-GSE55491	GSE104451	0	NA - could not build classifier (18 cases, 6 controls: too few controls for a stable Path B derivation)	NA
+train_study	test_study	n_signature_probes	test_case_sensitivity	test_control_specificity	signature_source
+GSE104451	GSE55491	64	5/18	6/6	rederived_not_published
+GSE55491	GSE104451	0	NA - Path B (fdr_bh, alpha=0.05, effect_size_floor=10%) found 0 significant probes at n_case=18, n_control=6: 11515 probes show >10% effect size, but the smallest Mann-Whitney p-value (3.62e-04) is close to but mostly does not reach significance under fdr_bh at this cohort size - a real statistical-power limitation, not evidence of no signal. (also: only 6 controls, too few for a stable derivation regardless of threshold)	NA	NA

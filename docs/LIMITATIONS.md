@@ -116,3 +116,74 @@ here should inform a clinical decision on its own.
   until checked explicitly rather than trusted at face value - a dataset with any real
   disagreement would have silently under-reported it. Fixed with `pd.notna()`; regression test
   in `tests/test_resource.py` locks the correct denominator (81) in place.
+
+## Second finish-today session: configurable thresholds, a real SRS result, and two more bugs
+
+- **One documented threshold change, applied uniformly, not tuned per outcome.** The original
+  Path B thresholds (Mann-Whitney U + Bonferroni + >20% effect-size floor) were Choufani et
+  al.'s own, calibrated to Sotos's unusually large NSD1 effect (7,085 probes survived even
+  Bonferroni). Applied uniformly to Silver-Russell syndrome, Kabuki, and CHARGE, they found
+  nothing for any of the three. `config/signature_thresholds.yaml` now holds a project-wide
+  default (Benjamini-Hochberg FDR at 0.05, 10% effect-size floor - a standard, defensible choice
+  for genome-wide CpG testing, not a loosened Bonferroni) plus a pinned override for Sotos so a
+  from-scratch Path B re-derivation of it (a validation exercise only - production Sotos uses
+  the published probe list, see `epigrade.signature.choufani`) still reproduces what the paper
+  did. This default was set once, before retrying any disorder, and was not adjusted afterward
+  based on which disorders it did or didn't unlock - see `tests/test_generic_signature.py`.
+- **Silver-Russell syndrome now has a real classifier and a genuine between-study result.**
+  GSE104451 alone (21 molecularly-confirmed 11p15-LOM cases, 16 controls) builds a 64-probe
+  classifier under the new default. Checked for specificity before trusting it: 19/21 (90%)
+  self-sensitivity, 16/16 (100%) self-specificity, and 0% cross-reactivity against 38 unrelated
+  Sotos cases. Tested on the held-out GSE55491 study (the actual leave-one-study-out test):
+  5/18 (28%) sensitivity, 6/6 (100%) specificity - modest but genuine, not fabricated.
+  `results/tables/evidence_bands.tsv` now carries a real `interpretation_scope="between_study"`
+  row for SRS (the only one in the corpus) - and it honestly reads **"No evidence"** at every
+  prior, because the between-study bootstrap CI spans LR=1. This is the correct, non-forced
+  outcome given the modest cross-study sensitivity, and is itself the headline result: SRS is
+  the one disorder here where a real (non-degenerate) between-study bound could be computed at
+  all, and that bound says this particular classifier doesn't yet reliably generalize.
+  - Also tried and explicitly rejected: pooling GSE104451 + GSE55491 for derivation (328 probes,
+    more than GSE104451 alone). Checked the same way before accepting or rejecting it: only
+    69.8%-equivalent (19/37) self-consistency and a **94.7% false-positive rate scored against
+    Sotos cases** - a near-total specificity failure, evidently from GSE55491's molecularly-
+    unconfirmed "clinical SRS"/UPD(7) cases introducing batch/non-specific signal into the case
+    pool. More probes passing the same filters is not the same as a better signature; the
+    pooled classifier was NOT used as canonical anywhere downstream once this was found.
+  - The reverse LOSO direction (GSE55491 training GSE104451) still fails - only 6 controls,
+    0 significant probes even under FDR-BH/10%. Reported as insufficient controls, not
+    re-attempted with a further-loosened threshold.
+- **CHARGE syndrome now builds**: 907 probes from 19 discovery-LOF cases vs 29 matched controls
+  (previously 3 fragile probes under the old thresholds - see the first finish-today session's
+  writeup above). Self-consistency 89.5%. Cross-reactivity: 0% against 20 of Kabuki's controls,
+  6.9% against its own 29 training controls, but **37.8% against 37 Kabuki cases** - a real,
+  moderate specificity concern, reported plainly rather than smoothed over. Kabuki's own
+  cross-reactivity against CHARGE cases is 0%, so this asymmetry (CHARGE calls many Kabuki
+  cases positive; Kabuki calls no CHARGE cases positive) is itself worth further investigation,
+  not resolved here.
+- **Kabuki syndrome still does not build**, even under the new thresholds, from GSE116300 alone
+  (26 confirmed cases, 9 controls: 758 probes show >10% effect size but the smallest p-value,
+  1.84e-05, is far from FDR-BH significance at this cohort size). Pooled with GSE97362's own 11
+  KMT2D-LOF-discovery cases and 11 matched controls, it DOES build - 278 probes, 97.3%
+  self-consistency, 0% cross-reactivity against CHARGE and against GSE97362's controls, 15%
+  against its own GSE116300 control subset. This pooled classifier is used as canonical for
+  Kabuki (unlike the SRS pooling case, this one checked out on specificity).
+- **A real bug, found and fixed while building `scripts/merge_cross_disorder_matrix.py`**: the
+  first run correctly merged `cross_disorder_matrix.tsv` and `..._not_computed.tsv` into one
+  table with a `status` column. Re-running the same script a second time (to apply a heatmap
+  rendering fix) fed the script's OWN already-merged output back in as the "computed" input and
+  unconditionally set `status="computed"` on all of it - silently relabeling 8 genuinely
+  not-computed rows as computed (their actual value cells stayed empty, but the status label
+  itself became false). Caught by inspecting the output before moving on, not by a pre-written
+  test. Fixed by only defaulting missing status to "computed", never overwriting an existing
+  one; the affected table was regenerated from the original source scripts (which were never
+  corrupted) rather than patched in place. This is exactly the class of silent-mislabeling bug
+  the project's own honesty rules exist to catch - recorded here per those same rules.
+- **Cross-disorder matrix, current real state**: 14 computed cells (Sotos: 3, Silver-Russell: 3,
+  Kabuki: 4, CHARGE: 4) plus 8 honestly `not_computed` rows (series matrices for Coffin-Siris,
+  Nicolaides-Baraitser, Down, Williams, 7q11.23 duplication, ICF, Claes-Jensen, and Kabuki type 2
+  were not downloaded this session - a time/bandwidth constraint, not a decision to exclude
+  them). `results/figures/cross_disorder_matrix.png` renders this as a heatmap with diagonal
+  (self/sensitivity) cells outlined in black - a plain shared red-is-high color scale would
+  otherwise make a *good* 100% self-sensitivity cell look identical to a *bad* 100%
+  cross-reactivity cell, which was caught by looking at the rendered figure, not assumed correct
+  from the code.

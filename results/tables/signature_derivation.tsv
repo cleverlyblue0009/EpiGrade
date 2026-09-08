@@ -1,0 +1,7 @@
+disorder	multiple_testing_method	alpha	effect_size_floor	n_probes_significant	n_probes_after_effect_filter	signature_source
+Silver-Russell syndrome	fdr_bh	0.05	0.1	324	64	rederived_not_published
+Silver-Russell syndrome	fdr_bh	0.05	0.1	0	0	rederived_not_published
+Silver-Russell syndrome	fdr_bh	0.05	0.1	14602	328	rederived_not_published
+Kabuki syndrome type 1	fdr_bh	0.05	0.1	0	0	rederived_not_published
+CHARGE syndrome	fdr_bh	0.05	0.1	9951	907	rederived_not_published
+Kabuki syndrome type 1	fdr_bh	0.05	0.1	2854	278	rederived_not_published

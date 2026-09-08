@@ -2,26 +2,33 @@
 list (i.e. anything other than Sotos syndrome, which uses the exact published signature -
 see epigrade.signature.choufani).
 
-This is the project spec's "Path B" procedure, simplified for the general case: Mann-Whitney U
-per probe, Bonferroni-corrected, plus a mean-beta-difference effect-size filter. The published
+This is the project spec's "Path B" procedure, generalized: Mann-Whitney U per probe, a
+multiple-testing correction, plus a mean-beta-difference effect-size filter. The published
 Sotos derivation additionally ran three "family-swap" trials to avoid inflating significance
 from related family members contributing near-duplicate methylation profiles; that step is
 Sotos-specific (it depended on the paper's own family relationship annotations) and is not
 generalized here - this is a real methodological simplification, not an oversight, and is
 documented as such in docs/METHODS.md and in each classifier's metadata.
+
+Thresholds (which correction method, alpha, effect-size floor) are configurable per disorder via
+config/signature_thresholds.yaml, not hardcoded - see that file for why a single fixed threshold
+set tuned to Sotos's unusually large effect does not generalize to quieter signatures.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
 
 import numpy as np
 import pandas as pd
+import yaml
 from scipy.stats import mannwhitneyu, pearsonr
 from statsmodels.stats.multitest import multipletests
 
+from epigrade import paths
+
 MIN_CASES_TO_BUILD_CLASSIFIER = 10
-EFFECT_SIZE_THRESHOLD = 0.20  # >20% mean beta difference, matching the Sotos derivation
 # A signature with too few probes is fragile even when every probe in it is nominally
 # "significant": score_samples requires this many valid probes per sample to compute a score at
 # all (a 2-3 probe median-correlation score is dominated by individual outlier readings, nothing
@@ -30,6 +37,20 @@ EFFECT_SIZE_THRESHOLD = 0.20  # >20% mean beta difference, matching the Sotos de
 # scores and crashed the scoring step - not a fabricated classifier, but not a usable one
 # either. Treated as equally underpowered as finding zero probes, not silently accepted.
 MIN_SIGNATURE_SIZE = 10
+
+
+@lru_cache(maxsize=1)
+def _load_thresholds_config() -> dict:
+    with open(paths.repo_root() / "config" / "signature_thresholds.yaml", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+def get_thresholds(disorder: str | None) -> dict:
+    """Returns {multiple_testing_method, alpha, effect_size_floor} for this disorder - the
+    config's override if one exists, else the project default. See
+    config/signature_thresholds.yaml for what these are and why."""
+    cfg = _load_thresholds_config()
+    return cfg["overrides"].get(disorder, cfg["default"])
 
 
 REDERIVED_NOT_PUBLISHED = "rederived_not_published"
@@ -51,13 +72,29 @@ class Classifier:
 
 
 def derive_signature(
-    beta: pd.DataFrame, case_ids: list[str], control_ids: list[str], alpha: float = 0.05,
+    beta: pd.DataFrame, case_ids: list[str], control_ids: list[str],
+    disorder: str | None = None, alpha: float | None = None,
+    effect_size_floor: float | None = None, multiple_testing_method: str | None = None,
 ) -> pd.DataFrame:
-    """Mann-Whitney U + Bonferroni + >20% mean-beta-difference effect-size filter.
+    """Mann-Whitney U + a multiple-testing correction + an effect-size filter.
 
-    Returns a DataFrame indexed by probe_id with columns p_value, bonferroni_p, delta_beta,
+    Thresholds come from config/signature_thresholds.yaml for `disorder` unless overridden by
+    the explicit keyword arguments (used by callers that already resolved thresholds themselves,
+    e.g. to log them once rather than re-reading the config per call).
+
+    Returns a DataFrame indexed by probe_id with columns p_value, corrected_p, delta_beta,
     direction - restricted to probes passing both the significance and effect-size filters.
     """
+    thresholds = get_thresholds(disorder)
+    alpha = thresholds["alpha"] if alpha is None else alpha
+    effect_size_floor = (
+        thresholds["effect_size_floor"] if effect_size_floor is None else effect_size_floor
+    )
+    method = (
+        thresholds["multiple_testing_method"]
+        if multiple_testing_method is None else multiple_testing_method
+    )
+
     case_vals = beta[case_ids].values
     control_vals = beta[control_ids].values
     n_probes = beta.shape[0]
@@ -71,8 +108,8 @@ def derive_signature(
     p_values = np.asarray(p_values, dtype=float)
     # rows where either group had too few non-NaN values come back NaN from scipy already
     valid = ~np.isnan(p_values)
-    bonferroni_p = np.full(n_probes, np.nan)
-    bonferroni_p[valid] = multipletests(p_values[valid], alpha=alpha, method="bonferroni")[1]
+    corrected_p = np.full(n_probes, np.nan)
+    corrected_p[valid] = multipletests(p_values[valid], alpha=alpha, method=method)[1]
 
     mean_case = np.nanmean(case_vals, axis=1)
     mean_control = np.nanmean(control_vals, axis=1)
@@ -80,34 +117,38 @@ def derive_signature(
 
     result = pd.DataFrame({
         "p_value": p_values,
-        "bonferroni_p": bonferroni_p,
+        "corrected_p": corrected_p,
         "delta_beta": delta_beta,
         "abs_delta_beta": np.abs(delta_beta),
         "direction": np.where(delta_beta < 0, "loss", "gain"),
     }, index=beta.index)
 
     sig = result[
-        (result["bonferroni_p"] < alpha) & (result["abs_delta_beta"] > EFFECT_SIZE_THRESHOLD)
+        (result["corrected_p"] < alpha) & (result["abs_delta_beta"] > effect_size_floor)
     ]
-    return sig.sort_values("bonferroni_p")
+    return sig.sort_values("corrected_p")
 
 
 def diagnose_underpowered(
-    beta: pd.DataFrame, case_ids: list[str], control_ids: list[str], alpha: float = 0.05,
+    beta: pd.DataFrame, case_ids: list[str], control_ids: list[str],
+    disorder: str | None = None,
 ) -> str:
     """When derive_signature finds fewer than MIN_SIGNATURE_SIZE significant probes (zero, or a
     fragile handful), this distinguishes 'genuinely no signal' from 'underpowered' - the same
-    distinction found by hand for Silver-Russell syndrome (phase4_6), Kabuki syndrome, and
-    CHARGE syndrome (phase4_kabuki_charge) during development. The key fact: with a Mann-Whitney
-    U test, the smallest achievable p-value is bounded by the sample sizes themselves (roughly
-    1/C(n1+n2, min(n1,n2))) - a small control or case arm can make genome-wide Bonferroni
-    significance structurally unreachable, or barely reachable for only a few probes, even for a
-    real, substantial effect - which is exactly the situation this reports rather than silently
-    building a fragile few-probe classifier (found via CHARGE syndrome deriving exactly 3
-    "significant" probes, which then broke scoring downstream) or nothing at all, with no
-    explanation either way.
+    distinction found by hand for Silver-Russell syndrome, Kabuki syndrome, and CHARGE syndrome
+    during development. The key fact: with a Mann-Whitney U test, the smallest achievable
+    p-value is bounded by the sample sizes themselves (roughly 1/C(n1+n2, min(n1,n2))) - a small
+    control or case arm can make significance structurally unreachable, or barely reachable for
+    only a few probes, even for a real, substantial effect - which is exactly the situation this
+    reports rather than silently building a fragile few-probe classifier or nothing at all, with
+    no explanation either way.
     """
-    sig = derive_signature(beta, case_ids, control_ids, alpha=alpha)
+    thresholds = get_thresholds(disorder)
+    alpha = thresholds["alpha"]
+    effect_size_floor = thresholds["effect_size_floor"]
+    method = thresholds["multiple_testing_method"]
+
+    sig = derive_signature(beta, case_ids, control_ids, disorder=disorder)
     n_found = len(sig)
 
     case_vals = beta[case_ids].values
@@ -118,13 +159,14 @@ def diagnose_underpowered(
         )
     p_values = np.asarray(p_values, dtype=float)
     valid = ~np.isnan(p_values)
-    bonf_threshold = alpha / int(valid.sum())
+    corrected_p = np.full(len(p_values), np.nan)
+    corrected_p[valid] = multipletests(p_values[valid], alpha=alpha, method=method)[1]
     min_p = float(np.nanmin(p_values))
 
     mean_case = np.nanmean(case_vals, axis=1)
     mean_control = np.nanmean(control_vals, axis=1)
-    n_effect = int((np.abs(mean_case - mean_control) > EFFECT_SIZE_THRESHOLD).sum())
-    n_bonf_only = int((p_values[valid] < bonf_threshold).sum())
+    n_effect = int((np.abs(mean_case - mean_control) > effect_size_floor).sum())
+    n_sig_only = int((corrected_p[valid] < alpha).sum())
     n_both = n_found  # derive_signature already requires both criteria together
 
     found_clause = (
@@ -134,27 +176,68 @@ def diagnose_underpowered(
              "handful of individual probe readings, unlike Sotos's robust 7,085-probe signature)"
     )
     # Two distinct failure shapes worth telling apart: pure power-starvation (few/no probes
-    # clear Bonferroni at all, e.g. Silver-Russell/Kabuki), vs a significance/effect-size
-    # mismatch (many probes ARE genome-wide significant but with small, highly-consistent
-    # differences that don't clear the effect-size bar, e.g. CHARGE: 35 Bonferroni-significant
-    # probes, only 3 also >20% effect size) - both are honestly "not a usable signature under
-    # this project's fixed criteria," but for different underlying reasons worth distinguishing.
+    # clear the correction at all, e.g. Silver-Russell/Kabuki), vs a significance/effect-size
+    # mismatch (many probes ARE significant but with small, highly-consistent differences that
+    # don't clear the effect-size bar, e.g. CHARGE under the old Bonferroni/20% thresholds) -
+    # both are honestly "not a usable signature under this disorder's fixed criteria," but for
+    # different underlying reasons worth distinguishing.
     overlap_note = (
-        f" Of {int(valid.sum())} tests, {n_bonf_only} probes are Bonferroni-significant on "
-        f"their own and {n_effect} show >{EFFECT_SIZE_THRESHOLD:.0%} effect size on their own, "
-        f"but only {n_both} probes satisfy both criteria together - the two are not the same "
+        f" Of {int(valid.sum())} tests, {n_sig_only} probes clear {method} alpha={alpha} on "
+        f"their own and {n_effect} show >{effect_size_floor:.0%} effect size on their own, but "
+        f"only {n_both} probes satisfy both criteria together - the two are not the same "
         "probes, not a lack of any significant signal."
-        if n_bonf_only > MIN_SIGNATURE_SIZE and n_found < MIN_SIGNATURE_SIZE
+        if n_sig_only > MIN_SIGNATURE_SIZE and n_found < MIN_SIGNATURE_SIZE
         else ""
     )
     return (
-        f"Path B {found_clause} at n_case={len(case_ids)}, n_control={len(control_ids)}: "
-        f"{n_effect} probes show >{EFFECT_SIZE_THRESHOLD:.0%} effect size, but the smallest "
-        f"Mann-Whitney p-value ({min_p:.2e}) is close to but mostly does not reach the "
-        f"genome-wide Bonferroni threshold ({bonf_threshold:.2e} for {int(valid.sum())} "
-        "tests) - a real statistical-power limitation given this cohort's size, not evidence "
-        f"of no signal.{overlap_note}"
+        f"Path B ({method}, alpha={alpha}, effect_size_floor={effect_size_floor:.0%}) "
+        f"{found_clause} at n_case={len(case_ids)}, n_control={len(control_ids)}: "
+        f"{n_effect} probes show >{effect_size_floor:.0%} effect size, but the smallest "
+        f"Mann-Whitney p-value ({min_p:.2e}) is close to but mostly does not reach "
+        f"significance under {method} at this cohort size - a real statistical-power "
+        f"limitation, not evidence of no signal.{overlap_note}"
     )
+
+
+def derivation_stats(
+    beta: pd.DataFrame, case_ids: list[str], control_ids: list[str], disorder: str | None = None,
+) -> dict:
+    """One row of what was actually tried, for results/tables/signature_derivation.tsv: the
+    exact thresholds resolved for `disorder`, and the resulting probe counts at each filter
+    stage. Always computed fresh from the same Mann-Whitney + correction procedure
+    build_classifier uses - never a number carried over or guessed from a previous run."""
+    thresholds = get_thresholds(disorder)
+    alpha = thresholds["alpha"]
+    effect_size_floor = thresholds["effect_size_floor"]
+    method = thresholds["multiple_testing_method"]
+
+    case_vals = beta[case_ids].values
+    control_vals = beta[control_ids].values
+    with np.errstate(invalid="ignore"):
+        _, p_values = mannwhitneyu(
+            case_vals, control_vals, axis=1, alternative="two-sided", nan_policy="omit",
+        )
+    p_values = np.asarray(p_values, dtype=float)
+    valid = ~np.isnan(p_values)
+    corrected_p = np.full(len(p_values), np.nan)
+    corrected_p[valid] = multipletests(p_values[valid], alpha=alpha, method=method)[1]
+
+    mean_case = np.nanmean(case_vals, axis=1)
+    mean_control = np.nanmean(control_vals, axis=1)
+    delta = np.abs(mean_case - mean_control)
+
+    n_significant = int((corrected_p[valid] < alpha).sum())
+    n_after_effect = int(((corrected_p < alpha) & (delta > effect_size_floor) & valid).sum())
+
+    return {
+        "disorder": disorder,
+        "multiple_testing_method": method,
+        "alpha": alpha,
+        "effect_size_floor": effect_size_floor,
+        "n_probes_significant": n_significant,
+        "n_probes_after_effect_filter": n_after_effect,
+        "signature_source": REDERIVED_NOT_PUBLISHED,
+    }
 
 
 def build_classifier(
@@ -163,10 +246,11 @@ def build_classifier(
     """Returns None (not a fabricated classifier) if there aren't enough cases, or if the
     derivation finds fewer than MIN_SIGNATURE_SIZE significant probes - both are reported as NA
     upstream, not forced. A handful of "significant" probes is not treated as a usable signature
-    (see MIN_SIGNATURE_SIZE)."""
+    (see MIN_SIGNATURE_SIZE). Thresholds come from config/signature_thresholds.yaml for
+    `disorder` - see get_thresholds()."""
     if len(case_ids) < MIN_CASES_TO_BUILD_CLASSIFIER:
         return None
-    sig = derive_signature(beta, case_ids, control_ids)
+    sig = derive_signature(beta, case_ids, control_ids, disorder=disorder)
     if len(sig) < MIN_SIGNATURE_SIZE:
         return None
     probes = sig.index

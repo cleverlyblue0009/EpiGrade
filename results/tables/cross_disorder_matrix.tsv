@@ -1,4 +1,23 @@
-classifier	scored_disorder	n	fraction_positive	note	signature_source
-Sotos syndrome	Silver-Russell syndrome	63	0.0	7085 shared probes between Sotos signature and the SRS-series beta matrices	published_probe_list
-Sotos syndrome	Sotos syndrome (self)	38	1.0	from phase 3 (leave-one-out guarded for discovery samples)	published_probe_list
-Sotos syndrome	Weaver syndrome	8	0.0	n=8 < 10: too small to interpret precisely, shown for reference	published_probe_list
+classifier	scored_disorder	status	n	fraction_positive	signature_source	reason
+Sotos syndrome	Silver-Russell syndrome	computed	63.0	0.0	published_probe_list	7085 shared probes between Sotos signature and the SRS-series beta matrices
+Sotos syndrome	Sotos syndrome (self)	computed	38.0	1.0	published_probe_list	from phase 3 (leave-one-out guarded for discovery samples)
+Sotos syndrome	Weaver syndrome	computed	8.0	0.0	published_probe_list	n=8 < 10: too small to interpret precisely, shown for reference
+Silver-Russell syndrome	Sotos syndrome	computed	38.0	0.0	published_probe_list	58 shared probes (Path B derived signature, GSE104451-only classifier)
+Silver-Russell syndrome	Weaver syndrome	computed	8.0	0.0	published_probe_list	58 shared probes (Path B derived signature, GSE104451-only classifier)
+Silver-Russell syndrome	Silver-Russell syndrome (self)	computed	37.0		published_probe_list	NOT leave-one-out guarded (scored on its own GSE104451 training data): sensitivity 19/21 cases, specificity 16/16 controls - see the leave-one-study-out table above for the genuine held-out (GSE55491) result this classifier actually achieved
+Kabuki syndrome type 1	Kabuki syndrome type 1 (self)	computed	37.0	0.973	rederived_not_published	NOT leave-one-out guarded (scored on its own training data)
+Kabuki syndrome type 1	pooled_control (GSE116300)	computed	20.0	0.15	rederived_not_published	
+Kabuki syndrome type 1	pooled_control (GSE97362)	computed	29.0	0.0	rederived_not_published	
+Kabuki syndrome type 1	CHARGE syndrome	computed	19.0	0.0	rederived_not_published	
+CHARGE syndrome	CHARGE syndrome (self)	computed	19.0	0.895	rederived_not_published	NOT leave-one-out guarded (scored on its own training data)
+CHARGE syndrome	pooled_control (GSE116300)	computed	20.0	0.2	rederived_not_published	
+CHARGE syndrome	pooled_control (GSE97362)	computed	29.0	0.069	rederived_not_published	
+CHARGE syndrome	Kabuki syndrome type 1	computed	37.0	0.378	rederived_not_published	
+Kabuki syndrome type 2	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+Coffin-Siris syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+Nicolaides-Baraitser syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+Down syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+Williams syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+7q11.23 duplication syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+ICF syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+Claes-Jensen syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero

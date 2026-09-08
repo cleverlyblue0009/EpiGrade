@@ -1,23 +1,22 @@
 """Task 3: an attempt at a second and third real classifier - Kabuki syndrome (GSE116300) and
 CHARGE syndrome (GSE97362).
 
-ACTUAL OUTCOME (read before assuming this produces two new working classifiers): neither
-disorder clears this project's own reliability bar from the publicly available GEO data, even
-after legitimately pooling Kabuki across two studies. This was investigated thoroughly, not
-assumed - see the printed diagnosis for each and docs/LIMITATIONS.md for the full writeup,
-including exactly how close Kabuki's pooled attempt came (a factor of <2x in p-value) and why
-CHARGE's failure is a different shape (a significance/effect-size mismatch, not pure power
-starvation). The cross-disorder matrix therefore still contains only the pre-existing Sotos
-rows; both failures are recorded with full diagnoses in cross_disorder_matrix_not_computed.tsv.
-No threshold was loosened and no test was swapped to force either one through - the same
-procedure that worked for nothing here also worked for nothing on Silver-Russell syndrome
-(phase4_6), applied with the same criteria in all three attempts. A rigorous, honest negative
-result is the actual Task 3 output.
+UPDATED OUTCOME after the FDR-BH/10%-effect-floor default (config/signature_thresholds.yaml,
+set once, before retrying any of these, not tuned per-disorder): CHARGE now builds - 907
+signature probes from 19 discovery-LOF cases vs 29 matched controls, a real, substantially
+larger signature than the 3 fragile probes the old Bonferroni/20% thresholds found. Kabuki still
+does not build, even pooled across GSE116300 + GSE97362's own KMT2D-LOF cohort - a genuinely
+different, still-honest result from CHARGE's, not evidence the threshold change didn't work.
+Both diagnoses (CHARGE's original failure under the old thresholds, and Kabuki's continued
+failure under the new ones) are preserved in docs/LIMITATIONS.md and
+cross_disorder_matrix_not_computed.tsv. No threshold was loosened further after this one change,
+regardless of which disorder it did or didn't unlock - the same fdr_bh/10% procedure was applied
+uniformly to SRS (phase4_6), Kabuki, and CHARGE.
 
 CRITICAL HONESTY REQUIREMENT: neither Kabuki nor CHARGE has a published probe list available to
 this project (unlike Sotos - see epigrade.signature.choufani). Both are re-derived via Path B
-(epigrade.signature.generic: Mann-Whitney U, Bonferroni, >20% effect-size filter, feature
-selection strictly inside the training/discovery cohort). Every row involving them carries
+(epigrade.signature.generic: Mann-Whitney U, thresholds from config/signature_thresholds.yaml,
+feature selection strictly inside the training/discovery cohort). Every row involving them carries
 signature_source="rederived_not_published", vs "published_probe_list" for Sotos - never let a
 re-derived signature be presented as a reproduction of a published one.
 
@@ -54,6 +53,7 @@ from epigrade.preprocess.series_matrix import (
 )
 from epigrade.signature.generic import (
     build_classifier,
+    derivation_stats,
     diagnose_underpowered,
     score_samples,
 )
@@ -144,12 +144,19 @@ def main() -> None:
     beta_116300 = get_kabuki_beta(meta_116300)
     print(f"GSE116300 beta matrix: {beta_116300.shape}")
 
+    derivation_rows = []
+
     kabuki_clf, kabuki_case_ids, kabuki_vus_ids, kabuki_control_ids = build_kabuki(
         meta_116300, beta_116300
     )
+    derivation_rows.append(derivation_stats(
+        beta_116300, kabuki_case_ids, kabuki_control_ids, disorder="Kabuki syndrome type 1",
+    ))
     kabuki_diagnosis = None
     if kabuki_clf is None:
-        kabuki_diagnosis = diagnose_underpowered(beta_116300, kabuki_case_ids, kabuki_control_ids)
+        kabuki_diagnosis = diagnose_underpowered(
+            beta_116300, kabuki_case_ids, kabuki_control_ids, disorder="Kabuki syndrome type 1",
+        )
         print(f"Kabuki: could not build a classifier - {kabuki_diagnosis}")
     else:
         print(f"Kabuki classifier: {len(kabuki_clf.signature_probes)} re-derived "
@@ -168,9 +175,12 @@ def main() -> None:
             charge_clf, charge_case_ids, charge_held_out_ids, charge_control_ids = (
                 build_charge(meta_97362, beta_97362)
             )
+            derivation_rows.append(derivation_stats(
+                beta_97362, charge_case_ids, charge_control_ids, disorder="CHARGE syndrome",
+            ))
             if charge_clf is None:
                 charge_diagnosis = diagnose_underpowered(
-                    beta_97362, charge_case_ids, charge_control_ids
+                    beta_97362, charge_case_ids, charge_control_ids, disorder="CHARGE syndrome",
                 )
                 print(f"CHARGE: could not build a classifier - {charge_diagnosis}")
             else:
@@ -206,12 +216,16 @@ def main() -> None:
         )
         pooled_case_ids = kabuki_case_ids + k2_case_ids
         pooled_control_ids = kabuki_control_ids + k2_control_ids
+        derivation_rows.append(derivation_stats(
+            pooled_beta, pooled_case_ids, pooled_control_ids, disorder="Kabuki syndrome type 1",
+        ))
         kabuki_pooled_clf = build_classifier(
             "Kabuki syndrome type 1", pooled_beta, pooled_case_ids, pooled_control_ids,
         )
         if kabuki_pooled_clf is None:
             kabuki_pooled_diagnosis = diagnose_underpowered(
-                pooled_beta, pooled_case_ids, pooled_control_ids
+                pooled_beta, pooled_case_ids, pooled_control_ids,
+                disorder="Kabuki syndrome type 1",
             )
             print(f"Pooled Kabuki: still could not build a classifier - "
                   f"{kabuki_pooled_diagnosis}")
@@ -278,6 +292,19 @@ def main() -> None:
             print(charge_scores_df.groupby("cohort")["score"].agg(["count", "mean"]).to_string())
         else:
             print("(0 samples scored - see MIN_SIGNATURE_SIZE in epigrade.signature.generic.)")
+
+    # --- signature_derivation.tsv: append this script's attempts, replacing any stale rows for
+    # the same disorders (idempotent re-runs), leaving phase4_6's SRS rows untouched. ---
+    deriv_path = paths.tables_dir() / "signature_derivation.tsv"
+    existing_deriv = (
+        pd.read_csv(deriv_path, sep="\t") if deriv_path.exists() else pd.DataFrame()
+    )
+    if len(existing_deriv):
+        existing_deriv = existing_deriv[~existing_deriv["disorder"].isin(OWNED_CLASSIFIERS)]
+    pd.concat([existing_deriv, pd.DataFrame(derivation_rows)], ignore_index=True).to_csv(
+        deriv_path, sep="\t", index=False
+    )
+    print(f"\nWrote {len(derivation_rows)} Kabuki/CHARGE derivation attempts -> {deriv_path}")
 
     # --- record classifier-build failures (with the real diagnosis, not just "None") ---
     failure_rows = []

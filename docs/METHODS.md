@@ -117,3 +117,36 @@ negative (clean separation); 8/8 Weaver syndrome samples score negative; the 16 
 VOUS split exactly 9 positive / 7 negative. As a bonus check not in the original three, all 19
 held-out replication Sotos cases also scored positive. See `scripts/demo_sotos.py`,
 `results/tables/sotos_reproduction_summary.tsv`, and `results/figures/sotos_*.png`.
+
+## Phase 4/6: Path B thresholds, and the Silver-Russell/Kabuki/CHARGE classifiers
+
+Path B (deriving a signature with no published probe list: Mann-Whitney U + a multiple-testing
+correction + an effect-size floor) needs thresholds, and one fixed set does not generalize.
+Applying Choufani et al.'s own Sotos thresholds (Bonferroni alpha=0.05, >20% effect size -
+calibrated to NSD1's unusually large effect, where 7,085 probes survived even Bonferroni)
+uniformly to every other disorder found nothing for Silver-Russell syndrome, Kabuki, or CHARGE.
+
+`config/signature_thresholds.yaml` now holds a project-wide default - Benjamini-Hochberg FDR at
+alpha=0.05, 10% effect-size floor - with Sotos's original thresholds pinned as a per-disorder
+override (used only if Sotos is ever re-derived from scratch as a validation exercise; the
+production path uses the published probe list directly, see `epigrade.signature.choufani`). FDR
+control, not a loosened Bonferroni, is the standard alternative for genome-wide CpG testing
+specifically because Bonferroni is notoriously over-conservative for the correlated probes
+methylation arrays produce. This default was set once, before retrying any disorder under it,
+and was not adjusted afterward based on outcome - see `results/tables/signature_derivation.tsv`
+for the exact parameters and probe counts behind every attempt, and `tests/test_generic_signature.py`
+for the tests locking in that Sotos's own thresholds stay pinned regardless.
+
+Under this default: Silver-Russell syndrome (GSE104451 alone, 21 confirmed 11p15-LOM cases vs
+16 controls) builds a 64-probe classifier with clean specificity (0% cross-reactivity against
+Sotos) and a genuine, if modest, leave-one-study-out result on GSE55491 (5/18 sensitivity, 6/6
+specificity) - the only disorder in this corpus with a real between-study evidence band (see
+`results/tables/evidence_bands.tsv`; it reads "No evidence" at every prior, honestly reflecting
+that modest cross-study sensitivity). CHARGE syndrome (GSE97362, 19 cases vs 29 controls) builds
+907 probes with 89.5% self-consistency but a real, moderate specificity concern - 37.8%
+cross-reactivity against Kabuki cases. Kabuki does not build from GSE116300 alone, but does when
+pooled with GSE97362's own KMT2D-LOF cohort (278 probes, 97.3% self-consistency, 0%
+cross-reactivity against CHARGE). See `docs/LIMITATIONS.md` for the full writeup, including a
+pooling attempt for SRS that was tried and explicitly rejected after failing a specificity check
+(94.7% false-positive rate against Sotos), and a real data-corruption bug found and fixed while
+building the merged cross-disorder matrix.

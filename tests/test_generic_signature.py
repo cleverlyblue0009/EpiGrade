@@ -94,3 +94,42 @@ def test_diagnose_underpowered_reports_the_actual_probe_count():
     msg = diagnose_underpowered(beta, case_ids, control_ids)
     assert isinstance(msg, str) and len(msg) > 0
     assert str(len(case_ids)) in msg and str(len(control_ids)) in msg
+
+
+def test_default_thresholds_are_fdr_bh_not_bonferroni():
+    """The project-wide default (config/signature_thresholds.yaml), set once before retrying
+    Silver-Russell syndrome, not loosened afterward based on outcome."""
+    from epigrade.signature.generic import get_thresholds
+
+    default = get_thresholds("Some disorder with no override")
+    assert default["multiple_testing_method"] == "fdr_bh"
+    assert default["effect_size_floor"] == 0.10
+
+
+def test_sotos_thresholds_are_pinned_to_the_published_bonferroni_ones():
+    """Sotos's production path never calls this module at all (it uses the published probe
+    list - see epigrade.signature.choufani) - this only guards a from-scratch Path B
+    re-derivation of Sotos as a validation exercise, so it reproduces what the paper actually
+    did rather than picking up the new project-wide defaults."""
+    from epigrade.signature.generic import get_thresholds
+
+    sotos = get_thresholds("Sotos syndrome")
+    assert sotos["multiple_testing_method"] == "bonferroni"
+    assert sotos["effect_size_floor"] == 0.20
+
+
+def test_configurable_thresholds_change_derive_signature_output():
+    """A disorder-specific override actually takes effect, not just exists in the config."""
+    beta, case_ids, control_ids = _synthetic(n_case=15, n_control=20, effect=0.35, noise=0.1)
+    loose = derive_signature(
+        beta, case_ids, control_ids, multiple_testing_method="fdr_bh", alpha=0.05,
+        effect_size_floor=0.10,
+    )
+    strict = derive_signature(
+        beta, case_ids, control_ids, multiple_testing_method="bonferroni", alpha=0.05,
+        effect_size_floor=0.20,
+    )
+    assert len(loose) >= len(strict), (
+        "FDR-BH + a lower effect floor should never recover FEWER probes than Bonferroni + a "
+        "higher one on the same data"
+    )
