@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "28b2e09a8ed58a2bd4cb3564c697d27ecbad8c35",
+    "git_sha": "db0155f4520a8a0ebdb3c9197c3ed930c7102e47",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-09-07T17:26:18.353133+00:00"
+    "generated_at_utc": "2026-09-08T04:49:11.507790+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -1398,6 +1398,138 @@
       "within_study_ci_low": 1.3805074290170605,
       "within_study_ci_high": 5.369881184525508,
       "interpretation_scope": "within_study_only"
+    },
+    {
+      "disorder": "Silver-Russell syndrome",
+      "query_point": "typical_case_score",
+      "query_score": -0.0887,
+      "prior": 0.05,
+      "lr_point_estimate": 3.147280126160273,
+      "lr_ci_low": 1.526103497082934,
+      "lr_ci_high": 9.058497845783997,
+      "points_conservative": 0.5771931793528761,
+      "band": "No evidence",
+      "posterior_prob": 0.1421068459978848,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 63,
+      "n_control": 22,
+      "n_studies_case": 2,
+      "n_studies_control": 2,
+      "confounded_by_design": false,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)",
+      "within_study_ci_low": 1.3663858604968084,
+      "within_study_ci_high": 11.4136825699307,
+      "interpretation_scope": "between_study"
+    },
+    {
+      "disorder": "Silver-Russell syndrome",
+      "query_point": "typical_case_score",
+      "query_score": -0.0887,
+      "prior": 0.1,
+      "lr_point_estimate": 3.147280126160273,
+      "lr_ci_low": 1.526103497082934,
+      "lr_ci_high": 9.058497845783997,
+      "points_conservative": 0.5771931793528761,
+      "band": "No evidence",
+      "posterior_prob": 0.2590934014423788,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 63,
+      "n_control": 22,
+      "n_studies_case": 2,
+      "n_studies_control": 2,
+      "confounded_by_design": false,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)",
+      "within_study_ci_low": 1.3663858604968084,
+      "within_study_ci_high": 11.4136825699307,
+      "interpretation_scope": "between_study"
+    },
+    {
+      "disorder": "Silver-Russell syndrome",
+      "query_point": "typical_case_score",
+      "query_score": -0.0887,
+      "prior": 0.2,
+      "lr_point_estimate": 3.147280126160273,
+      "lr_ci_low": 1.526103497082934,
+      "lr_ci_high": 9.058497845783997,
+      "points_conservative": 0.5771931793528761,
+      "band": "No evidence",
+      "posterior_prob": 0.4403465473027546,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 63,
+      "n_control": 22,
+      "n_studies_case": 2,
+      "n_studies_control": 2,
+      "confounded_by_design": false,
+      "reason": "band assigned from the bootstrap CI bound closer to LR=1 (conservative)",
+      "within_study_ci_low": 1.3663858604968084,
+      "within_study_ci_high": 11.4136825699307,
+      "interpretation_scope": "between_study"
+    },
+    {
+      "disorder": "Silver-Russell syndrome",
+      "query_point": "borderline_score_zero",
+      "query_score": 0.0,
+      "prior": 0.05,
+      "lr_point_estimate": 0.6493831171430063,
+      "lr_ci_low": 0.3315230610011557,
+      "lr_ci_high": 1.6027812959473453,
+      "points_conservative": 0.0,
+      "band": "No evidence",
+      "posterior_prob": 0.0330485243873358,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 63,
+      "n_control": 22,
+      "n_studies_case": 2,
+      "n_studies_control": 2,
+      "confounded_by_design": false,
+      "reason": "bootstrap CI spans LR=1 (no evidence, regardless of the point estimate)",
+      "within_study_ci_low": 0.4795058930451142,
+      "within_study_ci_high": 3.2338838089940847,
+      "interpretation_scope": "between_study"
+    },
+    {
+      "disorder": "Silver-Russell syndrome",
+      "query_point": "borderline_score_zero",
+      "query_score": 0.0,
+      "prior": 0.1,
+      "lr_point_estimate": 0.6493831171430063,
+      "lr_ci_low": 0.3315230610011557,
+      "lr_ci_high": 1.6027812959473453,
+      "points_conservative": 0.0,
+      "band": "No evidence",
+      "posterior_prob": 0.0672978893323572,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 63,
+      "n_control": 22,
+      "n_studies_case": 2,
+      "n_studies_control": 2,
+      "confounded_by_design": false,
+      "reason": "bootstrap CI spans LR=1 (no evidence, regardless of the point estimate)",
+      "within_study_ci_low": 0.4795058930451142,
+      "within_study_ci_high": 3.2338838089940847,
+      "interpretation_scope": "between_study"
+    },
+    {
+      "disorder": "Silver-Russell syndrome",
+      "query_point": "borderline_score_zero",
+      "query_score": 0.0,
+      "prior": 0.2,
+      "lr_point_estimate": 0.6493831171430063,
+      "lr_ci_low": 0.3315230610011557,
+      "lr_ci_high": 1.6027812959473453,
+      "points_conservative": 0.0,
+      "band": "No evidence",
+      "posterior_prob": 0.1396708124027526,
+      "evidence_anchor": "PP4_diagnostic",
+      "n_case": 63,
+      "n_control": 22,
+      "n_studies_case": 2,
+      "n_studies_control": 2,
+      "confounded_by_design": false,
+      "reason": "bootstrap CI spans LR=1 (no evidence, regardless of the point estimate)",
+      "within_study_ci_low": 0.4795058930451142,
+      "within_study_ci_high": 3.2338838089940847,
+      "interpretation_scope": "between_study"
     }
   ],
   "attainable_ceiling": [
@@ -1542,108 +1674,202 @@
       {
         "classifier": "Sotos syndrome",
         "scored_disorder": "Silver-Russell syndrome",
-        "n": 63,
+        "status": "computed",
+        "n": 63.0,
         "fraction_positive": 0.0,
-        "note": "7085 shared probes between Sotos signature and the SRS-series beta matrices",
-        "signature_source": "published_probe_list"
+        "signature_source": "published_probe_list",
+        "reason": "7085 shared probes between Sotos signature and the SRS-series beta matrices"
       },
       {
         "classifier": "Sotos syndrome",
         "scored_disorder": "Sotos syndrome (self)",
-        "n": 38,
+        "status": "computed",
+        "n": 38.0,
         "fraction_positive": 1.0,
-        "note": "from phase 3 (leave-one-out guarded for discovery samples)",
-        "signature_source": "published_probe_list"
+        "signature_source": "published_probe_list",
+        "reason": "from phase 3 (leave-one-out guarded for discovery samples)"
       },
       {
         "classifier": "Sotos syndrome",
         "scored_disorder": "Weaver syndrome",
-        "n": 8,
+        "status": "computed",
+        "n": 8.0,
         "fraction_positive": 0.0,
-        "note": "n=8 < 10: too small to interpret precisely, shown for reference",
-        "signature_source": "published_probe_list"
+        "signature_source": "published_probe_list",
+        "reason": "n=8 < 10: too small to interpret precisely, shown for reference"
+      },
+      {
+        "classifier": "Silver-Russell syndrome",
+        "scored_disorder": "Sotos syndrome",
+        "status": "computed",
+        "n": 38.0,
+        "fraction_positive": 0.0,
+        "signature_source": "published_probe_list",
+        "reason": "58 shared probes (Path B derived signature, GSE104451-only classifier)"
+      },
+      {
+        "classifier": "Silver-Russell syndrome",
+        "scored_disorder": "Weaver syndrome",
+        "status": "computed",
+        "n": 8.0,
+        "fraction_positive": 0.0,
+        "signature_source": "published_probe_list",
+        "reason": "58 shared probes (Path B derived signature, GSE104451-only classifier)"
+      },
+      {
+        "classifier": "Silver-Russell syndrome",
+        "scored_disorder": "Silver-Russell syndrome (self)",
+        "status": "computed",
+        "n": 37.0,
+        "fraction_positive": null,
+        "signature_source": "published_probe_list",
+        "reason": "NOT leave-one-out guarded (scored on its own GSE104451 training data): sensitivity 19/21 cases, specificity 16/16 controls - see the leave-one-study-out table above for the genuine held-out (GSE55491) result this classifier actually achieved"
+      },
+      {
+        "classifier": "Kabuki syndrome type 1",
+        "scored_disorder": "Kabuki syndrome type 1 (self)",
+        "status": "computed",
+        "n": 37.0,
+        "fraction_positive": 0.973,
+        "signature_source": "rederived_not_published",
+        "reason": "NOT leave-one-out guarded (scored on its own training data)"
+      },
+      {
+        "classifier": "Kabuki syndrome type 1",
+        "scored_disorder": "pooled_control (GSE116300)",
+        "status": "computed",
+        "n": 20.0,
+        "fraction_positive": 0.15,
+        "signature_source": "rederived_not_published",
+        "reason": null
+      },
+      {
+        "classifier": "Kabuki syndrome type 1",
+        "scored_disorder": "pooled_control (GSE97362)",
+        "status": "computed",
+        "n": 29.0,
+        "fraction_positive": 0.0,
+        "signature_source": "rederived_not_published",
+        "reason": null
+      },
+      {
+        "classifier": "Kabuki syndrome type 1",
+        "scored_disorder": "CHARGE syndrome",
+        "status": "computed",
+        "n": 19.0,
+        "fraction_positive": 0.0,
+        "signature_source": "rederived_not_published",
+        "reason": null
+      },
+      {
+        "classifier": "CHARGE syndrome",
+        "scored_disorder": "CHARGE syndrome (self)",
+        "status": "computed",
+        "n": 19.0,
+        "fraction_positive": 0.895,
+        "signature_source": "rederived_not_published",
+        "reason": "NOT leave-one-out guarded (scored on its own training data)"
+      },
+      {
+        "classifier": "CHARGE syndrome",
+        "scored_disorder": "pooled_control (GSE116300)",
+        "status": "computed",
+        "n": 20.0,
+        "fraction_positive": 0.2,
+        "signature_source": "rederived_not_published",
+        "reason": null
+      },
+      {
+        "classifier": "CHARGE syndrome",
+        "scored_disorder": "pooled_control (GSE97362)",
+        "status": "computed",
+        "n": 29.0,
+        "fraction_positive": 0.069,
+        "signature_source": "rederived_not_published",
+        "reason": null
+      },
+      {
+        "classifier": "CHARGE syndrome",
+        "scored_disorder": "Kabuki syndrome type 1",
+        "status": "computed",
+        "n": 37.0,
+        "fraction_positive": 0.378,
+        "signature_source": "rederived_not_published",
+        "reason": null
       }
     ],
     "not_computed": [
       {
         "classifier": "Kabuki syndrome type 2",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       },
       {
         "classifier": "Coffin-Siris syndrome",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       },
       {
         "classifier": "Nicolaides-Baraitser syndrome",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       },
       {
         "classifier": "Down syndrome",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       },
       {
         "classifier": "Williams syndrome",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       },
       {
         "classifier": "7q11.23 duplication syndrome",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       },
       {
         "classifier": "ICF syndrome",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       },
       {
         "classifier": "Claes-Jensen syndrome",
         "scored_disorder": "NOT COMPUTED",
+        "status": "not_computed",
         "n": null,
         "fraction_positive": null,
-        "note": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero",
-        "reason": null
-      },
-      {
-        "classifier": "Kabuki syndrome type 1",
-        "scored_disorder": "(classifier build)",
-        "n": null,
-        "fraction_positive": null,
-        "note": null,
-        "reason": "GSE116300 alone: Path B found 0 significant probes at n_case=26, n_control=9: 44 probes show >20% effect size, but the smallest Mann-Whitney p-value (1.84e-05) is close to but mostly does not reach the genome-wide Bonferroni threshold (1.04e-07 for 482879 tests) - a real statistical-power limitation given this cohort's size, not evidence of no signal. | Pooled with GSE97362's KMT2D LOF cohort: Path B found 0 significant probes at n_case=37, n_control=20: 16 probes show >20% effect size, but the smallest Mann-Whitney p-value (5.25e-08) is close to but mostly does not reach the genome-wide Bonferroni threshold (1.04e-07 for 482879 tests) - a real statistical-power limitation given this cohort's size, not evidence of no signal."
-      },
-      {
-        "classifier": "CHARGE syndrome",
-        "scored_disorder": "(classifier build)",
-        "n": null,
-        "fraction_positive": null,
-        "note": null,
-        "reason": "Path B found only 3 significant probes (below the minimum reliable signature size of 10 - a classifier this thin would be dominated by a handful of individual probe readings, unlike Sotos's robust 7,085-probe signature) at n_case=19, n_control=29: 32 probes show >20% effect size, but the smallest Mann-Whitney p-value (9.79e-09) is close to but mostly does not reach the genome-wide Bonferroni threshold (1.03e-07 for 485577 tests) - a real statistical-power limitation given this cohort's size, not evidence of no signal. Of 485577 tests, 35 probes are Bonferroni-significant on their own and 32 show >20% effect size on their own, but only 3 probes satisfy both criteria together - the two are not the same probes, not a lack of any significant signal."
+        "signature_source": null,
+        "reason": "series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero"
       }
     ]
   },
@@ -1652,24 +1878,70 @@
       {
         "train_study": "GSE104451",
         "test_study": "GSE55491",
-        "n_signature_probes": 0,
-        "test_case_sensitivity": "NA - Path B found 66 probes with >20% effect size but none reached genome-wide Bonferroni significance (smallest p=2.8e-7 vs ~1.0e-7 threshold) at n=21 LOM-confirmed cases/16 controls - underpowered, not signal-free; no classifier built rather than forced",
-        "test_control_specificity": "NA"
+        "n_signature_probes": 64,
+        "test_case_sensitivity": "5/18",
+        "test_control_specificity": "6/6",
+        "signature_source": "rederived_not_published"
       },
       {
         "train_study": "GSE55491",
         "test_study": "GSE104451",
         "n_signature_probes": 0,
-        "test_case_sensitivity": "NA - could not build classifier (18 cases, 6 controls: too few controls for a stable Path B derivation)",
-        "test_control_specificity": "NA"
+        "test_case_sensitivity": "NA - Path B (fdr_bh, alpha=0.05, effect_size_floor=10%) found 0 significant probes at n_case=18, n_control=6: 11515 probes show >10% effect size, but the smallest Mann-Whitney p-value (3.62e-04) is close to but mostly does not reach significance under fdr_bh at this cohort size - a real statistical-power limitation, not evidence of no signal. (also: only 6 controls, too few for a stable derivation regardless of threshold)",
+        "test_control_specificity": "NA",
+        "signature_source": "NA"
       }
     ]
   },
   "harmonisation": {
-    "n_samples_total": 871,
-    "n_flagged_or_excluded": 871,
+    "sample_counts": [
+      {
+        "category": "harvested",
+        "count": 3732,
+        "kind": "total"
+      },
+      {
+        "category": "retained_for_analysis",
+        "count": 1622,
+        "kind": "total"
+      },
+      {
+        "category": "excluded_total",
+        "count": 2110,
+        "kind": "total"
+      },
+      {
+        "category": "unaffected_relatives",
+        "count": 198,
+        "kind": "excluded_reason"
+      },
+      {
+        "category": "under_test_samples",
+        "count": 108,
+        "kind": "excluded_reason"
+      },
+      {
+        "category": "wrong_tissue",
+        "count": 7,
+        "kind": "excluded_reason"
+      },
+      {
+        "category": "non_target_disease_controls",
+        "count": 558,
+        "kind": "excluded_reason"
+      },
+      {
+        "category": "unresolvable_labels",
+        "count": 1239,
+        "kind": "excluded_reason"
+      }
+    ],
     "hand_curation_agreement_rate": 1.0,
     "hand_curation_n_scoreable": 81,
     "hand_curation_note": "AI-performed cross-check against a second independent implementation of the same judgment, not independent human clinical curation - see docs/METHODS.md."
+  },
+  "human_curation": {
+    "status": "pending",
+    "reason": "template generated (30 rows) but not yet filled in by a curator"
   }
 }

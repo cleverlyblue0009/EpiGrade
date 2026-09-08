@@ -145,6 +145,48 @@ def main() -> None:
     triage.to_csv(triage_path, sep="\t", index=False)
     print(f"Wrote {len(triage)} excluded/flagged samples -> {triage_path}")
 
+    # --- sample_counts.tsv: mutually-exclusive categories that sum to the harvested total.
+    # Fixes a real bug: the app's Cohort audit page was reporting "Samples harvested 871" AND
+    # "Flagged/excluded 871" as the SAME number, because it was reading both from this triage
+    # table (which only ever contains excluded samples) instead of the full harvested set.
+    # needs_review only ever occurs within role=population_control in this pipeline (verified:
+    # every other role is always auto_accepted) - checked before writing this, not assumed. ---
+    is_unresolved = harmonized["resolution_status"] == "needs_review"
+    retained_roles = {"case", "matched_control", "population_control"}
+    retained_mask = harmonized["role"].isin(retained_roles) & ~is_unresolved
+
+    def _role_count(role: str) -> int:
+        return int((harmonized.role == role).sum())
+
+    count_rows = [
+        {"category": "harvested", "count": len(harmonized), "kind": "total"},
+        {"category": "retained_for_analysis", "count": int(retained_mask.sum()),
+         "kind": "total"},
+        {"category": "excluded_total", "count": int((~retained_mask).sum()), "kind": "total"},
+        {"category": "unaffected_relatives", "count": _role_count("unaffected_relative"),
+         "kind": "excluded_reason"},
+        {"category": "under_test_samples", "count": _role_count("under_test"),
+         "kind": "excluded_reason"},
+        {"category": "wrong_tissue", "count": _role_count("wrong_tissue"),
+         "kind": "excluded_reason"},
+        {"category": "non_target_disease_controls", "count": _role_count("exclude_other"),
+         "kind": "excluded_reason"},
+        {"category": "unresolvable_labels", "count": int(is_unresolved.sum()),
+         "kind": "excluded_reason"},
+    ]
+    n_reasons_sum = sum(r["count"] for r in count_rows if r["kind"] == "excluded_reason")
+    assert n_reasons_sum == count_rows[2]["count"], (
+        f"excluded reasons ({n_reasons_sum}) must sum to excluded_total "
+        f"({count_rows[2]['count']}) - categories are not mutually exclusive"
+    )
+    assert count_rows[1]["count"] + count_rows[2]["count"] == count_rows[0]["count"], (
+        "retained + excluded must sum to harvested"
+    )
+    counts_path = paths.tables_dir() / "sample_counts.tsv"
+    pd.DataFrame(count_rows).to_csv(counts_path, sep="\t", index=False)
+    print(f"\nWrote sample count breakdown -> {counts_path}")
+    print(pd.DataFrame(count_rows).to_string())
+
     # --- 100-sample hand-curation agreement check ---
     per_series_samples = [
         g.sample(n=min(len(g), 6), random_state=RANDOM_SEED)

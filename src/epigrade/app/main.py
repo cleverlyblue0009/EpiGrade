@@ -195,13 +195,48 @@ def page_cohort_audit(resource: dict) -> None:
 
     st.subheader("Label harmonization")
     h = resource["harmonisation"]
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Samples harvested", h["n_samples_total"] or "NA")
-    c2.metric("Flagged/excluded", h["n_flagged_or_excluded"])
+    counts = {r["category"]: r["count"] for r in h.get("sample_counts", [])}
+    if counts:
+        c1, c2, c3 = st.columns(3)
+        c1.metric("Samples harvested", counts.get("harvested", "NA"))
+        c2.metric("Retained for analysis", counts.get("retained_for_analysis", "NA"))
+        c3.metric("Excluded", counts.get("excluded_total", "NA"))
+        st.caption(
+            "Retained + excluded sum to harvested exactly (asserted when this table is "
+            "built - see scripts/phase1_report.py). Excluded, by reason:"
+        )
+        reason_rows = [
+            {"reason": r["category"].replace("_", " "), "n": r["count"]}
+            for r in h["sample_counts"] if r.get("kind") == "excluded_reason"
+        ]
+        st.dataframe(pd.DataFrame(reason_rows), use_container_width=True, hide_index=True)
+    else:
+        st.info("No sample_counts data in this resource yet.")
+
     rate = h["hand_curation_agreement_rate"]
-    c3.metric("Hand-curation agreement",
-              f"{rate:.0%}" if rate is not None else "NA")
-    st.caption(h["hand_curation_note"])
+    st.metric("AI cross-check agreement", f"{rate:.0%}" if rate is not None else "NA")
+    st.caption(
+        "This is an AI-performed cross-check against a second, independent implementation "
+        "of the same rule-based judgment - NOT independent human clinical curation. See "
+        "'Human-curated agreement' below for the (separate, not yet available) human number, "
+        "and docs/METHODS.md for the full distinction. " + h["hand_curation_note"]
+    )
+
+    st.subheader("Human-curated agreement")
+    human = resource.get("human_curation")
+    if human is None:
+        st.info(
+            "No human-curated agreement data in this resource yet - a curator hasn't filled "
+            "in data/external/human_curated.csv. Never substituted with the AI number above."
+        )
+    elif human.get("status") == "pending":
+        st.warning(f"**Human curation pending**: {human.get('reason', 'not yet filled in')}")
+    else:
+        st.metric("Human-vs-pipeline agreement", f"{human['agreement_rate']:.0%}")
+        st.caption(
+            f"{human.get('n_scoreable', '?')} human-scored comparisons - reported separately "
+            "from the AI cross-check above, never merged into one figure."
+        )
 
 
 def page_cross_disorder(resource: dict) -> None:

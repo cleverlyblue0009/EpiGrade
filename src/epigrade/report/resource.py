@@ -55,14 +55,19 @@ def build_resource() -> dict:
 
     evidence = _read_tsv("evidence_bands.tsv")
     ceiling = _read_tsv("attainable_ceiling.tsv")
-    cross_matrix = _read_tsv("cross_disorder_matrix.tsv")
-    cross_matrix_pending = _read_tsv("cross_disorder_matrix_not_computed.tsv")
+    # cross_disorder_matrix.tsv is now ONE table with a status column (Task 3) - the separate
+    # _not_computed.tsv file no longer exists; split it back into computed/not_computed here
+    # only for the resource's own JSON shape, which the app already expects as two lists.
+    cross_matrix_all = _read_tsv("cross_disorder_matrix.tsv")
+    cross_matrix = [r for r in cross_matrix_all if r.get("status") != "not_computed"]
+    cross_matrix_pending = [r for r in cross_matrix_all if r.get("status") == "not_computed"]
     sotos_summary = _read_tsv("sotos_reproduction_summary.tsv")
     sotos_scores = _read_tsv("sotos_scores.tsv")
     probe_filtering = _read_tsv("probe_filtering.tsv")
     loso = _read_tsv("srs_leave_one_study_out.tsv")
-    triage = _read_tsv("sample_triage.tsv")
+    sample_counts = _read_tsv("sample_counts.tsv")
     agreement = _read_tsv("harmonisation_agreement.tsv")
+    human_curation_rows = _read_tsv("human_curation_agreement.tsv")
 
     # `r.get("agree") is not None` is NOT sufficient here: the 19 UNRESOLVABLE rows read back
     # from the TSV as float NaN, not Python None (pandas' to_dict conversion), and `NaN is not
@@ -75,6 +80,27 @@ def build_resource() -> dict:
         sum(1 for r in scoreable_agreement if r["agree"]) / len(scoreable_agreement)
         if scoreable_agreement else None
     )
+
+    # Human curation (Task 7): reported SEPARATELY from the AI cross-check above, never merged
+    # into one figure. The file has two shapes depending on whether a human has filled in the
+    # template yet - scripts/score_human_curation.py.
+    human_curation = None
+    if human_curation_rows:
+        if "status" in human_curation_rows[0]:
+            human_curation = {
+                "status": "pending",
+                "reason": human_curation_rows[0].get("reason", "not yet filled in"),
+            }
+        else:
+            human_scoreable = [r for r in human_curation_rows if pd.notna(r.get("agree"))]
+            human_curation = {
+                "status": "scored",
+                "agreement_rate": (
+                    sum(1 for r in human_scoreable if r["agree"]) / len(human_scoreable)
+                    if human_scoreable else None
+                ),
+                "n_scoreable": len(human_scoreable),
+            }
 
     resource = {
         "resource_version": RESOURCE_VERSION,
@@ -105,8 +131,12 @@ def build_resource() -> dict:
             "silver_russell_syndrome": loso,
         },
         "harmonisation": {
-            "n_samples_total": len({r["gsm_accession"] for r in triage}) if triage else None,
-            "n_flagged_or_excluded": len(triage),
+            # Real bug fixed here: this used to read BOTH "harvested" and "flagged/excluded"
+            # from the triage table, which only ever contains excluded samples - so the two
+            # numbers were always identical (871 == 871) regardless of the actual corpus size.
+            # sample_counts.tsv (scripts/phase1_report.py) now provides mutually-exclusive,
+            # asserted-to-sum-correctly categories instead.
+            "sample_counts": sample_counts,
             "hand_curation_agreement_rate": agreement_rate,
             "hand_curation_n_scoreable": len(scoreable_agreement),
             "hand_curation_note": (
@@ -114,6 +144,7 @@ def build_resource() -> dict:
                 "same judgment, not independent human clinical curation - see docs/METHODS.md."
             ),
         },
+        "human_curation": human_curation,
     }
     return resource
 

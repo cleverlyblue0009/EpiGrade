@@ -76,6 +76,25 @@ def test_harmonisation_scoreable_count_excludes_unresolvable_rows():
     )
 
 
+def test_sample_counts_add_up_and_are_not_the_same_number_twice():
+    """Regression test for a real bug: the Cohort audit page reported 'Samples harvested 871'
+    and 'Flagged/excluded 871' as the identical number, because both were being read from
+    sample_triage.tsv - which only ever contains EXCLUDED samples. sample_counts.tsv
+    (scripts/phase1_report.py) now provides real, mutually-exclusive categories."""
+    resource = build_resource()
+    counts = {r["category"]: r["count"] for r in resource["harmonisation"]["sample_counts"]}
+    assert counts["harvested"] > 0
+    assert counts["harvested"] != counts["excluded_total"], (
+        "harvested and excluded must not be the same number - that was the original bug"
+    )
+    assert counts["retained_for_analysis"] + counts["excluded_total"] == counts["harvested"]
+    reasons = [
+        r["count"] for r in resource["harmonisation"]["sample_counts"]
+        if r["kind"] == "excluded_reason"
+    ]
+    assert sum(reasons) == counts["excluded_total"]
+
+
 def test_sotos_fails_its_own_confounding_gate_in_the_resource():
     """The app must refuse to grade Sotos even though its reproduction is fully verified -
     that's the whole point of the gate. Locking this in as a regression test."""

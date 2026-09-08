@@ -1,0 +1,9 @@
+category	count	kind
+harvested	3732	total
+retained_for_analysis	1622	total
+excluded_total	2110	total
+unaffected_relatives	198	excluded_reason
+under_test_samples	108	excluded_reason
+wrong_tissue	7	excluded_reason
+non_target_disease_controls	558	excluded_reason
+unresolvable_labels	1239	excluded_reason
