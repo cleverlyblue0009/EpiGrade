@@ -12,8 +12,8 @@ reported plainly and does NOT stop the rest of the pipeline - a partial, honestl
 beats an all-or-nothing one, consistent with the rest of this project.
 
 Network/download stages (need GEO access): harvest, sotos_demo, srs_matrix, kabuki_charge.
-Cached-data-only stages (--quick runs only these): triage_report, calibration,
-confounding_gate, summary_figure, provenance, resource_export.
+Cached-data-only stages (--quick runs only these): triage_report, merge_matrix, calibration,
+attribution, confounding_gate, summary_figure, provenance, resource_export.
 """
 
 from __future__ import annotations
@@ -34,7 +34,9 @@ STAGES = [
     ("sotos_demo", "demo_sotos", True),
     ("srs_matrix", "phase4_6_srs_and_matrix", True),
     ("kabuki_charge", "phase4_kabuki_charge", True),
+    ("merge_matrix", "merge_cross_disorder_matrix", False),
     ("calibration", "phase5_calibration", False),
+    ("attribution", "compute_attribution", False),
     ("confounding_gate", "phase6_confounding_gate", False),
     ("summary_figure", "make_summary_figure", False),
     ("provenance", "generate_provenance", False),

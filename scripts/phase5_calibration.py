@@ -94,11 +94,23 @@ def ceiling_table() -> pd.DataFrame:
 
 
 def main() -> None:
+    # Real bug found via scripts/reproduce.py's own --quick/--force interaction: this used to
+    # overwrite evidence_bands.tsv unconditionally, which silently destroyed Silver-Russell
+    # syndrome's rows (appended separately by phase4_6_srs_and_matrix.py, a network stage that
+    # --quick skips) whenever calibration ran after it in the same or a later invocation. Now
+    # only this script's own disorder (Sotos) is replaced; every other disorder's rows are
+    # preserved exactly as scripts/phase4_6_srs_and_matrix.py's own append-with-dedup pattern
+    # already does for SRS.
     rows = sotos_evidence_rows()
     evidence_df = pd.DataFrame(rows)
     evidence_path = paths.tables_dir() / "evidence_bands.tsv"
-    evidence_df.to_csv(evidence_path, sep="\t", index=False)
-    print(f"Wrote {len(evidence_df)} evidence rows -> {evidence_path}")
+    existing = pd.read_csv(evidence_path, sep="\t") if evidence_path.exists() else pd.DataFrame()
+    if len(existing):
+        existing = existing[existing.get("disorder") != "Sotos syndrome"]
+    combined = pd.concat([existing, evidence_df], ignore_index=True)
+    combined.to_csv(evidence_path, sep="\t", index=False)
+    print(f"Wrote {len(evidence_df)} Sotos evidence rows ({len(combined)} total in the file) "
+          f"-> {evidence_path}")
     print(evidence_df.to_string())
 
     ceiling_df = ceiling_table()
