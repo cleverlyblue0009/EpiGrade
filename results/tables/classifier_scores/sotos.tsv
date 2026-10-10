@@ -1,0 +1,585 @@
+gsm_accession	series_id	group	training_role	score	n_probes_used	loo_guarded	signature_source
+GSM1624862	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.15102305545046302	7083	False	published_probe_list
+GSM1624863	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.14749875756482012	7082	False	published_probe_list
+GSM1624864	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.14686051386683607	7084	False	published_probe_list
+GSM1624865	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.15655763493836328	7075	False	published_probe_list
+GSM1624866	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.14077647190824916	7083	False	published_probe_list
+GSM1624867	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.1615581959851501	7080	False	published_probe_list
+GSM1624868	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.1467796065621465	7082	False	published_probe_list
+GSM1624869	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.158019187965717	7077	False	published_probe_list
+GSM1624870	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.16212597653652316	7079	False	published_probe_list
+GSM1624871	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.15162638793480998	7082	False	published_probe_list
+GSM2562699	GSE97362	CHARGE syndrome	not_in_training	-0.13534296375459443	7082	False	published_probe_list
+GSM2562700	GSE97362	CHARGE syndrome	not_in_training	-0.1179795004627201	7080	False	published_probe_list
+GSM2562701	GSE97362	CHARGE syndrome	not_in_training	-0.15288412258390516	7081	False	published_probe_list
+GSM2562702	GSE97362	CHARGE syndrome	not_in_training	-0.11748663895371192	7076	False	published_probe_list
+GSM2562703	GSE97362	CHARGE syndrome	not_in_training	-0.10946453165155001	7084	False	published_probe_list
+GSM2562704	GSE97362	CHARGE syndrome	not_in_training	-0.1290503980701283	7075	False	published_probe_list
+GSM2562705	GSE97362	CHARGE syndrome	not_in_training	-0.07235834271038877	7081	False	published_probe_list
+GSM2562706	GSE97362	CHARGE syndrome	not_in_training	-0.1324692546948294	7083	False	published_probe_list
+GSM2562707	GSE97362	CHARGE syndrome	not_in_training	-0.11538424488562027	7081	False	published_probe_list
+GSM2562708	GSE97362	CHARGE syndrome	not_in_training	-0.10300151939434277	7051	False	published_probe_list
+GSM2562709	GSE97362	CHARGE syndrome	not_in_training	-0.12114461523141629	7072	False	published_probe_list
+GSM2562710	GSE97362	CHARGE syndrome	not_in_training	-0.1187728663443055	7035	False	published_probe_list
+GSM2562711	GSE97362	CHARGE syndrome	not_in_training	-0.11805346625203683	7065	False	published_probe_list
+GSM2562712	GSE97362	CHARGE syndrome	not_in_training	-0.09665935928377489	7083	False	published_probe_list
+GSM2562713	GSE97362	CHARGE syndrome	not_in_training	-0.1323785086199436	7079	False	published_probe_list
+GSM2562714	GSE97362	CHARGE syndrome	not_in_training	-0.13440653666251667	7082	False	published_probe_list
+GSM2562715	GSE97362	CHARGE syndrome	not_in_training	-0.1022344091285724	7084	False	published_probe_list
+GSM2562716	GSE97362	CHARGE syndrome	not_in_training	-0.14371186636207012	7079	False	published_probe_list
+GSM2562717	GSE97362	CHARGE syndrome	not_in_training	-0.13184719234398112	7084	False	published_probe_list
+GSM2897974	GSE108423	Claes-Jensen syndrome	not_in_training	-0.11580832428121923	7033	False	published_probe_list
+GSM2897975	GSE108423	Claes-Jensen syndrome	not_in_training	-0.11525155967447143	7033	False	published_probe_list
+GSM2897976	GSE108423	Claes-Jensen syndrome	not_in_training	-0.12356851382553335	7033	False	published_probe_list
+GSM2897977	GSE108423	Claes-Jensen syndrome	not_in_training	-0.1093032809294987	7033	False	published_probe_list
+GSM2897978	GSE108423	Claes-Jensen syndrome	not_in_training	-0.11734500159180616	7033	False	published_probe_list
+GSM2897979	GSE108423	Claes-Jensen syndrome	not_in_training	-0.11555579034745067	7033	False	published_probe_list
+GSM3267080	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1305984290379837	6584	False	published_probe_list
+GSM3267081	GSE116992	Coffin-Siris syndrome	not_in_training	-0.14533224923026078	6584	False	published_probe_list
+GSM3267082	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1436622691154814	6584	False	published_probe_list
+GSM3267083	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1443632716177249	6584	False	published_probe_list
+GSM3267084	GSE116992	Coffin-Siris syndrome	not_in_training	-0.11294911068761437	6584	False	published_probe_list
+GSM3267085	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1247350189875227	6584	False	published_probe_list
+GSM3267086	GSE116992	Coffin-Siris syndrome	not_in_training	-0.10467257023128507	6584	False	published_probe_list
+GSM3267112	GSE116992	Coffin-Siris syndrome	not_in_training	-0.10977134494336294	6583	False	published_probe_list
+GSM3267113	GSE116992	Coffin-Siris syndrome	not_in_training	-0.11395310224742661	6583	False	published_probe_list
+GSM3267114	GSE116992	Coffin-Siris syndrome	not_in_training	-0.12315533870372997	6584	False	published_probe_list
+GSM3267115	GSE116992	Coffin-Siris syndrome	not_in_training	-0.13175088603245522	6584	False	published_probe_list
+GSM3267116	GSE116992	Coffin-Siris syndrome	not_in_training	-0.12149344804407991	6584	False	published_probe_list
+GSM3267117	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1345391556340063	6584	False	published_probe_list
+GSM3267118	GSE116992	Coffin-Siris syndrome	not_in_training	-0.12995061843223243	6584	False	published_probe_list
+GSM3267126	GSE116992	Coffin-Siris syndrome	not_in_training	-0.0925619700007172	6584	False	published_probe_list
+GSM3267127	GSE116992	Coffin-Siris syndrome	not_in_training	-0.11203102533572895	6584	False	published_probe_list
+GSM3267128	GSE116992	Coffin-Siris syndrome	not_in_training	-0.12688148679493616	6584	False	published_probe_list
+GSM3267129	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1264145674209427	6584	False	published_probe_list
+GSM3267130	GSE116992	Coffin-Siris syndrome	not_in_training	-0.14295701180129172	6584	False	published_probe_list
+GSM3267131	GSE116992	Coffin-Siris syndrome	not_in_training	-0.13506704219036536	6584	False	published_probe_list
+GSM3267132	GSE116992	Coffin-Siris syndrome	not_in_training	-0.13193591892492929	6583	False	published_probe_list
+GSM1272122	GSE52588	Down syndrome	not_in_training	-0.12513819142545812	7083	False	published_probe_list
+GSM1272123	GSE52588	Down syndrome	not_in_training	-0.1582678876511695	7084	False	published_probe_list
+GSM1272124	GSE52588	Down syndrome	not_in_training	-0.1611321701840781	7083	False	published_probe_list
+GSM1272125	GSE52588	Down syndrome	not_in_training	-0.14036559045103147	7082	False	published_probe_list
+GSM1272126	GSE52588	Down syndrome	not_in_training	-0.14230020282048184	7084	False	published_probe_list
+GSM1272127	GSE52588	Down syndrome	not_in_training	-0.15273905120269882	7081	False	published_probe_list
+GSM1272128	GSE52588	Down syndrome	not_in_training	-0.15113385781743172	7085	False	published_probe_list
+GSM1272129	GSE52588	Down syndrome	not_in_training	-0.1440760195592664	7081	False	published_probe_list
+GSM1272130	GSE52588	Down syndrome	not_in_training	-0.1522793273020292	7083	False	published_probe_list
+GSM1272131	GSE52588	Down syndrome	not_in_training	-0.14535949665723713	7079	False	published_probe_list
+GSM1272132	GSE52588	Down syndrome	not_in_training	-0.1485064121109122	7080	False	published_probe_list
+GSM1272133	GSE52588	Down syndrome	not_in_training	-0.15157310787013212	7081	False	published_probe_list
+GSM1272134	GSE52588	Down syndrome	not_in_training	-0.14472627269611038	7082	False	published_probe_list
+GSM1272135	GSE52588	Down syndrome	not_in_training	-0.15535800453409643	7081	False	published_probe_list
+GSM1272136	GSE52588	Down syndrome	not_in_training	-0.14231393813032778	7082	False	published_probe_list
+GSM1272137	GSE52588	Down syndrome	not_in_training	-0.14063607614742257	7080	False	published_probe_list
+GSM1272138	GSE52588	Down syndrome	not_in_training	-0.16526138566752901	7078	False	published_probe_list
+GSM1272139	GSE52588	Down syndrome	not_in_training	-0.13935005591523875	7078	False	published_probe_list
+GSM1272140	GSE52588	Down syndrome	not_in_training	-0.12590489331847787	7078	False	published_probe_list
+GSM1272141	GSE52588	Down syndrome	not_in_training	-0.11978696736754935	7073	False	published_probe_list
+GSM1272142	GSE52588	Down syndrome	not_in_training	-0.13507349461386464	7076	False	published_probe_list
+GSM1272143	GSE52588	Down syndrome	not_in_training	-0.12188739503987744	7079	False	published_probe_list
+GSM1272144	GSE52588	Down syndrome	not_in_training	-0.12888784130932118	7079	False	published_probe_list
+GSM1272145	GSE52588	Down syndrome	not_in_training	-0.1502685573570398	7082	False	published_probe_list
+GSM1272146	GSE52588	Down syndrome	not_in_training	-0.1402739219257727	7080	False	published_probe_list
+GSM1272147	GSE52588	Down syndrome	not_in_training	-0.14041267052233697	7075	False	published_probe_list
+GSM1272148	GSE52588	Down syndrome	not_in_training	-0.10966515470542937	7076	False	published_probe_list
+GSM1272149	GSE52588	Down syndrome	not_in_training	-0.14239023938719297	7072	False	published_probe_list
+GSM1272150	GSE52588	Down syndrome	not_in_training	-0.15567417933183136	7079	False	published_probe_list
+GSM2495039	GSE95040	ICF syndrome	not_in_training	-0.07301024465956818	7085	False	published_probe_list
+GSM2495040	GSE95040	ICF syndrome	not_in_training	-0.09219830552007768	7085	False	published_probe_list
+GSM2495041	GSE95040	ICF syndrome	not_in_training	-0.06995942548212897	7085	False	published_probe_list
+GSM2495042	GSE95040	ICF syndrome	not_in_training	-0.0636256466184214	7085	False	published_probe_list
+GSM2495043	GSE95040	ICF syndrome	not_in_training	-0.10729428258337703	7085	False	published_probe_list
+GSM2495044	GSE95040	ICF syndrome	not_in_training	-0.09256799477681132	7085	False	published_probe_list
+GSM2495045	GSE95040	ICF syndrome	not_in_training	-0.14196410917550362	7085	False	published_probe_list
+GSM2495051	GSE95040	ICF syndrome	not_in_training	-0.123164417689278	7085	False	published_probe_list
+GSM2495052	GSE95040	ICF syndrome	not_in_training	-0.12496498166383807	7085	False	published_probe_list
+GSM2495053	GSE95040	ICF syndrome	not_in_training	-0.13732623381079134	7085	False	published_probe_list
+GSM2495055	GSE95040	ICF syndrome	not_in_training	-0.07515089401016894	7085	False	published_probe_list
+GSM2495056	GSE95040	ICF syndrome	not_in_training	-0.1458814955307829	7085	False	published_probe_list
+GSM2495057	GSE95040	ICF syndrome	not_in_training	-0.13618287182543032	7085	False	published_probe_list
+GSM2495058	GSE95040	ICF syndrome	not_in_training	-0.10229868507522388	7085	False	published_probe_list
+GSM2495060	GSE95040	ICF syndrome	not_in_training	-0.1469275158234914	7085	False	published_probe_list
+GSM3227764	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1271931211779438	7053	False	published_probe_list
+GSM3227765	GSE116300	Kabuki syndrome type 1	not_in_training	-0.12958553422847663	7053	False	published_probe_list
+GSM3227769	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14954757704008892	7053	False	published_probe_list
+GSM3227770	GSE116300	Kabuki syndrome type 1	not_in_training	-0.16813211833616248	7053	False	published_probe_list
+GSM3227771	GSE116300	Kabuki syndrome type 1	not_in_training	-0.13765863985257798	7053	False	published_probe_list
+GSM3227772	GSE116300	Kabuki syndrome type 1	not_in_training	-0.08091822980672181	7053	False	published_probe_list
+GSM3227773	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14005760570072567	7053	False	published_probe_list
+GSM3227774	GSE116300	Kabuki syndrome type 1	not_in_training	-0.12710513254945532	7053	False	published_probe_list
+GSM3227775	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14771990171821747	7053	False	published_probe_list
+GSM3227776	GSE116300	Kabuki syndrome type 1	not_in_training	-0.12803178183659525	7053	False	published_probe_list
+GSM3227777	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1503473805687432	7053	False	published_probe_list
+GSM3227778	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14136234386671265	7053	False	published_probe_list
+GSM3227779	GSE116300	Kabuki syndrome type 1	not_in_training	-0.13404668778867168	7053	False	published_probe_list
+GSM3227780	GSE116300	Kabuki syndrome type 1	not_in_training	-0.11766651511487314	7053	False	published_probe_list
+GSM3227781	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1223472546344182	7053	False	published_probe_list
+GSM3227782	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1279986733222218	7053	False	published_probe_list
+GSM3227783	GSE116300	Kabuki syndrome type 1	not_in_training	-0.13919912334343676	7053	False	published_probe_list
+GSM3227784	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1300025952725421	7053	False	published_probe_list
+GSM3227785	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1311449876697307	7053	False	published_probe_list
+GSM3227786	GSE116300	Kabuki syndrome type 1	not_in_training	-0.12258714712117891	7053	False	published_probe_list
+GSM3227787	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14847673561079022	7053	False	published_probe_list
+GSM3227788	GSE116300	Kabuki syndrome type 1	not_in_training	-0.11241383040671016	7053	False	published_probe_list
+GSM3227789	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14689997804116772	7053	False	published_probe_list
+GSM3227790	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14601040922361896	7053	False	published_probe_list
+GSM3227791	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1346654900020131	7053	False	published_probe_list
+GSM3227792	GSE116300	Kabuki syndrome type 1	not_in_training	-0.14571293837840182	7053	False	published_probe_list
+GSM2562771	GSE97362	Kabuki syndrome type 1	not_in_training	-0.15039293443037283	7081	False	published_probe_list
+GSM2562772	GSE97362	Kabuki syndrome type 1	not_in_training	-0.12257895960607801	7081	False	published_probe_list
+GSM2562773	GSE97362	Kabuki syndrome type 1	not_in_training	-0.12620890014086905	7079	False	published_probe_list
+GSM2562774	GSE97362	Kabuki syndrome type 1	not_in_training	-0.16702364009645299	7078	False	published_probe_list
+GSM2562775	GSE97362	Kabuki syndrome type 1	not_in_training	-0.13160623901075486	7080	False	published_probe_list
+GSM2562776	GSE97362	Kabuki syndrome type 1	not_in_training	-0.12236416833658337	7074	False	published_probe_list
+GSM2562777	GSE97362	Kabuki syndrome type 1	not_in_training	-0.14111894269215652	7078	False	published_probe_list
+GSM2562778	GSE97362	Kabuki syndrome type 1	not_in_training	-0.15198792478714596	7084	False	published_probe_list
+GSM2562779	GSE97362	Kabuki syndrome type 1	not_in_training	-0.15047822490486173	7078	False	published_probe_list
+GSM2562780	GSE97362	Kabuki syndrome type 1	not_in_training	-0.13753729972874795	7080	False	published_probe_list
+GSM2562781	GSE97362	Kabuki syndrome type 1	not_in_training	-0.1605877005290809	7082	False	published_probe_list
+GSM3267111	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.12148614093068844	6583	False	published_probe_list
+GSM3267119	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.12022693110627858	6584	False	published_probe_list
+GSM3267120	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.12031666007988007	6584	False	published_probe_list
+GSM3267121	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.12520867044280082	6583	False	published_probe_list
+GSM3267122	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.1019603633245757	6584	False	published_probe_list
+GSM3267123	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.12992590937277637	6584	False	published_probe_list
+GSM3267124	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.11391332282138333	6584	False	published_probe_list
+GSM3267125	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.10060106099233124	6583	False	published_probe_list
+GSM3572707	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.14303995590865437	6539	False	published_probe_list
+GSM3572708	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.1423707648487883	6562	False	published_probe_list
+GSM3572710	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.12361489184767072	6531	False	published_probe_list
+GSM3572711	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.14864293349488678	6559	False	published_probe_list
+GSM3572712	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.13943702001741354	6549	False	published_probe_list
+GSM3572713	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.17148054681651126	6549	False	published_probe_list
+GSM3572714	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.1335395495543199	6489	False	published_probe_list
+GSM3572716	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.1300690530988341	6538	False	published_probe_list
+GSM2800663	GSE104451	Silver-Russell syndrome	not_in_training	-0.10165188189028418	7085	False	published_probe_list
+GSM2800664	GSE104451	Silver-Russell syndrome	not_in_training	-0.11193462899304296	7085	False	published_probe_list
+GSM2800665	GSE104451	Silver-Russell syndrome	not_in_training	-0.1128148064553478	7085	False	published_probe_list
+GSM2800666	GSE104451	Silver-Russell syndrome	not_in_training	-0.09870231230348281	7085	False	published_probe_list
+GSM2800667	GSE104451	Silver-Russell syndrome	not_in_training	-0.12565456664354557	7085	False	published_probe_list
+GSM2800668	GSE104451	Silver-Russell syndrome	not_in_training	-0.0983497611163533	7085	False	published_probe_list
+GSM2800669	GSE104451	Silver-Russell syndrome	not_in_training	-0.09579440389330185	7085	False	published_probe_list
+GSM2800670	GSE104451	Silver-Russell syndrome	not_in_training	-0.08673296932760943	7085	False	published_probe_list
+GSM2800671	GSE104451	Silver-Russell syndrome	not_in_training	-0.10942943271739103	7085	False	published_probe_list
+GSM2800672	GSE104451	Silver-Russell syndrome	not_in_training	-0.1380512963899021	7085	False	published_probe_list
+GSM2800673	GSE104451	Silver-Russell syndrome	not_in_training	-0.09354138541576373	7085	False	published_probe_list
+GSM2800674	GSE104451	Silver-Russell syndrome	not_in_training	-0.09311638961155022	7085	False	published_probe_list
+GSM2800675	GSE104451	Silver-Russell syndrome	not_in_training	-0.09823389362500268	7085	False	published_probe_list
+GSM2800676	GSE104451	Silver-Russell syndrome	not_in_training	-0.12127557696260427	7085	False	published_probe_list
+GSM2800677	GSE104451	Silver-Russell syndrome	not_in_training	-0.11789309920043567	7085	False	published_probe_list
+GSM2800678	GSE104451	Silver-Russell syndrome	not_in_training	-0.14256309862504735	7085	False	published_probe_list
+GSM2800679	GSE104451	Silver-Russell syndrome	not_in_training	-0.11080360210136375	7085	False	published_probe_list
+GSM2800680	GSE104451	Silver-Russell syndrome	not_in_training	-0.11229019950726571	7085	False	published_probe_list
+GSM2800681	GSE104451	Silver-Russell syndrome	not_in_training	-0.059357673773162256	7085	False	published_probe_list
+GSM2800682	GSE104451	Silver-Russell syndrome	not_in_training	-0.11349125259542181	7085	False	published_probe_list
+GSM2800683	GSE104451	Silver-Russell syndrome	not_in_training	-0.113814867313063	7085	False	published_probe_list
+GSM2800684	GSE104451	Silver-Russell syndrome	not_in_training	-0.1110966417570507	7085	False	published_probe_list
+GSM2800685	GSE104451	Silver-Russell syndrome	not_in_training	-0.1095514754371012	7085	False	published_probe_list
+GSM2800686	GSE104451	Silver-Russell syndrome	not_in_training	-0.12384182852627867	7085	False	published_probe_list
+GSM2800687	GSE104451	Silver-Russell syndrome	not_in_training	-0.10570666030094378	7085	False	published_probe_list
+GSM2800688	GSE104451	Silver-Russell syndrome	not_in_training	-0.11220528576448807	7085	False	published_probe_list
+GSM2800689	GSE104451	Silver-Russell syndrome	not_in_training	-0.10355734725943777	7085	False	published_probe_list
+GSM2800690	GSE104451	Silver-Russell syndrome	not_in_training	-0.11204004356705444	7085	False	published_probe_list
+GSM2800691	GSE104451	Silver-Russell syndrome	not_in_training	-0.11425489682254775	7085	False	published_probe_list
+GSM2800692	GSE104451	Silver-Russell syndrome	not_in_training	-0.11354619033405544	7085	False	published_probe_list
+GSM2800693	GSE104451	Silver-Russell syndrome	not_in_training	-0.09412693672083938	7085	False	published_probe_list
+GSM2800694	GSE104451	Silver-Russell syndrome	not_in_training	-0.09373042921321328	7085	False	published_probe_list
+GSM2800695	GSE104451	Silver-Russell syndrome	not_in_training	-0.14324901644068777	7085	False	published_probe_list
+GSM2800696	GSE104451	Silver-Russell syndrome	not_in_training	-0.10330118010737377	7085	False	published_probe_list
+GSM2800697	GSE104451	Silver-Russell syndrome	not_in_training	-0.08563908004188614	7085	False	published_probe_list
+GSM2800698	GSE104451	Silver-Russell syndrome	not_in_training	-0.1035171872626589	7085	False	published_probe_list
+GSM2800699	GSE104451	Silver-Russell syndrome	not_in_training	-0.0860276099678765	7085	False	published_probe_list
+GSM2800700	GSE104451	Silver-Russell syndrome	not_in_training	-0.08810718889982605	7085	False	published_probe_list
+GSM2800701	GSE104451	Silver-Russell syndrome	not_in_training	-0.07747008309416314	7085	False	published_probe_list
+GSM2800702	GSE104451	Silver-Russell syndrome	not_in_training	-0.12829268404224115	7085	False	published_probe_list
+GSM2800703	GSE104451	Silver-Russell syndrome	not_in_training	-0.07303618095589659	7085	False	published_probe_list
+GSM2800704	GSE104451	Silver-Russell syndrome	not_in_training	-0.08175259898970044	7085	False	published_probe_list
+GSM2800705	GSE104451	Silver-Russell syndrome	not_in_training	-0.10458758666869761	7085	False	published_probe_list
+GSM2800706	GSE104451	Silver-Russell syndrome	not_in_training	-0.0995330333691804	7085	False	published_probe_list
+GSM2800707	GSE104451	Silver-Russell syndrome	not_in_training	-0.0869789659749185	7085	False	published_probe_list
+GSM1338101	GSE55491	Silver-Russell syndrome	not_in_training	-0.13884593385913546	7085	False	published_probe_list
+GSM1338106	GSE55491	Silver-Russell syndrome	not_in_training	-0.09388204756278795	7085	False	published_probe_list
+GSM1338108	GSE55491	Silver-Russell syndrome	not_in_training	-0.09451260119457217	7085	False	published_probe_list
+GSM1338109	GSE55491	Silver-Russell syndrome	not_in_training	-0.08873408092350887	7085	False	published_probe_list
+GSM1338110	GSE55491	Silver-Russell syndrome	not_in_training	-0.08720465342146355	7085	False	published_probe_list
+GSM1338111	GSE55491	Silver-Russell syndrome	not_in_training	-0.11005339016817017	7085	False	published_probe_list
+GSM1338112	GSE55491	Silver-Russell syndrome	not_in_training	-0.12325951672320035	7085	False	published_probe_list
+GSM1338113	GSE55491	Silver-Russell syndrome	not_in_training	-0.08685608634771247	7085	False	published_probe_list
+GSM1338114	GSE55491	Silver-Russell syndrome	not_in_training	-0.10717432308396602	7085	False	published_probe_list
+GSM1338115	GSE55491	Silver-Russell syndrome	not_in_training	-0.08325682292910452	7085	False	published_probe_list
+GSM1338116	GSE55491	Silver-Russell syndrome	not_in_training	-0.09118383575259337	7085	False	published_probe_list
+GSM1338117	GSE55491	Silver-Russell syndrome	not_in_training	-0.11856399116853766	7085	False	published_probe_list
+GSM1338118	GSE55491	Silver-Russell syndrome	not_in_training	-0.08842442307745446	7085	False	published_probe_list
+GSM1338119	GSE55491	Silver-Russell syndrome	not_in_training	-0.10582111892227575	7085	False	published_probe_list
+GSM1338120	GSE55491	Silver-Russell syndrome	not_in_training	-0.09987083210500214	7085	False	published_probe_list
+GSM1338121	GSE55491	Silver-Russell syndrome	not_in_training	-0.09169542059847702	7085	False	published_probe_list
+GSM1338122	GSE55491	Silver-Russell syndrome	not_in_training	-0.08757930943180603	7085	False	published_probe_list
+GSM1338123	GSE55491	Silver-Russell syndrome	not_in_training	-0.09859088174835307	7085	False	published_probe_list
+GSM1920405	GSE74432	Sotos syndrome	train_case	0.13976612318146586	7083	True	published_probe_list
+GSM1920406	GSE74432	Sotos syndrome	train_case	0.14314262891930096	7085	True	published_probe_list
+GSM1920407	GSE74432	Sotos syndrome	train_case	0.13504332530173846	7077	True	published_probe_list
+GSM1920408	GSE74432	Sotos syndrome	train_case	0.11538559688907013	7077	True	published_probe_list
+GSM1920409	GSE74432	Sotos syndrome	train_case	0.03099790892163401	7078	True	published_probe_list
+GSM1920410	GSE74432	Sotos syndrome	train_case	0.12441058813048844	7081	True	published_probe_list
+GSM1920411	GSE74432	Sotos syndrome	train_case	0.14868767529888205	7058	True	published_probe_list
+GSM1920412	GSE74432	Sotos syndrome	train_case	0.15757532298590748	7078	True	published_probe_list
+GSM1920413	GSE74432	Sotos syndrome	train_case	0.09466681167390312	7075	True	published_probe_list
+GSM1920414	GSE74432	Sotos syndrome	train_case	0.14141738220666356	7078	True	published_probe_list
+GSM1920415	GSE74432	Sotos syndrome	train_case	0.027067125836587547	7068	True	published_probe_list
+GSM1920416	GSE74432	Sotos syndrome	train_case	0.11816893017812014	7079	True	published_probe_list
+GSM1920417	GSE74432	Sotos syndrome	train_case	0.1296098407230567	7083	True	published_probe_list
+GSM1920418	GSE74432	Sotos syndrome	train_case	0.12623230134242347	7076	True	published_probe_list
+GSM1920419	GSE74432	Sotos syndrome	train_case	0.10532999454700698	7079	True	published_probe_list
+GSM1920420	GSE74432	Sotos syndrome	train_case	0.10990597001079605	7082	True	published_probe_list
+GSM1920421	GSE74432	Sotos syndrome	train_case	0.15747657963723127	7067	True	published_probe_list
+GSM1920422	GSE74432	Sotos syndrome	train_case	0.13228070420560378	7081	True	published_probe_list
+GSM1920423	GSE74432	Sotos syndrome	train_case	0.13186343839440384	7080	True	published_probe_list
+GSM1920427	GSE74432	Sotos syndrome	not_in_training	0.15039614259943312	7084	False	published_probe_list
+GSM1920428	GSE74432	Sotos syndrome	not_in_training	0.15014680015292547	7084	False	published_probe_list
+GSM1920429	GSE74432	Sotos syndrome	not_in_training	0.12092797240480702	7084	False	published_probe_list
+GSM1920430	GSE74432	Sotos syndrome	not_in_training	0.13265645475383214	7082	False	published_probe_list
+GSM1920431	GSE74432	Sotos syndrome	not_in_training	0.147565239838927	7082	False	published_probe_list
+GSM1920432	GSE74432	Sotos syndrome	not_in_training	0.09334189122393044	7084	False	published_probe_list
+GSM1920433	GSE74432	Sotos syndrome	not_in_training	0.15022552430870095	7079	False	published_probe_list
+GSM1920434	GSE74432	Sotos syndrome	not_in_training	0.1399095602404299	7080	False	published_probe_list
+GSM1920435	GSE74432	Sotos syndrome	not_in_training	0.13265349982671193	7082	False	published_probe_list
+GSM1920436	GSE74432	Sotos syndrome	not_in_training	0.12752353057987775	7082	False	published_probe_list
+GSM1920437	GSE74432	Sotos syndrome	not_in_training	0.12109045735487456	7081	False	published_probe_list
+GSM1920438	GSE74432	Sotos syndrome	not_in_training	0.113187633328238	7082	False	published_probe_list
+GSM1920439	GSE74432	Sotos syndrome	not_in_training	0.13497603136440361	7083	False	published_probe_list
+GSM1920440	GSE74432	Sotos syndrome	not_in_training	0.1512518876900375	7084	False	published_probe_list
+GSM1920441	GSE74432	Sotos syndrome	not_in_training	0.12369360610669966	7076	False	published_probe_list
+GSM1920442	GSE74432	Sotos syndrome	not_in_training	0.13469084004556242	7080	False	published_probe_list
+GSM1920443	GSE74432	Sotos syndrome	not_in_training	0.12803901103324322	7084	False	published_probe_list
+GSM1920444	GSE74432	Sotos syndrome	not_in_training	0.15103099926781904	7079	False	published_probe_list
+GSM1920445	GSE74432	Sotos syndrome	not_in_training	0.09152557001626094	7082	False	published_probe_list
+GSM1920446	GSE74432	Weaver syndrome	not_in_training	-0.13446961052843642	7073	False	published_probe_list
+GSM1920447	GSE74432	Weaver syndrome	not_in_training	-0.13603055802403918	7071	False	published_probe_list
+GSM1920448	GSE74432	Weaver syndrome	not_in_training	-0.1465767543990688	7074	False	published_probe_list
+GSM1920449	GSE74432	Weaver syndrome	not_in_training	-0.12142135975183377	7077	False	published_probe_list
+GSM1920450	GSE74432	Weaver syndrome	not_in_training	-0.15200010709513556	7083	False	published_probe_list
+GSM1920451	GSE74432	Weaver syndrome	not_in_training	-0.10479204300766842	7064	False	published_probe_list
+GSM1920452	GSE74432	Weaver syndrome	not_in_training	-0.14619142886193004	7073	False	published_probe_list
+GSM1920453	GSE74432	Weaver syndrome	not_in_training	-0.13952632194042014	7081	False	published_probe_list
+GSM1624832	GSE66552	Williams syndrome	not_in_training	-0.12107667754537832	7076	False	published_probe_list
+GSM1624833	GSE66552	Williams syndrome	not_in_training	-0.1290833718529265	7079	False	published_probe_list
+GSM1624834	GSE66552	Williams syndrome	not_in_training	-0.11319954176428448	7080	False	published_probe_list
+GSM1624835	GSE66552	Williams syndrome	not_in_training	-0.12934597021499472	7081	False	published_probe_list
+GSM1624836	GSE66552	Williams syndrome	not_in_training	-0.11886513227924445	7076	False	published_probe_list
+GSM1624837	GSE66552	Williams syndrome	not_in_training	-0.12440517798617612	7078	False	published_probe_list
+GSM1624838	GSE66552	Williams syndrome	not_in_training	-0.12887914310554316	7081	False	published_probe_list
+GSM1624839	GSE66552	Williams syndrome	not_in_training	-0.1257684819957643	7079	False	published_probe_list
+GSM1624840	GSE66552	Williams syndrome	not_in_training	-0.11336586757226619	7085	False	published_probe_list
+GSM1624841	GSE66552	Williams syndrome	not_in_training	-0.10895739258230619	7080	False	published_probe_list
+GSM1624842	GSE66552	Williams syndrome	not_in_training	-0.10894615673926922	7081	False	published_probe_list
+GSM1624843	GSE66552	Williams syndrome	not_in_training	-0.11797184748650225	7083	False	published_probe_list
+GSM1624844	GSE66552	Williams syndrome	not_in_training	-0.13339919409651446	7081	False	published_probe_list
+GSM1624845	GSE66552	Williams syndrome	not_in_training	-0.1173460745680488	7083	False	published_probe_list
+GSM1624856	GSE66552	Williams syndrome	not_in_training	-0.09209568998833462	7079	False	published_probe_list
+GSM1624857	GSE66552	Williams syndrome	not_in_training	-0.11145125109674703	7073	False	published_probe_list
+GSM1624858	GSE66552	Williams syndrome	not_in_training	-0.09917373400853924	7083	False	published_probe_list
+GSM1624859	GSE66552	Williams syndrome	not_in_training	-0.09146709709540801	7082	False	published_probe_list
+GSM1624860	GSE66552	Williams syndrome	not_in_training	-0.11741081103858542	7079	False	published_probe_list
+GSM1624861	GSE66552	Williams syndrome	not_in_training	-0.1236643791703188	7083	False	published_probe_list
+GSM1272151	GSE52588	comparator_sibling	not_in_training	-0.14311929870218676	7081	False	published_probe_list
+GSM1272152	GSE52588	comparator_sibling	not_in_training	-0.1607289008424463	7083	False	published_probe_list
+GSM1272153	GSE52588	comparator_sibling	not_in_training	-0.15196484580674086	7083	False	published_probe_list
+GSM1272154	GSE52588	comparator_sibling	not_in_training	-0.13636123796845123	7078	False	published_probe_list
+GSM1272155	GSE52588	comparator_sibling	not_in_training	-0.14454568631301012	7081	False	published_probe_list
+GSM1272156	GSE52588	comparator_sibling	not_in_training	-0.14725490559832943	7084	False	published_probe_list
+GSM1272157	GSE52588	comparator_sibling	not_in_training	-0.1431288518403796	7081	False	published_probe_list
+GSM1272158	GSE52588	comparator_sibling	not_in_training	-0.13687400909976633	7080	False	published_probe_list
+GSM1272159	GSE52588	comparator_sibling	not_in_training	-0.1460125358018476	7082	False	published_probe_list
+GSM1272160	GSE52588	comparator_sibling	not_in_training	-0.15791763219238963	7080	False	published_probe_list
+GSM1272161	GSE52588	comparator_sibling	not_in_training	-0.15246371874297804	7082	False	published_probe_list
+GSM1272162	GSE52588	comparator_sibling	not_in_training	-0.13598457828142485	7082	False	published_probe_list
+GSM1272163	GSE52588	comparator_sibling	not_in_training	-0.12174232589357081	7081	False	published_probe_list
+GSM1272164	GSE52588	comparator_sibling	not_in_training	-0.1569104311146855	7083	False	published_probe_list
+GSM1272165	GSE52588	comparator_sibling	not_in_training	-0.130501168028057	7082	False	published_probe_list
+GSM1272166	GSE52588	comparator_sibling	not_in_training	-0.1353873208863764	7077	False	published_probe_list
+GSM1272167	GSE52588	comparator_sibling	not_in_training	-0.1487649564212118	7080	False	published_probe_list
+GSM1272168	GSE52588	comparator_sibling	not_in_training	-0.13973935857581465	7078	False	published_probe_list
+GSM1272169	GSE52588	comparator_sibling	not_in_training	-0.13666217894738797	7079	False	published_probe_list
+GSM1272170	GSE52588	comparator_sibling	not_in_training	-0.12499320802819636	7079	False	published_probe_list
+GSM1272171	GSE52588	comparator_sibling	not_in_training	-0.14193872085406845	7074	False	published_probe_list
+GSM1272172	GSE52588	comparator_sibling	not_in_training	-0.15087465928051935	7079	False	published_probe_list
+GSM1272173	GSE52588	comparator_sibling	not_in_training	-0.14045083552724447	7083	False	published_probe_list
+GSM1272174	GSE52588	comparator_sibling	not_in_training	-0.13683293294499632	7075	False	published_probe_list
+GSM1272175	GSE52588	comparator_sibling	not_in_training	-0.12947989281637873	7080	False	published_probe_list
+GSM1272176	GSE52588	comparator_sibling	not_in_training	-0.14673392156049925	7082	False	published_probe_list
+GSM1272177	GSE52588	comparator_sibling	not_in_training	-0.1365516034444797	7079	False	published_probe_list
+GSM1272178	GSE52588	comparator_sibling	not_in_training	-0.1335046302751115	7075	False	published_probe_list
+GSM1272179	GSE52588	comparator_sibling	not_in_training	-0.13639777457760216	7079	False	published_probe_list
+GSM2800708	GSE104451	pooled_control	not_in_training	-0.11492174565464397	7085	False	published_probe_list
+GSM2800709	GSE104451	pooled_control	not_in_training	-0.10289238330450912	7085	False	published_probe_list
+GSM2800710	GSE104451	pooled_control	not_in_training	-0.10832730271267565	7085	False	published_probe_list
+GSM2800711	GSE104451	pooled_control	not_in_training	-0.11851294546185331	7085	False	published_probe_list
+GSM2800712	GSE104451	pooled_control	not_in_training	-0.11520699588137406	7085	False	published_probe_list
+GSM2800713	GSE104451	pooled_control	not_in_training	-0.11870961727887808	7085	False	published_probe_list
+GSM2800714	GSE104451	pooled_control	not_in_training	-0.11542227931777738	7085	False	published_probe_list
+GSM2800715	GSE104451	pooled_control	not_in_training	-0.09641184695072991	7085	False	published_probe_list
+GSM2800716	GSE104451	pooled_control	not_in_training	-0.10512945281207353	7085	False	published_probe_list
+GSM2800717	GSE104451	pooled_control	not_in_training	-0.0955442061262255	7085	False	published_probe_list
+GSM2800718	GSE104451	pooled_control	not_in_training	-0.10924011477733875	7085	False	published_probe_list
+GSM2800719	GSE104451	pooled_control	not_in_training	-0.1043370297672741	7085	False	published_probe_list
+GSM2800720	GSE104451	pooled_control	not_in_training	-0.0968887489222473	7085	False	published_probe_list
+GSM2800721	GSE104451	pooled_control	not_in_training	-0.11539048532155427	7085	False	published_probe_list
+GSM2800722	GSE104451	pooled_control	not_in_training	-0.09113483289038737	7085	False	published_probe_list
+GSM2800723	GSE104451	pooled_control	not_in_training	-0.09865655023063136	7085	False	published_probe_list
+GSM2897983	GSE108423	pooled_control	not_in_training	-0.11661967155032471	7033	False	published_probe_list
+GSM2897984	GSE108423	pooled_control	not_in_training	-0.10704344424347234	7033	False	published_probe_list
+GSM2897985	GSE108423	pooled_control	not_in_training	-0.10405088550814656	7033	False	published_probe_list
+GSM2897986	GSE108423	pooled_control	not_in_training	-0.11554630487779904	7033	False	published_probe_list
+GSM2897987	GSE108423	pooled_control	not_in_training	-0.11965302474685113	7033	False	published_probe_list
+GSM2897988	GSE108423	pooled_control	not_in_training	-0.1194917753186523	7033	False	published_probe_list
+GSM2897989	GSE108423	pooled_control	not_in_training	-0.11957312824697108	7033	False	published_probe_list
+GSM2897990	GSE108423	pooled_control	not_in_training	-0.1121162161778747	7033	False	published_probe_list
+GSM2897991	GSE108423	pooled_control	not_in_training	-0.12548376541849549	7033	False	published_probe_list
+GSM2897992	GSE108423	pooled_control	not_in_training	-0.10689011933686576	7033	False	published_probe_list
+GSM2897993	GSE108423	pooled_control	not_in_training	-0.10669956949546644	7033	False	published_probe_list
+GSM2897994	GSE108423	pooled_control	not_in_training	-0.14229186301445707	7033	False	published_probe_list
+GSM3227755	GSE116300	pooled_control	not_in_training	-0.12114050365138573	7053	False	published_probe_list
+GSM3227756	GSE116300	pooled_control	not_in_training	-0.09469391140481809	7053	False	published_probe_list
+GSM3227757	GSE116300	pooled_control	not_in_training	-0.15277999875746673	7053	False	published_probe_list
+GSM3227758	GSE116300	pooled_control	not_in_training	-0.14302788227395657	7053	False	published_probe_list
+GSM3227759	GSE116300	pooled_control	not_in_training	-0.1346105356736922	7053	False	published_probe_list
+GSM3227760	GSE116300	pooled_control	not_in_training	-0.14178170178297367	7053	False	published_probe_list
+GSM3227761	GSE116300	pooled_control	not_in_training	-0.12890902751789846	7053	False	published_probe_list
+GSM3227762	GSE116300	pooled_control	not_in_training	-0.13376852020745778	7053	False	published_probe_list
+GSM3227763	GSE116300	pooled_control	not_in_training	-0.12429185350503458	7053	False	published_probe_list
+GSM3572680	GSE125367	pooled_control	not_in_training	-0.13725582223544175	6550	False	published_probe_list
+GSM3572681	GSE125367	pooled_control	not_in_training	-0.14421789186641176	6572	False	published_probe_list
+GSM3572682	GSE125367	pooled_control	not_in_training	-0.12898271617572943	6546	False	published_probe_list
+GSM3572683	GSE125367	pooled_control	not_in_training	-0.1256352219194311	6557	False	published_probe_list
+GSM3572684	GSE125367	pooled_control	not_in_training	-0.138052961864215	6538	False	published_probe_list
+GSM3572685	GSE125367	pooled_control	not_in_training	-0.1267407666372281	6572	False	published_probe_list
+GSM3572686	GSE125367	pooled_control	not_in_training	-0.1432693474428004	6543	False	published_probe_list
+GSM3572687	GSE125367	pooled_control	not_in_training	-0.1373910596727509	6546	False	published_probe_list
+GSM3572688	GSE125367	pooled_control	not_in_training	-0.1285657590836774	6542	False	published_probe_list
+GSM3572689	GSE125367	pooled_control	not_in_training	-0.12293824033467315	6537	False	published_probe_list
+GSM3572690	GSE125367	pooled_control	not_in_training	-0.13791423100282574	6540	False	published_probe_list
+GSM3572691	GSE125367	pooled_control	not_in_training	-0.13621900436171974	6548	False	published_probe_list
+GSM3572692	GSE125367	pooled_control	not_in_training	-0.14531458549316834	6560	False	published_probe_list
+GSM3572693	GSE125367	pooled_control	not_in_training	-0.139420142224555	6566	False	published_probe_list
+GSM3572694	GSE125367	pooled_control	not_in_training	-0.12454804958634902	6551	False	published_probe_list
+GSM3572695	GSE125367	pooled_control	not_in_training	-0.12555857805988557	6567	False	published_probe_list
+GSM3572696	GSE125367	pooled_control	not_in_training	-0.14622696387828016	6562	False	published_probe_list
+GSM3572697	GSE125367	pooled_control	not_in_training	-0.11620659094767927	6537	False	published_probe_list
+GSM3572698	GSE125367	pooled_control	not_in_training	-0.13918618037229913	6538	False	published_probe_list
+GSM3572699	GSE125367	pooled_control	not_in_training	-0.14222459845306068	6563	False	published_probe_list
+GSM3572700	GSE125367	pooled_control	not_in_training	-0.1325234880885633	6541	False	published_probe_list
+GSM3572701	GSE125367	pooled_control	not_in_training	-0.12343746243136011	6559	False	published_probe_list
+GSM3572702	GSE125367	pooled_control	not_in_training	-0.10182337615672343	6558	False	published_probe_list
+GSM3572703	GSE125367	pooled_control	not_in_training	-0.15433385561203616	6556	False	published_probe_list
+GSM3572704	GSE125367	pooled_control	not_in_training	-0.13461018328015684	6545	False	published_probe_list
+GSM3572705	GSE125367	pooled_control	not_in_training	-0.10285231925323501	6555	False	published_probe_list
+GSM3572706	GSE125367	pooled_control	not_in_training	-0.10668614826825085	6556	False	published_probe_list
+GSM1338100	GSE55491	pooled_control	not_in_training	-0.091131901446877	7085	False	published_probe_list
+GSM1338102	GSE55491	pooled_control	not_in_training	-0.12077395826632253	7085	False	published_probe_list
+GSM1338103	GSE55491	pooled_control	not_in_training	-0.09587832229475979	7085	False	published_probe_list
+GSM1338104	GSE55491	pooled_control	not_in_training	-0.1070546231058751	7085	False	published_probe_list
+GSM1338105	GSE55491	pooled_control	not_in_training	-0.1056387517147438	7085	False	published_probe_list
+GSM1338107	GSE55491	pooled_control	not_in_training	-0.11592830264023801	7085	False	published_probe_list
+GSM1624830	GSE66552	pooled_control	not_in_training	-0.11646850694360789	7081	False	published_probe_list
+GSM1624831	GSE66552	pooled_control	not_in_training	-0.13635598046816388	7081	False	published_probe_list
+GSM1624846	GSE66552	pooled_control	not_in_training	-0.1345313075986201	7080	False	published_probe_list
+GSM1624847	GSE66552	pooled_control	not_in_training	-0.14063615201448565	7077	False	published_probe_list
+GSM1624848	GSE66552	pooled_control	not_in_training	-0.1281616984417463	7077	False	published_probe_list
+GSM1624849	GSE66552	pooled_control	not_in_training	-0.1446421086281331	7079	False	published_probe_list
+GSM1624850	GSE66552	pooled_control	not_in_training	-0.12323534825424387	7082	False	published_probe_list
+GSM1624851	GSE66552	pooled_control	not_in_training	-0.14044460362653233	7079	False	published_probe_list
+GSM1624852	GSE66552	pooled_control	not_in_training	-0.12786178777381996	7078	False	published_probe_list
+GSM1624853	GSE66552	pooled_control	not_in_training	-0.15045244406641478	7081	False	published_probe_list
+GSM1624854	GSE66552	pooled_control	not_in_training	-0.12344748755802515	7079	False	published_probe_list
+GSM1624855	GSE66552	pooled_control	not_in_training	-0.14487393477256627	7078	False	published_probe_list
+GSM1624872	GSE66552	pooled_control	not_in_training	-0.13485209761522898	7080	False	published_probe_list
+GSM1624873	GSE66552	pooled_control	not_in_training	-0.13833860716300483	7075	False	published_probe_list
+GSM1624874	GSE66552	pooled_control	not_in_training	-0.1308270081139684	7082	False	published_probe_list
+GSM1920348	GSE74432	pooled_control	train_control	-0.14528471343978788	7078	True	published_probe_list
+GSM1920349	GSE74432	pooled_control	train_control	-0.14512848688772373	7078	True	published_probe_list
+GSM1920350	GSE74432	pooled_control	train_control	-0.14863874731576676	7080	True	published_probe_list
+GSM1920351	GSE74432	pooled_control	train_control	-0.09804436140566786	7078	True	published_probe_list
+GSM1920352	GSE74432	pooled_control	train_control	-0.12293974101982774	7068	True	published_probe_list
+GSM1920353	GSE74432	pooled_control	train_control	-0.1437521044350336	7083	True	published_probe_list
+GSM1920354	GSE74432	pooled_control	train_control	-0.14044549118658045	7079	True	published_probe_list
+GSM1920355	GSE74432	pooled_control	train_control	-0.13502516240568707	7076	True	published_probe_list
+GSM1920356	GSE74432	pooled_control	train_control	-0.12988895133138345	7072	True	published_probe_list
+GSM1920357	GSE74432	pooled_control	train_control	-0.12317331413848753	7066	True	published_probe_list
+GSM1920358	GSE74432	pooled_control	train_control	-0.13718094779904222	7081	True	published_probe_list
+GSM1920359	GSE74432	pooled_control	train_control	-0.13134190296245363	7072	True	published_probe_list
+GSM1920360	GSE74432	pooled_control	train_control	-0.13835633128860858	7079	True	published_probe_list
+GSM1920361	GSE74432	pooled_control	train_control	-0.14662677448933747	7080	True	published_probe_list
+GSM1920362	GSE74432	pooled_control	train_control	-0.14255539686478946	7079	True	published_probe_list
+GSM1920363	GSE74432	pooled_control	train_control	-0.12106639108736872	7081	True	published_probe_list
+GSM1920364	GSE74432	pooled_control	train_control	-0.12363236245381581	7081	True	published_probe_list
+GSM1920365	GSE74432	pooled_control	train_control	-0.1392919269340246	7084	True	published_probe_list
+GSM1920366	GSE74432	pooled_control	train_control	-0.15346179795559012	7081	True	published_probe_list
+GSM1920367	GSE74432	pooled_control	train_control	-0.12770427122510186	7083	True	published_probe_list
+GSM1920368	GSE74432	pooled_control	train_control	-0.1556368647762042	7081	True	published_probe_list
+GSM1920369	GSE74432	pooled_control	train_control	-0.1483374628467653	7083	True	published_probe_list
+GSM1920370	GSE74432	pooled_control	train_control	-0.14139444648836708	7080	True	published_probe_list
+GSM1920371	GSE74432	pooled_control	train_control	-0.1350017861290842	7081	True	published_probe_list
+GSM1920372	GSE74432	pooled_control	train_control	-0.1572509775025931	7077	True	published_probe_list
+GSM1920373	GSE74432	pooled_control	train_control	-0.11350454092982787	7061	True	published_probe_list
+GSM1920374	GSE74432	pooled_control	train_control	-0.1324138595920148	7079	True	published_probe_list
+GSM1920375	GSE74432	pooled_control	train_control	-0.1303625989953392	7080	True	published_probe_list
+GSM1920376	GSE74432	pooled_control	train_control	-0.15027780100685906	7066	True	published_probe_list
+GSM1920377	GSE74432	pooled_control	train_control	-0.15518836815026515	7082	True	published_probe_list
+GSM1920378	GSE74432	pooled_control	train_control	-0.12987827782537376	7077	True	published_probe_list
+GSM1920379	GSE74432	pooled_control	train_control	-0.13387770462396686	7081	True	published_probe_list
+GSM1920380	GSE74432	pooled_control	train_control	-0.1356079420931804	7082	True	published_probe_list
+GSM1920381	GSE74432	pooled_control	train_control	-0.15744192483549224	7081	True	published_probe_list
+GSM1920382	GSE74432	pooled_control	train_control	-0.13187605862528085	7074	True	published_probe_list
+GSM1920383	GSE74432	pooled_control	train_control	-0.150937797078587	7080	True	published_probe_list
+GSM1920384	GSE74432	pooled_control	train_control	-0.15129933638622817	7078	True	published_probe_list
+GSM1920385	GSE74432	pooled_control	train_control	-0.14961616029113656	7079	True	published_probe_list
+GSM1920386	GSE74432	pooled_control	train_control	-0.13279686626327192	7076	True	published_probe_list
+GSM1920387	GSE74432	pooled_control	train_control	-0.11934515734643603	7081	True	published_probe_list
+GSM1920388	GSE74432	pooled_control	train_control	-0.13503966452646032	7084	True	published_probe_list
+GSM1920389	GSE74432	pooled_control	train_control	-0.13447983177678202	7078	True	published_probe_list
+GSM1920390	GSE74432	pooled_control	train_control	-0.1330809534866585	7073	True	published_probe_list
+GSM1920391	GSE74432	pooled_control	train_control	-0.14562711320171018	7082	True	published_probe_list
+GSM1920392	GSE74432	pooled_control	train_control	-0.11410657313274519	7079	True	published_probe_list
+GSM1920393	GSE74432	pooled_control	train_control	-0.14433112643837864	7077	True	published_probe_list
+GSM1920394	GSE74432	pooled_control	train_control	-0.14107169259276475	7079	True	published_probe_list
+GSM1920395	GSE74432	pooled_control	train_control	-0.1402565990407565	7076	True	published_probe_list
+GSM1920396	GSE74432	pooled_control	train_control	-0.12662409649237283	7081	True	published_probe_list
+GSM1920397	GSE74432	pooled_control	train_control	-0.1301880202871608	7077	True	published_probe_list
+GSM1920398	GSE74432	pooled_control	train_control	-0.11420840756345885	7078	True	published_probe_list
+GSM1920399	GSE74432	pooled_control	train_control	-0.1373287115384968	7079	True	published_probe_list
+GSM1920400	GSE74432	pooled_control	train_control	-0.1344127881655922	7077	True	published_probe_list
+GSM2495036	GSE95040	pooled_control	not_in_training	-0.11207059029533928	7085	False	published_probe_list
+GSM2495037	GSE95040	pooled_control	not_in_training	-0.11062919823225859	7085	False	published_probe_list
+GSM2495038	GSE95040	pooled_control	not_in_training	-0.11623126687634389	7085	False	published_probe_list
+GSM2495046	GSE95040	pooled_control	not_in_training	-0.12117315931941797	7085	False	published_probe_list
+GSM2495047	GSE95040	pooled_control	not_in_training	-0.12882446177977003	7085	False	published_probe_list
+GSM2495048	GSE95040	pooled_control	not_in_training	-0.12470485433860468	7085	False	published_probe_list
+GSM2495049	GSE95040	pooled_control	not_in_training	-0.12048125772705676	7085	False	published_probe_list
+GSM2495050	GSE95040	pooled_control	not_in_training	-0.12254474850201436	7085	False	published_probe_list
+GSM2495054	GSE95040	pooled_control	not_in_training	-0.10218718639448476	7085	False	published_probe_list
+GSM2495059	GSE95040	pooled_control	not_in_training	-0.13883726834217058	7085	False	published_probe_list
+GSM2562809	GSE97362	pooled_control	not_in_training	-0.1553081759993471	7080	False	published_probe_list
+GSM2562810	GSE97362	pooled_control	not_in_training	-0.13576344527229478	7079	False	published_probe_list
+GSM2562811	GSE97362	pooled_control	not_in_training	-0.11727645595042546	7079	False	published_probe_list
+GSM2562812	GSE97362	pooled_control	not_in_training	-0.10509477251376531	7081	False	published_probe_list
+GSM2562813	GSE97362	pooled_control	not_in_training	-0.15839688906267146	7077	False	published_probe_list
+GSM2562814	GSE97362	pooled_control	not_in_training	-0.1312482519326803	7077	False	published_probe_list
+GSM2562815	GSE97362	pooled_control	not_in_training	-0.11074138270002143	7084	False	published_probe_list
+GSM2562816	GSE97362	pooled_control	not_in_training	-0.12274953885729945	7077	False	published_probe_list
+GSM2562817	GSE97362	pooled_control	not_in_training	-0.13523305637578664	7079	False	published_probe_list
+GSM2562818	GSE97362	pooled_control	not_in_training	-0.11625787802648568	7081	False	published_probe_list
+GSM2562819	GSE97362	pooled_control	not_in_training	-0.12490376851847362	7079	False	published_probe_list
+GSM2562820	GSE97362	pooled_control	not_in_training	-0.1360920322143201	7081	False	published_probe_list
+GSM2562821	GSE97362	pooled_control	not_in_training	-0.12741806044057324	7078	False	published_probe_list
+GSM2562822	GSE97362	pooled_control	not_in_training	-0.1516401798081748	7081	False	published_probe_list
+GSM2562823	GSE97362	pooled_control	not_in_training	-0.1337884346636996	7082	False	published_probe_list
+GSM2562824	GSE97362	pooled_control	not_in_training	-0.1419182003422903	7079	False	published_probe_list
+GSM2562825	GSE97362	pooled_control	not_in_training	-0.13302494519324914	7080	False	published_probe_list
+GSM2562826	GSE97362	pooled_control	not_in_training	-0.14065981221784762	7083	False	published_probe_list
+GSM2562827	GSE97362	pooled_control	not_in_training	-0.13014317453598567	7075	False	published_probe_list
+GSM2562828	GSE97362	pooled_control	not_in_training	-0.11674493838953115	7080	False	published_probe_list
+GSM2562829	GSE97362	pooled_control	not_in_training	-0.13546260067366167	7080	False	published_probe_list
+GSM2562830	GSE97362	pooled_control	not_in_training	-0.13281005036083648	7078	False	published_probe_list
+GSM2562831	GSE97362	pooled_control	not_in_training	-0.11621297090656413	7069	False	published_probe_list
+GSM2562832	GSE97362	pooled_control	not_in_training	-0.1590758457115582	7055	False	published_probe_list
+GSM2562833	GSE97362	pooled_control	not_in_training	-0.1289683963068996	7063	False	published_probe_list
+GSM2562834	GSE97362	pooled_control	not_in_training	-0.10857086044438569	7060	False	published_probe_list
+GSM2562835	GSE97362	pooled_control	not_in_training	-0.13356209072004	7002	False	published_probe_list
+GSM2562836	GSE97362	pooled_control	not_in_training	-0.14636338493075896	7079	False	published_probe_list
+GSM2562837	GSE97362	pooled_control	not_in_training	-0.1142313594015949	7080	False	published_probe_list
+GSM2562838	GSE97362	pooled_control	not_in_training	-0.12346945943173859	7076	False	published_probe_list
+GSM2562839	GSE97362	pooled_control	not_in_training	-0.1278159963520643	7081	False	published_probe_list
+GSM2562840	GSE97362	pooled_control	not_in_training	-0.1502142654933163	7082	False	published_probe_list
+GSM2562841	GSE97362	pooled_control	not_in_training	-0.13909694809748485	7085	False	published_probe_list
+GSM2562842	GSE97362	pooled_control	not_in_training	-0.1489798611235894	7078	False	published_probe_list
+GSM2562843	GSE97362	pooled_control	not_in_training	-0.1298224631303564	7076	False	published_probe_list
+GSM2562844	GSE97362	pooled_control	not_in_training	-0.1216310805469405	7076	False	published_probe_list
+GSM2562845	GSE97362	pooled_control	not_in_training	-0.12938451519883198	7081	False	published_probe_list
+GSM2562846	GSE97362	pooled_control	not_in_training	-0.11386343907149599	7079	False	published_probe_list
+GSM2562847	GSE97362	pooled_control	not_in_training	-0.11414108304435688	7084	False	published_probe_list
+GSM2562848	GSE97362	pooled_control	not_in_training	-0.12660898402722365	7083	False	published_probe_list
+GSM2562849	GSE97362	pooled_control	not_in_training	-0.1666049999830529	7077	False	published_probe_list
+GSM2562850	GSE97362	pooled_control	not_in_training	-0.1618513467416609	7080	False	published_probe_list
+GSM2562851	GSE97362	pooled_control	not_in_training	-0.16511603356760662	7081	False	published_probe_list
+GSM2562852	GSE97362	pooled_control	not_in_training	-0.14349249582568735	7081	False	published_probe_list
+GSM2562853	GSE97362	pooled_control	not_in_training	-0.15020215900788025	7078	False	published_probe_list
+GSM2562854	GSE97362	pooled_control	not_in_training	-0.1251568949915155	7084	False	published_probe_list
+GSM2562855	GSE97362	pooled_control	not_in_training	-0.14312963782929777	7082	False	published_probe_list
+GSM2562856	GSE97362	pooled_control	not_in_training	-0.1488346148035664	7083	False	published_probe_list
+GSM2562857	GSE97362	pooled_control	not_in_training	-0.1374968605261161	7082	False	published_probe_list
+GSM2562858	GSE97362	pooled_control	not_in_training	-0.12844792951571793	7079	False	published_probe_list
+GSM2562859	GSE97362	pooled_control	not_in_training	-0.1406796459829437	7082	False	published_probe_list
+GSM2562860	GSE97362	pooled_control	not_in_training	-0.13572438639914342	7081	False	published_probe_list
+GSM2562861	GSE97362	pooled_control	not_in_training	-0.14177452724202877	7078	False	published_probe_list
+GSM2562862	GSE97362	pooled_control	not_in_training	-0.1116813455677772	7084	False	published_probe_list
+GSM2562863	GSE97362	pooled_control	not_in_training	-0.1512782107166084	7082	False	published_probe_list
+GSM2562864	GSE97362	pooled_control	not_in_training	-0.12691827639820774	7084	False	published_probe_list
+GSM2562865	GSE97362	pooled_control	not_in_training	-0.14404636185261022	7080	False	published_probe_list
+GSM2562866	GSE97362	pooled_control	not_in_training	-0.130707777660384	7079	False	published_probe_list
+GSM2562867	GSE97362	pooled_control	not_in_training	-0.1407598241922574	7082	False	published_probe_list
+GSM2562868	GSE97362	pooled_control	not_in_training	-0.12776971560621897	7080	False	published_probe_list
+GSM2562869	GSE97362	pooled_control	not_in_training	-0.12168692133292847	7070	False	published_probe_list
+GSM2562870	GSE97362	pooled_control	not_in_training	-0.13317609122204432	7075	False	published_probe_list
+GSM2562871	GSE97362	pooled_control	not_in_training	-0.1390905648393711	7075	False	published_probe_list
+GSM2562872	GSE97362	pooled_control	not_in_training	-0.16282758280583387	7075	False	published_probe_list
+GSM2562873	GSE97362	pooled_control	not_in_training	-0.12943534228224507	7078	False	published_probe_list
+GSM2562874	GSE97362	pooled_control	not_in_training	-0.1425518068067928	7081	False	published_probe_list
+GSM2562875	GSE97362	pooled_control	not_in_training	-0.15593058448527897	7073	False	published_probe_list
+GSM2562876	GSE97362	pooled_control	not_in_training	-0.1334918696492815	7082	False	published_probe_list
+GSM2562877	GSE97362	pooled_control	not_in_training	-0.1314391735646806	7080	False	published_probe_list
+GSM2562878	GSE97362	pooled_control	not_in_training	-0.14154092093875392	7044	False	published_probe_list
+GSM2562879	GSE97362	pooled_control	not_in_training	-0.12343544445603816	7065	False	published_probe_list
+GSM2562880	GSE97362	pooled_control	not_in_training	-0.1566895033228286	7078	False	published_probe_list
+GSM2562881	GSE97362	pooled_control	not_in_training	-0.13002521788536203	7079	False	published_probe_list
+GSM2562882	GSE97362	pooled_control	not_in_training	-0.12735577053092784	7079	False	published_probe_list
+GSM2562883	GSE97362	pooled_control	not_in_training	-0.15768017862377282	7081	False	published_probe_list
+GSM2562884	GSE97362	pooled_control	not_in_training	-0.12067567814970825	7082	False	published_probe_list
+GSM2562885	GSE97362	pooled_control	not_in_training	-0.14859454143042183	7077	False	published_probe_list
+GSM2562886	GSE97362	pooled_control	not_in_training	-0.15422627581300918	7077	False	published_probe_list
+GSM2562887	GSE97362	pooled_control	not_in_training	-0.13703348892274714	7082	False	published_probe_list
+GSM2562888	GSE97362	pooled_control	not_in_training	-0.13970787092603332	7081	False	published_probe_list
+GSM2562889	GSE97362	pooled_control	not_in_training	-0.15921358320496182	7082	False	published_probe_list
+GSM2562890	GSE97362	pooled_control	not_in_training	-0.13541051264108772	7080	False	published_probe_list
+GSM2562891	GSE97362	pooled_control	not_in_training	-0.1430473675386179	7083	False	published_probe_list
+GSM2562892	GSE97362	pooled_control	not_in_training	-0.12715429798228084	7080	False	published_probe_list
+GSM2562893	GSE97362	pooled_control	not_in_training	-0.14079306056366336	7083	False	published_probe_list
+GSM2562894	GSE97362	pooled_control	not_in_training	-0.12098601987261726	7080	False	published_probe_list
+GSM2562895	GSE97362	pooled_control	not_in_training	-0.12244717073664158	7080	False	published_probe_list
+GSM2562896	GSE97362	pooled_control	not_in_training	-0.14986131560109017	7079	False	published_probe_list
+GSM2562897	GSE97362	pooled_control	not_in_training	-0.135219561851308	7082	False	published_probe_list
+GSM2562898	GSE97362	pooled_control	not_in_training	-0.13879652491077665	7082	False	published_probe_list
+GSM2562899	GSE97362	pooled_control	not_in_training	-0.1461974111863461	7079	False	published_probe_list
+GSM2562900	GSE97362	pooled_control	not_in_training	-0.11782336290125062	7081	False	published_probe_list
+GSM2562901	GSE97362	pooled_control	not_in_training	-0.13951049005823446	7083	False	published_probe_list
+GSM2562902	GSE97362	pooled_control	not_in_training	-0.1139547970121505	7085	False	published_probe_list
+GSM2562903	GSE97362	pooled_control	not_in_training	-0.14591121637182203	7083	False	published_probe_list
+GSM2562904	GSE97362	pooled_control	not_in_training	-0.13066301063404062	7085	False	published_probe_list
+GSM2562905	GSE97362	pooled_control	not_in_training	-0.15830317875415112	7075	False	published_probe_list
+GSM2562906	GSE97362	pooled_control	not_in_training	-0.14330284996203746	7079	False	published_probe_list
+GSM2562907	GSE97362	pooled_control	not_in_training	-0.13971880076904974	7081	False	published_probe_list
+GSM2562908	GSE97362	pooled_control	not_in_training	-0.14659586040677008	7082	False	published_probe_list
+GSM2562909	GSE97362	pooled_control	not_in_training	-0.1280896368136547	7083	False	published_probe_list
+GSM2562910	GSE97362	pooled_control	not_in_training	-0.12480961877679686	7078	False	published_probe_list
+GSM2562911	GSE97362	pooled_control	not_in_training	-0.1332837836487185	7079	False	published_probe_list
+GSM2562912	GSE97362	pooled_control	not_in_training	-0.14233905803163982	7071	False	published_probe_list
+GSM2562913	GSE97362	pooled_control	not_in_training	-0.10149720057740363	7083	False	published_probe_list
+GSM2562914	GSE97362	pooled_control	not_in_training	-0.13774379975136197	7081	False	published_probe_list
+GSM2562915	GSE97362	pooled_control	not_in_training	-0.1192538181882633	7084	False	published_probe_list
+GSM2562916	GSE97362	pooled_control	not_in_training	-0.1279080214123829	7080	False	published_probe_list
+GSM2562917	GSE97362	pooled_control	not_in_training	-0.155701942731867	7079	False	published_probe_list
+GSM2562918	GSE97362	pooled_control	not_in_training	-0.11147222633373544	7082	False	published_probe_list
+GSM2562919	GSE97362	pooled_control	not_in_training	-0.12059613946154446	7082	False	published_probe_list
+GSM2562922	GSE97362	pooled_control	not_in_training	-0.14467595610274786	7080	False	published_probe_list
+GSM2562923	GSE97362	pooled_control	not_in_training	-0.129508859285963	7082	False	published_probe_list
+GSM2562924	GSE97362	pooled_control	not_in_training	-0.13469700171723564	7082	False	published_probe_list
+GSM2562925	GSE97362	pooled_control	not_in_training	-0.11217114939129924	7084	False	published_probe_list
+GSM2562926	GSE97362	pooled_control	not_in_training	-0.1431152692539266	7080	False	published_probe_list
+GSM2562927	GSE97362	pooled_control	not_in_training	-0.13065531246972806	7084	False	published_probe_list
+GSM2562928	GSE97362	pooled_control	not_in_training	-0.12628667323067433	7080	False	published_probe_list
+GSM2562929	GSE97362	pooled_control	not_in_training	-0.12868492593537872	7079	False	published_probe_list
+GSM2562930	GSE97362	pooled_control	not_in_training	-0.14010731555886413	7069	False	published_probe_list
+GSM2562931	GSE97362	pooled_control	not_in_training	-0.11506124785661342	7066	False	published_probe_list
+GSM2562932	GSE97362	pooled_control	not_in_training	-0.12804713232780562	7065	False	published_probe_list
+GSM2562933	GSE97362	pooled_control	not_in_training	-0.12595943322332503	7082	False	published_probe_list
+GSM2562934	GSE97362	pooled_control	not_in_training	-0.12611468514414992	7078	False	published_probe_list
+GSM2562935	GSE97362	pooled_control	not_in_training	-0.13541141885493746	7079	False	published_probe_list

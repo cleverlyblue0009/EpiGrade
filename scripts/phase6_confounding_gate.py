@@ -49,9 +49,8 @@ def main() -> None:
             reason = (
                 f"{n_cases} cases span {n_studies} independent studies ({', '.join(studies)}) - "
                 "a genuine leave-one-study-out test is structurally possible. See "
-                "results/tables/leave_one_study_out.tsv for whether a classifier could "
-                "actually be derived and how it generalized, if this disorder was attempted "
-                "this session."
+                "results/tables/leave_one_study_out.tsv for whether each direction could "
+                "actually be built and how it generalized."
             )
 
         rows.append({

@@ -136,9 +136,12 @@ def build_resource() -> dict:
             "computed": cross_matrix,
             "not_computed": cross_matrix_pending,
         },
-        "leave_one_study_out": {
-            "silver_russell_syndrome": loso,
-        },
+        "leave_one_study_out": loso,
+        "disorder_verdicts": _read_tsv("disorder_verdicts.tsv"),
+        "signature_derivation": _read_tsv("signature_derivation.tsv"),
+        "corpus_cohorts": _read_tsv("corpus_cohorts.tsv"),
+        "control_specificity_by_series": _read_tsv("control_specificity_by_series.tsv"),
+        "attainable_ceiling_curve": _read_tsv("attainable_ceiling_curve.tsv"),
         "harmonisation": {
             # Real bug fixed here: this used to read BOTH "harvested" and "flagged/excluded"
             # from the triage table, which only ever contains excluded samples - so the two

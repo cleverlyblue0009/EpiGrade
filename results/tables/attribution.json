@@ -100,7 +100,7 @@
         }
       ],
       "band": "Strong",
-      "lr_point_estimate": 142.41593570327453,
+      "lr_point_estimate": 142.4159357032973,
       "interpretation_scope": "within_study_only",
       "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "explanation": [
@@ -211,7 +211,7 @@
         }
       ],
       "band": "Strong",
-      "lr_point_estimate": 142.41593570327453,
+      "lr_point_estimate": 142.4159357032973,
       "interpretation_scope": "within_study_only",
       "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "explanation": [
@@ -322,7 +322,7 @@
         }
       ],
       "band": "Strong",
-      "lr_point_estimate": 142.41593570327453,
+      "lr_point_estimate": 142.4159357032973,
       "interpretation_scope": "within_study_only",
       "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "explanation": [
@@ -433,7 +433,7 @@
         }
       ],
       "band": "Supporting",
-      "lr_point_estimate": 4.27991793208837,
+      "lr_point_estimate": 4.27991793208835,
       "interpretation_scope": "within_study_only",
       "band_reason": "WITHIN-STUDY ONLY: single-study cohort, so no between-study confidence bound can be estimated (study-level bootstrap is degenerate - every resample is identical to the original data). This band is instead the conservative bound of a within-study (sample-level) bootstrap - it describes how stable the estimate is inside this one dataset, not whether it would hold up in an independent study. Treat it as illustrative, not validated evidence.",
       "explanation": [

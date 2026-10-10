@@ -140,7 +140,7 @@ for the tests locking in that Sotos's own thresholds stay pinned regardless.
 Under this default: Silver-Russell syndrome (GSE104451 alone, 21 confirmed 11p15-LOM cases vs
 16 controls) builds a 64-probe classifier with clean specificity (0% cross-reactivity against
 Sotos) and a genuine, if modest, leave-one-study-out result on GSE55491 (5/18 sensitivity, 6/6
-specificity) - the only disorder in this corpus with a real between-study evidence band (see
+specificity) - one of two disorders (with Kabuki type 1) that have a between-study evidence band (see
 `results/tables/evidence_bands.tsv`; it reads "No evidence" at every prior, honestly reflecting
 that modest cross-study sensitivity). CHARGE syndrome (GSE97362, 19 cases vs 29 controls) builds
 907 probes with 89.5% self-consistency but a real, moderate specificity concern - 37.8%
@@ -148,5 +148,5 @@ cross-reactivity against Kabuki cases. Kabuki does not build from GSE116300 alon
 pooled with GSE97362's own KMT2D-LOF cohort (278 probes, 97.3% self-consistency, 0%
 cross-reactivity against CHARGE). See `docs/LIMITATIONS.md` for the full writeup, including a
 pooling attempt for SRS that was tried and explicitly rejected after failing a specificity check
-(94.7% false-positive rate against Sotos), and a real data-corruption bug found and fixed while
+(92.1% (35 of 38) false-positive rate against Sotos), and a real data-corruption bug found and fixed while
 building the merged cross-disorder matrix.

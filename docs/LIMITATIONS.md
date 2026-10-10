@@ -9,6 +9,68 @@ EpiGrade takes a classifier score and reports the evidence strength it can suppo
 corpus. It is not a diagnostic device, does not accept patient data or raw arrays, and nothing
 here should inform a clinical decision on its own.
 
+## Complete corpus: current state (supersedes older entries below where they conflict)
+
+All eleven disorder series are now downloaded and all ten eligible disorders have a signature,
+built by one disorder-agnostic script (`scripts/build_corpus.py`). The sections further down are
+kept as a development log; where they say a disorder was "not downloaded" or "not built", this
+section is the current truth.
+
+**Thresholds and the stop rule.** Every re-derived signature used the single project default
+(Benjamini-Hochberg FDR at 0.05, 10% mean-beta effect floor). That default replaced Choufani's
+Bonferroni / 20% once, before Silver-Russell was retried, and has not been changed since. All
+ten disorders built under it, so no further threshold change was made or needed. Sotos keeps
+its published 7,085-probe list. `tests/test_corpus.py` fails if any re-derived row carries
+another threshold.
+
+**Controls that are not ordinary matched controls.**
+- *Coffin-Siris* and half of *Nicolaides-Baraitser* come from GSE116992, which deposited no
+  controls. Their signatures are derived against the 27 controls of GSE125367 (same depositing
+  laboratory, EPIC array). Case/control is therefore fully confounded with series, and it shows:
+  259,707 of roughly 450,000 probes test significant for Coffin-Siris, and its classifier scores
+  86% of pooled controls and 100% of Silver-Russell cases positive. Treat both as batch
+  detectors until shown otherwise. Rows are tagged `controls_source=cross_series`.
+- *Down syndrome* (GSE52588) has no unrelated controls. Its 29 unaffected siblings are used as
+  the comparison group, for Down only. Mothers are not used (a generation older). The triage
+  counts are unchanged: relatives remain excluded from the retained corpus and from the pooled
+  controls. The Down classifier scores 54% of pooled controls positive.
+
+**Leave-one-study-out could be tested in one of six directions.** Silver-Russell trained on
+GSE104451 and tested on GSE55491 gives 5/18 sensitivity and 6/6 specificity. The reverse
+direction and both Kabuki directions find zero significant probes at their cohort sizes.
+Neither Nicolaides-Baraitser study has the 10 cases needed to attempt a signature (8 each).
+The 10-case minimum was not lowered. So for two of the three "graded" disorders the cross-study
+question is unanswered, not answered favourably.
+
+**The leakage guard covers median profiles, not probe selection.** A training sample is scored
+against case/control profiles rebuilt without it. Which probes are in the signature was still
+chosen using every training sample, so diagonal (self) cells remain optimistic. Only the Sotos
+replication cohort and the Silver-Russell held-out study are free of both.
+
+**Scores across series mix biology with batch.** A sample from another series is compared with
+median profiles from the training series. Positive rates on other series' controls range from
+0% (Sotos, ICF, Kabuki) to 86% (Coffin-Siris); see
+`results/tables/control_specificity_by_series.tsv`.
+
+**The pooled control corpus is 273 matched controls from nine disease series.** The six
+population-control accessions (about 2,000 samples) were harvested for metadata only; their beta
+matrices are not part of this build.
+
+**No sex-chromosome or SNP-probe filter is applied to re-derived signatures.** Sex is not
+annotated for GSE116992 or GSE66552, so case/control sex balance cannot be checked there.
+
+**Mixed platforms.** GSE116992 is 7 samples on 450K and 22 on EPIC; GSE125367 is EPIC.
+Signatures involving them use only probes present on both arrays.
+
+**ICF types 1-4 are pooled** as one disorder (8, 4, 2 and 1 cases), as harmonised.
+
+**The correlation score is blind to a uniform shift.** Pearson correlation ignores a constant
+offset, so a signature whose probes all move by the same amount in the same direction would not
+separate cases under this scoring rule.
+
+**Small cohorts.** Weaver (8) and Claes-Jensen (6) have no signature and never will at this
+size. Their columns in the cross-disorder matrix are marked "too small to interpret".
+
 ## Phase 1: label harmonization
 
 - The "100-sample hand curation" agreement check (`results/tables/harmonisation_agreement.tsv`)
@@ -144,7 +206,7 @@ here should inform a clinical decision on its own.
   all, and that bound says this particular classifier doesn't yet reliably generalize.
   - Also tried and explicitly rejected: pooling GSE104451 + GSE55491 for derivation (328 probes,
     more than GSE104451 alone). Checked the same way before accepting or rejecting it: only
-    69.8%-equivalent (19/37) self-consistency and a **94.7% false-positive rate scored against
+    69.8%-equivalent (19/37) self-consistency and a **92.1% (35 of 38) false-positive rate scored against
     Sotos cases** - a near-total specificity failure, evidently from GSE55491's molecularly-
     unconfirmed "clinical SRS"/UPD(7) cases introducing batch/non-specific signal into the case
     pool. More probes passing the same filters is not the same as a better signature; the

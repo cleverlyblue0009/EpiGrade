@@ -1,23 +1,157 @@
-classifier	scored_disorder	status	n	fraction_positive	signature_source	reason
-Sotos syndrome	Silver-Russell syndrome	computed	63.0	0.0	published_probe_list	7085 shared probes between Sotos signature and the SRS-series beta matrices
-Sotos syndrome	Sotos syndrome (self)	computed	38.0	1.0	published_probe_list	from phase 3 (leave-one-out guarded for discovery samples)
-Sotos syndrome	Weaver syndrome	computed	8.0	0.0	published_probe_list	n=8 < 10: too small to interpret precisely, shown for reference
-Silver-Russell syndrome	Sotos syndrome	computed	38.0	0.0	rederived_not_published	58 shared probes (Path B derived signature, GSE104451-only classifier)
-Silver-Russell syndrome	Weaver syndrome	computed	8.0	0.0	rederived_not_published	58 shared probes (Path B derived signature, GSE104451-only classifier)
-Silver-Russell syndrome	Silver-Russell syndrome (self)	computed	21.0	0.905	rederived_not_published	NOT leave-one-out guarded (scored on its own GSE104451 training data): sensitivity 19/21 cases, specificity 16/16 controls - see leave_one_study_out.tsv for the genuine held-out (GSE55491) result this classifier actually achieved
-Kabuki syndrome type 1	Kabuki syndrome type 1 (self)	computed	37.0	0.973	rederived_not_published	NOT leave-one-out guarded (scored on its own training data)
-Kabuki syndrome type 1	pooled_control (GSE116300)	computed	20.0	0.15	rederived_not_published	
-Kabuki syndrome type 1	pooled_control (GSE97362)	computed	29.0	0.0	rederived_not_published	
-Kabuki syndrome type 1	CHARGE syndrome	computed	19.0	0.0	rederived_not_published	
-CHARGE syndrome	CHARGE syndrome (self)	computed	19.0	0.895	rederived_not_published	NOT leave-one-out guarded (scored on its own training data)
-CHARGE syndrome	pooled_control (GSE116300)	computed	20.0	0.2	rederived_not_published	
-CHARGE syndrome	pooled_control (GSE97362)	computed	29.0	0.069	rederived_not_published	
-CHARGE syndrome	Kabuki syndrome type 1	computed	37.0	0.378	rederived_not_published	
-Kabuki syndrome type 2	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
-Coffin-Siris syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
-Nicolaides-Baraitser syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
-Down syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
-Williams syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
-7q11.23 duplication syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
-ICF syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
-Claes-Jensen syndrome	NOT COMPUTED	not_computed				series matrix not downloaded in this session (GEO FTP bandwidth/time constraints) - classifier not built, not a computed NA vs. a real zero
+classifier	scored_disorder	cell_type	status	n	n_positive	fraction_positive	interpretation	signature_source	reason
+Silver-Russell syndrome	Silver-Russell syndrome	self	computed	63	24	0.381		rederived_not_published	sensitivity. 19/21 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic. 5/42 cases not used in training positive (held out)
+Silver-Russell syndrome	Sotos syndrome	other_disorder	computed	38	0	0.0		rederived_not_published	
+Silver-Russell syndrome	Kabuki syndrome type 1	other_disorder	computed	37	0	0.0		rederived_not_published	
+Silver-Russell syndrome	Down syndrome	other_disorder	computed	29	14	0.483		rederived_not_published	
+Silver-Russell syndrome	Coffin-Siris syndrome	other_disorder	computed	21	0	0.0		rederived_not_published	
+Silver-Russell syndrome	Williams syndrome	other_disorder	computed	20	0	0.0		rederived_not_published	
+Silver-Russell syndrome	CHARGE syndrome	other_disorder	computed	19	0	0.0		rederived_not_published	
+Silver-Russell syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	0	0.0		rederived_not_published	
+Silver-Russell syndrome	ICF syndrome	other_disorder	computed	15	0	0.0		rederived_not_published	
+Silver-Russell syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	0	0.0		rederived_not_published	
+Silver-Russell syndrome	Weaver syndrome	other_disorder	computed	8	0	0.0	too small to interpret	rederived_not_published	
+Silver-Russell syndrome	Claes-Jensen syndrome	other_disorder	computed	6	0	0.0	too small to interpret	rederived_not_published	
+Silver-Russell syndrome	pooled_control	pooled_control	computed	257	2	0.008		rederived_not_published	false-positive rate over matched controls from 8 series; this classifier's own 16 training controls excluded
+Sotos syndrome	Silver-Russell syndrome	other_disorder	computed	63	0	0.0		published_probe_list	
+Sotos syndrome	Sotos syndrome	self	computed	38	38	1.0		published_probe_list	sensitivity. 19/19 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic. 19/19 cases not used in training positive (held out)
+Sotos syndrome	Kabuki syndrome type 1	other_disorder	computed	37	0	0.0		published_probe_list	
+Sotos syndrome	Down syndrome	other_disorder	computed	29	0	0.0		published_probe_list	
+Sotos syndrome	Coffin-Siris syndrome	other_disorder	computed	21	0	0.0		published_probe_list	
+Sotos syndrome	Williams syndrome	other_disorder	computed	20	0	0.0		published_probe_list	
+Sotos syndrome	CHARGE syndrome	other_disorder	computed	19	0	0.0		published_probe_list	
+Sotos syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	0	0.0		published_probe_list	
+Sotos syndrome	ICF syndrome	other_disorder	computed	15	0	0.0		published_probe_list	
+Sotos syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	0	0.0		published_probe_list	
+Sotos syndrome	Weaver syndrome	other_disorder	computed	8	0	0.0	too small to interpret	published_probe_list	
+Sotos syndrome	Claes-Jensen syndrome	other_disorder	computed	6	0	0.0	too small to interpret	published_probe_list	
+Sotos syndrome	pooled_control	pooled_control	computed	220	0	0.0		published_probe_list	false-positive rate over matched controls from 8 series; this classifier's own 53 training controls excluded
+Kabuki syndrome type 1	Silver-Russell syndrome	other_disorder	computed	63	0	0.0		rederived_not_published	
+Kabuki syndrome type 1	Sotos syndrome	other_disorder	computed	38	0	0.0		rederived_not_published	
+Kabuki syndrome type 1	Kabuki syndrome type 1	self	computed	37	35	0.946		rederived_not_published	sensitivity. 35/37 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+Kabuki syndrome type 1	Down syndrome	other_disorder	computed	29	0	0.0		rederived_not_published	
+Kabuki syndrome type 1	Coffin-Siris syndrome	other_disorder	computed	21	1	0.048		rederived_not_published	
+Kabuki syndrome type 1	Williams syndrome	other_disorder	computed	20	0	0.0		rederived_not_published	
+Kabuki syndrome type 1	CHARGE syndrome	other_disorder	computed	19	0	0.0		rederived_not_published	
+Kabuki syndrome type 1	Nicolaides-Baraitser syndrome	other_disorder	computed	16	1	0.062		rederived_not_published	
+Kabuki syndrome type 1	ICF syndrome	other_disorder	computed	15	1	0.067		rederived_not_published	
+Kabuki syndrome type 1	7q11.23 duplication syndrome	other_disorder	computed	10	0	0.0		rederived_not_published	
+Kabuki syndrome type 1	Weaver syndrome	other_disorder	computed	8	0	0.0	too small to interpret	rederived_not_published	
+Kabuki syndrome type 1	Claes-Jensen syndrome	other_disorder	computed	6	0	0.0	too small to interpret	rederived_not_published	
+Kabuki syndrome type 1	pooled_control	pooled_control	computed	253	0	0.0		rederived_not_published	false-positive rate over matched controls from 8 series; this classifier's own 20 training controls excluded
+Down syndrome	Silver-Russell syndrome	other_disorder	computed	63	30	0.476		rederived_not_published	
+Down syndrome	Sotos syndrome	other_disorder	computed	38	11	0.289		rederived_not_published	
+Down syndrome	Kabuki syndrome type 1	other_disorder	computed	37	22	0.595		rederived_not_published	
+Down syndrome	Down syndrome	self	computed	29	28	0.966		rederived_not_published	sensitivity. 28/29 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+Down syndrome	Coffin-Siris syndrome	other_disorder	computed	21	8	0.381		rederived_not_published	
+Down syndrome	Williams syndrome	other_disorder	computed	20	6	0.3		rederived_not_published	
+Down syndrome	CHARGE syndrome	other_disorder	computed	19	12	0.632		rederived_not_published	
+Down syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	9	0.562		rederived_not_published	
+Down syndrome	ICF syndrome	other_disorder	computed	15	1	0.067		rederived_not_published	
+Down syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	5	0.5		rederived_not_published	
+Down syndrome	Weaver syndrome	other_disorder	computed	8	3	0.375	too small to interpret	rederived_not_published	
+Down syndrome	Claes-Jensen syndrome	other_disorder	computed	6	0	0.0	too small to interpret	rederived_not_published	
+Down syndrome	pooled_control	pooled_control	computed	273	146	0.535		rederived_not_published	false-positive rate over matched controls from 9 series; this classifier's own 0 training controls excluded
+Coffin-Siris syndrome	Silver-Russell syndrome	other_disorder	computed	63	63	1.0		rederived_not_published	
+Coffin-Siris syndrome	Sotos syndrome	other_disorder	computed	38	35	0.921		rederived_not_published	
+Coffin-Siris syndrome	Kabuki syndrome type 1	other_disorder	computed	37	36	0.973		rederived_not_published	
+Coffin-Siris syndrome	Down syndrome	other_disorder	computed	29	28	0.966		rederived_not_published	
+Coffin-Siris syndrome	Coffin-Siris syndrome	self	computed	21	21	1.0		rederived_not_published	sensitivity. 21/21 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+Coffin-Siris syndrome	Williams syndrome	other_disorder	computed	20	8	0.4		rederived_not_published	
+Coffin-Siris syndrome	CHARGE syndrome	other_disorder	computed	19	18	0.947		rederived_not_published	
+Coffin-Siris syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	8	0.5		rederived_not_published	
+Coffin-Siris syndrome	ICF syndrome	other_disorder	computed	15	10	0.667		rederived_not_published	
+Coffin-Siris syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	5	0.5		rederived_not_published	
+Coffin-Siris syndrome	Weaver syndrome	other_disorder	computed	8	7	0.875	too small to interpret	rederived_not_published	
+Coffin-Siris syndrome	Claes-Jensen syndrome	other_disorder	computed	6	6	1.0	too small to interpret	rederived_not_published	
+Coffin-Siris syndrome	pooled_control	pooled_control	computed	246	211	0.858		rederived_not_published	false-positive rate over matched controls from 8 series; this classifier's own 27 training controls excluded
+Williams syndrome	Silver-Russell syndrome	other_disorder	computed	63	3	0.048		rederived_not_published	
+Williams syndrome	Sotos syndrome	other_disorder	computed	38	9	0.237		rederived_not_published	
+Williams syndrome	Kabuki syndrome type 1	other_disorder	computed	37	1	0.027		rederived_not_published	
+Williams syndrome	Down syndrome	other_disorder	computed	29	0	0.0		rederived_not_published	
+Williams syndrome	Coffin-Siris syndrome	other_disorder	computed	21	0	0.0		rederived_not_published	
+Williams syndrome	Williams syndrome	self	computed	20	19	0.95		rederived_not_published	sensitivity. 19/20 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+Williams syndrome	CHARGE syndrome	other_disorder	computed	19	0	0.0		rederived_not_published	
+Williams syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	0	0.0		rederived_not_published	
+Williams syndrome	ICF syndrome	other_disorder	computed	15	1	0.067		rederived_not_published	
+Williams syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	2	0.2		rederived_not_published	
+Williams syndrome	Weaver syndrome	other_disorder	computed	8	1	0.125	too small to interpret	rederived_not_published	
+Williams syndrome	Claes-Jensen syndrome	other_disorder	computed	6	0	0.0	too small to interpret	rederived_not_published	
+Williams syndrome	pooled_control	pooled_control	computed	258	16	0.062		rederived_not_published	false-positive rate over matched controls from 8 series; this classifier's own 15 training controls excluded
+CHARGE syndrome	Silver-Russell syndrome	other_disorder	computed	63	16	0.254		rederived_not_published	
+CHARGE syndrome	Sotos syndrome	other_disorder	computed	38	8	0.211		rederived_not_published	
+CHARGE syndrome	Kabuki syndrome type 1	other_disorder	computed	37	14	0.378		rederived_not_published	
+CHARGE syndrome	Down syndrome	other_disorder	computed	29	25	0.862		rederived_not_published	
+CHARGE syndrome	Coffin-Siris syndrome	other_disorder	computed	21	10	0.476		rederived_not_published	
+CHARGE syndrome	Williams syndrome	other_disorder	computed	20	0	0.0		rederived_not_published	
+CHARGE syndrome	CHARGE syndrome	self	computed	19	17	0.895		rederived_not_published	sensitivity. 17/19 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+CHARGE syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	8	0.5		rederived_not_published	
+CHARGE syndrome	ICF syndrome	other_disorder	computed	15	3	0.2		rederived_not_published	
+CHARGE syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	1	0.1		rederived_not_published	
+CHARGE syndrome	Weaver syndrome	other_disorder	computed	8	0	0.0	too small to interpret	rederived_not_published	
+CHARGE syndrome	Claes-Jensen syndrome	other_disorder	computed	6	5	0.833	too small to interpret	rederived_not_published	
+CHARGE syndrome	pooled_control	pooled_control	computed	244	70	0.287		rederived_not_published	false-positive rate over matched controls from 9 series; this classifier's own 29 training controls excluded
+Nicolaides-Baraitser syndrome	Silver-Russell syndrome	other_disorder	computed	63	47	0.746		rederived_not_published	
+Nicolaides-Baraitser syndrome	Sotos syndrome	other_disorder	computed	38	23	0.605		rederived_not_published	
+Nicolaides-Baraitser syndrome	Kabuki syndrome type 1	other_disorder	computed	37	17	0.459		rederived_not_published	
+Nicolaides-Baraitser syndrome	Down syndrome	other_disorder	computed	29	28	0.966		rederived_not_published	
+Nicolaides-Baraitser syndrome	Coffin-Siris syndrome	other_disorder	computed	21	16	0.762		rederived_not_published	
+Nicolaides-Baraitser syndrome	Williams syndrome	other_disorder	computed	20	1	0.05		rederived_not_published	
+Nicolaides-Baraitser syndrome	CHARGE syndrome	other_disorder	computed	19	15	0.789		rederived_not_published	
+Nicolaides-Baraitser syndrome	Nicolaides-Baraitser syndrome	self	computed	16	14	0.875		rederived_not_published	sensitivity. 14/16 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+Nicolaides-Baraitser syndrome	ICF syndrome	other_disorder	computed	15	9	0.6		rederived_not_published	
+Nicolaides-Baraitser syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	4	0.4		rederived_not_published	
+Nicolaides-Baraitser syndrome	Weaver syndrome	other_disorder	computed	8	3	0.375	too small to interpret	rederived_not_published	
+Nicolaides-Baraitser syndrome	Claes-Jensen syndrome	other_disorder	computed	6	6	1.0	too small to interpret	rederived_not_published	
+Nicolaides-Baraitser syndrome	pooled_control	pooled_control	computed	246	144	0.585		rederived_not_published	false-positive rate over matched controls from 8 series; this classifier's own 27 training controls excluded
+ICF syndrome	Silver-Russell syndrome	other_disorder	computed	63	0	0.0		rederived_not_published	
+ICF syndrome	Sotos syndrome	other_disorder	computed	38	0	0.0		rederived_not_published	
+ICF syndrome	Kabuki syndrome type 1	other_disorder	computed	37	0	0.0		rederived_not_published	
+ICF syndrome	Down syndrome	other_disorder	computed	29	0	0.0		rederived_not_published	
+ICF syndrome	Coffin-Siris syndrome	other_disorder	computed	21	0	0.0		rederived_not_published	
+ICF syndrome	Williams syndrome	other_disorder	computed	20	0	0.0		rederived_not_published	
+ICF syndrome	CHARGE syndrome	other_disorder	computed	19	0	0.0		rederived_not_published	
+ICF syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	0	0.0		rederived_not_published	
+ICF syndrome	ICF syndrome	self	computed	15	13	0.867		rederived_not_published	sensitivity. 13/15 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+ICF syndrome	7q11.23 duplication syndrome	other_disorder	computed	10	0	0.0		rederived_not_published	
+ICF syndrome	Weaver syndrome	other_disorder	computed	8	0	0.0	too small to interpret	rederived_not_published	
+ICF syndrome	Claes-Jensen syndrome	other_disorder	computed	6	0	0.0	too small to interpret	rederived_not_published	
+ICF syndrome	pooled_control	pooled_control	computed	263	0	0.0		rederived_not_published	false-positive rate over matched controls from 8 series; this classifier's own 10 training controls excluded
+7q11.23 duplication syndrome	Silver-Russell syndrome	other_disorder	computed	63	0	0.0		rederived_not_published	
+7q11.23 duplication syndrome	Sotos syndrome	other_disorder	computed	38	0	0.0		rederived_not_published	
+7q11.23 duplication syndrome	Kabuki syndrome type 1	other_disorder	computed	37	6	0.162		rederived_not_published	
+7q11.23 duplication syndrome	Down syndrome	other_disorder	computed	29	0	0.0		rederived_not_published	
+7q11.23 duplication syndrome	Coffin-Siris syndrome	other_disorder	computed	21	0	0.0		rederived_not_published	
+7q11.23 duplication syndrome	Williams syndrome	other_disorder	computed	20	0	0.0		rederived_not_published	
+7q11.23 duplication syndrome	CHARGE syndrome	other_disorder	computed	19	0	0.0		rederived_not_published	
+7q11.23 duplication syndrome	Nicolaides-Baraitser syndrome	other_disorder	computed	16	0	0.0		rederived_not_published	
+7q11.23 duplication syndrome	ICF syndrome	other_disorder	computed	15	6	0.4		rederived_not_published	
+7q11.23 duplication syndrome	7q11.23 duplication syndrome	self	computed	10	10	1.0		rederived_not_published	sensitivity. 10/10 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic
+7q11.23 duplication syndrome	Weaver syndrome	other_disorder	computed	8	0	0.0	too small to interpret	rederived_not_published	
+7q11.23 duplication syndrome	Claes-Jensen syndrome	other_disorder	computed	6	0	0.0	too small to interpret	rederived_not_published	
+7q11.23 duplication syndrome	pooled_control	pooled_control	computed	258	16	0.062		rederived_not_published	false-positive rate over matched controls from 8 series; this classifier's own 15 training controls excluded
+Weaver syndrome	Silver-Russell syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Sotos syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Kabuki syndrome type 1	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Down syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Coffin-Siris syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Williams syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	CHARGE syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Nicolaides-Baraitser syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	ICF syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	7q11.23 duplication syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Weaver syndrome	self	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	Claes-Jensen syndrome	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Weaver syndrome	pooled_control	not_built	not_computed					NA	no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Silver-Russell syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Sotos syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Kabuki syndrome type 1	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Down syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Coffin-Siris syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Williams syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	CHARGE syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Nicolaides-Baraitser syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	ICF syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	7q11.23 duplication syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Weaver syndrome	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	Claes-Jensen syndrome	self	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	pooled_control	not_built	not_computed					NA	no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only

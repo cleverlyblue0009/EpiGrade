@@ -1,0 +1,103 @@
+classifier	control_series	control_group	relation_to_classifier	n	n_positive	fraction_positive	interpretation	signature_source
+Silver-Russell syndrome	GSE104451	pooled_control	training_controls_leave_one_out	16	0	0.0		rederived_not_published
+Silver-Russell syndrome	GSE108423	pooled_control	held_out_controls	12	0	0.0		rederived_not_published
+Silver-Russell syndrome	GSE116300	pooled_control	held_out_controls	9	0	0.0	too small to interpret	rederived_not_published
+Silver-Russell syndrome	GSE125367	pooled_control	held_out_controls	27	1	0.037		rederived_not_published
+Silver-Russell syndrome	GSE52588	comparator_sibling	held_out_controls	29	15	0.517		rederived_not_published
+Silver-Russell syndrome	GSE55491	pooled_control	held_out_controls	6	0	0.0	too small to interpret	rederived_not_published
+Silver-Russell syndrome	GSE66552	pooled_control	held_out_controls	15	0	0.0		rederived_not_published
+Silver-Russell syndrome	GSE74432	pooled_control	held_out_controls	53	0	0.0		rederived_not_published
+Silver-Russell syndrome	GSE95040	pooled_control	held_out_controls	10	0	0.0		rederived_not_published
+Silver-Russell syndrome	GSE97362	pooled_control	held_out_controls	125	1	0.008		rederived_not_published
+Sotos syndrome	GSE104451	pooled_control	held_out_controls	16	0	0.0		published_probe_list
+Sotos syndrome	GSE108423	pooled_control	held_out_controls	12	0	0.0		published_probe_list
+Sotos syndrome	GSE116300	pooled_control	held_out_controls	9	0	0.0	too small to interpret	published_probe_list
+Sotos syndrome	GSE125367	pooled_control	held_out_controls	27	0	0.0		published_probe_list
+Sotos syndrome	GSE52588	comparator_sibling	held_out_controls	29	0	0.0		published_probe_list
+Sotos syndrome	GSE55491	pooled_control	held_out_controls	6	0	0.0	too small to interpret	published_probe_list
+Sotos syndrome	GSE66552	pooled_control	held_out_controls	15	0	0.0		published_probe_list
+Sotos syndrome	GSE74432	pooled_control	training_controls_leave_one_out	53	0	0.0		published_probe_list
+Sotos syndrome	GSE95040	pooled_control	held_out_controls	10	0	0.0		published_probe_list
+Sotos syndrome	GSE97362	pooled_control	held_out_controls	125	0	0.0		published_probe_list
+Kabuki syndrome type 1	GSE104451	pooled_control	held_out_controls	16	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE108423	pooled_control	held_out_controls	12	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE116300	pooled_control	training_controls_leave_one_out	9	5	0.556	too small to interpret	rederived_not_published
+Kabuki syndrome type 1	GSE125367	pooled_control	held_out_controls	27	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE52588	comparator_sibling	held_out_controls	29	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE55491	pooled_control	held_out_controls	6	0	0.0	too small to interpret	rederived_not_published
+Kabuki syndrome type 1	GSE66552	pooled_control	held_out_controls	15	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE74432	pooled_control	held_out_controls	53	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE95040	pooled_control	held_out_controls	10	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE97362	pooled_control	held_out_controls	114	0	0.0		rederived_not_published
+Kabuki syndrome type 1	GSE97362	pooled_control	training_controls_leave_one_out	11	0	0.0		rederived_not_published
+Down syndrome	GSE104451	pooled_control	held_out_controls	16	11	0.688		rederived_not_published
+Down syndrome	GSE108423	pooled_control	held_out_controls	12	0	0.0		rederived_not_published
+Down syndrome	GSE116300	pooled_control	held_out_controls	9	5	0.556	too small to interpret	rederived_not_published
+Down syndrome	GSE125367	pooled_control	held_out_controls	27	14	0.519		rederived_not_published
+Down syndrome	GSE52588	comparator_sibling	training_controls_leave_one_out	29	7	0.241		rederived_not_published
+Down syndrome	GSE55491	pooled_control	held_out_controls	6	5	0.833	too small to interpret	rederived_not_published
+Down syndrome	GSE66552	pooled_control	held_out_controls	15	5	0.333		rederived_not_published
+Down syndrome	GSE74432	pooled_control	held_out_controls	53	23	0.434		rederived_not_published
+Down syndrome	GSE95040	pooled_control	held_out_controls	10	3	0.3		rederived_not_published
+Down syndrome	GSE97362	pooled_control	held_out_controls	125	80	0.64		rederived_not_published
+Coffin-Siris syndrome	GSE104451	pooled_control	held_out_controls	16	16	1.0		rederived_not_published
+Coffin-Siris syndrome	GSE108423	pooled_control	held_out_controls	12	12	1.0		rederived_not_published
+Coffin-Siris syndrome	GSE116300	pooled_control	held_out_controls	9	8	0.889	too small to interpret	rederived_not_published
+Coffin-Siris syndrome	GSE125367	pooled_control	training_controls_leave_one_out	27	0	0.0		rederived_not_published
+Coffin-Siris syndrome	GSE52588	comparator_sibling	held_out_controls	29	29	1.0		rederived_not_published
+Coffin-Siris syndrome	GSE55491	pooled_control	held_out_controls	6	6	1.0	too small to interpret	rederived_not_published
+Coffin-Siris syndrome	GSE66552	pooled_control	held_out_controls	15	14	0.933		rederived_not_published
+Coffin-Siris syndrome	GSE74432	pooled_control	held_out_controls	53	49	0.925		rederived_not_published
+Coffin-Siris syndrome	GSE95040	pooled_control	held_out_controls	10	9	0.9		rederived_not_published
+Coffin-Siris syndrome	GSE97362	pooled_control	held_out_controls	125	97	0.776		rederived_not_published
+Williams syndrome	GSE104451	pooled_control	held_out_controls	16	0	0.0		rederived_not_published
+Williams syndrome	GSE108423	pooled_control	held_out_controls	12	0	0.0		rederived_not_published
+Williams syndrome	GSE116300	pooled_control	held_out_controls	9	1	0.111	too small to interpret	rederived_not_published
+Williams syndrome	GSE125367	pooled_control	held_out_controls	27	7	0.259		rederived_not_published
+Williams syndrome	GSE52588	comparator_sibling	held_out_controls	29	0	0.0		rederived_not_published
+Williams syndrome	GSE55491	pooled_control	held_out_controls	6	4	0.667	too small to interpret	rederived_not_published
+Williams syndrome	GSE66552	pooled_control	training_controls_leave_one_out	15	0	0.0		rederived_not_published
+Williams syndrome	GSE74432	pooled_control	held_out_controls	53	3	0.057		rederived_not_published
+Williams syndrome	GSE95040	pooled_control	held_out_controls	10	0	0.0		rederived_not_published
+Williams syndrome	GSE97362	pooled_control	held_out_controls	125	1	0.008		rederived_not_published
+CHARGE syndrome	GSE104451	pooled_control	held_out_controls	16	5	0.312		rederived_not_published
+CHARGE syndrome	GSE108423	pooled_control	held_out_controls	12	4	0.333		rederived_not_published
+CHARGE syndrome	GSE116300	pooled_control	held_out_controls	9	3	0.333	too small to interpret	rederived_not_published
+CHARGE syndrome	GSE125367	pooled_control	held_out_controls	27	5	0.185		rederived_not_published
+CHARGE syndrome	GSE52588	comparator_sibling	held_out_controls	29	14	0.483		rederived_not_published
+CHARGE syndrome	GSE55491	pooled_control	held_out_controls	6	1	0.167	too small to interpret	rederived_not_published
+CHARGE syndrome	GSE66552	pooled_control	held_out_controls	15	4	0.267		rederived_not_published
+CHARGE syndrome	GSE74432	pooled_control	held_out_controls	53	12	0.226		rederived_not_published
+CHARGE syndrome	GSE95040	pooled_control	held_out_controls	10	6	0.6		rederived_not_published
+CHARGE syndrome	GSE97362	pooled_control	held_out_controls	96	30	0.312		rederived_not_published
+CHARGE syndrome	GSE97362	pooled_control	training_controls_leave_one_out	29	4	0.138		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE104451	pooled_control	held_out_controls	16	14	0.875		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE108423	pooled_control	held_out_controls	12	10	0.833		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE116300	pooled_control	held_out_controls	9	5	0.556	too small to interpret	rederived_not_published
+Nicolaides-Baraitser syndrome	GSE125367	pooled_control	training_controls_leave_one_out	27	3	0.111		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE52588	comparator_sibling	held_out_controls	29	28	0.966		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE55491	pooled_control	held_out_controls	6	1	0.167	too small to interpret	rederived_not_published
+Nicolaides-Baraitser syndrome	GSE66552	pooled_control	held_out_controls	15	6	0.4		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE74432	pooled_control	held_out_controls	53	35	0.66		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE95040	pooled_control	held_out_controls	10	7	0.7		rederived_not_published
+Nicolaides-Baraitser syndrome	GSE97362	pooled_control	held_out_controls	125	66	0.528		rederived_not_published
+ICF syndrome	GSE104451	pooled_control	held_out_controls	16	0	0.0		rederived_not_published
+ICF syndrome	GSE108423	pooled_control	held_out_controls	12	0	0.0		rederived_not_published
+ICF syndrome	GSE116300	pooled_control	held_out_controls	9	0	0.0	too small to interpret	rederived_not_published
+ICF syndrome	GSE125367	pooled_control	held_out_controls	27	0	0.0		rederived_not_published
+ICF syndrome	GSE52588	comparator_sibling	held_out_controls	29	0	0.0		rederived_not_published
+ICF syndrome	GSE55491	pooled_control	held_out_controls	6	0	0.0	too small to interpret	rederived_not_published
+ICF syndrome	GSE66552	pooled_control	held_out_controls	15	0	0.0		rederived_not_published
+ICF syndrome	GSE74432	pooled_control	held_out_controls	53	0	0.0		rederived_not_published
+ICF syndrome	GSE95040	pooled_control	training_controls_leave_one_out	10	0	0.0		rederived_not_published
+ICF syndrome	GSE97362	pooled_control	held_out_controls	125	0	0.0		rederived_not_published
+7q11.23 duplication syndrome	GSE104451	pooled_control	held_out_controls	16	0	0.0		rederived_not_published
+7q11.23 duplication syndrome	GSE108423	pooled_control	held_out_controls	12	0	0.0		rederived_not_published
+7q11.23 duplication syndrome	GSE116300	pooled_control	held_out_controls	9	5	0.556	too small to interpret	rederived_not_published
+7q11.23 duplication syndrome	GSE125367	pooled_control	held_out_controls	27	4	0.148		rederived_not_published
+7q11.23 duplication syndrome	GSE52588	comparator_sibling	held_out_controls	29	0	0.0		rederived_not_published
+7q11.23 duplication syndrome	GSE55491	pooled_control	held_out_controls	6	0	0.0	too small to interpret	rederived_not_published
+7q11.23 duplication syndrome	GSE66552	pooled_control	training_controls_leave_one_out	15	1	0.067		rederived_not_published
+7q11.23 duplication syndrome	GSE74432	pooled_control	held_out_controls	53	0	0.0		rederived_not_published
+7q11.23 duplication syndrome	GSE95040	pooled_control	held_out_controls	10	0	0.0		rederived_not_published
+7q11.23 duplication syndrome	GSE97362	pooled_control	held_out_controls	125	7	0.056		rederived_not_published

@@ -65,11 +65,11 @@ on the next run) and independently invocable, if you want to run or inspect one 
 python -m epigrade.acquire.harvest              # phase 1: metadata for all 18 accessions
 python scripts/phase1_report.py                 # triage log + hand-curation cross-check
 python scripts/demo_sotos.py                    # phase 3: THE reproduction (downloads GSE74432)
-python scripts/phase4_6_srs_and_matrix.py       # cross-disorder matrix + leave-one-study-out
-python scripts/phase4_kabuki_charge.py          # Kabuki/CHARGE classifier attempts (see below)
-python scripts/phase5_calibration.py            # evidence bands + attainable ceiling
+python scripts/download_matrices.py             # the 11 processed beta files from GEO
+python scripts/build_corpus.py                  # all signatures, matrix, leave-one-study-out, bands
+python scripts/compute_ceilings.py              # attainable evidence ceiling
+python scripts/make_figures.py                  # every figure (+ slides/)
 python scripts/phase6_confounding_gate.py       # confounding gate, all 12 in-scope disorders
-python scripts/make_summary_figure.py           # case-count summary bar chart (+ slides/)
 python scripts/generate_provenance.py           # docs/DATA_PROVENANCE.md
 python -m epigrade.report.resource              # rebuild results/resource/epigrade_v1.json
 ```
@@ -86,10 +86,11 @@ probe list exists for any of them - `signature_source=rederived_not_published`),
 for specificity before being trusted, not just accepted because a classifier built at all:
 
 - **Silver-Russell syndrome** is the project's headline beyond Sotos: the only disorder with a
-  real between-study result. A classifier built on GSE104451 alone, with 0% cross-reactivity
+  real leave-one-study-out result (1 of 6 directions across the three two-study disorders
+  could be tested at all). A classifier built on GSE104451 alone, with 0% cross-reactivity
   against Sotos, tested on the fully independent GSE55491 study: 5/18 sensitivity, 6/6
   specificity - modest but genuine. A pooled-studies version was tried and explicitly *rejected*
-  after it failed its own specificity check (94.7% false-positive rate against Sotos).
+  after it failed its own specificity check (92.1% (35 of 38) false-positive rate against Sotos).
 - **CHARGE syndrome** builds (907 probes, 89.5% self-consistency) but shows a real, moderate
   37.8% cross-reactivity against Kabuki cases - reported plainly, not smoothed over.
 - **Kabuki syndrome** fails from its own single study, builds when pooled with a second
@@ -115,7 +116,7 @@ the project's own working rules).
 | | |
 |---|---|
 | Sotos reproduction (phase 3) | 19/19 discovery cases positive, 53/53 controls negative, 8/8 Weaver negative, missense VOUS split 9 positive/7 negative - all exact matches to the paper. Published probe list (`signature_source=published_probe_list`) |
-| Silver-Russell syndrome | The one disorder with a **genuine between-study result**: a 64-probe classifier built from GSE104451 alone (0% cross-reactivity against Sotos) tested on the fully-independent GSE55491 study - 5/18 sensitivity, 6/6 specificity. `evidence_bands.tsv` carries a real `interpretation_scope="between_study"` band for it - and it honestly reads **"No evidence"** at every prior, reflecting that modest cross-study sensitivity rather than being forced to look better. A pooled-studies attempt (328 probes) was tried and explicitly rejected after failing its own specificity check (94.7% false-positive rate against Sotos) |
+| Silver-Russell syndrome | The one disorder with a **genuine between-study result**: a 64-probe classifier built from GSE104451 alone (0% cross-reactivity against Sotos) tested on the fully-independent GSE55491 study - 5/18 sensitivity, 6/6 specificity. `evidence_bands.tsv` carries a real `interpretation_scope="between_study"` band for it - and it honestly reads **"No evidence"** at every prior, reflecting that modest cross-study sensitivity rather than being forced to look better. A pooled-studies attempt (328 probes) was tried and explicitly rejected after failing its own specificity check (92.1% (35 of 38) false-positive rate against Sotos) |
 | CHARGE syndrome | Builds: 907 probes, 89.5% self-consistency, but a real 37.8% cross-reactivity against Kabuki cases - reported as a genuine specificity concern, not smoothed over |
 | Kabuki syndrome | Fails from GSE116300 alone; builds when pooled with GSE97362's own KMT2D-LOF cohort (278 probes, 97.3% self-consistency, 0% cross-reactivity against CHARGE) |
 | Signature derivation thresholds | One documented change (`config/signature_thresholds.yaml`): Benjamini-Hochberg FDR 0.05 / 10% effect floor as the project default (Sotos's original Bonferroni/20% stays pinned for its own from-scratch validation path), set once before retrying anything, not tuned per outcome - see `results/tables/signature_derivation.tsv` for every attempt's exact parameters and probe counts |
@@ -123,7 +124,7 @@ the project's own working rules).
 | Label harmonization (human curation) | **pending** - a 30-row template weighted toward hard cases is generated (`data/external/human_curated.csv`) but not yet filled in by a person; `scripts/score_human_curation.py` reports this status honestly rather than substituting the AI number |
 | Sample counts | 3,732 harvested = 1,622 retained for analysis + 2,110 excluded (198 unaffected relatives, 108 under-test, 7 wrong-tissue, 558 non-target-disease controls, 1,239 unresolvable labels) - `results/tables/sample_counts.tsv` |
 | Confounding gate (12 in-scope disorders) | 7 fail (single-study, confounded by design - including Sotos itself), 2 not-testable (n<10), 3 pass-structural (span >=2 studies) - `results/tables/confounding_gate.tsv` |
-| Cross-disorder matrix | **One** unified table (`status`: computed/not_computed) with **14 real cells** beyond nothing (Sotos 3, Silver-Russell 3, Kabuki 4, CHARGE 4) plus 8 honest not-computed rows (series matrices not downloaded this session) - `results/tables/cross_disorder_matrix.tsv`, rendered as `results/figures/cross_disorder_matrix.png` |
+| Cross-disorder matrix | A complete 12 x 13 grid: all 10 classifiers scored against all 12 disorder cohorts and 273 pooled controls (130 computed cells), plus 26 not-computed cells for Weaver and Claes-Jensen, which have too few cases for a classifier - `results/tables/cross_disorder_matrix.tsv`, rendered as `results/figures/cross_disorder_matrix.png` |
 | "Why this result" | A real, computed attribution for one representative sample per Sotos cohort - probe coverage, direction check, distribution position, top contributing probes - no LLM narrative, `results/tables/attribution.json`, shown as an expander on the Grade a score page |
 
 One correction to the original project brief worth stating plainly: its note that naively

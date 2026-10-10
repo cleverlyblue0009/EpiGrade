@@ -1,0 +1,13 @@
+disorder	n_cases	n_studies	studies	verdict	signature_built	n_signature_probes	signature_source	controls_source	leave_one_study_out	interpretation_scope	band_at_typical_case_score	reason
+Silver-Russell syndrome	63	2	GSE104451, GSE55491	graded	True	64	rederived_not_published	within_series	1/2 directions computed	between_study	No evidence	
+Kabuki syndrome type 1	37	2	GSE116300, GSE97362	graded	True	278	rederived_not_published	within_series	0/2 directions computed	between_study	No evidence	
+Nicolaides-Baraitser syndrome	16	2	GSE116992, GSE125367	graded	True	4911	rederived_not_published	cross_series	0/2 directions computed	within_study_only	Supporting	
+Sotos syndrome	38	1	GSE74432	single-study	True	7085	published_probe_list	within_series	not possible (single study)	within_study_only	Strong	
+Down syndrome	29	1	GSE52588	single-study	True	3753	rederived_not_published	within_series	not possible (single study)	within_study_only	Moderate	
+Coffin-Siris syndrome	21	1	GSE116992	single-study	True	8053	rederived_not_published	cross_series	not possible (single study)	within_study_only	Moderate	
+Williams syndrome	20	1	GSE66552	single-study	True	9537	rederived_not_published	within_series	not possible (single study)	within_study_only	Moderate	
+CHARGE syndrome	19	1	GSE97362	single-study	True	907	rederived_not_published	within_series	not possible (single study)	within_study_only	Supporting	
+ICF syndrome	15	1	GSE95040	single-study	True	7740	rederived_not_published	within_series	not possible (single study)	within_study_only	Moderate	
+7q11.23 duplication syndrome	10	1	GSE66552	single-study	True	1827	rederived_not_published	within_series	not possible (single study)	within_study_only	Moderate	
+Weaver syndrome	8	1	GSE74432	too-few-cases	False	0	NA	within_series	not possible (single study)	NA	NA	only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only
+Claes-Jensen syndrome	6	1	GSE108423	too-few-cases	False	0	NA	within_series	not possible (single study)	NA	NA	only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only

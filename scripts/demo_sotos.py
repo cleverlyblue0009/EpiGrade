@@ -2,12 +2,13 @@
 
 Usage: python scripts/demo_sotos.py
 
-Checks the three published results from GSE74432:
+Checks four results from GSE74432 against the paper:
   1. Discovery cohort separation (19 Sotos vs 53 controls)
   2. All 8 Weaver syndrome (EZH2) samples score negative
-  3. The 16 NSD1 missense VOUS split ~9 positive / ~7 negative
+  3. The 16 NSD1 missense VOUS split 9 positive / 7 negative
+  4. All 19 replication-cohort Sotos cases, held out of the profiles, score positive
 
-Produces results/figures/sotos_heatmap.png and results/figures/sotos_scores.png, and
+Produces results/figures/sotos_heatmap.png and results/figures/sotos_reproduction_scores.png, and
 results/tables/sotos_scores.tsv / sotos_reproduction_summary.tsv. Never hand-edits a number to
 match the paper - if a result doesn't reproduce, the summary table says so plainly.
 """
@@ -82,7 +83,7 @@ def main() -> None:
     scores.to_csv(scores_path, sep="\t", index=False)
     print(f"\nWrote {len(scores)} sample scores -> {scores_path}")
 
-    # --- check the three published results ---
+    # --- check the four reproduction targets ---
     summary_rows = []
 
     disc = scores[scores.cohort.isin(["discovery_case", "discovery_control"])]
@@ -133,10 +134,10 @@ def main() -> None:
     replication = scores[scores.cohort == "replication_case"]
     n_repl_pos = (replication["score"] > 0).sum()
     summary_rows.append({
-        "check": "replication_cohort (bonus, not in the original 3 checks)",
-        "expected": "19 replication Sotos LOF cases (held out of discovery) mostly score positive",
+        "check": "replication",
+        "expected": "all 19 held-out replication Sotos LOF cases score positive",
         "observed": f"n={len(replication)}, positive={n_repl_pos}",
-        "reproduced": None,
+        "reproduced": bool(len(replication) == 19 and n_repl_pos == 19),
     })
 
     summary = pd.DataFrame(summary_rows)
@@ -175,7 +176,7 @@ def _render_figures(beta, probes, meta, cohort, scores, out_dir, dpi, rc):
         ax.set_ylabel("SS score (r_case - r_control)")
         ax.set_title("Choufani et al. Sotos classifier scores by cohort (GSE74432 reproduction)")
         fig.tight_layout()
-        fig.savefig(out_dir / "sotos_scores.png", dpi=dpi)
+        fig.savefig(out_dir / "sotos_reproduction_scores.png", dpi=dpi)
         plt.close(fig)
 
         # Heatmap of signature probes, samples clustered by cohort then score

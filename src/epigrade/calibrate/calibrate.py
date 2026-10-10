@@ -242,6 +242,15 @@ def within_study_bootstrap_ci(
     return float(lo), float(hi)
 
 
+def posterior_probability(lr: float, prior: float) -> float:
+    """Posterior probability from a likelihood ratio and a prior, via odds. The LR (and so the
+    bootstrap and the band) does not depend on the prior - only this last step does."""
+    if np.isnan(lr) or np.isinf(lr):
+        return float("nan")
+    posterior_odds = prior / (1 - prior) * lr
+    return float(posterior_odds / (1 + posterior_odds))
+
+
 def evaluate_score(
     disorder: str, df: pd.DataFrame, query_score: float, prior: float | None = None,
     n_boot: int | None = None,
@@ -320,13 +329,7 @@ def evaluate_score(
         band = points_to_band(conservative_points, cfg["bands"])
         reason = "band assigned from the bootstrap CI bound closer to LR=1 (conservative)"
 
-    prior_odds = prior / (1 - prior)
-    point_is_usable = not np.isnan(point) and not np.isinf(point)
-    posterior_odds = prior_odds * point if point_is_usable else float("nan")
-    posterior_prob = (
-        posterior_odds / (1 + posterior_odds)
-        if not np.isnan(posterior_odds) else float("nan")
-    )
+    posterior_prob = posterior_probability(point, prior)
 
     anchor = cfg["evidence_anchor"]
     assert anchor not in cfg["forbidden_anchors"]
@@ -356,7 +359,7 @@ def evaluate_score(
 
 def evidence_ceiling(n_case: int, n_control: int, n_studies_case: int = 1,
                       query_at: str = "case_median", n_repeats: int = 5,
-                      n_boot: int = 200) -> EvidenceResult:
+                      n_boot: int = 200, n_studies_control: int | None = None) -> EvidenceResult:
     """What's the best evidence strength ANY classifier could support at this cohort size,
     independent of classifier quality? Simulates a PERFECT classifier (completely
     non-overlapping score distributions) at the given n, runs it through the identical
@@ -372,7 +375,7 @@ def evidence_ceiling(n_case: int, n_control: int, n_studies_case: int = 1,
     Uses a reduced bootstrap (`n_boot=200` vs. the spec-compliant 1000 used everywhere real
     scores are evaluated in epigrade.calibrate) since this is an illustrative simulation run
     `n_repeats` times, not a primary reported result - 5x200 gives a comparably stable estimate
-    to 1x1000 at a fraction of the cost. Real disorder evidence (see scripts/phase5_calibration.py)
+    to 1x1000 at a fraction of the cost. Real disorder evidence (see scripts/build_corpus.py)
     always uses the full config-specified n_boot.
     """
     results = []
@@ -384,7 +387,10 @@ def evidence_ceiling(n_case: int, n_control: int, n_studies_case: int = 1,
         # Controls must vary across at least as many studies as cases, or the bootstrap is
         # degenerate on the control side even when cases span multiple studies (bootstrap_lr_ci
         # now checks both sides - see Task 1's fix).
-        studies_control = [f"control_study{i % n_studies_case}" for i in range(n_control)]
+        # A real cohort can have fewer control studies than case studies (cases from two
+        # series, every control from one) - pass n_studies_control to simulate that shape.
+        k_control = n_studies_case if n_studies_control is None else n_studies_control
+        studies_control = [f"control_study{i % k_control}" for i in range(n_control)]
 
         df = pd.DataFrame({
             "score": np.concatenate([case_scores, control_scores]),

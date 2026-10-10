@@ -196,7 +196,7 @@ def page_calibration(resource: dict) -> None:
     st.subheader("Attainable evidence ceiling vs. cohort size")
     ceiling_df = pd.DataFrame(resource["attainable_ceiling"])
     if not ceiling_df.empty:
-        st.line_chart(ceiling_df.set_index("n_case")["points_conservative"])
+        st.image(str(paths.figures_dir() / "attainable_ceiling.png"))
         st.caption(
             "A PERFECT classifier's attainable evidence points at each cohort size, "
             "independent of any real classifier's quality - see docs/METHODS.md. Rows with "
@@ -231,8 +231,8 @@ def page_cohort_audit(resource: dict) -> None:
     summary_df = pd.DataFrame(resource["demo"]["reproduction_summary"])
     st.dataframe(summary_df, use_container_width=True)
 
-    st.subheader("Leave-one-study-out: Silver-Russell syndrome")
-    loso_df = pd.DataFrame(resource["leave_one_study_out"]["silver_russell_syndrome"])
+    st.subheader("Leave-one-study-out")
+    loso_df = pd.DataFrame(resource["leave_one_study_out"])
     if not loso_df.empty:
         st.dataframe(loso_df, use_container_width=True)
 
@@ -292,10 +292,7 @@ def page_cross_disorder(resource: dict) -> None:
     if not not_computed.empty:
         st.subheader("Not computed (honest NA, not a silent omission)")
         st.dataframe(not_computed, use_container_width=True)
-        st.caption(
-            "These disorders' series matrices were not downloaded in this session due to "
-            "GEO FTP bandwidth/time constraints - not because they were excluded on purpose."
-        )
+        st.caption("Each row carries its own reason in the `reason` column.")
 
 
 def main() -> None:

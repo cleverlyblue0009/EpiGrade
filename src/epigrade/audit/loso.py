@@ -20,15 +20,18 @@ from epigrade.signature.generic import (
     MIN_CASES_TO_BUILD_CLASSIFIER,
     MIN_SIGNATURE_SIZE,
     build_classifier,
+    derivation_stats,
     diagnose_underpowered,
     get_thresholds,
+    probe_tests,
     score_samples,
 )
 
 LOSO_COLUMNS = [
     "disorder", "train_study", "test_study", "status",
     "n_train_cases", "n_train_controls", "n_test_cases", "n_test_controls",
-    "n_signature_probes", "test_case_sensitivity", "test_control_specificity",
+    "n_probes_significant", "n_signature_probes", "test_case_sensitivity",
+    "test_control_specificity",
     "sensitivity", "specificity", "multiple_testing_method", "alpha", "effect_size_floor",
     "signature_source", "reason",
 ]
@@ -93,6 +96,7 @@ def leave_one_study_out(disorder: str, arms: list[StudyArm]) -> list[dict]:
             "multiple_testing_method": thresholds["multiple_testing_method"],
             "alpha": thresholds["alpha"],
             "effect_size_floor": thresholds["effect_size_floor"],
+            "n_probes_significant": "NA",  # set once a derivation is actually attempted
         }
         borrowed = [
             f"{a.study_id} has no controls of its own; {a.controls_borrowed_from} controls used"
@@ -117,10 +121,15 @@ def leave_one_study_out(disorder: str, arms: list[StudyArm]) -> list[dict]:
             rows.append(_not_computed(f"no training controls in {row['train_study']}"))
             continue
 
-        clf = build_classifier(disorder, train_beta, train_cases, train_controls)
+        tests = probe_tests(train_beta, train_cases, train_controls)
+        stats = derivation_stats(
+            train_beta, train_cases, train_controls, disorder=disorder, tests=tests,
+        )
+        row["n_probes_significant"] = stats["n_probes_significant"]
+        clf = build_classifier(disorder, train_beta, train_cases, train_controls, tests=tests)
         if clf is None:
             diagnosis = diagnose_underpowered(
-                train_beta, train_cases, train_controls, disorder=disorder,
+                train_beta, train_cases, train_controls, disorder=disorder, tests=tests,
             )
             rows.append(_not_computed(
                 f"{diagnosis} (minimum usable signature size is {MIN_SIGNATURE_SIZE} probes)"

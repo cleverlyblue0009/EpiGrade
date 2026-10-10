@@ -1,16 +1,13 @@
-n_case	n_studies_case_assumed	lr_point_estimate	points_conservative	attainable_band	confounded_by_design	interpretation_scope
-200	2	1428.432010777012	9.296842146147958	Very Strong	False	between_study
-100	2	774.1426903942437	8.641118240530492	Very Strong	False	between_study
-63	2	391.30990676377775	7.773216129315945	Strong	False	between_study
-38	2	369.8641594260511	7.318648802886307	Strong	False	between_study
-37	2	290.54443400489265	7.175904184041025	Strong	False	between_study
-29	1	202.0594670626688	6.534531180021496	Strong	True	within_study_only
-21	1	227.85929207891513	5.780050241632194	Strong	True	within_study_only
-20	1	205.88137294128265	5.864925781493225	Strong	True	within_study_only
-19	1	119.82945220226091	5.878084176166855	Strong	True	within_study_only
-16	1	128.5148610278421	5.541005229913649	Strong	True	within_study_only
-15	1	147.75603642809216	5.479402584454735	Strong	True	within_study_only
-10	1	86.93281246579122	4.713451918515598	Strong	True	within_study_only
-8	1	57.673483410626076	4.758655008489758	Strong	True	within_study_only
-6	1	53.342696648305875	4.966743574742715	Strong	True	within_study_only
-5	1	57.43154462671527	5.49287575717228	Strong	True	within_study_only
+disorder	n_case	n_control	n_studies_case	n_studies_control	lr_point_estimate	points_conservative	attainable_band	confounded_by_design	interpretation_scope	between_study_bound_possible	observed_band_at_typical_case_score	note
+Silver-Russell syndrome	63	22	2	2	138.80267027944777	6.348051143620633	Strong	False	between_study	True	No evidence	
+Sotos syndrome	38	53	1	1	513.5573210779858	7.238798825004888	Strong	True	within_study_only	False	Strong	
+Kabuki syndrome type 1	37	20	2	2	158.03937117841397	6.356043712452215	Strong	False	between_study	True	No evidence	
+Down syndrome	29	29	1	1	202.0594670626688	6.534531180021496	Strong	True	within_study_only	False	Moderate	
+Coffin-Siris syndrome	21	27	1	1	291.06772292742386	6.350898455709094	Strong	True	within_study_only	False	Moderate	
+Williams syndrome	20	15	1	1	156.15833915457245	5.4559789294461725	Strong	True	within_study_only	False	Moderate	
+CHARGE syndrome	19	29	1	1	181.65545334505637	6.443489499900988	Strong	True	within_study_only	False	Supporting	
+Nicolaides-Baraitser syndrome	16	27	2	1	215.75925610650103	6.32035931221096	Strong	True	within_study_only	False	Supporting	
+ICF syndrome	15	10	1	1	100.47113015688194	4.965468822902561	Strong	True	within_study_only	False	Moderate	
+7q11.23 duplication syndrome	10	15	1	1	129.14017604199495	5.267087750436614	Strong	True	within_study_only	False	Moderate	
+Weaver syndrome	8	53	1	1	300.1552846904265	6.987902095995361	Strong	True	within_study_only	False	NA	no classifier built (fewer than 10 cases); ceiling only
+Claes-Jensen syndrome	6	12	1	1	63.756213702500816	5.215691621699763	Strong	True	within_study_only	False	NA	no classifier built (fewer than 10 cases); ceiling only

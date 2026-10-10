@@ -1,0 +1,11 @@
+disorder	slug	n_probes	n_loss	n_gain	signature_source	n_train_cases	n_train_controls	train_series
+Silver-Russell syndrome	silver_russell	64	63	1	rederived_not_published	21	16	GSE104451
+Sotos syndrome	sotos	7085	7038	47	published_probe_list	19	53	GSE74432
+Kabuki syndrome type 1	kabuki_1	278	258	20	rederived_not_published	37	20	GSE116300+GSE97362
+Down syndrome	down	3753	1638	2115	rederived_not_published	29	29	GSE52588
+Coffin-Siris syndrome	coffin_siris	8053	3146	4907	rederived_not_published	21	27	GSE116992
+Williams syndrome	williams	9537	1454	8083	rederived_not_published	20	15	GSE66552
+CHARGE syndrome	charge	907	811	96	rederived_not_published	19	29	GSE97362
+Nicolaides-Baraitser syndrome	nicolaides_baraitser	4911	3842	1069	rederived_not_published	16	27	GSE116992+GSE125367
+ICF syndrome	icf	7740	7655	85	rederived_not_published	15	10	GSE95040
+7q11.23 duplication syndrome	dup7q11_23	1827	756	1071	rederived_not_published	10	15	GSE66552

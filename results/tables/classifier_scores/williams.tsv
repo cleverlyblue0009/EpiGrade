@@ -1,0 +1,585 @@
+gsm_accession	series_id	group	training_role	score	n_probes_used	loo_guarded	signature_source
+GSM1624862	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.07421783477623811	9530	False	rederived_not_published
+GSM1624863	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.10930912993362463	9529	False	rederived_not_published
+GSM1624864	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.20698434521944797	9535	False	rederived_not_published
+GSM1624865	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.2093637568522967	9529	False	rederived_not_published
+GSM1624866	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.32908945937322276	9532	False	rederived_not_published
+GSM1624867	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.1573406526197233	9533	False	rederived_not_published
+GSM1624868	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.17975368835204197	9531	False	rederived_not_published
+GSM1624869	GSE66552	7q11.23 duplication syndrome	not_in_training	-0.26636795421625936	9534	False	rederived_not_published
+GSM1624870	GSE66552	7q11.23 duplication syndrome	not_in_training	0.02541627826514714	9529	False	rederived_not_published
+GSM1624871	GSE66552	7q11.23 duplication syndrome	not_in_training	0.04297092837970107	9531	False	rederived_not_published
+GSM2562699	GSE97362	CHARGE syndrome	not_in_training	-0.2498514049279048	9533	False	rederived_not_published
+GSM2562700	GSE97362	CHARGE syndrome	not_in_training	-0.07446331530907502	9525	False	rederived_not_published
+GSM2562701	GSE97362	CHARGE syndrome	not_in_training	-0.24318324036702388	9531	False	rederived_not_published
+GSM2562702	GSE97362	CHARGE syndrome	not_in_training	-0.20889806012904455	9530	False	rederived_not_published
+GSM2562703	GSE97362	CHARGE syndrome	not_in_training	-0.26410870927233465	9531	False	rederived_not_published
+GSM2562704	GSE97362	CHARGE syndrome	not_in_training	-0.24140930797844828	9522	False	rederived_not_published
+GSM2562705	GSE97362	CHARGE syndrome	not_in_training	-0.17148522637458086	9531	False	rederived_not_published
+GSM2562706	GSE97362	CHARGE syndrome	not_in_training	-0.23489557394598137	9532	False	rederived_not_published
+GSM2562707	GSE97362	CHARGE syndrome	not_in_training	-0.26319361362773486	9529	False	rederived_not_published
+GSM2562708	GSE97362	CHARGE syndrome	not_in_training	-0.1585000583666465	9494	False	rederived_not_published
+GSM2562709	GSE97362	CHARGE syndrome	not_in_training	-0.23064948191591106	9517	False	rederived_not_published
+GSM2562710	GSE97362	CHARGE syndrome	not_in_training	-0.20671033842553388	9471	False	rederived_not_published
+GSM2562711	GSE97362	CHARGE syndrome	not_in_training	-0.19530392494025095	9512	False	rederived_not_published
+GSM2562712	GSE97362	CHARGE syndrome	not_in_training	-0.05691910287989266	9535	False	rederived_not_published
+GSM2562713	GSE97362	CHARGE syndrome	not_in_training	-0.07772642198173507	9532	False	rederived_not_published
+GSM2562714	GSE97362	CHARGE syndrome	not_in_training	-0.24316340187376762	9531	False	rederived_not_published
+GSM2562715	GSE97362	CHARGE syndrome	not_in_training	-0.1963064233239722	9529	False	rederived_not_published
+GSM2562716	GSE97362	CHARGE syndrome	not_in_training	-0.21817935659456855	9523	False	rederived_not_published
+GSM2562717	GSE97362	CHARGE syndrome	not_in_training	-0.0917646711574358	9535	False	rederived_not_published
+GSM2897974	GSE108423	Claes-Jensen syndrome	not_in_training	-0.2876151247540478	9020	False	rederived_not_published
+GSM2897975	GSE108423	Claes-Jensen syndrome	not_in_training	-0.2381357616609946	9020	False	rederived_not_published
+GSM2897976	GSE108423	Claes-Jensen syndrome	not_in_training	-0.24063792938561823	9020	False	rederived_not_published
+GSM2897977	GSE108423	Claes-Jensen syndrome	not_in_training	-0.28111063322217955	9020	False	rederived_not_published
+GSM2897978	GSE108423	Claes-Jensen syndrome	not_in_training	-0.21313806672697466	9020	False	rederived_not_published
+GSM2897979	GSE108423	Claes-Jensen syndrome	not_in_training	-0.302327350079043	9020	False	rederived_not_published
+GSM3267080	GSE116992	Coffin-Siris syndrome	not_in_training	-0.08408712165343346	8954	False	rederived_not_published
+GSM3267081	GSE116992	Coffin-Siris syndrome	not_in_training	-0.19482628989370976	8954	False	rederived_not_published
+GSM3267082	GSE116992	Coffin-Siris syndrome	not_in_training	-0.12008943485824897	8954	False	rederived_not_published
+GSM3267083	GSE116992	Coffin-Siris syndrome	not_in_training	-0.185596808345313	8953	False	rederived_not_published
+GSM3267084	GSE116992	Coffin-Siris syndrome	not_in_training	-0.19248777133672534	8954	False	rederived_not_published
+GSM3267085	GSE116992	Coffin-Siris syndrome	not_in_training	-0.25300862843093397	8954	False	rederived_not_published
+GSM3267086	GSE116992	Coffin-Siris syndrome	not_in_training	-0.24827616864731294	8954	False	rederived_not_published
+GSM3267112	GSE116992	Coffin-Siris syndrome	not_in_training	-0.059565174610777594	8953	False	rederived_not_published
+GSM3267113	GSE116992	Coffin-Siris syndrome	not_in_training	-0.23105116478520316	8952	False	rederived_not_published
+GSM3267114	GSE116992	Coffin-Siris syndrome	not_in_training	-0.03559300806033039	8954	False	rederived_not_published
+GSM3267115	GSE116992	Coffin-Siris syndrome	not_in_training	-0.25920678000643227	8954	False	rederived_not_published
+GSM3267116	GSE116992	Coffin-Siris syndrome	not_in_training	-0.045557366354858075	8954	False	rederived_not_published
+GSM3267117	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1392235282563934	8954	False	rederived_not_published
+GSM3267118	GSE116992	Coffin-Siris syndrome	not_in_training	-0.25654637473283404	8954	False	rederived_not_published
+GSM3267126	GSE116992	Coffin-Siris syndrome	not_in_training	-0.04998075164182647	8954	False	rederived_not_published
+GSM3267127	GSE116992	Coffin-Siris syndrome	not_in_training	-0.04768510538185622	8953	False	rederived_not_published
+GSM3267128	GSE116992	Coffin-Siris syndrome	not_in_training	-0.18704782469314873	8954	False	rederived_not_published
+GSM3267129	GSE116992	Coffin-Siris syndrome	not_in_training	-0.1886761288581008	8954	False	rederived_not_published
+GSM3267130	GSE116992	Coffin-Siris syndrome	not_in_training	-0.17802442594502543	8952	False	rederived_not_published
+GSM3267131	GSE116992	Coffin-Siris syndrome	not_in_training	-0.2038636614880842	8954	False	rederived_not_published
+GSM3267132	GSE116992	Coffin-Siris syndrome	not_in_training	-0.2222789270876956	8954	False	rederived_not_published
+GSM1272122	GSE52588	Down syndrome	not_in_training	-0.22737314142834086	9535	False	rederived_not_published
+GSM1272123	GSE52588	Down syndrome	not_in_training	-0.21209647562062328	9535	False	rederived_not_published
+GSM1272124	GSE52588	Down syndrome	not_in_training	-0.20525614868028796	9536	False	rederived_not_published
+GSM1272125	GSE52588	Down syndrome	not_in_training	-0.22952727171057696	9532	False	rederived_not_published
+GSM1272126	GSE52588	Down syndrome	not_in_training	-0.20795519781910954	9533	False	rederived_not_published
+GSM1272127	GSE52588	Down syndrome	not_in_training	-0.16710478942634077	9532	False	rederived_not_published
+GSM1272128	GSE52588	Down syndrome	not_in_training	-0.16391740961817103	9534	False	rederived_not_published
+GSM1272129	GSE52588	Down syndrome	not_in_training	-0.20761656152642394	9533	False	rederived_not_published
+GSM1272130	GSE52588	Down syndrome	not_in_training	-0.13385375748011663	9532	False	rederived_not_published
+GSM1272131	GSE52588	Down syndrome	not_in_training	-0.21051645204855562	9531	False	rederived_not_published
+GSM1272132	GSE52588	Down syndrome	not_in_training	-0.23215522818905077	9530	False	rederived_not_published
+GSM1272133	GSE52588	Down syndrome	not_in_training	-0.23455180798147524	9534	False	rederived_not_published
+GSM1272134	GSE52588	Down syndrome	not_in_training	-0.07031376906995179	9531	False	rederived_not_published
+GSM1272135	GSE52588	Down syndrome	not_in_training	-0.16433733707045395	9534	False	rederived_not_published
+GSM1272136	GSE52588	Down syndrome	not_in_training	-0.21506358913760204	9532	False	rederived_not_published
+GSM1272137	GSE52588	Down syndrome	not_in_training	-0.1990809114224994	9531	False	rederived_not_published
+GSM1272138	GSE52588	Down syndrome	not_in_training	-0.20856692942926347	9533	False	rederived_not_published
+GSM1272139	GSE52588	Down syndrome	not_in_training	-0.199526160273915	9533	False	rederived_not_published
+GSM1272140	GSE52588	Down syndrome	not_in_training	-0.2156809956678467	9530	False	rederived_not_published
+GSM1272141	GSE52588	Down syndrome	not_in_training	-0.1867652960382229	9523	False	rederived_not_published
+GSM1272142	GSE52588	Down syndrome	not_in_training	-0.18389440888755204	9527	False	rederived_not_published
+GSM1272143	GSE52588	Down syndrome	not_in_training	-0.22793758937083497	9534	False	rederived_not_published
+GSM1272144	GSE52588	Down syndrome	not_in_training	-0.2106913337727674	9525	False	rederived_not_published
+GSM1272145	GSE52588	Down syndrome	not_in_training	-0.2581001684887504	9532	False	rederived_not_published
+GSM1272146	GSE52588	Down syndrome	not_in_training	-0.2353664514131799	9532	False	rederived_not_published
+GSM1272147	GSE52588	Down syndrome	not_in_training	-0.2507834457421688	9522	False	rederived_not_published
+GSM1272148	GSE52588	Down syndrome	not_in_training	-0.18292618979787612	9530	False	rederived_not_published
+GSM1272149	GSE52588	Down syndrome	not_in_training	-0.198548438080432	9524	False	rederived_not_published
+GSM1272150	GSE52588	Down syndrome	not_in_training	-0.20368434752528664	9524	False	rederived_not_published
+GSM2495039	GSE95040	ICF syndrome	not_in_training	-0.023370036058090626	8937	False	rederived_not_published
+GSM2495040	GSE95040	ICF syndrome	not_in_training	-0.31597280123798965	8937	False	rederived_not_published
+GSM2495041	GSE95040	ICF syndrome	not_in_training	-0.2512178078028693	8937	False	rederived_not_published
+GSM2495042	GSE95040	ICF syndrome	not_in_training	-0.17308514357499583	8937	False	rederived_not_published
+GSM2495043	GSE95040	ICF syndrome	not_in_training	-0.06876510146707948	8937	False	rederived_not_published
+GSM2495044	GSE95040	ICF syndrome	not_in_training	0.21595141668823992	8937	False	rederived_not_published
+GSM2495045	GSE95040	ICF syndrome	not_in_training	-0.26906011979035027	8937	False	rederived_not_published
+GSM2495051	GSE95040	ICF syndrome	not_in_training	-0.1784064434198096	8937	False	rederived_not_published
+GSM2495052	GSE95040	ICF syndrome	not_in_training	-0.1423370476713579	8937	False	rederived_not_published
+GSM2495053	GSE95040	ICF syndrome	not_in_training	-0.2783804398742543	8937	False	rederived_not_published
+GSM2495055	GSE95040	ICF syndrome	not_in_training	-0.022123478310939304	8937	False	rederived_not_published
+GSM2495056	GSE95040	ICF syndrome	not_in_training	-0.05451959942659457	8937	False	rederived_not_published
+GSM2495057	GSE95040	ICF syndrome	not_in_training	-0.20738526189747097	8937	False	rederived_not_published
+GSM2495058	GSE95040	ICF syndrome	not_in_training	-0.21982655675548846	8937	False	rederived_not_published
+GSM2495060	GSE95040	ICF syndrome	not_in_training	-0.17329943277977988	8937	False	rederived_not_published
+GSM3227764	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1197498919461053	9492	False	rederived_not_published
+GSM3227765	GSE116300	Kabuki syndrome type 1	not_in_training	-0.07815227431552452	9492	False	rederived_not_published
+GSM3227769	GSE116300	Kabuki syndrome type 1	not_in_training	-0.11329383856351938	9492	False	rederived_not_published
+GSM3227770	GSE116300	Kabuki syndrome type 1	not_in_training	-0.11406982949314437	9492	False	rederived_not_published
+GSM3227771	GSE116300	Kabuki syndrome type 1	not_in_training	-0.16082663056285518	9492	False	rederived_not_published
+GSM3227772	GSE116300	Kabuki syndrome type 1	not_in_training	0.03041289021953897	9492	False	rederived_not_published
+GSM3227773	GSE116300	Kabuki syndrome type 1	not_in_training	-0.2638092611051366	9492	False	rederived_not_published
+GSM3227774	GSE116300	Kabuki syndrome type 1	not_in_training	-0.2350314654035326	9492	False	rederived_not_published
+GSM3227775	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1321508578335533	9492	False	rederived_not_published
+GSM3227776	GSE116300	Kabuki syndrome type 1	not_in_training	-0.21486808112275135	9492	False	rederived_not_published
+GSM3227777	GSE116300	Kabuki syndrome type 1	not_in_training	-0.16372143531296246	9492	False	rederived_not_published
+GSM3227778	GSE116300	Kabuki syndrome type 1	not_in_training	-0.16587388100479927	9492	False	rederived_not_published
+GSM3227779	GSE116300	Kabuki syndrome type 1	not_in_training	-0.04453162017715029	9492	False	rederived_not_published
+GSM3227780	GSE116300	Kabuki syndrome type 1	not_in_training	-0.10077157161435246	9492	False	rederived_not_published
+GSM3227781	GSE116300	Kabuki syndrome type 1	not_in_training	-0.19757952312394444	9492	False	rederived_not_published
+GSM3227782	GSE116300	Kabuki syndrome type 1	not_in_training	-0.17495847202685022	9492	False	rederived_not_published
+GSM3227783	GSE116300	Kabuki syndrome type 1	not_in_training	-0.09934119181240098	9492	False	rederived_not_published
+GSM3227784	GSE116300	Kabuki syndrome type 1	not_in_training	-0.10125761464566019	9492	False	rederived_not_published
+GSM3227785	GSE116300	Kabuki syndrome type 1	not_in_training	-0.0698305252674093	9492	False	rederived_not_published
+GSM3227786	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1642293491442126	9492	False	rederived_not_published
+GSM3227787	GSE116300	Kabuki syndrome type 1	not_in_training	-0.11540662439756644	9492	False	rederived_not_published
+GSM3227788	GSE116300	Kabuki syndrome type 1	not_in_training	-0.1837837958186871	9492	False	rederived_not_published
+GSM3227789	GSE116300	Kabuki syndrome type 1	not_in_training	-0.055510443724986036	9492	False	rederived_not_published
+GSM3227790	GSE116300	Kabuki syndrome type 1	not_in_training	-0.08683829398935483	9492	False	rederived_not_published
+GSM3227791	GSE116300	Kabuki syndrome type 1	not_in_training	-0.06528460126285152	9492	False	rederived_not_published
+GSM3227792	GSE116300	Kabuki syndrome type 1	not_in_training	-0.23138680225059105	9492	False	rederived_not_published
+GSM2562771	GSE97362	Kabuki syndrome type 1	not_in_training	-0.16401638594313073	9531	False	rederived_not_published
+GSM2562772	GSE97362	Kabuki syndrome type 1	not_in_training	-0.0025208140663057765	9531	False	rederived_not_published
+GSM2562773	GSE97362	Kabuki syndrome type 1	not_in_training	-0.29382322041622666	9521	False	rederived_not_published
+GSM2562774	GSE97362	Kabuki syndrome type 1	not_in_training	-0.28410997025456997	9528	False	rederived_not_published
+GSM2562775	GSE97362	Kabuki syndrome type 1	not_in_training	-0.2937091233645066	9531	False	rederived_not_published
+GSM2562776	GSE97362	Kabuki syndrome type 1	not_in_training	-0.15421711488263	9523	False	rederived_not_published
+GSM2562777	GSE97362	Kabuki syndrome type 1	not_in_training	-0.20482482078233588	9531	False	rederived_not_published
+GSM2562778	GSE97362	Kabuki syndrome type 1	not_in_training	-0.21647344544090952	9530	False	rederived_not_published
+GSM2562779	GSE97362	Kabuki syndrome type 1	not_in_training	-0.19123203670525768	9534	False	rederived_not_published
+GSM2562780	GSE97362	Kabuki syndrome type 1	not_in_training	-0.15528139998955037	9531	False	rederived_not_published
+GSM2562781	GSE97362	Kabuki syndrome type 1	not_in_training	-0.2768379539762428	9526	False	rederived_not_published
+GSM3267111	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.11531193921614313	8953	False	rederived_not_published
+GSM3267119	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.24662170948197992	8954	False	rederived_not_published
+GSM3267120	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.10283894711886288	8954	False	rederived_not_published
+GSM3267121	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.23362456498562834	8954	False	rederived_not_published
+GSM3267122	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.24793191996771335	8954	False	rederived_not_published
+GSM3267123	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.14532456479113198	8954	False	rederived_not_published
+GSM3267124	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.22586183236203128	8954	False	rederived_not_published
+GSM3267125	GSE116992	Nicolaides-Baraitser syndrome	not_in_training	-0.22524048714788547	8954	False	rederived_not_published
+GSM3572707	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.23054495670066089	8920	False	rederived_not_published
+GSM3572708	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.22705166785614617	8934	False	rederived_not_published
+GSM3572710	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.13375441820580525	8906	False	rederived_not_published
+GSM3572711	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.23033728854189817	8931	False	rederived_not_published
+GSM3572712	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.14861969049341262	8930	False	rederived_not_published
+GSM3572713	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.23410447272766088	8926	False	rederived_not_published
+GSM3572714	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.06448749855618474	8869	False	rederived_not_published
+GSM3572716	GSE125367	Nicolaides-Baraitser syndrome	not_in_training	-0.13050729115965554	8904	False	rederived_not_published
+GSM2800663	GSE104451	Silver-Russell syndrome	not_in_training	-0.11546947562100984	9537	False	rederived_not_published
+GSM2800664	GSE104451	Silver-Russell syndrome	not_in_training	-0.19462181743902596	9537	False	rederived_not_published
+GSM2800665	GSE104451	Silver-Russell syndrome	not_in_training	-0.2229621664558733	9537	False	rederived_not_published
+GSM2800666	GSE104451	Silver-Russell syndrome	not_in_training	-0.20120801478447325	9537	False	rederived_not_published
+GSM2800667	GSE104451	Silver-Russell syndrome	not_in_training	-0.20756686570152671	9537	False	rederived_not_published
+GSM2800668	GSE104451	Silver-Russell syndrome	not_in_training	-0.06387438999716688	9537	False	rederived_not_published
+GSM2800669	GSE104451	Silver-Russell syndrome	not_in_training	0.06822056895247275	9537	False	rederived_not_published
+GSM2800670	GSE104451	Silver-Russell syndrome	not_in_training	-0.15536786713417516	9537	False	rederived_not_published
+GSM2800671	GSE104451	Silver-Russell syndrome	not_in_training	-0.28670898514385934	9537	False	rederived_not_published
+GSM2800672	GSE104451	Silver-Russell syndrome	not_in_training	-0.16121361897327424	9537	False	rederived_not_published
+GSM2800673	GSE104451	Silver-Russell syndrome	not_in_training	-0.08576298504023594	9537	False	rederived_not_published
+GSM2800674	GSE104451	Silver-Russell syndrome	not_in_training	-0.09966821235301992	9537	False	rederived_not_published
+GSM2800675	GSE104451	Silver-Russell syndrome	not_in_training	-0.127596858882434	9537	False	rederived_not_published
+GSM2800676	GSE104451	Silver-Russell syndrome	not_in_training	-0.23094081671485323	9537	False	rederived_not_published
+GSM2800677	GSE104451	Silver-Russell syndrome	not_in_training	-0.2886402929408274	9537	False	rederived_not_published
+GSM2800678	GSE104451	Silver-Russell syndrome	not_in_training	-0.19552588623680578	9537	False	rederived_not_published
+GSM2800679	GSE104451	Silver-Russell syndrome	not_in_training	-0.19424828500100133	9537	False	rederived_not_published
+GSM2800680	GSE104451	Silver-Russell syndrome	not_in_training	-0.20730883367146236	9537	False	rederived_not_published
+GSM2800681	GSE104451	Silver-Russell syndrome	not_in_training	-0.018624398321526847	9537	False	rederived_not_published
+GSM2800682	GSE104451	Silver-Russell syndrome	not_in_training	-0.1572500192233437	9537	False	rederived_not_published
+GSM2800683	GSE104451	Silver-Russell syndrome	not_in_training	-0.25647655474482567	9537	False	rederived_not_published
+GSM2800684	GSE104451	Silver-Russell syndrome	not_in_training	-0.24082097124013024	9537	False	rederived_not_published
+GSM2800685	GSE104451	Silver-Russell syndrome	not_in_training	-0.17568955819715626	9537	False	rederived_not_published
+GSM2800686	GSE104451	Silver-Russell syndrome	not_in_training	-0.2654002156825612	9537	False	rederived_not_published
+GSM2800687	GSE104451	Silver-Russell syndrome	not_in_training	-0.27177766534316594	9537	False	rederived_not_published
+GSM2800688	GSE104451	Silver-Russell syndrome	not_in_training	-0.12225355585551811	9537	False	rederived_not_published
+GSM2800689	GSE104451	Silver-Russell syndrome	not_in_training	-0.004635442176548099	9537	False	rederived_not_published
+GSM2800690	GSE104451	Silver-Russell syndrome	not_in_training	-0.14725403693007288	9537	False	rederived_not_published
+GSM2800691	GSE104451	Silver-Russell syndrome	not_in_training	-0.19507852347204502	9537	False	rederived_not_published
+GSM2800692	GSE104451	Silver-Russell syndrome	not_in_training	-0.21549690582620706	9537	False	rederived_not_published
+GSM2800693	GSE104451	Silver-Russell syndrome	not_in_training	-0.1376801971148386	9537	False	rederived_not_published
+GSM2800694	GSE104451	Silver-Russell syndrome	not_in_training	-0.2219850066338772	9537	False	rederived_not_published
+GSM2800695	GSE104451	Silver-Russell syndrome	not_in_training	-0.24079523904525368	9537	False	rederived_not_published
+GSM2800696	GSE104451	Silver-Russell syndrome	not_in_training	0.050981588511237685	9537	False	rederived_not_published
+GSM2800697	GSE104451	Silver-Russell syndrome	not_in_training	-0.09958611969961972	9537	False	rederived_not_published
+GSM2800698	GSE104451	Silver-Russell syndrome	not_in_training	-0.13312675721747647	9537	False	rederived_not_published
+GSM2800699	GSE104451	Silver-Russell syndrome	not_in_training	-0.06331324238917302	9537	False	rederived_not_published
+GSM2800700	GSE104451	Silver-Russell syndrome	not_in_training	-0.07747990736827837	9537	False	rederived_not_published
+GSM2800701	GSE104451	Silver-Russell syndrome	not_in_training	-0.09099494915899131	9537	False	rederived_not_published
+GSM2800702	GSE104451	Silver-Russell syndrome	not_in_training	-0.13615321783603307	9537	False	rederived_not_published
+GSM2800703	GSE104451	Silver-Russell syndrome	not_in_training	-0.11591358396785978	9537	False	rederived_not_published
+GSM2800704	GSE104451	Silver-Russell syndrome	not_in_training	-0.2179589309061103	9537	False	rederived_not_published
+GSM2800705	GSE104451	Silver-Russell syndrome	not_in_training	-0.1435858013152983	9537	False	rederived_not_published
+GSM2800706	GSE104451	Silver-Russell syndrome	not_in_training	-0.10490228526601164	9537	False	rederived_not_published
+GSM2800707	GSE104451	Silver-Russell syndrome	not_in_training	-0.20366531937564436	9537	False	rederived_not_published
+GSM1338101	GSE55491	Silver-Russell syndrome	not_in_training	-0.2528691421145238	9537	False	rederived_not_published
+GSM1338106	GSE55491	Silver-Russell syndrome	not_in_training	-0.05614233207216224	9537	False	rederived_not_published
+GSM1338108	GSE55491	Silver-Russell syndrome	not_in_training	-0.07915234002318083	9537	False	rederived_not_published
+GSM1338109	GSE55491	Silver-Russell syndrome	not_in_training	-0.11405789671192101	9537	False	rederived_not_published
+GSM1338110	GSE55491	Silver-Russell syndrome	not_in_training	-0.04265320277068407	9537	False	rederived_not_published
+GSM1338111	GSE55491	Silver-Russell syndrome	not_in_training	-0.1797342620108785	9537	False	rederived_not_published
+GSM1338112	GSE55491	Silver-Russell syndrome	not_in_training	-0.17191434726331345	9537	False	rederived_not_published
+GSM1338113	GSE55491	Silver-Russell syndrome	not_in_training	-0.2181142698674008	9537	False	rederived_not_published
+GSM1338114	GSE55491	Silver-Russell syndrome	not_in_training	-0.144798780520068	9537	False	rederived_not_published
+GSM1338115	GSE55491	Silver-Russell syndrome	not_in_training	0.2551555714702954	9537	False	rederived_not_published
+GSM1338116	GSE55491	Silver-Russell syndrome	not_in_training	-0.10468946859976502	9537	False	rederived_not_published
+GSM1338117	GSE55491	Silver-Russell syndrome	not_in_training	-0.11478308022312089	9537	False	rederived_not_published
+GSM1338118	GSE55491	Silver-Russell syndrome	not_in_training	-0.052005069551923744	9537	False	rederived_not_published
+GSM1338119	GSE55491	Silver-Russell syndrome	not_in_training	-0.14910522821474193	9537	False	rederived_not_published
+GSM1338120	GSE55491	Silver-Russell syndrome	not_in_training	-0.11528065501594331	9537	False	rederived_not_published
+GSM1338121	GSE55491	Silver-Russell syndrome	not_in_training	-0.11921877065385167	9537	False	rederived_not_published
+GSM1338122	GSE55491	Silver-Russell syndrome	not_in_training	-0.09401634606097087	9537	False	rederived_not_published
+GSM1338123	GSE55491	Silver-Russell syndrome	not_in_training	-0.07053940904797995	9537	False	rederived_not_published
+GSM1920405	GSE74432	Sotos syndrome	not_in_training	-0.12488744498805293	8253	False	rederived_not_published
+GSM1920406	GSE74432	Sotos syndrome	not_in_training	-0.18833026792474195	8253	False	rederived_not_published
+GSM1920407	GSE74432	Sotos syndrome	not_in_training	-0.23956191340565902	8248	False	rederived_not_published
+GSM1920408	GSE74432	Sotos syndrome	not_in_training	0.10101709954778626	8250	False	rederived_not_published
+GSM1920409	GSE74432	Sotos syndrome	not_in_training	-0.04501852907204773	8251	False	rederived_not_published
+GSM1920410	GSE74432	Sotos syndrome	not_in_training	-0.1664014895578273	8249	False	rederived_not_published
+GSM1920411	GSE74432	Sotos syndrome	not_in_training	0.11605957912545906	8241	False	rederived_not_published
+GSM1920412	GSE74432	Sotos syndrome	not_in_training	-0.08150034279916274	8248	False	rederived_not_published
+GSM1920413	GSE74432	Sotos syndrome	not_in_training	-0.10767267590249041	8246	False	rederived_not_published
+GSM1920414	GSE74432	Sotos syndrome	not_in_training	-0.057203601988326525	8250	False	rederived_not_published
+GSM1920415	GSE74432	Sotos syndrome	not_in_training	-0.1644806929391054	8241	False	rederived_not_published
+GSM1920416	GSE74432	Sotos syndrome	not_in_training	-0.16448215423256196	8253	False	rederived_not_published
+GSM1920417	GSE74432	Sotos syndrome	not_in_training	-0.12392909240341077	8243	False	rederived_not_published
+GSM1920418	GSE74432	Sotos syndrome	not_in_training	-0.16513492059735746	8250	False	rederived_not_published
+GSM1920419	GSE74432	Sotos syndrome	not_in_training	-0.0607050616743936	8242	False	rederived_not_published
+GSM1920420	GSE74432	Sotos syndrome	not_in_training	0.039261662658480634	8251	False	rederived_not_published
+GSM1920421	GSE74432	Sotos syndrome	not_in_training	-0.05558891110623865	8236	False	rederived_not_published
+GSM1920422	GSE74432	Sotos syndrome	not_in_training	-0.03793795069007577	8249	False	rederived_not_published
+GSM1920423	GSE74432	Sotos syndrome	not_in_training	-0.14826587870847896	8246	False	rederived_not_published
+GSM1920427	GSE74432	Sotos syndrome	not_in_training	-0.23299898930784135	8255	False	rederived_not_published
+GSM1920428	GSE74432	Sotos syndrome	not_in_training	-0.005242706163079536	8254	False	rederived_not_published
+GSM1920429	GSE74432	Sotos syndrome	not_in_training	-0.020091967343750183	8256	False	rederived_not_published
+GSM1920430	GSE74432	Sotos syndrome	not_in_training	0.10127394862449401	8253	False	rederived_not_published
+GSM1920431	GSE74432	Sotos syndrome	not_in_training	0.0018133596540084174	8256	False	rederived_not_published
+GSM1920432	GSE74432	Sotos syndrome	not_in_training	-0.06546148094239124	8251	False	rederived_not_published
+GSM1920433	GSE74432	Sotos syndrome	not_in_training	-0.08682441034638122	8252	False	rederived_not_published
+GSM1920434	GSE74432	Sotos syndrome	not_in_training	-0.18116857746806447	8255	False	rederived_not_published
+GSM1920435	GSE74432	Sotos syndrome	not_in_training	0.018398346848913838	8258	False	rederived_not_published
+GSM1920436	GSE74432	Sotos syndrome	not_in_training	-0.03336526462373224	8253	False	rederived_not_published
+GSM1920437	GSE74432	Sotos syndrome	not_in_training	-0.1213148404672717	8255	False	rederived_not_published
+GSM1920438	GSE74432	Sotos syndrome	not_in_training	-0.2002864809962328	8255	False	rederived_not_published
+GSM1920439	GSE74432	Sotos syndrome	not_in_training	-0.026829888844339345	8257	False	rederived_not_published
+GSM1920440	GSE74432	Sotos syndrome	not_in_training	-0.1119747064511235	8256	False	rederived_not_published
+GSM1920441	GSE74432	Sotos syndrome	not_in_training	-0.019807587430730966	8253	False	rederived_not_published
+GSM1920442	GSE74432	Sotos syndrome	not_in_training	0.04373795075885767	8258	False	rederived_not_published
+GSM1920443	GSE74432	Sotos syndrome	not_in_training	0.08429509295325976	8258	False	rederived_not_published
+GSM1920444	GSE74432	Sotos syndrome	not_in_training	0.05317713983022132	8255	False	rederived_not_published
+GSM1920445	GSE74432	Sotos syndrome	not_in_training	-0.015482187984501183	8256	False	rederived_not_published
+GSM1920446	GSE74432	Weaver syndrome	not_in_training	-0.09013075417898808	8244	False	rederived_not_published
+GSM1920447	GSE74432	Weaver syndrome	not_in_training	-0.14253222762891893	8232	False	rederived_not_published
+GSM1920448	GSE74432	Weaver syndrome	not_in_training	-0.15945429038230408	8246	False	rederived_not_published
+GSM1920449	GSE74432	Weaver syndrome	not_in_training	0.06254529609741	8249	False	rederived_not_published
+GSM1920450	GSE74432	Weaver syndrome	not_in_training	-0.12300320018113098	8255	False	rederived_not_published
+GSM1920451	GSE74432	Weaver syndrome	not_in_training	-0.174558715212629	8225	False	rederived_not_published
+GSM1920452	GSE74432	Weaver syndrome	not_in_training	-0.20496371576563133	8237	False	rederived_not_published
+GSM1920453	GSE74432	Weaver syndrome	not_in_training	-0.19334225498214708	8255	False	rederived_not_published
+GSM1624832	GSE66552	Williams syndrome	train_case	0.011760700599504403	9527	True	rederived_not_published
+GSM1624833	GSE66552	Williams syndrome	train_case	0.27232644551647256	9531	True	rederived_not_published
+GSM1624834	GSE66552	Williams syndrome	train_case	0.014538437687943717	9531	True	rederived_not_published
+GSM1624835	GSE66552	Williams syndrome	train_case	0.05711436340232623	9532	True	rederived_not_published
+GSM1624836	GSE66552	Williams syndrome	train_case	0.2135054523651606	9531	True	rederived_not_published
+GSM1624837	GSE66552	Williams syndrome	train_case	0.15893895190556118	9533	True	rederived_not_published
+GSM1624838	GSE66552	Williams syndrome	train_case	0.049248894846098956	9532	True	rederived_not_published
+GSM1624839	GSE66552	Williams syndrome	train_case	0.2682071961867748	9531	True	rederived_not_published
+GSM1624840	GSE66552	Williams syndrome	train_case	0.2668983431895844	9533	True	rederived_not_published
+GSM1624841	GSE66552	Williams syndrome	train_case	0.22215212176369548	9529	True	rederived_not_published
+GSM1624842	GSE66552	Williams syndrome	train_case	0.22474002669054993	9530	True	rederived_not_published
+GSM1624843	GSE66552	Williams syndrome	train_case	0.09256506255804242	9531	True	rederived_not_published
+GSM1624844	GSE66552	Williams syndrome	train_case	0.2383811076325414	9535	True	rederived_not_published
+GSM1624845	GSE66552	Williams syndrome	train_case	-0.09367272779015812	9533	True	rederived_not_published
+GSM1624856	GSE66552	Williams syndrome	train_case	0.24344351082448268	9535	True	rederived_not_published
+GSM1624857	GSE66552	Williams syndrome	train_case	0.1916479989177372	9527	True	rederived_not_published
+GSM1624858	GSE66552	Williams syndrome	train_case	0.19400209590347683	9528	True	rederived_not_published
+GSM1624859	GSE66552	Williams syndrome	train_case	0.02993581277624291	9530	True	rederived_not_published
+GSM1624860	GSE66552	Williams syndrome	train_case	0.13727703010430703	9530	True	rederived_not_published
+GSM1624861	GSE66552	Williams syndrome	train_case	0.25357376212513916	9532	True	rederived_not_published
+GSM1272151	GSE52588	comparator_sibling	not_in_training	-0.24341617152736306	9533	False	rederived_not_published
+GSM1272152	GSE52588	comparator_sibling	not_in_training	-0.1970464015569403	9533	False	rederived_not_published
+GSM1272153	GSE52588	comparator_sibling	not_in_training	-0.26522892332587367	9534	False	rederived_not_published
+GSM1272154	GSE52588	comparator_sibling	not_in_training	-0.21676840373177653	9535	False	rederived_not_published
+GSM1272155	GSE52588	comparator_sibling	not_in_training	-0.28826302434818396	9535	False	rederived_not_published
+GSM1272156	GSE52588	comparator_sibling	not_in_training	-0.17565599818569277	9534	False	rederived_not_published
+GSM1272157	GSE52588	comparator_sibling	not_in_training	-0.27312512185610316	9533	False	rederived_not_published
+GSM1272158	GSE52588	comparator_sibling	not_in_training	-0.21141303055061655	9536	False	rederived_not_published
+GSM1272159	GSE52588	comparator_sibling	not_in_training	-0.16915082371735302	9532	False	rederived_not_published
+GSM1272160	GSE52588	comparator_sibling	not_in_training	-0.22859646806420109	9530	False	rederived_not_published
+GSM1272161	GSE52588	comparator_sibling	not_in_training	-0.21205620853935858	9534	False	rederived_not_published
+GSM1272162	GSE52588	comparator_sibling	not_in_training	-0.1653699573521733	9534	False	rederived_not_published
+GSM1272163	GSE52588	comparator_sibling	not_in_training	-0.19421225112694407	9535	False	rederived_not_published
+GSM1272164	GSE52588	comparator_sibling	not_in_training	-0.2746774416999679	9533	False	rederived_not_published
+GSM1272165	GSE52588	comparator_sibling	not_in_training	-0.16748842500500882	9536	False	rederived_not_published
+GSM1272166	GSE52588	comparator_sibling	not_in_training	-0.19310402883172584	9535	False	rederived_not_published
+GSM1272167	GSE52588	comparator_sibling	not_in_training	-0.030666488219377674	9532	False	rederived_not_published
+GSM1272168	GSE52588	comparator_sibling	not_in_training	-0.2154894528201462	9533	False	rederived_not_published
+GSM1272169	GSE52588	comparator_sibling	not_in_training	-0.2564452919744842	9527	False	rederived_not_published
+GSM1272170	GSE52588	comparator_sibling	not_in_training	-0.2802149261984832	9535	False	rederived_not_published
+GSM1272171	GSE52588	comparator_sibling	not_in_training	-0.18538798190799133	9531	False	rederived_not_published
+GSM1272172	GSE52588	comparator_sibling	not_in_training	-0.175269788781366	9535	False	rederived_not_published
+GSM1272173	GSE52588	comparator_sibling	not_in_training	-0.24785536025693933	9530	False	rederived_not_published
+GSM1272174	GSE52588	comparator_sibling	not_in_training	-0.17979148159336367	9525	False	rederived_not_published
+GSM1272175	GSE52588	comparator_sibling	not_in_training	-0.24345532277670046	9525	False	rederived_not_published
+GSM1272176	GSE52588	comparator_sibling	not_in_training	-0.2675967206144494	9534	False	rederived_not_published
+GSM1272177	GSE52588	comparator_sibling	not_in_training	-0.19019007022458279	9532	False	rederived_not_published
+GSM1272178	GSE52588	comparator_sibling	not_in_training	-0.20834523990711618	9530	False	rederived_not_published
+GSM1272179	GSE52588	comparator_sibling	not_in_training	-0.23591609544987668	9528	False	rederived_not_published
+GSM2800708	GSE104451	pooled_control	not_in_training	-0.10724681172361794	9537	False	rederived_not_published
+GSM2800709	GSE104451	pooled_control	not_in_training	-0.12309733794596445	9537	False	rederived_not_published
+GSM2800710	GSE104451	pooled_control	not_in_training	-0.13048369861906406	9537	False	rederived_not_published
+GSM2800711	GSE104451	pooled_control	not_in_training	-0.16941125759287667	9537	False	rederived_not_published
+GSM2800712	GSE104451	pooled_control	not_in_training	-0.15306168800024755	9537	False	rederived_not_published
+GSM2800713	GSE104451	pooled_control	not_in_training	-0.24255013043677787	9537	False	rederived_not_published
+GSM2800714	GSE104451	pooled_control	not_in_training	-0.22885479257957408	9537	False	rederived_not_published
+GSM2800715	GSE104451	pooled_control	not_in_training	-0.2792323367474011	9537	False	rederived_not_published
+GSM2800716	GSE104451	pooled_control	not_in_training	-0.21721966194270603	9537	False	rederived_not_published
+GSM2800717	GSE104451	pooled_control	not_in_training	-0.2612778961916338	9537	False	rederived_not_published
+GSM2800718	GSE104451	pooled_control	not_in_training	-0.1876174755394906	9537	False	rederived_not_published
+GSM2800719	GSE104451	pooled_control	not_in_training	-0.13989927643718736	9537	False	rederived_not_published
+GSM2800720	GSE104451	pooled_control	not_in_training	-0.21272507330775314	9537	False	rederived_not_published
+GSM2800721	GSE104451	pooled_control	not_in_training	-0.2640584105575684	9537	False	rederived_not_published
+GSM2800722	GSE104451	pooled_control	not_in_training	-0.17824317299002512	9537	False	rederived_not_published
+GSM2800723	GSE104451	pooled_control	not_in_training	-0.22285334552314584	9537	False	rederived_not_published
+GSM2897983	GSE108423	pooled_control	not_in_training	-0.11244040575593262	9020	False	rederived_not_published
+GSM2897984	GSE108423	pooled_control	not_in_training	-0.095866600936788	9020	False	rederived_not_published
+GSM2897985	GSE108423	pooled_control	not_in_training	-0.310464584860909	9020	False	rederived_not_published
+GSM2897986	GSE108423	pooled_control	not_in_training	-0.21844124699695688	9020	False	rederived_not_published
+GSM2897987	GSE108423	pooled_control	not_in_training	-0.20417695277158365	9020	False	rederived_not_published
+GSM2897988	GSE108423	pooled_control	not_in_training	-0.2983738084194003	9020	False	rederived_not_published
+GSM2897989	GSE108423	pooled_control	not_in_training	-0.20514292143841018	9020	False	rederived_not_published
+GSM2897990	GSE108423	pooled_control	not_in_training	-0.15637470402438847	9020	False	rederived_not_published
+GSM2897991	GSE108423	pooled_control	not_in_training	-0.20003950310881613	9020	False	rederived_not_published
+GSM2897992	GSE108423	pooled_control	not_in_training	-0.3174637072481653	9020	False	rederived_not_published
+GSM2897993	GSE108423	pooled_control	not_in_training	-0.14597073888158796	9020	False	rederived_not_published
+GSM2897994	GSE108423	pooled_control	not_in_training	-0.1696348865061208	9020	False	rederived_not_published
+GSM3227755	GSE116300	pooled_control	not_in_training	-0.16094833136527187	9492	False	rederived_not_published
+GSM3227756	GSE116300	pooled_control	not_in_training	-0.12605576734558244	9492	False	rederived_not_published
+GSM3227757	GSE116300	pooled_control	not_in_training	-0.1881939417705628	9492	False	rederived_not_published
+GSM3227758	GSE116300	pooled_control	not_in_training	-0.10342683262508756	9492	False	rederived_not_published
+GSM3227759	GSE116300	pooled_control	not_in_training	-0.04059729315701843	9492	False	rederived_not_published
+GSM3227760	GSE116300	pooled_control	not_in_training	-0.1869888009785563	9492	False	rederived_not_published
+GSM3227761	GSE116300	pooled_control	not_in_training	-0.19007050281908722	9492	False	rederived_not_published
+GSM3227762	GSE116300	pooled_control	not_in_training	0.005441945740718879	9492	False	rederived_not_published
+GSM3227763	GSE116300	pooled_control	not_in_training	-0.06045190787813681	9492	False	rederived_not_published
+GSM3572680	GSE125367	pooled_control	not_in_training	-0.05014728049428829	8934	False	rederived_not_published
+GSM3572681	GSE125367	pooled_control	not_in_training	0.05648396080178564	8939	False	rederived_not_published
+GSM3572682	GSE125367	pooled_control	not_in_training	-0.16740869748551201	8908	False	rederived_not_published
+GSM3572683	GSE125367	pooled_control	not_in_training	-0.17094839134099404	8939	False	rederived_not_published
+GSM3572684	GSE125367	pooled_control	not_in_training	-0.08213929252453978	8918	False	rederived_not_published
+GSM3572685	GSE125367	pooled_control	not_in_training	0.005345686918402204	8938	False	rederived_not_published
+GSM3572686	GSE125367	pooled_control	not_in_training	0.05174523564206579	8921	False	rederived_not_published
+GSM3572687	GSE125367	pooled_control	not_in_training	-0.1290703186989678	8927	False	rederived_not_published
+GSM3572688	GSE125367	pooled_control	not_in_training	-0.1370248408527982	8907	False	rederived_not_published
+GSM3572689	GSE125367	pooled_control	not_in_training	-0.22835951563473145	8923	False	rederived_not_published
+GSM3572690	GSE125367	pooled_control	not_in_training	-0.20659008639991938	8916	False	rederived_not_published
+GSM3572691	GSE125367	pooled_control	not_in_training	-0.18341470778257907	8924	False	rederived_not_published
+GSM3572692	GSE125367	pooled_control	not_in_training	-0.1338094555187186	8935	False	rederived_not_published
+GSM3572693	GSE125367	pooled_control	not_in_training	-0.14067299003112987	8935	False	rederived_not_published
+GSM3572694	GSE125367	pooled_control	not_in_training	-0.07018217099638724	8927	False	rederived_not_published
+GSM3572695	GSE125367	pooled_control	not_in_training	-0.27383322854421843	8923	False	rederived_not_published
+GSM3572696	GSE125367	pooled_control	not_in_training	-0.1509742091843853	8927	False	rederived_not_published
+GSM3572697	GSE125367	pooled_control	not_in_training	-0.13548014259929653	8908	False	rederived_not_published
+GSM3572698	GSE125367	pooled_control	not_in_training	-0.1115684301431128	8908	False	rederived_not_published
+GSM3572699	GSE125367	pooled_control	not_in_training	-0.10560350873064062	8935	False	rederived_not_published
+GSM3572700	GSE125367	pooled_control	not_in_training	-0.024529632323178396	8903	False	rederived_not_published
+GSM3572701	GSE125367	pooled_control	not_in_training	-0.13563340355230513	8931	False	rederived_not_published
+GSM3572702	GSE125367	pooled_control	not_in_training	0.0024041832307779565	8941	False	rederived_not_published
+GSM3572703	GSE125367	pooled_control	not_in_training	-0.22455904711179697	8924	False	rederived_not_published
+GSM3572704	GSE125367	pooled_control	not_in_training	0.05550537783723053	8917	False	rederived_not_published
+GSM3572705	GSE125367	pooled_control	not_in_training	0.03162331258124418	8932	False	rederived_not_published
+GSM3572706	GSE125367	pooled_control	not_in_training	0.024576309011233533	8922	False	rederived_not_published
+GSM1338100	GSE55491	pooled_control	not_in_training	0.06315918483535199	9537	False	rederived_not_published
+GSM1338102	GSE55491	pooled_control	not_in_training	0.050268228360523914	9537	False	rederived_not_published
+GSM1338103	GSE55491	pooled_control	not_in_training	-0.09300919466797886	9537	False	rederived_not_published
+GSM1338104	GSE55491	pooled_control	not_in_training	-0.2378598114714312	9537	False	rederived_not_published
+GSM1338105	GSE55491	pooled_control	not_in_training	0.0605157875068143	9537	False	rederived_not_published
+GSM1338107	GSE55491	pooled_control	not_in_training	0.06611419385121209	9537	False	rederived_not_published
+GSM1624830	GSE66552	pooled_control	train_control	-0.08758374942428115	9532	True	rederived_not_published
+GSM1624831	GSE66552	pooled_control	train_control	-0.2129762940554839	9528	True	rederived_not_published
+GSM1624846	GSE66552	pooled_control	train_control	-0.17633518161511097	9522	True	rederived_not_published
+GSM1624847	GSE66552	pooled_control	train_control	-0.10816158569478829	9529	True	rederived_not_published
+GSM1624848	GSE66552	pooled_control	train_control	-0.06882163631276417	9529	True	rederived_not_published
+GSM1624849	GSE66552	pooled_control	train_control	-0.16914398871933056	9530	True	rederived_not_published
+GSM1624850	GSE66552	pooled_control	train_control	-0.2462440682250866	9534	True	rederived_not_published
+GSM1624851	GSE66552	pooled_control	train_control	-0.21559046551087635	9525	True	rederived_not_published
+GSM1624852	GSE66552	pooled_control	train_control	-0.22486566163319022	9530	True	rederived_not_published
+GSM1624853	GSE66552	pooled_control	train_control	-0.2046083728419258	9529	True	rederived_not_published
+GSM1624854	GSE66552	pooled_control	train_control	-0.23188146606997362	9531	True	rederived_not_published
+GSM1624855	GSE66552	pooled_control	train_control	-0.15728039920325376	9525	True	rederived_not_published
+GSM1624872	GSE66552	pooled_control	train_control	-0.14599912450867225	9530	True	rederived_not_published
+GSM1624873	GSE66552	pooled_control	train_control	-0.15370660197930597	9523	True	rederived_not_published
+GSM1624874	GSE66552	pooled_control	train_control	-0.17719569830865556	9531	True	rederived_not_published
+GSM1920348	GSE74432	pooled_control	not_in_training	-0.2647329073656107	8252	False	rederived_not_published
+GSM1920349	GSE74432	pooled_control	not_in_training	-0.25779180359078224	8251	False	rederived_not_published
+GSM1920350	GSE74432	pooled_control	not_in_training	-0.29655209188548093	8256	False	rederived_not_published
+GSM1920351	GSE74432	pooled_control	not_in_training	-0.09198581266244055	8249	False	rederived_not_published
+GSM1920352	GSE74432	pooled_control	not_in_training	-0.1931791785181931	8240	False	rederived_not_published
+GSM1920353	GSE74432	pooled_control	not_in_training	0.07319379702809836	8255	False	rederived_not_published
+GSM1920354	GSE74432	pooled_control	not_in_training	0.051288534009559905	8247	False	rederived_not_published
+GSM1920355	GSE74432	pooled_control	not_in_training	-0.08891890974182393	8249	False	rederived_not_published
+GSM1920356	GSE74432	pooled_control	not_in_training	-0.17806431633538544	8251	False	rederived_not_published
+GSM1920357	GSE74432	pooled_control	not_in_training	-0.16826132603470445	8239	False	rederived_not_published
+GSM1920358	GSE74432	pooled_control	not_in_training	-0.2545171574116142	8253	False	rederived_not_published
+GSM1920359	GSE74432	pooled_control	not_in_training	-0.12140588740972202	8246	False	rederived_not_published
+GSM1920360	GSE74432	pooled_control	not_in_training	-0.23841420194965468	8249	False	rederived_not_published
+GSM1920361	GSE74432	pooled_control	not_in_training	-0.23567761810597398	8254	False	rederived_not_published
+GSM1920362	GSE74432	pooled_control	not_in_training	-0.1694884546268005	8254	False	rederived_not_published
+GSM1920363	GSE74432	pooled_control	not_in_training	-0.1551888037634397	8254	False	rederived_not_published
+GSM1920364	GSE74432	pooled_control	not_in_training	-0.2901838821606657	8249	False	rederived_not_published
+GSM1920365	GSE74432	pooled_control	not_in_training	-0.1880175941869633	8255	False	rederived_not_published
+GSM1920366	GSE74432	pooled_control	not_in_training	-0.16969771390505894	8252	False	rederived_not_published
+GSM1920367	GSE74432	pooled_control	not_in_training	-0.12178238220812887	8252	False	rederived_not_published
+GSM1920368	GSE74432	pooled_control	not_in_training	-0.2541581758076523	8251	False	rederived_not_published
+GSM1920369	GSE74432	pooled_control	not_in_training	-0.2222737297123153	8253	False	rederived_not_published
+GSM1920370	GSE74432	pooled_control	not_in_training	-0.22715399465855368	8245	False	rederived_not_published
+GSM1920371	GSE74432	pooled_control	not_in_training	-0.259413516424004	8254	False	rederived_not_published
+GSM1920372	GSE74432	pooled_control	not_in_training	-0.20491781457707647	8251	False	rederived_not_published
+GSM1920373	GSE74432	pooled_control	not_in_training	-0.2322558600165927	8234	False	rederived_not_published
+GSM1920374	GSE74432	pooled_control	not_in_training	-0.2295216990655211	8250	False	rederived_not_published
+GSM1920375	GSE74432	pooled_control	not_in_training	-0.15442349553852752	8249	False	rederived_not_published
+GSM1920376	GSE74432	pooled_control	not_in_training	-0.07140534435388846	8244	False	rederived_not_published
+GSM1920377	GSE74432	pooled_control	not_in_training	-0.2777915629473158	8254	False	rederived_not_published
+GSM1920378	GSE74432	pooled_control	not_in_training	-0.142691371568489	8254	False	rederived_not_published
+GSM1920379	GSE74432	pooled_control	not_in_training	-0.18467097388653586	8251	False	rederived_not_published
+GSM1920380	GSE74432	pooled_control	not_in_training	-0.24308538123128132	8256	False	rederived_not_published
+GSM1920381	GSE74432	pooled_control	not_in_training	-0.24253424781863475	8252	False	rederived_not_published
+GSM1920382	GSE74432	pooled_control	not_in_training	-0.17520870115083875	8242	False	rederived_not_published
+GSM1920383	GSE74432	pooled_control	not_in_training	-0.241082799515834	8252	False	rederived_not_published
+GSM1920384	GSE74432	pooled_control	not_in_training	-0.2143939470208639	8249	False	rederived_not_published
+GSM1920385	GSE74432	pooled_control	not_in_training	0.05760408903374148	8249	False	rederived_not_published
+GSM1920386	GSE74432	pooled_control	not_in_training	-0.24900284682090468	8245	False	rederived_not_published
+GSM1920387	GSE74432	pooled_control	not_in_training	-0.21927154268667615	8244	False	rederived_not_published
+GSM1920388	GSE74432	pooled_control	not_in_training	-0.1441109812495378	8257	False	rederived_not_published
+GSM1920389	GSE74432	pooled_control	not_in_training	-0.0791176741893792	8250	False	rederived_not_published
+GSM1920390	GSE74432	pooled_control	not_in_training	-0.1195140220366907	8243	False	rederived_not_published
+GSM1920391	GSE74432	pooled_control	not_in_training	-0.012741202575854982	8251	False	rederived_not_published
+GSM1920392	GSE74432	pooled_control	not_in_training	-0.09714617115498814	8252	False	rederived_not_published
+GSM1920393	GSE74432	pooled_control	not_in_training	-0.017091663019446757	8249	False	rederived_not_published
+GSM1920394	GSE74432	pooled_control	not_in_training	-0.19358714269998367	8253	False	rederived_not_published
+GSM1920395	GSE74432	pooled_control	not_in_training	-0.1433905212261709	8252	False	rederived_not_published
+GSM1920396	GSE74432	pooled_control	not_in_training	-0.1829591061831528	8252	False	rederived_not_published
+GSM1920397	GSE74432	pooled_control	not_in_training	-0.1956941307423481	8253	False	rederived_not_published
+GSM1920398	GSE74432	pooled_control	not_in_training	-0.2038141494697293	8252	False	rederived_not_published
+GSM1920399	GSE74432	pooled_control	not_in_training	-0.17827889323427248	8255	False	rederived_not_published
+GSM1920400	GSE74432	pooled_control	not_in_training	-0.28184728996030184	8249	False	rederived_not_published
+GSM2495036	GSE95040	pooled_control	not_in_training	-0.17875041796343394	8937	False	rederived_not_published
+GSM2495037	GSE95040	pooled_control	not_in_training	-0.05405278475453423	8937	False	rederived_not_published
+GSM2495038	GSE95040	pooled_control	not_in_training	-0.16715569085340454	8937	False	rederived_not_published
+GSM2495046	GSE95040	pooled_control	not_in_training	-0.2809740964580467	8937	False	rederived_not_published
+GSM2495047	GSE95040	pooled_control	not_in_training	-0.2760917050578443	8937	False	rederived_not_published
+GSM2495048	GSE95040	pooled_control	not_in_training	-0.3051885834588704	8937	False	rederived_not_published
+GSM2495049	GSE95040	pooled_control	not_in_training	-0.17295065197886794	8937	False	rederived_not_published
+GSM2495050	GSE95040	pooled_control	not_in_training	-0.24261307854421355	8937	False	rederived_not_published
+GSM2495054	GSE95040	pooled_control	not_in_training	-0.20254829405730612	8937	False	rederived_not_published
+GSM2495059	GSE95040	pooled_control	not_in_training	-0.31512044642023335	8937	False	rederived_not_published
+GSM2562809	GSE97362	pooled_control	not_in_training	-0.06728564010893223	9531	False	rederived_not_published
+GSM2562810	GSE97362	pooled_control	not_in_training	-0.01112892123906739	9532	False	rederived_not_published
+GSM2562811	GSE97362	pooled_control	not_in_training	-0.20423858221447755	9528	False	rederived_not_published
+GSM2562812	GSE97362	pooled_control	not_in_training	-0.12588924475041363	9533	False	rederived_not_published
+GSM2562813	GSE97362	pooled_control	not_in_training	-0.22981127295057424	9528	False	rederived_not_published
+GSM2562814	GSE97362	pooled_control	not_in_training	-0.13456720916729814	9532	False	rederived_not_published
+GSM2562815	GSE97362	pooled_control	not_in_training	-0.11818076781055409	9531	False	rederived_not_published
+GSM2562816	GSE97362	pooled_control	not_in_training	-0.055361480815210085	9530	False	rederived_not_published
+GSM2562817	GSE97362	pooled_control	not_in_training	-0.031000112887841436	9533	False	rederived_not_published
+GSM2562818	GSE97362	pooled_control	not_in_training	-0.09728633782286777	9532	False	rederived_not_published
+GSM2562819	GSE97362	pooled_control	not_in_training	-0.21109910268266951	9524	False	rederived_not_published
+GSM2562820	GSE97362	pooled_control	not_in_training	-0.22058392397378723	9528	False	rederived_not_published
+GSM2562821	GSE97362	pooled_control	not_in_training	-0.11835092260086799	9528	False	rederived_not_published
+GSM2562822	GSE97362	pooled_control	not_in_training	-0.2075352262771164	9527	False	rederived_not_published
+GSM2562823	GSE97362	pooled_control	not_in_training	-0.1133575910429786	9532	False	rederived_not_published
+GSM2562824	GSE97362	pooled_control	not_in_training	-0.15197579244856885	9532	False	rederived_not_published
+GSM2562825	GSE97362	pooled_control	not_in_training	-0.06694357802380335	9528	False	rederived_not_published
+GSM2562826	GSE97362	pooled_control	not_in_training	-0.24535264883926533	9525	False	rederived_not_published
+GSM2562827	GSE97362	pooled_control	not_in_training	-0.10552065224331053	9530	False	rederived_not_published
+GSM2562828	GSE97362	pooled_control	not_in_training	-0.016159168662904788	9530	False	rederived_not_published
+GSM2562829	GSE97362	pooled_control	not_in_training	-0.11114337598154223	9529	False	rederived_not_published
+GSM2562830	GSE97362	pooled_control	not_in_training	-0.07897362589522794	9515	False	rederived_not_published
+GSM2562831	GSE97362	pooled_control	not_in_training	-0.18588222673698407	9515	False	rederived_not_published
+GSM2562832	GSE97362	pooled_control	not_in_training	-0.1846793834632402	9491	False	rederived_not_published
+GSM2562833	GSE97362	pooled_control	not_in_training	-0.1341150016513114	9516	False	rederived_not_published
+GSM2562834	GSE97362	pooled_control	not_in_training	-0.17422422615398236	9509	False	rederived_not_published
+GSM2562835	GSE97362	pooled_control	not_in_training	-0.062488158718753795	9406	False	rederived_not_published
+GSM2562836	GSE97362	pooled_control	not_in_training	-0.12179615836787583	9529	False	rederived_not_published
+GSM2562837	GSE97362	pooled_control	not_in_training	-0.20162381651060013	9533	False	rederived_not_published
+GSM2562838	GSE97362	pooled_control	not_in_training	-0.17984812831333852	9528	False	rederived_not_published
+GSM2562839	GSE97362	pooled_control	not_in_training	-0.15793093804143676	9532	False	rederived_not_published
+GSM2562840	GSE97362	pooled_control	not_in_training	-0.06917205008698701	9532	False	rederived_not_published
+GSM2562841	GSE97362	pooled_control	not_in_training	-0.16345314117727938	9531	False	rederived_not_published
+GSM2562842	GSE97362	pooled_control	not_in_training	-0.23411459426703307	9524	False	rederived_not_published
+GSM2562843	GSE97362	pooled_control	not_in_training	-0.0667653144621615	9533	False	rederived_not_published
+GSM2562844	GSE97362	pooled_control	not_in_training	-0.03186086612011141	9528	False	rederived_not_published
+GSM2562845	GSE97362	pooled_control	not_in_training	-0.17645413561427825	9530	False	rederived_not_published
+GSM2562846	GSE97362	pooled_control	not_in_training	-0.1992818753310105	9533	False	rederived_not_published
+GSM2562847	GSE97362	pooled_control	not_in_training	-0.01951338278447723	9534	False	rederived_not_published
+GSM2562848	GSE97362	pooled_control	not_in_training	-0.0921801524921626	9534	False	rederived_not_published
+GSM2562849	GSE97362	pooled_control	not_in_training	-0.21321898441927867	9528	False	rederived_not_published
+GSM2562850	GSE97362	pooled_control	not_in_training	-0.058190052545719184	9532	False	rederived_not_published
+GSM2562851	GSE97362	pooled_control	not_in_training	-0.225427426158203	9529	False	rederived_not_published
+GSM2562852	GSE97362	pooled_control	not_in_training	-0.21423163885892205	9527	False	rederived_not_published
+GSM2562853	GSE97362	pooled_control	not_in_training	-0.013229822483144194	9535	False	rederived_not_published
+GSM2562854	GSE97362	pooled_control	not_in_training	-0.19302126876298364	9534	False	rederived_not_published
+GSM2562855	GSE97362	pooled_control	not_in_training	-0.10701640968359583	9534	False	rederived_not_published
+GSM2562856	GSE97362	pooled_control	not_in_training	-0.1938902109756041	9532	False	rederived_not_published
+GSM2562857	GSE97362	pooled_control	not_in_training	-0.23439565338791812	9531	False	rederived_not_published
+GSM2562858	GSE97362	pooled_control	not_in_training	-0.17325487948473994	9533	False	rederived_not_published
+GSM2562859	GSE97362	pooled_control	not_in_training	-0.1417352656270895	9533	False	rederived_not_published
+GSM2562860	GSE97362	pooled_control	not_in_training	-0.13204311371939526	9530	False	rederived_not_published
+GSM2562861	GSE97362	pooled_control	not_in_training	-0.18274322000940824	9526	False	rederived_not_published
+GSM2562862	GSE97362	pooled_control	not_in_training	-0.2103034988409449	9530	False	rederived_not_published
+GSM2562863	GSE97362	pooled_control	not_in_training	-0.21479069688780106	9535	False	rederived_not_published
+GSM2562864	GSE97362	pooled_control	not_in_training	-0.1909923481271606	9534	False	rederived_not_published
+GSM2562865	GSE97362	pooled_control	not_in_training	-0.16832543089080276	9533	False	rederived_not_published
+GSM2562866	GSE97362	pooled_control	not_in_training	-0.11342984934265254	9531	False	rederived_not_published
+GSM2562867	GSE97362	pooled_control	not_in_training	-0.1923704722009959	9535	False	rederived_not_published
+GSM2562868	GSE97362	pooled_control	not_in_training	-0.042804246645630095	9536	False	rederived_not_published
+GSM2562869	GSE97362	pooled_control	not_in_training	-0.12315725398047539	9523	False	rederived_not_published
+GSM2562870	GSE97362	pooled_control	not_in_training	-0.1270275332495615	9519	False	rederived_not_published
+GSM2562871	GSE97362	pooled_control	not_in_training	-0.18430358898846322	9526	False	rederived_not_published
+GSM2562872	GSE97362	pooled_control	not_in_training	-0.1845248154886563	9526	False	rederived_not_published
+GSM2562873	GSE97362	pooled_control	not_in_training	-0.2411492791582932	9531	False	rederived_not_published
+GSM2562874	GSE97362	pooled_control	not_in_training	-0.22947169285902458	9532	False	rederived_not_published
+GSM2562875	GSE97362	pooled_control	not_in_training	-0.25128192672064065	9532	False	rederived_not_published
+GSM2562876	GSE97362	pooled_control	not_in_training	-0.18651245575441877	9533	False	rederived_not_published
+GSM2562877	GSE97362	pooled_control	not_in_training	-0.14029930964609716	9532	False	rederived_not_published
+GSM2562878	GSE97362	pooled_control	not_in_training	-0.23547516220516085	9463	False	rederived_not_published
+GSM2562879	GSE97362	pooled_control	not_in_training	-0.14357593880879693	9517	False	rederived_not_published
+GSM2562880	GSE97362	pooled_control	not_in_training	-0.1841939493679906	9518	False	rederived_not_published
+GSM2562881	GSE97362	pooled_control	not_in_training	-0.1813253852141986	9527	False	rederived_not_published
+GSM2562882	GSE97362	pooled_control	not_in_training	-0.26764564626086784	9533	False	rederived_not_published
+GSM2562883	GSE97362	pooled_control	not_in_training	-0.22101054673967457	9526	False	rederived_not_published
+GSM2562884	GSE97362	pooled_control	not_in_training	-0.2141042226270029	9533	False	rederived_not_published
+GSM2562885	GSE97362	pooled_control	not_in_training	-0.19948714599950879	9527	False	rederived_not_published
+GSM2562886	GSE97362	pooled_control	not_in_training	0.054479794132293646	9530	False	rederived_not_published
+GSM2562887	GSE97362	pooled_control	not_in_training	-0.13338554444140827	9526	False	rederived_not_published
+GSM2562888	GSE97362	pooled_control	not_in_training	-0.17297351668502048	9530	False	rederived_not_published
+GSM2562889	GSE97362	pooled_control	not_in_training	-0.17590459671399616	9530	False	rederived_not_published
+GSM2562890	GSE97362	pooled_control	not_in_training	-0.22399132955392742	9532	False	rederived_not_published
+GSM2562891	GSE97362	pooled_control	not_in_training	-0.19751412440907057	9532	False	rederived_not_published
+GSM2562892	GSE97362	pooled_control	not_in_training	-0.050725446743681624	9532	False	rederived_not_published
+GSM2562893	GSE97362	pooled_control	not_in_training	-0.167453613929326	9532	False	rederived_not_published
+GSM2562894	GSE97362	pooled_control	not_in_training	-0.21009918747480927	9534	False	rederived_not_published
+GSM2562895	GSE97362	pooled_control	not_in_training	-0.1703239812283026	9532	False	rederived_not_published
+GSM2562896	GSE97362	pooled_control	not_in_training	-0.047451707884418326	9530	False	rederived_not_published
+GSM2562897	GSE97362	pooled_control	not_in_training	-0.10173483813798101	9531	False	rederived_not_published
+GSM2562898	GSE97362	pooled_control	not_in_training	-0.12705857576115454	9531	False	rederived_not_published
+GSM2562899	GSE97362	pooled_control	not_in_training	-0.1896257790880631	9530	False	rederived_not_published
+GSM2562900	GSE97362	pooled_control	not_in_training	-0.10899616225601783	9535	False	rederived_not_published
+GSM2562901	GSE97362	pooled_control	not_in_training	-0.2436889933063472	9529	False	rederived_not_published
+GSM2562902	GSE97362	pooled_control	not_in_training	-0.18503545009702027	9531	False	rederived_not_published
+GSM2562903	GSE97362	pooled_control	not_in_training	-0.0538436529399795	9531	False	rederived_not_published
+GSM2562904	GSE97362	pooled_control	not_in_training	-0.13882520942100396	9532	False	rederived_not_published
+GSM2562905	GSE97362	pooled_control	not_in_training	-0.19768964053352933	9533	False	rederived_not_published
+GSM2562906	GSE97362	pooled_control	not_in_training	-0.20967039336911864	9531	False	rederived_not_published
+GSM2562907	GSE97362	pooled_control	not_in_training	-0.072887950713729	9536	False	rederived_not_published
+GSM2562908	GSE97362	pooled_control	not_in_training	-0.16907811103369164	9529	False	rederived_not_published
+GSM2562909	GSE97362	pooled_control	not_in_training	-0.1583486930657383	9532	False	rederived_not_published
+GSM2562910	GSE97362	pooled_control	not_in_training	-0.13905838895272704	9534	False	rederived_not_published
+GSM2562911	GSE97362	pooled_control	not_in_training	-0.23677436812035535	9534	False	rederived_not_published
+GSM2562912	GSE97362	pooled_control	not_in_training	-0.26181124133724487	9522	False	rederived_not_published
+GSM2562913	GSE97362	pooled_control	not_in_training	-0.252887377494299	9532	False	rederived_not_published
+GSM2562914	GSE97362	pooled_control	not_in_training	-0.15028850537279836	9533	False	rederived_not_published
+GSM2562915	GSE97362	pooled_control	not_in_training	-0.04188379697333555	9528	False	rederived_not_published
+GSM2562916	GSE97362	pooled_control	not_in_training	-0.20232564311015577	9528	False	rederived_not_published
+GSM2562917	GSE97362	pooled_control	not_in_training	-0.16714622985772187	9537	False	rederived_not_published
+GSM2562918	GSE97362	pooled_control	not_in_training	-0.21843027942365867	9535	False	rederived_not_published
+GSM2562919	GSE97362	pooled_control	not_in_training	-0.26238833715095355	9528	False	rederived_not_published
+GSM2562922	GSE97362	pooled_control	not_in_training	-0.2049061328170868	9531	False	rederived_not_published
+GSM2562923	GSE97362	pooled_control	not_in_training	-0.23038592885781495	9532	False	rederived_not_published
+GSM2562924	GSE97362	pooled_control	not_in_training	-0.10094494612556004	9534	False	rederived_not_published
+GSM2562925	GSE97362	pooled_control	not_in_training	-0.17631484273329823	9533	False	rederived_not_published
+GSM2562926	GSE97362	pooled_control	not_in_training	-0.1766596166838985	9526	False	rederived_not_published
+GSM2562927	GSE97362	pooled_control	not_in_training	-0.24612326255700012	9531	False	rederived_not_published
+GSM2562928	GSE97362	pooled_control	not_in_training	-0.1690732509685291	9535	False	rederived_not_published
+GSM2562929	GSE97362	pooled_control	not_in_training	-0.15922996888123642	9531	False	rederived_not_published
+GSM2562930	GSE97362	pooled_control	not_in_training	-0.21591043096715323	9508	False	rederived_not_published
+GSM2562931	GSE97362	pooled_control	not_in_training	-0.14989376741785043	9504	False	rederived_not_published
+GSM2562932	GSE97362	pooled_control	not_in_training	-0.19036162519048183	9503	False	rederived_not_published
+GSM2562933	GSE97362	pooled_control	not_in_training	-0.16699038751727646	9532	False	rederived_not_published
+GSM2562934	GSE97362	pooled_control	not_in_training	-0.1147695940617025	9528	False	rederived_not_published
+GSM2562935	GSE97362	pooled_control	not_in_training	-0.1042397919716842	9528	False	rederived_not_published
