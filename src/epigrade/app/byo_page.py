@@ -11,6 +11,7 @@ import pandas as pd
 import streamlit as st
 
 from epigrade import paths
+from epigrade.app import summary
 from epigrade.byo import store
 from epigrade.byo.evaluate import (
     AUC_THRESHOLD,
@@ -21,6 +22,7 @@ from epigrade.byo.evaluate import (
     evaluate,
     parse_signature,
 )
+from epigrade.explain.facts import facts_for_byo
 
 FIXTURE_DIR = paths.repo_root() / "tests" / "fixtures"
 EXAMPLES = {
@@ -261,6 +263,7 @@ def render() -> None:
         st.warning(f"**{warning['code']}**: {warning['text']}", icon="⚠️")
     if result.status == "refused":
         st.error(f"**Refused: {result.refusal_code}.** {result.messages[-1]}", icon="🚫")
+        summary.render(facts_for_byo(result), key="byo-refused")
     else:
         _verdict(result)
         _cohort_table(result)
@@ -269,6 +272,7 @@ def render() -> None:
             _ceiling(result)
             _why(result)
         _overlap(result)
+    summary.render(facts_for_byo(result), key="byo")
     notes = [m for m in result.messages if not m.startswith(("Refused", "No match"))]
     if notes:
         with st.expander(f"Notes ({len(notes)})", expanded=result.status == "ok"):

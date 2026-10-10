@@ -10,7 +10,11 @@ import pandas as pd
 import streamlit as st
 
 from epigrade import paths
-from epigrade.app import byo_page
+from epigrade.app import byo_page, summary
+from epigrade.explain.facts import (
+    facts_for_disorder,
+    facts_for_grade,
+)
 
 st.set_page_config(page_title="EpiGrade", layout="wide")
 
@@ -141,6 +145,8 @@ def page_grade(resource: dict) -> None:
         st.caption(row["reason"])
 
         render_why_this_result(resource, disorder, row["query_point"])
+        summary.render(facts_for_grade(disorder, row["query_score"], row["prior"]),
+                       key=f"grade-{row['query_point']}")
 
 
 # Which attribution exemplar cohort(s) a given query point corresponds to - matches how
@@ -237,6 +243,9 @@ def page_cohort_audit(resource: dict) -> None:
         "can be tested across studies at all. 'cross_series' controls means the study "
         "deposited no controls of its own and another series' controls were used."
     )
+    for name in verdicts["disorder"]:
+        with st.expander(f"Plain-language summary: {name}", expanded=False):
+            summary.render(facts_for_disorder(name), key=f"audit-{name}")
 
     st.subheader("Headline finding: leave-one-study-out")
     loso_df = pd.DataFrame(resource["leave_one_study_out"])

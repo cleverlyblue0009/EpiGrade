@@ -1,0 +1,15 @@
+# Plain-language explanation layer (src/epigrade/explain). The model only formats facts the
+# pipeline already computed; every output is validated against them before it is shown.
+#
+# The model id is checked against Groq's live production list before each change of this file
+# (https://console.groq.com/docs/models). llama-3.3-70b-versatile was a production model when
+# this was set.
+provider: groq
+endpoint: https://api.groq.com/openai/v1/chat/completions
+model: llama-3.3-70b-versatile
+temperature: 0.2
+max_tokens: 400
+timeout_seconds: 15
+retry_on_rate_limit: 1          # one retry on HTTP 429, then fall back to the template
+rate_limit_backoff_seconds: 4
+validation_retries: 1           # one retry with the validator's complaint, then the template
