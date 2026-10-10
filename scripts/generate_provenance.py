@@ -9,10 +9,12 @@ import subprocess
 from datetime import datetime, timezone
 
 import pandas as pd
+from download_matrices import EPIC_V2_TABLE, MANIFESTS, SUPPLEMENTARY_URLS  # noqa: E402
 
 from epigrade import paths
 from epigrade.acquire.harmonize import harmonize
 from epigrade.acquire.harvest import ACCESSIONS
+from epigrade.corpus.loader import SERIES_FILES, matrix_url
 
 
 def _git_sha() -> str:
@@ -83,6 +85,33 @@ def main() -> None:
         lines.append(f"| {disorder} | {len(g)} | {studies} |")
 
     lines += [
+        "",
+        "## Processed beta files used (GEO, never raw IDATs)",
+        "",
+        "| Series | File | Size on disk | URL |",
+        "|---|---|---|---|",
+    ]
+    for series_id, names in SERIES_FILES.items():
+        for name in names:
+            url = SUPPLEMENTARY_URLS.get(name, matrix_url(series_id, name))
+            local = paths.external_dir() / name
+            size = f"{local.stat().st_size / 1e6:.1f} MB" if local.exists() else "not on disk"
+            lines.append(f"| {series_id} | `{name}` | {size} | {url} |")
+    lines += [
+        "",
+        "The six population-control accessions and GSE89353 were harvested for metadata only; "
+        "no beta matrix was downloaded for them.",
+        "",
+        "## Array manifests (GEO platform records)",
+        "",
+        "| Platform | Source |",
+        "|---|---|",
+    ]
+    for name, url in MANIFESTS.items():
+        lines.append(f"| {name.split('_')[0]} | {url} |")
+    lines += [
+        f"| GPL33022 (EPIC v2) | platform table streamed from {EPIC_V2_TABLE}; only the probe "
+        "name column is kept |",
         "",
         "## External (non-GEO) data used",
         "",

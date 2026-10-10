@@ -132,6 +132,8 @@ python -m epigrade.report.resource         # the resource file the app reads
 - `results/tables/`, `results/figures/`, `results/signatures/`, `results/resource/`: tracked
   outputs, never hand-edited. `results/figures/slides/` holds the same figures at 200 dpi with
   larger fonts.
+- `paper/`: the paper (Markdown source, Word build, and a table mapping every reported number to its
+  source file); `presentation/`: the slide deck and its build script
 - `tests/`: unit tests and invariants on the checked-in tables
 - `data/`: gitignored. Nothing under it, and no file over 50 MB, is ever committed
   (`python scripts/pre_push_guard.py --install` enforces this before every push).

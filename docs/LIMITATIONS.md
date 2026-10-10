@@ -103,6 +103,13 @@ specificity row and attribution use only the probes that have sample-level betas
 corpus downloaded, `scripts/build_byo_resource.py` builds a full local store and removes that
 limit.
 
+**The random-probe comparison is not variance-matched.** Probes in real signatures tend to
+be variable sites in general. The 500 Sotos test probes exceed the random-probe distribution
+in all 12 cohorts (z from 6 to 31), not only in Sotos (z 125), and all 12 pass the AUC
+threshold too. The verdict therefore rests on the ranking and the margin over the runner-up,
+which the result always reports. A null matched on probe variability would be stricter and
+is future work.
+
 **Weights** affect the identification statistic only, not the correlation score behind AUC.
 
 **Overlap.** Jaccard overlap above 0.5 is flagged as specified. A subset of a known signature
@@ -115,6 +122,27 @@ only and never sample data.
 
 **EPIC v2 probe IDs** come from the GEO platform record GPL33022; replicate suffixes such as
 `_TC21` are stripped before matching.
+
+## Verification status of the one-command path
+
+- A fresh clone was installed into a new virtualenv from `requirements.txt` and pointed at an
+  empty data root. From the checked-in resources alone: the test suite passed (141 passed, 6
+  skipped because they need the harvested metadata), `scripts/reproduce.py --quick` ran and
+  regenerated tables and figures byte-identical to the committed ones, and the app launched
+  with every page rendering, including "Test your own signature".
+- Every download URL was exercised: the six new matrices were fetched in this build, and the
+  Choufani and Chen files were re-fetched and matched byte for byte.
+- Not done: a complete from-zero run of the full pipeline (all downloads plus all
+  computation) in one go on a second machine. The stages were each run here, against data
+  downloaded here.
+
+## Stop rules that fired
+
+- No download failed.
+- No derivation failed for the ten eligible disorders, so the threshold was not revisited.
+- Leave-one-study-out could not be built in five of six directions; each is recorded with its
+  reason and nothing was loosened to change that.
+- Human curation of labels is still pending.
 
 ## Phase 1: label harmonization
 

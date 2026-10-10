@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "dff86444fcc3771b7696915e30c59396ed70de4b",
+    "git_sha": "5879edd1db294ff8fe558a8af36f0b503fbfe7e4",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-10-10T07:29:28.833549+00:00"
+    "generated_at_utc": "2026-10-10T07:41:31.774102+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [

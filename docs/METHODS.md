@@ -143,10 +143,55 @@ Sotos) and a genuine, if modest, leave-one-study-out result on GSE55491 (5/18 se
 specificity) - one of two disorders (with Kabuki type 1) that have a between-study evidence band (see
 `results/tables/evidence_bands.tsv`; it reads "No evidence" at every prior, honestly reflecting
 that modest cross-study sensitivity). CHARGE syndrome (GSE97362, 19 cases vs 29 controls) builds
-907 probes with 89.5% self-consistency but a real, moderate specificity concern - 37.8%
+907 probes with 17 of 19 cases positive but a real, moderate specificity concern - 37.8%
 cross-reactivity against Kabuki cases. Kabuki does not build from GSE116300 alone, but does when
-pooled with GSE97362's own KMT2D-LOF cohort (278 probes, 97.3% self-consistency, 0%
+pooled with GSE97362's own KMT2D-LOF cohort (278 probes, 35 of 37 cases positive under leave-one-out, 0%
 cross-reactivity against CHARGE). See `docs/LIMITATIONS.md` for the full writeup, including a
 pooling attempt for SRS that was tried and explicitly rejected after failing a specificity check
 (92.1% (35 of 38) false-positive rate against Sotos), and a real data-corruption bug found and fixed while
 building the merged cross-disorder matrix.
+
+## Complete corpus (all 12 disorders)
+
+`scripts/build_corpus.py` builds every classifier in one pass from the cohort definitions in
+`src/epigrade/corpus/registry.py`. That file is the only place case and control membership is
+defined.
+
+- **Derivation.** Two-sided Mann-Whitney U per probe (asymptotic method throughout),
+  Benjamini-Hochberg FDR at 0.05, mean beta difference above 10%. Sotos uses the published
+  list. Every derivation, including each leave-one-study-out direction and the rejected pooled
+  Silver-Russell alternative, is a row in `results/tables/signature_derivation.tsv`.
+- **Controls.** A study's own matched controls where it has them. GSE116992 has none, so
+  Coffin-Siris and its Nicolaides-Baraitser cases use the GSE125367 controls (a different
+  laboratory). Down syndrome uses its 29 unaffected siblings. Both are tagged on every row.
+- **Leakage guard.** `score_matrix` rebuilds the median profile without a training sample
+  before scoring it. Probe selection is not nested. `tests/test_corpus.py` disables the guard
+  and asserts separation increases.
+- **Leave-one-study-out.** `epigrade.audit.loso`, both directions for each two-study disorder.
+  A control used in training never counts toward held-out specificity.
+- **Cross-disorder matrix.** Every classifier against all 12 case cohorts and 273 pooled
+  matched controls, minus the classifier's own training controls.
+- **Calibration.** `epigrade.calibrate`: study-level bootstrap where cases and controls each
+  span at least two studies, sample-level otherwise, with the scope recorded.
+- **Ceiling.** `scripts/compute_ceilings.py` simulates a perfect classifier at each disorder's
+  real numbers of cases, controls and studies.
+
+## Identification engine
+
+`src/epigrade/byo/evaluate.py`. For a submitted probe list:
+
+1. Identifiers are validated (cg/ch/rs; EPIC v2 suffixes stripped), duplicates removed, and
+   coverage reported per platform and per corpus matrix.
+2. For each of the 12 cohorts, the weighted mean absolute case-control beta difference at the
+   submitted probes is compared with 1,000 random probe sets of the same size drawn from that
+   cohort's probes. AUC of cases against that cohort's controls is computed from
+   leave-one-out correlation scores.
+3. A cohort is a candidate if AUC is at least 0.70 and the submitted probes exceed all 1,000
+   random sets. Candidates are ranked by z against the random-probe distribution. No candidate
+   means no_match.
+4. For a match: the signature's specificity row anchored on the matched cohort, that cohort's
+   ceiling, Jaccard overlap and containment against the ten corpus signatures, and direction
+   agreement between the submitted column and the observed sign.
+
+The random-probe comparison replaced an AUC-only rule after random probes were found to reach
+AUC 1.00 in several single-study cohorts. See `docs/LIMITATIONS.md`.
