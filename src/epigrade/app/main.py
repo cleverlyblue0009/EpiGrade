@@ -98,9 +98,8 @@ def page_grade(resource: dict) -> None:
     evidence_rows = [r for r in resource["evidence_bands"] if r["disorder"] == disorder]
     if not evidence_rows:
         st.info(
-            "No evidence-band results have been computed for this disorder yet in this "
-            "resource (no classifier was successfully built/scored this session - see the "
-            "Cross-disorder matrix page)."
+            "No evidence bands exist for this disorder: it has no classifier (see the "
+            "Cohort audit page)."
         )
         return
 
@@ -187,7 +186,10 @@ def render_why_this_result(resource: dict, disorder: str, query_point: str) -> N
 
 def page_calibration(resource: dict) -> None:
     st.header("Calibration curves")
-    st.caption("Every evidence-band result computed this session, with the bootstrap CI.")
+    st.caption(
+        "Evidence bands for all ten classifiers. Study-level bootstrap where both cases and "
+        "controls span two studies (between_study); sample-level otherwise (within_study_only)."
+    )
     df = pd.DataFrame(resource["evidence_bands"])
     if df.empty:
         st.info("No evidence-band results in this resource yet.")
@@ -199,13 +201,11 @@ def page_calibration(resource: dict) -> None:
     if not ceiling_df.empty:
         st.image(str(paths.figures_dir() / "attainable_ceiling.png"))
         st.caption(
-            "A PERFECT classifier's attainable evidence points at each cohort size, "
-            "independent of any real classifier's quality - see docs/METHODS.md. Rows with "
-            "interpretation_scope='within_study_only' (typically n<30, single assumed study) "
-            "show what a perfect classifier's within-dataset stability looks like, not a "
-            "validated between-study bound - a perfectly-separable toy classifier can look "
-            "'Strong' even at very small n for exactly this reason, which is itself the "
-            "point: within-study numbers alone can be misleadingly reassuring."
+            "What a perfect classifier could earn at each disorder's real cohort size and "
+            "study structure, independent of any real classifier's quality. Rows scoped "
+            "within_study_only describe stability inside one dataset, not a between-study "
+            "bound: a perfectly separable classifier looks 'Strong' even at very small n, "
+            "which is why within-study numbers alone are misleadingly reassuring."
         )
         st.dataframe(ceiling_df, use_container_width=True)
 
@@ -217,6 +217,50 @@ def page_cohort_audit(resource: dict) -> None:
         "most disorders in this corpus come from a single study, which is the expected, "
         "reportable finding per the project design, not a bug."
     )
+    st.subheader("Twelve disorders, four verdicts")
+    verdicts = pd.DataFrame(resource["disorder_verdicts"])
+    counts = verdicts["verdict"].value_counts()
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Graded (two studies)", int(counts.get("graded", 0)))
+    c2.metric("Single-study", int(counts.get("single-study", 0)))
+    c3.metric("Too few cases", int(counts.get("too-few-cases", 0)))
+    c4.metric("Not downloaded", int(counts.get("not-downloaded", 0)))
+    st.dataframe(
+        verdicts[["disorder", "verdict", "n_cases", "n_studies", "studies",
+                  "n_signature_probes", "signature_source", "controls_source",
+                  "leave_one_study_out", "interpretation_scope",
+                  "band_at_typical_case_score"]],
+        use_container_width=True, hide_index=True,
+    )
+    st.caption(
+        "Only the three graded disorders have cases in two independent studies, so only they "
+        "can be tested across studies at all. 'cross_series' controls means the study "
+        "deposited no controls of its own and another series' controls were used."
+    )
+
+    st.subheader("Headline finding: leave-one-study-out")
+    loso_df = pd.DataFrame(resource["leave_one_study_out"])
+    n_computed = int((loso_df["status"] == "computed").sum())
+    st.error(
+        f"**{n_computed} of {len(loso_df)} cross-study directions could be tested.** "
+        "A signature derived in one study and applied to the other is the only check here "
+        "that separates the disorder from the batch. For most directions no signature could "
+        "be derived from one study alone.", icon="📌",
+    )
+    for row in loso_df.to_dict("records"):
+        label = f"**{row['disorder']}**: train {row['train_study']}, test {row['test_study']}"
+        if row["status"] == "computed":
+            st.write(
+                f"- {label}: sensitivity {row['test_case_sensitivity']}, specificity "
+                f"{row['test_control_specificity']} ({row['n_signature_probes']} probes)"
+            )
+        else:
+            st.write(f"- {label}: not computed. {row['reason']}")
+    st.image(str(paths.figures_dir() / "leave_one_study_out.png"))
+    with st.expander("Full leave-one-study-out table"):
+        st.dataframe(loso_df, use_container_width=True, hide_index=True)
+
+    st.subheader("Confounding gate")
     df = pd.DataFrame(resource["confounding_gate"])
 
     def _style_status(val):
@@ -228,14 +272,9 @@ def page_cohort_audit(resource: dict) -> None:
         df.style.map(_style_status, subset=["status"]), use_container_width=True,
     )
 
-    st.subheader("Sotos syndrome reproduction (phase 3)")
+    st.subheader("Sotos syndrome reproduction: four checks against the published paper")
     summary_df = pd.DataFrame(resource["demo"]["reproduction_summary"])
-    st.dataframe(summary_df, use_container_width=True)
-
-    st.subheader("Leave-one-study-out")
-    loso_df = pd.DataFrame(resource["leave_one_study_out"])
-    if not loso_df.empty:
-        st.dataframe(loso_df, use_container_width=True)
+    st.dataframe(summary_df, use_container_width=True, hide_index=True)
 
     st.subheader("Label harmonization")
     h = resource["harmonisation"]
@@ -258,12 +297,17 @@ def page_cohort_audit(resource: dict) -> None:
         st.info("No sample_counts data in this resource yet.")
 
     rate = h["hand_curation_agreement_rate"]
-    st.metric("AI cross-check agreement", f"{rate:.0%}" if rate is not None else "NA")
-    st.caption(
-        "This is an AI-performed cross-check against a second, independent implementation "
-        "of the same rule-based judgment - NOT independent human clinical curation. See "
-        "'Human-curated agreement' below for the (separate, not yet available) human number, "
-        "and docs/METHODS.md for the full distinction. " + h["hand_curation_note"]
+    st.metric(
+        "AI-vs-AI consistency (not human curation)",
+        f"{rate:.0%}" if rate is not None else "NA",
+        f"{h['hand_curation_n_scoreable']} scoreable samples", delta_color="off",
+    )
+    st.warning(
+        "**This number is an AI-vs-AI consistency check, not a human-curated accuracy.** Two "
+        "AI-written implementations of the same labelling judgment were compared with each "
+        "other. No person checked these labels. Agreement between two implementations by the "
+        "same author can be high while both are wrong in the same way. The human-curated "
+        "number is reported separately below.", icon="⚠️",
     )
 
     st.subheader("Human-curated agreement")
@@ -285,14 +329,35 @@ def page_cohort_audit(resource: dict) -> None:
 
 def page_cross_disorder(resource: dict) -> None:
     st.header("Cross-disorder specificity matrix")
+    st.caption(
+        "Every built classifier scored against every disorder's cases and the pooled "
+        "controls. The diagonal is sensitivity; anything else is cross-reactivity."
+    )
+    st.image(str(paths.figures_dir() / "cross_disorder_matrix.png"))
     computed = pd.DataFrame(resource["cross_disorder_matrix"]["computed"])
     if not computed.empty:
-        st.subheader("Computed this session")
-        st.dataframe(computed, use_container_width=True)
+        off = computed[(computed["cell_type"] == "other_disorder")
+                       & (computed["interpretation"].isna())]
+        worst = off.sort_values("fraction_positive", ascending=False).head(8)
+        st.subheader("Strongest cross-reactivity")
+        st.dataframe(
+            worst[["classifier", "scored_disorder", "n", "n_positive", "fraction_positive"]],
+            use_container_width=True, hide_index=True,
+        )
+        st.caption(
+            "Coffin-Siris and Nicolaides-Baraitser were derived against controls borrowed "
+            "from another series, and score most samples from other series positive: they "
+            "behave as batch detectors. CHARGE scores 14 of 37 Kabuki type 1 cases positive."
+        )
+        st.subheader("All computed cells")
+        st.dataframe(computed, use_container_width=True, hide_index=True)
+        st.subheader("False-positive rate on controls, by series")
+        st.dataframe(pd.DataFrame(resource["control_specificity_by_series"]),
+                     use_container_width=True, hide_index=True)
     not_computed = pd.DataFrame(resource["cross_disorder_matrix"]["not_computed"])
     if not not_computed.empty:
-        st.subheader("Not computed (honest NA, not a silent omission)")
-        st.dataframe(not_computed, use_container_width=True)
+        st.subheader("Not computed (each with a reason)")
+        st.dataframe(not_computed, use_container_width=True, hide_index=True)
         st.caption("Each row carries its own reason in the `reason` column.")
 
 

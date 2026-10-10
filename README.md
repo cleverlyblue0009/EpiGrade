@@ -1,146 +1,137 @@
 # EpiGrade
 
-```
-python -m venv .venv && .venv/Scripts/pip install -r requirements.txt -e .   # or source .venv/bin/activate on macOS/Linux
-python scripts/reproduce.py
-```
-
-One command, from a clean clone to every figure and table. Network-bound and variable - NCBI
-GEO's FTP was anywhere from fast to very slow in development (a single ~215MB file once took
-~45 minutes); budget **30-90 minutes** and **~1.1 GB** downloaded to `D:/epigrade_data` (never
-into the repo - see `config/paths.yaml`). Safe to re-run or interrupt: each stage is skipped
-once it's already succeeded (`--force` reruns everything). For a fast, network-free pass that
-just regenerates reports and the app's resource file from whatever is already cached, use
-`python scripts/reproduce.py --quick` (seconds, not minutes).
-
 An open, reproducible benchmark for DNA methylation episignature classifiers.
 
-Rebuilds published episignature classifiers from public GEO data alone, cross-checks them
-against each other, and reports how much evidence a given score can honestly support -
-with every number traceable to a script and a public accession.
+```
+python -m venv .venv && .venv/Scripts/pip install -r requirements.txt   # macOS/Linux: .venv/bin/pip
+.venv/Scripts/python scripts/reproduce.py
+```
+
+That one command takes a clean clone to every table and figure in `results/`.
+
+| | |
+|---|---|
+| Download | about 2.0 GB kept on disk (1.77 GB of processed beta matrices for 11 series, 0.23 GB of array manifests). The EPIC v2 probe list has no manifest file on GEO, so its 2.5 GB platform table is streamed and only the probe names are kept. |
+| Disk | about 6 GB under the data root (downloads plus parsed caches). Nothing is written into the repository. |
+| Runtime | about 15 minutes of computation on a laptop. Download time is on top and depends on NCBI GEO: 20 minutes on a good day, well over an hour on a bad one. |
+| Data root | `D:/epigrade_data` by default (`config/paths.yaml`). Set `EPIGRADE_DATA_ROOT` to use another location. On a machine with no D: drive it falls back to `data/` inside the clone, which is gitignored. |
+| Re-running | Safe to interrupt and re-run: finished stages are skipped. `--force` reruns everything. `--quick` uses no network and rebuilds whatever can be rebuilt from what is on disk. |
+
+**To look at the results without downloading anything**, the app runs from files checked into
+the repository:
+
+```
+.venv/Scripts/streamlit run src/epigrade/app/main.py
+```
 
 ## Not for patient use
 
 **EpiGrade is a research and benchmarking tool for laboratories and researchers. It is not a
-diagnostic device.** It takes a classifier score and reports the evidence strength that score
-can support against the accessions in this corpus - it never accepts patient data, raw
-methylation arrays, or issues a diagnosis. Nothing here should inform a clinical decision on
-its own.
+diagnostic device.** It never accepts patient data or raw methylation arrays and never issues a
+diagnosis. Nothing here should inform a clinical decision on its own.
 
-## What this is (and isn't)
+## What it does
 
-- The local-likelihood-ratio calibration used here is Pejaver-style calibration (Pejaver et al.
-  2022), already published; a generic CRAN implementation (`acmgscaler`) exists. We do not claim
-  this method is novel.
-- Cross-disorder specificity testing is routine inside the private EpiSign Knowledge Database.
-  The claim here is that our version is reproducible from public data, not that the idea is new.
-- "Benign" labels in GSE74432's missense cohort were assigned by the classifier under evaluation,
-  not by an independent truth source. This is reported as a limitation, not resolved away.
-- If a number can't be computed honestly, the output says `NA` with a reason. Nothing is
-  fabricated to fill a table.
+Episignature classifiers are validated against a private database that outside laboratories
+cannot inspect. EpiGrade rebuilds what can be rebuilt from public GEO data alone and reports how
+far each result can be trusted:
 
-See [docs/METHODS.md](docs/METHODS.md), [docs/LIMITATIONS.md](docs/LIMITATIONS.md), and
-[docs/DATA_PROVENANCE.md](docs/DATA_PROVENANCE.md) for the full picture.
+1. **Corpus.** 18 GEO accessions, 3,732 samples harvested, 1,622 retained, 2,110 excluded with a
+   recorded reason for each. 12 disorders.
+2. **Classifiers.** A signature for each of the 10 disorders with at least 10 cases. Sotos uses
+   the published 7,085-probe list; the other nine are re-derived here and labelled as such.
+3. **Audit.** A confounding gate, leave-one-study-out, and every classifier scored against every
+   other disorder and against pooled controls.
+4. **Calibration.** Scores converted to evidence bands, with the strongest band each cohort's
+   size could ever support.
+5. **Identification.** Upload your own probe list and see which cohort, if any, it identifies.
 
-## Run the app (zero downloads)
+## What it found
 
-A demo resource ships in the repo (`results/resource/epigrade_v1.json`), so the app runs on a
-fresh clone with no setup beyond installing dependencies:
-
-```
-pip install -r requirements.txt && pip install -e .
-streamlit run src/epigrade/app/main.py
-```
-
-Four pages: **Grade a score**, **Calibration curves**, **Cohort audit**, **Cross-disorder
-matrix**. The app never recomputes anything - if you want fresher numbers, rerun the pipeline
-below and then `python -m epigrade.report.resource` to rebuild the resource it reads.
-
-## What `scripts/reproduce.py` actually runs
-
-Each stage is idempotent (a marker under `D:/epigrade_data/interim/.reproduce_markers/` skips it
-on the next run) and independently invocable, if you want to run or inspect one on its own:
-
-```
-python -m epigrade.acquire.harvest              # phase 1: metadata for all 18 accessions
-python scripts/phase1_report.py                 # triage log + hand-curation cross-check
-python scripts/demo_sotos.py                    # phase 3: THE reproduction (downloads GSE74432)
-python scripts/download_matrices.py             # the 11 processed beta files from GEO
-python scripts/build_corpus.py                  # all signatures, matrix, leave-one-study-out, bands
-python scripts/compute_ceilings.py              # attainable evidence ceiling
-python scripts/make_figures.py                  # every figure (+ slides/)
-python scripts/phase6_confounding_gate.py       # confounding gate, all 12 in-scope disorders
-python scripts/generate_provenance.py           # docs/DATA_PROVENANCE.md
-python -m epigrade.report.resource              # rebuild results/resource/epigrade_v1.json
-```
-
-## What it reproduces
-
-**The Sotos syndrome reproduction (phase 3) is exact and fully verified** - the paper's three
-published results, checked programmatically, not eyeballed: 19/19 discovery cases score
-positive, 53/53 discovery controls score negative (clean separation), all 8 Weaver-syndrome
-samples score negative, and the 16 NSD1 missense VOUS split exactly 9 positive / 7 negative.
-
-**Silver-Russell syndrome, Kabuki syndrome, and CHARGE syndrome are re-derived** (no published
-probe list exists for any of them - `signature_source=rederived_not_published`), each checked
-for specificity before being trusted, not just accepted because a classifier built at all:
-
-- **Silver-Russell syndrome** is the project's headline beyond Sotos: the only disorder with a
-  real leave-one-study-out result (1 of 6 directions across the three two-study disorders
-  could be tested at all). A classifier built on GSE104451 alone, with 0% cross-reactivity
-  against Sotos, tested on the fully independent GSE55491 study: 5/18 sensitivity, 6/6
-  specificity - modest but genuine. A pooled-studies version was tried and explicitly *rejected*
-  after it failed its own specificity check (92.1% (35 of 38) false-positive rate against Sotos).
-- **CHARGE syndrome** builds (907 probes, 89.5% self-consistency) but shows a real, moderate
-  37.8% cross-reactivity against Kabuki cases - reported plainly, not smoothed over.
-- **Kabuki syndrome** fails from its own single study, builds when pooled with a second
-  independent study's own matched cohort (278 probes, 0% cross-reactivity against CHARGE).
-
-This took one documented threshold change (`config/signature_thresholds.yaml`: the original
-Bonferroni/20%-effect-size thresholds were Choufani et al.'s own, calibrated to Sotos's
-unusually large effect, and found nothing for any of these three disorders when applied
-uniformly). The new default - Benjamini-Hochberg FDR at 0.05, 10% effect floor, a standard
-choice for genome-wide CpG testing - was set once, before retrying anything, and not adjusted
-per outcome. Full diagnostics for every attempt, including five real bugs found and fixed along the way (a
-degenerate-CI bug, a JSON-serialization bug, a sample-count bug, a matrix-merge corruption bug,
-and a calibration data-loss bug), are in
-[docs/LIMITATIONS.md](docs/LIMITATIONS.md#finish-today-session-fixes-and-a-genuine-negative-result)
-and its two continuations below it.
-
-## Current results at a glance
-
-Every number below is produced by a script and lands in `results/tables/` or
-`results/resource/epigrade_v1.json` - none are typed by hand (see "no_hand_typed_numbers" in
-the project's own working rules).
+Every number here comes from a file in `results/tables/`. None is typed by hand.
 
 | | |
 |---|---|
-| Sotos reproduction (phase 3) | 19/19 discovery cases positive, 53/53 controls negative, 8/8 Weaver negative, missense VOUS split 9 positive/7 negative - all exact matches to the paper. Published probe list (`signature_source=published_probe_list`) |
-| Silver-Russell syndrome | The one disorder with a **genuine between-study result**: a 64-probe classifier built from GSE104451 alone (0% cross-reactivity against Sotos) tested on the fully-independent GSE55491 study - 5/18 sensitivity, 6/6 specificity. `evidence_bands.tsv` carries a real `interpretation_scope="between_study"` band for it - and it honestly reads **"No evidence"** at every prior, reflecting that modest cross-study sensitivity rather than being forced to look better. A pooled-studies attempt (328 probes) was tried and explicitly rejected after failing its own specificity check (92.1% (35 of 38) false-positive rate against Sotos) |
-| CHARGE syndrome | Builds: 907 probes, 89.5% self-consistency, but a real 37.8% cross-reactivity against Kabuki cases - reported as a genuine specificity concern, not smoothed over |
-| Kabuki syndrome | Fails from GSE116300 alone; builds when pooled with GSE97362's own KMT2D-LOF cohort (278 probes, 97.3% self-consistency, 0% cross-reactivity against CHARGE) |
-| Signature derivation thresholds | One documented change (`config/signature_thresholds.yaml`): Benjamini-Hochberg FDR 0.05 / 10% effect floor as the project default (Sotos's original Bonferroni/20% stays pinned for its own from-scratch validation path), set once before retrying anything, not tuned per outcome - see `results/tables/signature_derivation.tsv` for every attempt's exact parameters and probe counts |
-| Label harmonization (AI cross-check) | 81/81 (100%) agreement on scoreable samples (19 of the 100 sampled marked `UNRESOLVABLE` from public metadata, correctly excluded rather than guessed) - `results/tables/harmonisation_agreement.tsv` |
-| Label harmonization (human curation) | **pending** - a 30-row template weighted toward hard cases is generated (`data/external/human_curated.csv`) but not yet filled in by a person; `scripts/score_human_curation.py` reports this status honestly rather than substituting the AI number |
-| Sample counts | 3,732 harvested = 1,622 retained for analysis + 2,110 excluded (198 unaffected relatives, 108 under-test, 7 wrong-tissue, 558 non-target-disease controls, 1,239 unresolvable labels) - `results/tables/sample_counts.tsv` |
-| Confounding gate (12 in-scope disorders) | 7 fail (single-study, confounded by design - including Sotos itself), 2 not-testable (n<10), 3 pass-structural (span >=2 studies) - `results/tables/confounding_gate.tsv` |
-| Cross-disorder matrix | A complete 12 x 13 grid: all 10 classifiers scored against all 12 disorder cohorts and 273 pooled controls (130 computed cells), plus 26 not-computed cells for Weaver and Claes-Jensen, which have too few cases for a classifier - `results/tables/cross_disorder_matrix.tsv`, rendered as `results/figures/cross_disorder_matrix.png` |
-| "Why this result" | A real, computed attribution for one representative sample per Sotos cohort - probe coverage, direction check, distribution position, top contributing probes - no LLM narrative, `results/tables/attribution.json`, shown as an expander on the Grade a score page |
+| Sotos reproduction | All four checks pass against Choufani et al. 2015: 19 discovery cases and 53 controls separate cleanly at score 0; 8 of 8 Weaver samples negative; 16 NSD1 missense variants split 9 positive, 7 negative; 19 of 19 held-out replication cases positive. `sotos_reproduction_summary.tsv` |
+| Twelve disorders, four verdicts | 3 graded (cases in two studies), 7 single-study, 2 with too few cases, 0 not downloaded. `disorder_verdicts.tsv` |
+| Leave-one-study-out | **1 of 6 directions could be tested.** Silver-Russell trained on GSE104451 and tested on GSE55491: 5 of 18 cases positive, 6 of 6 controls negative. The reverse direction and both Kabuki directions find no significant probes. Neither Nicolaides-Baraitser study has 10 cases. `leave_one_study_out.tsv` |
+| Cross-disorder matrix | A complete 12 by 13 grid: 130 computed cells and 26 reasoned gaps. CHARGE scores 14 of 37 Kabuki type 1 cases positive (37.8%). `cross_disorder_matrix.tsv` |
+| Borrowed controls behave like batch detectors | Coffin-Siris, derived against another series' controls, scores 86% of pooled controls and 63 of 63 Silver-Russell cases positive. Nicolaides-Baraitser scores 58% of pooled controls positive. |
+| Evidence bands | Only Silver-Russell and Kabuki type 1 have a between-study bound, and both read "No evidence" at a typical case score. The other eight bands are within-study only. `evidence_bands.tsv` |
+| Random probes separate cases | 500 random probes separate Sotos cases from controls at AUC 1.00. Within-study AUC alone cannot identify a signature, so the identification engine also requires the probes to beat random probe sets. `byo_fixture_results.tsv` |
+| Label check | Two AI-written implementations of the labelling rules agree on 81 of 81 scoreable samples. This is an AI-vs-AI consistency check. Human curation is still pending. |
 
-One correction to the original project brief worth stating plainly: its note that naively
-counting GSE97362's validation/sequence-variant samples as cases "inflates cohort sizes to 59
-and 26" only reconciles for 26 (the KMT2D-variant total). No combination of the harvested
-fields produces 59 for the CHD7 side - the actual CHD7-related totals in the data are 19
-confirmed discovery cases, 13 sequence-variant, and 40+ validation-cohort samples (72 total if
-naively pooled, not 59). Reported here rather than silently forced to match - see
-[docs/METHODS.md](docs/METHODS.md) for the full reconciliation.
+One threshold change was made in the whole project. Choufani's Bonferroni correction with a
+20% effect floor, tuned to the unusually large Sotos effect, found nothing for any other
+disorder. It was replaced once by Benjamini-Hochberg FDR at 0.05 with a 10% floor, before any
+retry, and has not been touched since. All nine re-derived signatures use it
+(`config/signature_thresholds.yaml`, `signature_derivation.tsv`).
+
+## The app
+
+Five pages, each carrying the not-for-patient-use banner:
+
+- **Grade a score**: enter a classifier score for a disorder and see the evidence band it
+  supports, or why grading is limited.
+- **Test your own signature**: upload a probe list (or pick one of five examples). Reports
+  platform and corpus coverage, the identification verdict across all 12 cohorts, the
+  signature's specificity row, the matched cohort's evidence ceiling, overlap with the corpus
+  signatures, and a "Why this result" panel. Download the evaluation as TSV.
+- **Calibration curves**: evidence bands and attainable ceilings.
+- **Cohort audit**: the 12-disorder verdict table, leave-one-study-out, the confounding gate,
+  the Sotos reproduction, and label harmonisation.
+- **Cross-disorder matrix**: the heatmap and every cell behind it.
+
+On a clean clone the "Test your own signature" page has sample-level data for the corpus
+signature probes and the five examples. After `scripts/reproduce.py` it covers every probe.
+
+## What is ours and what is not
+
+- The calibration is Pejaver-style local likelihood-ratio calibration (Pejaver et al. 2022). A
+  generic implementation exists on CRAN (`acmgscaler`). The method is not new.
+- Cross-disorder specificity testing is routine inside the private EpiSign Knowledge Database.
+  The claim here is that this version is reproducible from public data.
+- Using a language model to help curate GEO metadata is an application of published work, not
+  a contribution.
+- "Benign" labels in the GSE74432 missense cohort were assigned by the classifier under
+  evaluation, not by an independent truth source.
+- A result that cannot be computed is reported as not computed, with a reason.
+
+See [docs/METHODS.md](docs/METHODS.md), [docs/LIMITATIONS.md](docs/LIMITATIONS.md) and
+[docs/DATA_PROVENANCE.md](docs/DATA_PROVENANCE.md).
+
+## Pipeline stages
+
+`scripts/reproduce.py` runs these in order. Each can be run on its own.
+
+```
+python -m epigrade.acquire.harvest         # metadata for all 18 accessions
+python scripts/phase1_report.py            # triage log, sample counts, label cross-check
+python scripts/download_matrices.py        # beta matrices, array manifests, Sotos signature
+python scripts/demo_sotos.py               # the Sotos reproduction and its four checks
+python scripts/build_corpus.py             # all signatures, matrix, leave-one-study-out, bands
+python scripts/compute_ceilings.py         # attainable evidence ceilings
+python scripts/make_figures.py             # every figure, plus slides/ versions
+python scripts/make_test_signatures.py     # the five test signatures, from the real corpus
+python scripts/build_byo_resource.py       # data behind "Test your own signature"
+python scripts/run_byo_fixtures.py         # the five test signatures through the engine
+python scripts/compute_attribution.py      # "Why this result" examples
+python scripts/phase6_confounding_gate.py  # confounding gate
+python scripts/generate_provenance.py      # docs/DATA_PROVENANCE.md
+python -m epigrade.report.resource         # the resource file the app reads
+```
+
+`make reproduce`, `make quick`, `make test`, `make lint` and `make app` wrap the common ones.
 
 ## Layout
 
-- `src/epigrade/` - library code (acquire, preprocess, signature, calibrate, audit, report, app)
-- `config/` - paths, label vocabulary, and evidence-band tables (never hardcoded in source)
-- `scripts/` - one-command entry points, one per pipeline phase
-- `results/` - tracked tables, figures, and the app's resource JSON (never hand-edited).
-  `results/figures/slides/` mirrors the same figures at 200dpi with projector-legible fonts,
-  for a talk/slide deck - the originals in `results/figures/` are untouched.
-- `data/` - gitignored; see `config/paths.yaml` for where bulk data actually lives on disk
+- `src/epigrade/`: library code (`acquire`, `preprocess`, `signature`, `corpus`, `calibrate`,
+  `audit`, `byo`, `report`, `app`)
+- `config/`: paths, label vocabulary, signature thresholds, evidence bands
+- `scripts/`: one entry point per pipeline stage, plus `pre_push_guard.py`
+- `results/tables/`, `results/figures/`, `results/signatures/`, `results/resource/`: tracked
+  outputs, never hand-edited. `results/figures/slides/` holds the same figures at 200 dpi with
+  larger fonts.
+- `tests/`: unit tests and invariants on the checked-in tables
+- `data/`: gitignored. Nothing under it, and no file over 50 MB, is ever committed
+  (`python scripts/pre_push_guard.py --install` enforces this before every push).
