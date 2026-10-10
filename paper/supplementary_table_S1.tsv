@@ -1,0 +1,137 @@
+id	value	source_file	locator
+samples.harvested	3,732	results/tables/sample_counts.tsv	category=harvested
+samples.retained_for_analysis	1,622	results/tables/sample_counts.tsv	category=retained_for_analysis
+samples.excluded_total	2,110	results/tables/sample_counts.tsv	category=excluded_total
+samples.unaffected_relatives	198	results/tables/sample_counts.tsv	category=unaffected_relatives
+samples.under_test_samples	108	results/tables/sample_counts.tsv	category=under_test_samples
+samples.wrong_tissue	7	results/tables/sample_counts.tsv	category=wrong_tissue
+samples.non_target_disease_controls	558	results/tables/sample_counts.tsv	category=non_target_disease_controls
+samples.unresolvable_labels	1,239	results/tables/sample_counts.tsv	category=unresolvable_labels
+disorders.total	12	results/tables/disorder_verdicts.tsv	row count
+verdict.single-study	7	results/tables/disorder_verdicts.tsv	verdict=single-study
+verdict.graded	3	results/tables/disorder_verdicts.tsv	verdict=graded
+verdict.too-few-cases	2	results/tables/disorder_verdicts.tsv	verdict=too-few-cases
+verdict.not-downloaded	0	results/tables/disorder_verdicts.tsv	verdict=not-downloaded
+signatures.built	10	results/tables/disorder_verdicts.tsv	signature_built=True
+cases.Silver-Russell syndrome	63	results/tables/disorder_verdicts.tsv	Silver-Russell syndrome: n_cases
+probes.Silver-Russell syndrome	64	results/tables/disorder_verdicts.tsv	Silver-Russell syndrome: n_signature_probes
+cases.Kabuki syndrome type 1	37	results/tables/disorder_verdicts.tsv	Kabuki syndrome type 1: n_cases
+probes.Kabuki syndrome type 1	278	results/tables/disorder_verdicts.tsv	Kabuki syndrome type 1: n_signature_probes
+cases.Nicolaides-Baraitser syndrome	16	results/tables/disorder_verdicts.tsv	Nicolaides-Baraitser syndrome: n_cases
+probes.Nicolaides-Baraitser syndrome	4,911	results/tables/disorder_verdicts.tsv	Nicolaides-Baraitser syndrome: n_signature_probes
+cases.Sotos syndrome	38	results/tables/disorder_verdicts.tsv	Sotos syndrome: n_cases
+probes.Sotos syndrome	7,085	results/tables/disorder_verdicts.tsv	Sotos syndrome: n_signature_probes
+cases.Down syndrome	29	results/tables/disorder_verdicts.tsv	Down syndrome: n_cases
+probes.Down syndrome	3,753	results/tables/disorder_verdicts.tsv	Down syndrome: n_signature_probes
+cases.Coffin-Siris syndrome	21	results/tables/disorder_verdicts.tsv	Coffin-Siris syndrome: n_cases
+probes.Coffin-Siris syndrome	8,053	results/tables/disorder_verdicts.tsv	Coffin-Siris syndrome: n_signature_probes
+cases.Williams syndrome	20	results/tables/disorder_verdicts.tsv	Williams syndrome: n_cases
+probes.Williams syndrome	9,537	results/tables/disorder_verdicts.tsv	Williams syndrome: n_signature_probes
+cases.CHARGE syndrome	19	results/tables/disorder_verdicts.tsv	CHARGE syndrome: n_cases
+probes.CHARGE syndrome	907	results/tables/disorder_verdicts.tsv	CHARGE syndrome: n_signature_probes
+cases.ICF syndrome	15	results/tables/disorder_verdicts.tsv	ICF syndrome: n_cases
+probes.ICF syndrome	7,740	results/tables/disorder_verdicts.tsv	ICF syndrome: n_signature_probes
+cases.7q11.23 duplication syndrome	10	results/tables/disorder_verdicts.tsv	7q11.23 duplication syndrome: n_cases
+probes.7q11.23 duplication syndrome	1,827	results/tables/disorder_verdicts.tsv	7q11.23 duplication syndrome: n_signature_probes
+cases.Weaver syndrome	8	results/tables/disorder_verdicts.tsv	Weaver syndrome: n_cases
+cases.Claes-Jensen syndrome	6	results/tables/disorder_verdicts.tsv	Claes-Jensen syndrome: n_cases
+gate.fail	7	results/tables/confounding_gate.tsv	status=fail
+gate.pass-structural	3	results/tables/confounding_gate.tsv	status=pass-structural
+gate.not-testable	2	results/tables/confounding_gate.tsv	status=not-testable
+significant.Coffin-Siris syndrome	259,707	results/tables/signature_derivation.tsv	Coffin-Siris syndrome canonical: n_probes_significant
+significant.Williams syndrome	82,427	results/tables/signature_derivation.tsv	Williams syndrome canonical: n_probes_significant
+significant.Silver-Russell syndrome	324	results/tables/signature_derivation.tsv	Silver-Russell syndrome canonical: n_probes_significant
+significant.Down syndrome	37,618	results/tables/signature_derivation.tsv	Down syndrome canonical: n_probes_significant
+srs.pooled_probes	328	results/tables/signature_derivation.tsv	Silver-Russell pooled_alternative_not_used: n_probes_after_effect_filter
+derivations.recorded	19	results/tables/signature_derivation.tsv	row count
+sotos.checks_passed	4 of 4	results/tables/sotos_reproduction_summary.tsv	reproduced=True
+sotos.discovery_separation.0	case scores [0.027, 0.158], control scores [-0.157, -0.098]	results/tables/sotos_reproduction_summary.tsv	check=discovery_separation, observed
+sotos.discovery_separation.1	case>0: 19/19	results/tables/sotos_reproduction_summary.tsv	check=discovery_separation, observed
+sotos.discovery_separation.2	control<0: 53/53	results/tables/sotos_reproduction_summary.tsv	check=discovery_separation, observed
+sotos.weaver_negative.0	8/8 scored negative	results/tables/sotos_reproduction_summary.tsv	check=weaver_negative, observed
+sotos.missense_split.0	n=16, positive=9, negative=7	results/tables/sotos_reproduction_summary.tsv	check=missense_split, observed
+sotos.replication.0	n=19, positive=19	results/tables/sotos_reproduction_summary.tsv	check=replication, observed
+loso.directions	6	results/tables/leave_one_study_out.tsv	row count
+loso.computed	1	results/tables/leave_one_study_out.tsv	status=computed
+loso.srs.sensitivity	5/18	results/tables/leave_one_study_out.tsv	Silver-Russell GSE104451->GSE55491: test_case_sensitivity
+loso.srs.sensitivity_pct	27.8%	results/tables/leave_one_study_out.tsv	same row: sensitivity
+loso.srs.specificity	6/6	results/tables/leave_one_study_out.tsv	same row: test_control_specificity
+loso.srs.probes	64	results/tables/leave_one_study_out.tsv	same row: n_signature_probes
+matrix.cells	156	results/tables/cross_disorder_matrix.tsv	row count
+matrix.computed	130	results/tables/cross_disorder_matrix.tsv	status=computed
+matrix.not_computed	26	results/tables/cross_disorder_matrix.tsv	status=not_computed
+matrix.CHARGE syndrome->Kabuki syndrome type 1	14 of 37 (37.8%)	results/tables/cross_disorder_matrix.tsv	classifier=CHARGE syndrome, scored_disorder=Kabuki syndrome type 1
+matrix.Kabuki syndrome type 1->CHARGE syndrome	0 of 19 (0.0%)	results/tables/cross_disorder_matrix.tsv	classifier=Kabuki syndrome type 1, scored_disorder=CHARGE syndrome
+matrix.Coffin-Siris syndrome->Silver-Russell syndrome	63 of 63 (100.0%)	results/tables/cross_disorder_matrix.tsv	classifier=Coffin-Siris syndrome, scored_disorder=Silver-Russell syndrome
+matrix.Coffin-Siris syndrome->pooled_control	211 of 246 (85.8%)	results/tables/cross_disorder_matrix.tsv	classifier=Coffin-Siris syndrome, scored_disorder=pooled_control
+matrix.Nicolaides-Baraitser syndrome->pooled_control	144 of 246 (58.5%)	results/tables/cross_disorder_matrix.tsv	classifier=Nicolaides-Baraitser syndrome, scored_disorder=pooled_control
+matrix.Down syndrome->pooled_control	146 of 273 (53.5%)	results/tables/cross_disorder_matrix.tsv	classifier=Down syndrome, scored_disorder=pooled_control
+matrix.CHARGE syndrome->pooled_control	70 of 244 (28.7%)	results/tables/cross_disorder_matrix.tsv	classifier=CHARGE syndrome, scored_disorder=pooled_control
+matrix.Sotos syndrome->pooled_control	0 of 220 (0.0%)	results/tables/cross_disorder_matrix.tsv	classifier=Sotos syndrome, scored_disorder=pooled_control
+matrix.ICF syndrome->pooled_control	0 of 263 (0.0%)	results/tables/cross_disorder_matrix.tsv	classifier=ICF syndrome, scored_disorder=pooled_control
+matrix.Kabuki syndrome type 1->pooled_control	0 of 253 (0.0%)	results/tables/cross_disorder_matrix.tsv	classifier=Kabuki syndrome type 1, scored_disorder=pooled_control
+matrix.Silver-Russell syndrome->pooled_control	2 of 257 (0.8%)	results/tables/cross_disorder_matrix.tsv	classifier=Silver-Russell syndrome, scored_disorder=pooled_control
+matrix.Williams syndrome->pooled_control	16 of 258 (6.2%)	results/tables/cross_disorder_matrix.tsv	classifier=Williams syndrome, scored_disorder=pooled_control
+matrix.7q11.23 duplication syndrome->pooled_control	16 of 258 (6.2%)	results/tables/cross_disorder_matrix.tsv	classifier=7q11.23 duplication syndrome, scored_disorder=pooled_control
+matrix.Silver-Russell syndrome->Down syndrome	14 of 29 (48.3%)	results/tables/cross_disorder_matrix.tsv	classifier=Silver-Russell syndrome, scored_disorder=Down syndrome
+matrix.7q11.23 duplication syndrome->ICF syndrome	6 of 15 (40.0%)	results/tables/cross_disorder_matrix.tsv	classifier=7q11.23 duplication syndrome, scored_disorder=ICF syndrome
+matrix.Williams syndrome->Sotos syndrome	9 of 38 (23.7%)	results/tables/cross_disorder_matrix.tsv	classifier=Williams syndrome, scored_disorder=Sotos syndrome
+sensitivity.Silver-Russell syndrome	24 of 63 (38.1%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=Silver-Russell syndrome
+sensitivity.Kabuki syndrome type 1	35 of 37 (94.6%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=Kabuki syndrome type 1
+sensitivity.Nicolaides-Baraitser syndrome	14 of 16 (87.5%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=Nicolaides-Baraitser syndrome
+sensitivity.Sotos syndrome	38 of 38 (100.0%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=Sotos syndrome
+sensitivity.Down syndrome	28 of 29 (96.6%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=Down syndrome
+sensitivity.Coffin-Siris syndrome	21 of 21 (100.0%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=Coffin-Siris syndrome
+sensitivity.Williams syndrome	19 of 20 (95.0%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=Williams syndrome
+sensitivity.CHARGE syndrome	17 of 19 (89.5%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=CHARGE syndrome
+sensitivity.ICF syndrome	13 of 15 (86.7%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=ICF syndrome
+sensitivity.7q11.23 duplication syndrome	10 of 10 (100.0%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=7q11.23 duplication syndrome
+bands.between_study	2	results/tables/evidence_bands.tsv	typical_case_score, prior 0.10: interpretation_scope
+bands.within_study	8	results/tables/evidence_bands.tsv	typical_case_score, prior 0.10: interpretation_scope
+band.Silver-Russell syndrome	No evidence (LR 3.1, interval 1.53-7.65)	results/tables/evidence_bands.tsv	Silver-Russell syndrome, typical_case_score, prior 0.10
+band.Sotos syndrome	Strong (LR 142.4, interval 77.3-1680.8)	results/tables/evidence_bands.tsv	Sotos syndrome, typical_case_score, prior 0.10
+band.Kabuki syndrome type 1	No evidence (LR 6.5, interval 1.98-32.39)	results/tables/evidence_bands.tsv	Kabuki syndrome type 1, typical_case_score, prior 0.10
+band.Down syndrome	Moderate (LR 17.6, interval 12.2-139.4)	results/tables/evidence_bands.tsv	Down syndrome, typical_case_score, prior 0.10
+band.Coffin-Siris syndrome	Moderate (LR 27.1, interval 14.8-144.1)	results/tables/evidence_bands.tsv	Coffin-Siris syndrome, typical_case_score, prior 0.10
+band.Williams syndrome	Moderate (LR 8.1, interval 4.5-220.8)	results/tables/evidence_bands.tsv	Williams syndrome, typical_case_score, prior 0.10
+band.CHARGE syndrome	Supporting (LR 7.3, interval 3.9-46.5)	results/tables/evidence_bands.tsv	CHARGE syndrome, typical_case_score, prior 0.10
+band.Nicolaides-Baraitser syndrome	Supporting (LR 21.5, interval 4.3-220.0)	results/tables/evidence_bands.tsv	Nicolaides-Baraitser syndrome, typical_case_score, prior 0.10
+band.ICF syndrome	Moderate (LR 17.7, interval 6.7-457.7)	results/tables/evidence_bands.tsv	ICF syndrome, typical_case_score, prior 0.10
+band.7q11.23 duplication syndrome	Moderate (LR 46.6, interval 14.1-648.6)	results/tables/evidence_bands.tsv	7q11.23 duplication syndrome, typical_case_score, prior 0.10
+band.sotos_missense	Supporting (LR 4.3)	results/tables/evidence_bands.tsv	Sotos, typical_missense_vous_score, prior 0.10
+ceiling.bands	Strong	results/tables/attainable_ceiling.tsv	attainable_band, all 12 disorders
+ceiling.between_possible	2	results/tables/attainable_ceiling.tsv	between_study_bound_possible=True
+ceiling.very_strong_from.one_study	100	results/tables/attainable_ceiling_curve.tsv	smallest n_case with Very Strong, one_study
+ceiling.very_strong_from.two_studies	80	results/tables/attainable_ceiling_curve.tsv	smallest n_case with Very Strong, two_studies
+byo.sig_sotos_true.verdict	match	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: verdict
+byo.sig_sotos_true.auc	1.00	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: top_match_auc
+byo.sig_sotos_true.z	125.4	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: top_match_z_vs_random_probes
+byo.sig_sotos_true.runner_up	Claes-Jensen syndrome (z 31.4)	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: runner_up, runner_up_z
+byo.sig_sotos_true.effect	0.294 (0.286-0.300)	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: mean |delta beta| and interval
+byo.sig_sotos_true.outcomes	identifies Sotos: met; AUC > 0.95: met; clear margin over runner-up: met	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: expectation_outcomes
+byo.sig_random.verdict	no_match	results/tables/byo_fixture_results.tsv	sig_random.csv: verdict
+byo.sig_random.outcomes	no_match: met; 12 disorders searched: met; nothing above AUC 0.70: NOT met	results/tables/byo_fixture_results.tsv	sig_random.csv: expectation_outcomes
+byo.sig_sotos_flipped.verdict	match	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: verdict
+byo.sig_sotos_flipped.auc	1.00	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: top_match_auc
+byo.sig_sotos_flipped.z	125.4	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: top_match_z_vs_random_probes
+byo.sig_sotos_flipped.runner_up	Claes-Jensen syndrome (z 31.4)	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: runner_up, runner_up_z
+byo.sig_sotos_flipped.effect	0.294 (0.286-0.300)	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: mean |delta beta| and interval
+byo.sig_sotos_flipped.outcomes	identifies Sotos: met; every direction flagged inconsistent: met	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: expectation_outcomes
+byo.sig_tiny.verdict	match	results/tables/byo_fixture_results.tsv	sig_tiny.csv: verdict
+byo.sig_tiny.auc	1.00	results/tables/byo_fixture_results.tsv	sig_tiny.csv: top_match_auc
+byo.sig_tiny.z	26.3	results/tables/byo_fixture_results.tsv	sig_tiny.csv: top_match_z_vs_random_probes
+byo.sig_tiny.runner_up	Claes-Jensen syndrome (z 10.9)	results/tables/byo_fixture_results.tsv	sig_tiny.csv: runner_up, runner_up_z
+byo.sig_tiny.effect	0.328 (0.281-0.372)	results/tables/byo_fixture_results.tsv	sig_tiny.csv: mean |delta beta| and interval
+byo.sig_tiny.outcomes	identifies Sotos: met; wider effect CI than the 500-probe signature: met; low evidence ceiling: NOT met	results/tables/byo_fixture_results.tsv	sig_tiny.csv: expectation_outcomes
+byo.sig_low_coverage.verdict	refused	results/tables/byo_fixture_results.tsv	sig_low_coverage.csv: verdict
+byo.sig_low_coverage.outcomes	refused: insufficient_probe_coverage: met	results/tables/byo_fixture_results.tsv	sig_low_coverage.csv: expectation_outcomes
+byo.random.highest_auc	1.00 (Williams syndrome)	results/tables/byo_fixture_results.tsv	sig_random.csv: highest_auc
+byo.random.n_auc_over	7	results/tables/byo_fixture_results.tsv	sig_random.csv: n_cohorts_auc_at_or_above_0.70
+byo.flipped.inconsistent	500 of 500	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: n_direction_inconsistent
+byo.searched	12	results/tables/byo_fixture_results.tsv	n_disorders_searched
+labels.ai_vs_ai	81 of 81	results/tables/harmonisation_agreement.tsv	agree, scoreable rows
+labels.unresolvable	19	results/tables/harmonisation_agreement.tsv	rows with no agree value
+labels.human	human curation pending	results/tables/human_curation_agreement.tsv	status
+controls.pooled_n	273	results/tables/cross_disorder_matrix.tsv	Sotos pooled_control n (220) + its 53 training controls
+controls.kabuki_own	5 of 9	results/tables/control_specificity_by_series.tsv	Kabuki classifier, GSE116300 training controls (leave-one-out)
+controls.series	10	results/tables/control_specificity_by_series.tsv	distinct control_series

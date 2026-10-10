@@ -380,9 +380,12 @@ def main() -> None:
         f"`{resource['generated_from']['git_sha'][:10]}`."
     )
 
+    pages = ["Grade a score", "Test your own signature", "Calibration curves",
+             "Cohort audit", "Cross-disorder matrix"]
+    # ?page=<name> opens a page directly, so a result can be linked to or bookmarked.
+    requested = st.query_params.get("page", pages[0])
     page = st.sidebar.radio(
-        "Page", ["Grade a score", "Test your own signature", "Calibration curves",
-                 "Cohort audit", "Cross-disorder matrix"],
+        "Page", pages, index=pages.index(requested) if requested in pages else 0,
     )
     if page == "Grade a score":
         page_grade(resource)

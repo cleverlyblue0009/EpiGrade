@@ -5,7 +5,7 @@ Sotos syndrome	GSE74432	38	19	53	GSE74432	within_series	True
 Kabuki syndrome type 1	GSE116300	26	26	9	GSE116300	within_series	True	
 Kabuki syndrome type 1	GSE97362	11	11	11	GSE97362	within_series	True	
 Down syndrome	GSE52588	29	29	29	GSE52588	within_series	True	29 unaffected siblings used as within-family comparators; the study has no unrelated controls
-Coffin-Siris syndrome	GSE116992	21	21	27	GSE125367	cross_series	True	GSE116992 deposited no controls; the 27 controls of GSE125367 (same depositing laboratory, EPIC) are used, so case/control is fully confounded with series
+Coffin-Siris syndrome	GSE116992	21	21	27	GSE125367	cross_series	True	GSE116992 deposited no controls; the 27 controls of GSE125367 (a different laboratory, EPIC) are used, so case/control is fully confounded with series
 Williams syndrome	GSE66552	20	20	15	GSE66552	within_series	True	
 CHARGE syndrome	GSE97362	19	19	29	GSE97362	within_series	True	
 Nicolaides-Baraitser syndrome	GSE116992	8	8	27	GSE125367	cross_series	True	GSE116992 deposited no controls; GSE125367 controls used

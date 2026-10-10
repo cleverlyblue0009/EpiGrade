@@ -225,7 +225,11 @@ def render() -> None:
     left, right = st.columns(2)
     uploaded = left.file_uploader("Probe list (CSV or TSV)", type=["csv", "tsv", "txt"],
                                   help=f"Columns: {EXPECTED_COLUMNS}.")
-    example = right.selectbox("...or use an example", ["(none)", *EXAMPLES])
+    options = ["(none)", *EXAMPLES]
+    # ?example=<file name> preselects an example (with ?page=Test your own signature).
+    linked = {v: k for k, v in EXAMPLES.items()}.get(st.query_params.get("example", ""))
+    example = right.selectbox("...or use an example", options,
+                              index=options.index(linked) if linked else 0)
 
     if uploaded is not None:
         raw, name = uploaded.getvalue(), uploaded.name

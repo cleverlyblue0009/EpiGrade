@@ -25,8 +25,9 @@ another threshold.
 
 **Controls that are not ordinary matched controls.**
 - *Coffin-Siris* and half of *Nicolaides-Baraitser* come from GSE116992, which deposited no
-  controls. Their signatures are derived against the 27 controls of GSE125367 (same depositing
-  laboratory, EPIC array). Case/control is therefore fully confounded with series, and it shows:
+  controls. Their signatures are derived against the 27 controls of GSE125367 (a different
+  laboratory: SickKids, against Western Ontario for GSE116992; EPIC array). Case/control is
+  therefore fully confounded with series and with laboratory, and it shows:
   259,707 of roughly 450,000 probes test significant for Coffin-Siris, and its classifier scores
   86% of pooled controls and 100% of Silver-Russell cases positive. Treat both as batch
   detectors until shown otherwise. Rows are tagged `controls_source=cross_series`.

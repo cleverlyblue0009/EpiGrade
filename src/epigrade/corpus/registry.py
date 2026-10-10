@@ -151,7 +151,7 @@ DISORDERS: tuple[Disorder, ...] = (
         arms=(
             Arm("GSE116992", _role_cases("Coffin-Siris syndrome"), controls_series="GSE125367",
                 control_note="GSE116992 deposited no controls; the 27 controls of GSE125367 "
-                             "(same depositing laboratory, EPIC) are used, so case/control is "
+                             "(a different laboratory, EPIC) are used, so case/control is "
                              "fully confounded with series"),
         ),
     ),

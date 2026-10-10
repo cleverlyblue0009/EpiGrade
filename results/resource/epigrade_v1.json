@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "1788e523ad448e0238f9c98e9eb4fb8aa9c4c396",
+    "git_sha": "dff86444fcc3771b7696915e30c59396ed70de4b",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-10-10T06:55:29.568263+00:00"
+    "generated_at_utc": "2026-10-10T07:29:28.833549+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -5042,7 +5042,7 @@
       "train_series": "GSE116992",
       "control_series": "GSE125367",
       "controls_source": "cross_series",
-      "note": "GSE116992 deposited no controls; the 27 controls of GSE125367 (same depositing laboratory, EPIC) are used, so case/control is fully confounded with series"
+      "note": "GSE116992 deposited no controls; the 27 controls of GSE125367 (a different laboratory, EPIC) are used, so case/control is fully confounded with series"
     },
     {
       "disorder": "Williams syndrome",
@@ -5359,7 +5359,7 @@
       "control_series": "GSE125367",
       "controls_source": "cross_series",
       "in_canonical_training": true,
-      "note": "GSE116992 deposited no controls; the 27 controls of GSE125367 (same depositing laboratory, EPIC) are used, so case/control is fully confounded with series"
+      "note": "GSE116992 deposited no controls; the 27 controls of GSE125367 (a different laboratory, EPIC) are used, so case/control is fully confounded with series"
     },
     {
       "disorder": "Williams syndrome",
