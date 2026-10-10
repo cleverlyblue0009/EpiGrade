@@ -17,14 +17,16 @@ from scipy.stats import pearsonr
 
 from epigrade import paths
 from epigrade.acquire.harmonize import harmonize
+from epigrade.audit.loso import StudyArm, leave_one_study_out
+from epigrade.audit.loso import to_frame as loso_to_frame
 from epigrade.calibrate.calibrate import evaluate_score
 from epigrade.preprocess.series_matrix import parse_series_matrix
+from epigrade.signature.choufani import SIGNATURE_SOURCE as SOTOS_SIGNATURE_SOURCE
 from epigrade.signature.choufani import classify_cohort, load_signature
 from epigrade.signature.choufani import score_cohort as score_sotos_cohort
 from epigrade.signature.generic import (
     build_classifier,
     derivation_stats,
-    diagnose_underpowered,
     score_samples,
 )
 
@@ -80,15 +82,30 @@ def main() -> None:
           f"11p15 LOM), {len(controls_104451)} controls")
     print(f"GSE55491: {len(cases_55491)} SRS cases, {len(controls_55491)} controls")
 
-    # --- Phase 6: bidirectional leave-one-study-out ---
+    # --- Phase 6: bidirectional leave-one-study-out (epigrade.audit.loso - the same routine
+    # every multi-study disorder goes through, not SRS-specific code) ---
     # Building (deriving the signature) uses only the molecularly-confirmed 11p15 LOM subtype
     # from GSE104451 - see srs_ids() docstring. Testing/scoring always uses the FULL case set
     # (all molecular subtypes), since that's the realistic held-out scenario. Thresholds come
     # from config/signature_thresholds.yaml (FDR-BH 0.05 / 10% effect floor by default) - see
     # that file and docs/METHODS.md for why the original Bonferroni/20% (tuned to Sotos's
     # unusually large effect) found nothing here.
-    loso_rows = []
     derivation_rows = []
+    loso_rows = leave_one_study_out(DISORDER, [
+        StudyArm("GSE104451", beta_104451.loc[common_probes], cases_104451_lom,
+                 controls_104451, test_case_ids=cases_104451),
+        StudyArm("GSE55491", beta_55491.loc[common_probes], cases_55491, controls_55491),
+    ])
+    loso_df = loso_to_frame(loso_rows)
+    loso_path = paths.tables_dir() / "leave_one_study_out.tsv"
+    existing_loso = pd.read_csv(loso_path, sep="\t") if loso_path.exists() else pd.DataFrame()
+    if len(existing_loso):
+        existing_loso = existing_loso[existing_loso["disorder"] != DISORDER]
+    pd.concat([existing_loso, loso_df], ignore_index=True).to_csv(
+        loso_path, sep="\t", index=False, na_rep="NA",
+    )
+    print(f"\nWrote leave-one-study-out results -> {loso_path}")
+    print(loso_df.to_string())
 
     derivation_rows.append(
         derivation_stats(beta_104451.loc[common_probes], cases_104451_lom, controls_104451,
@@ -97,70 +114,10 @@ def main() -> None:
     clf_104451 = build_classifier(
         DISORDER, beta_104451.loc[common_probes], cases_104451_lom, controls_104451,
     )
-    if clf_104451:
-        scores_on_55491 = score_samples(
-            clf_104451, beta_55491.loc[common_probes], cases_55491 + controls_55491,
-        )
-        n_case_pos = (scores_on_55491[cases_55491] > 0).sum()
-        n_ctrl_neg = (scores_on_55491[controls_55491] < 0).sum()
-        loso_rows.append({
-            "train_study": "GSE104451", "test_study": "GSE55491",
-            "n_signature_probes": len(clf_104451.signature_probes),
-            "test_case_sensitivity": f"{n_case_pos}/{len(cases_55491)}",
-            "test_control_specificity": f"{n_ctrl_neg}/{len(controls_55491)}",
-            "signature_source": clf_104451.signature_source,
-        })
-    else:
-        diagnosis = diagnose_underpowered(
-            beta_104451.loc[common_probes], cases_104451_lom, controls_104451, disorder=DISORDER,
-        )
-        loso_rows.append({
-            "train_study": "GSE104451", "test_study": "GSE55491",
-            "n_signature_probes": 0,
-            "test_case_sensitivity": f"NA - {diagnosis}",
-            "test_control_specificity": "NA",
-            "signature_source": "NA",
-        })
-
     derivation_rows.append(
         derivation_stats(beta_55491.loc[common_probes], cases_55491, controls_55491,
                           disorder=DISORDER)
     )
-    clf_55491 = build_classifier(
-        DISORDER, beta_55491.loc[common_probes], cases_55491, controls_55491,
-    )
-    if clf_55491:
-        scores_on_104451 = score_samples(
-            clf_55491, beta_104451.loc[common_probes], cases_104451 + controls_104451,
-        )
-        n_case_pos = (scores_on_104451[cases_104451] > 0).sum()
-        n_ctrl_neg = (scores_on_104451[controls_104451] < 0).sum()
-        loso_rows.append({
-            "train_study": "GSE55491", "test_study": "GSE104451",
-            "n_signature_probes": len(clf_55491.signature_probes),
-            "test_case_sensitivity": f"{n_case_pos}/{len(cases_104451)}",
-            "test_control_specificity": f"{n_ctrl_neg}/{len(controls_104451)}",
-            "signature_source": clf_55491.signature_source,
-        })
-    else:
-        diagnosis = diagnose_underpowered(
-            beta_55491.loc[common_probes], cases_55491, controls_55491, disorder=DISORDER,
-        )
-        loso_rows.append({
-            "train_study": "GSE55491", "test_study": "GSE104451",
-            "n_signature_probes": 0,
-            "test_case_sensitivity": f"NA - {diagnosis} (also: only {len(controls_55491)} "
-                                      "controls, too few for a stable derivation regardless "
-                                      "of threshold)",
-            "test_control_specificity": "NA",
-            "signature_source": "NA",
-        })
-
-    loso_df = pd.DataFrame(loso_rows)
-    loso_path = paths.tables_dir() / "srs_leave_one_study_out.tsv"
-    loso_df.to_csv(loso_path, sep="\t", index=False)
-    print(f"\nWrote leave-one-study-out results -> {loso_path}")
-    print(loso_df.to_string())
 
     # --- Also tried: pooling both studies for derivation. Logged and reported, NOT used as the
     # canonical classifier - see the specificity check below for why. ---
@@ -305,6 +262,7 @@ def main() -> None:
                 round(n_pos / len(srs_case_scores_on_sotos), 3)
                 if srs_case_scores_on_sotos else None
             ),
+            "signature_source": SOTOS_SIGNATURE_SOURCE,
             "note": f"{len(common_sotos_srs_probes)} shared probes between Sotos signature "
                     "and the SRS-series beta matrices",
         })
@@ -315,6 +273,7 @@ def main() -> None:
         "fraction_positive": round((sotos_scores_own[
             sotos_scores_own.cohort.isin(["discovery_case", "replication_case"])
         ]["score"] > 0).mean(), 3),
+        "signature_source": SOTOS_SIGNATURE_SOURCE,
         "note": "from phase 3 (leave-one-out guarded for discovery samples)",
     })
     matrix_rows.append({
@@ -323,6 +282,7 @@ def main() -> None:
         "fraction_positive": round((sotos_scores_own[
             sotos_scores_own.cohort == "weaver"
         ]["score"] > 0).mean(), 3),
+        "signature_source": SOTOS_SIGNATURE_SOURCE,
         "note": "n=8 < 10: too small to interpret precisely, shown for reference",
     })
 
@@ -344,6 +304,7 @@ def main() -> None:
                     "classifier": "Silver-Russell syndrome", "scored_disorder": label,
                     "n": len(scores),
                     "fraction_positive": round((scores > 0).mean(), 3) if len(scores) else None,
+                    "signature_source": srs_clf.signature_source,
                     "note": f"{len(common_srs_sotos_probes)} shared probes (Path B "
                             "derived signature, GSE104451-only classifier)",
                 })
@@ -365,12 +326,18 @@ def main() -> None:
         matrix_rows.append({
             "classifier": "Silver-Russell syndrome",
             "scored_disorder": "Silver-Russell syndrome (self)",
-            "n": len(srs_self_case_scores) + len(srs_self_control_scores),
-            "fraction_positive": None,
+            # Cases only, like every other self cell: the diagonal reads as sensitivity.
+            # Specificity is a control-side quantity and goes in the note, not in a blended n.
+            "n": len(srs_self_case_scores),
+            "fraction_positive": (
+                round(n_sens / len(srs_self_case_scores), 3) if len(srs_self_case_scores)
+                else None
+            ),
+            "signature_source": srs_clf.signature_source,
             "note": f"NOT leave-one-out guarded (scored on its own GSE104451 training data): "
                     f"sensitivity {n_sens}/{len(srs_self_case_scores)} cases, specificity "
-                    f"{n_spec}/{len(srs_self_control_scores)} controls - see the "
-                    "leave-one-study-out table above for the genuine held-out (GSE55491) "
+                    f"{n_spec}/{len(srs_self_control_scores)} controls - see "
+                    "leave_one_study_out.tsv for the genuine held-out (GSE55491) "
                     "result this classifier actually achieved",
         })
 

@@ -72,7 +72,7 @@ def build_resource() -> dict:
     sotos_summary = _read_tsv("sotos_reproduction_summary.tsv")
     sotos_scores = _read_tsv("sotos_scores.tsv")
     probe_filtering = _read_tsv("probe_filtering.tsv")
-    loso = _read_tsv("srs_leave_one_study_out.tsv")
+    loso = _read_tsv("leave_one_study_out.tsv")
     sample_counts = _read_tsv("sample_counts.tsv")
     agreement = _read_tsv("harmonisation_agreement.tsv")
     human_curation_rows = _read_tsv("human_curation_agreement.tsv")

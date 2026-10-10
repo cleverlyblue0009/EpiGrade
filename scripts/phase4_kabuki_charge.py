@@ -355,8 +355,17 @@ def build_cross_disorder_matrix(
     existing_path = paths.tables_dir() / "cross_disorder_matrix.tsv"
     existing = pd.read_csv(existing_path, sep="\t") if existing_path.exists() else pd.DataFrame()
     existing = _drop_owned_rows(existing)
-    if "signature_source" not in existing.columns and len(existing):
-        existing["signature_source"] = "published_probe_list"  # the pre-Task-3 rows are Sotos
+    # Every row arrives already carrying its own signature_source from the script that built
+    # its classifier. This used to blanket-fill "published_probe_list" onto all pre-existing
+    # rows on the assumption they were all Sotos - which mislabelled the Silver-Russell rows
+    # (a Path B re-derivation) as a published probe list. Never infer provenance here.
+    if len(existing) and (
+        "signature_source" not in existing.columns or existing["signature_source"].isna().any()
+    ):
+        raise ValueError(
+            f"{existing_path} has rows without a signature_source - rerun "
+            "scripts/phase4_6_srs_and_matrix.py, which sets it per classifier"
+        )
 
     classifiers = []
     if kabuki_clf is not None:
