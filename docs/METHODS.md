@@ -176,6 +176,31 @@ defined.
 - **Ceiling.** `scripts/compute_ceilings.py` simulates a perfect classifier at each disorder's
   real numbers of cases, controls and studies.
 
+## Named finding: the controls-source effect
+
+**Classifiers trained against out-of-series controls detect series membership, not disease.
+Coffin-Siris and Nicolaides-Baraitser are both in that category.**
+
+Every classifier carries a `controls_source` tag in `results/tables/cross_disorder_matrix.tsv`:
+`within_series` if each study it trains on supplied its own controls, `cross_series` if any of
+them took controls from another series. `results/tables/controls_source_summary.tsv` reduces
+the matrix to the comparison that matters:
+
+| controls_source | classifiers | off-diagonal cells (n >= 10) | mean fraction positive | on pooled controls |
+|---|---|---|---|---|
+| within_series | 8 | 72 | 11.9% | 11.9% |
+| cross_series | 2 | 18 | 68.1% | 72.2% |
+
+"Off-diagonal" means cases of a different disorder from the one the classifier was built for,
+so every positive is a false positive. The mean is over cells; `tests/test_corpus.py` recomputes
+it from the matrix. The heatmap outlines cross-series rows and prints the note above, and the
+app's Cross-disorder page shows both.
+
+Caveats: the two cross-series classifiers share one set of borrowed controls (GSE125367, a
+different laboratory from GSE116992), so this is one confound seen twice. Within-series is not
+a guarantee either: Down syndrome, compared against siblings from its own series, has the
+highest within-series mean (42.2%).
+
 ## Identification engine
 
 `src/epigrade/byo/evaluate.py`. For a submitted probe list:
@@ -189,9 +214,22 @@ defined.
 3. A cohort is a candidate if AUC is at least 0.70 and the submitted probes exceed all 1,000
    random sets. Candidates are ranked by z against the random-probe distribution. No candidate
    means no_match.
-4. For a match: the signature's specificity row anchored on the matched cohort, that cohort's
-   ceiling, Jaccard overlap and containment against the ten corpus signatures, and direction
+4. For a match: the signature's specificity row anchored on the matched cohort, an evidence
+   ceiling (below), Jaccard overlap and containment against the ten corpus signatures, and direction
    agreement between the submitted column and the observed sign.
 
 The random-probe comparison replaced an AUC-only rule after random probes were found to reach
 AUC 1.00 in several single-study cohorts. See `docs/LIMITATIONS.md`.
+
+**Evidence ceiling for a submitted signature.** The lower of two bounds. The cohort ceiling is
+the band a perfect classifier earns at the matched cohort's size and study structure
+(`attainable_ceiling.tsv`). The signature-size bound resamples the signature's probes and the
+cohort's samples together 200 times, rescores the cohort each time, and reads the band from the
+2.5th percentile of the local likelihood ratio at the typical case score. Fewer probes mean
+more probe-sampling uncertainty and a lower bound: 20 Sotos probes are capped at Moderate,
+500 at Strong. The result names which bound was limiting.
+
+**AUC alone is unsafe for identification in this corpus.** Five hundred random probes reach an
+AUC of 1.00 on Williams syndrome and at least 0.70 on 7 of 12 cohorts. The z-score against
+random probe sets is what makes `no_match` work; AUC is reported but never decides a match by
+itself.

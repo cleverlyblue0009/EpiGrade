@@ -13,6 +13,7 @@ import pytest
 from epigrade import paths
 from epigrade.byo import store
 from epigrade.byo.evaluate import (
+    BAND_ORDER,
     EXPECTED_COLUMNS,
     REFUSED_COVERAGE,
     WARN_LOW_COVERAGE,
@@ -219,6 +220,27 @@ def test_tiny_signature_identifies_sotos_with_a_wider_interval(results):
     assert tiny.identification["top_match_z"] < full.identification["top_match_z"]
 
 
+def test_evidence_ceiling_accounts_for_signature_size_not_only_cohort_size(results):
+    """Regression: 20 probes and 500 probes matched to the same cohort used to get the same
+    ceiling, because it was computed from cohort size alone."""
+    tiny = results["sig_tiny.csv"].evidence_ceiling
+    full = results["sig_sotos_true.csv"].evidence_ceiling
+    assert tiny["cohort_ceiling_band"] == full["cohort_ceiling_band"]  # same cohort
+    assert BAND_ORDER.index(tiny["attainable_band"]) < BAND_ORDER.index(full["attainable_band"])
+    assert tiny["limited_by"] == "signature size"
+    assert tiny["signature_size_conservative_lr"] < full["signature_size_conservative_lr"]
+    assert tiny["n_probes_scored"] == 20 and full["n_probes_scored"] == 500
+
+
+def test_a_signature_too_small_to_resample_gets_no_evidence(source, sotos_probes):
+    table = pd.DataFrame({"probe_id": sotos_probes.probe_id.tolist()[:10]})
+    result = evaluate(parse_signature(table), source=source)
+    if result.evidence_ceiling is not None:
+        assert result.evidence_ceiling["signature_size_band"] == "No evidence"
+        assert "too few probes" in result.evidence_ceiling["signature_size_reason"]
+        assert result.evidence_ceiling["attainable_band"] == "No evidence"
+
+
 def test_low_coverage_fixture_is_refused(results):
     result = results["sig_low_coverage.csv"]
     assert result.status == "refused" and result.refusal_code == REFUSED_COVERAGE
@@ -230,7 +252,10 @@ def test_matched_results_carry_specificity_ceiling_overlap_and_attribution(resul
     spec = result.specificity.set_index("scored_group")
     assert len(spec) == 13 and spec.loc[SOTOS, "fraction_positive"] == 1.0
     assert spec.loc["pooled_control", "n"] == 273 - 53
-    assert result.evidence_ceiling["between_study_bound_possible"] is False
+    ceiling = result.evidence_ceiling
+    assert ceiling["between_study_bound_possible"] is False
+    assert ceiling["cohort_ceiling_band"] == "Strong" and ceiling["attainable_band"] == "Strong"
+    assert ceiling["limited_by"] == "cohort size"
     overlap = result.overlap.set_index("corpus_signature")
     assert len(overlap) == 10 and overlap.loc[SOTOS, "n_shared"] == 500
     assert any("subset of a known signature" in m for m in result.messages)

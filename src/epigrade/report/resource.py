@@ -141,6 +141,7 @@ def build_resource() -> dict:
         "signature_derivation": _read_tsv("signature_derivation.tsv"),
         "corpus_cohorts": _read_tsv("corpus_cohorts.tsv"),
         "control_specificity_by_series": _read_tsv("control_specificity_by_series.tsv"),
+        "controls_source_summary": _read_tsv("controls_source_summary.tsv"),
         "attainable_ceiling_curve": _read_tsv("attainable_ceiling_curve.tsv"),
         "harmonisation": {
             # Real bug fixed here: this used to read BOTH "harvested" and "flagged/excluded"

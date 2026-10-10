@@ -86,6 +86,20 @@ sensitivity.Williams syndrome	19 of 20 (95.0%)	results/tables/cross_disorder_mat
 sensitivity.CHARGE syndrome	17 of 19 (89.5%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=CHARGE syndrome
 sensitivity.ICF syndrome	13 of 15 (86.7%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=ICF syndrome
 sensitivity.7q11.23 duplication syndrome	10 of 10 (100.0%)	results/tables/cross_disorder_matrix.tsv	classifier=scored_disorder=7q11.23 duplication syndrome
+controls_effect.within_series.mean_off_diagonal	11.9%	results/tables/controls_source_summary.tsv	within_series: mean_off_diagonal_fraction_positive
+controls_effect.within_series.cells	72 cells from 8 classifiers	results/tables/controls_source_summary.tsv	within_series: n_off_diagonal_cells, n_classifiers
+controls_effect.within_series.pooled_controls	11.9%	results/tables/controls_source_summary.tsv	within_series: mean_pooled_control_fraction_positive
+controls_effect.within_series.median	0.0%	results/tables/controls_source_summary.tsv	within_series: median_off_diagonal_fraction_positive
+controls_effect.cross_series.mean_off_diagonal	68.1%	results/tables/controls_source_summary.tsv	cross_series: mean_off_diagonal_fraction_positive
+controls_effect.cross_series.cells	18 cells from 2 classifiers	results/tables/controls_source_summary.tsv	cross_series: n_off_diagonal_cells, n_classifiers
+controls_effect.cross_series.pooled_controls	72.2%	results/tables/controls_source_summary.tsv	cross_series: mean_pooled_control_fraction_positive
+controls_effect.cross_series.median	70.7%	results/tables/controls_source_summary.tsv	cross_series: median_off_diagonal_fraction_positive
+controls_effect.ratio	5.7 times	results/tables/controls_source_summary.tsv	cross_series mean / within_series mean
+controls_effect.classifier.Coffin-Siris syndrome	76.4%	results/tables/cross_disorder_matrix.tsv	classifier=Coffin-Siris syndrome: mean fraction_positive over other_disorder cells with n>=10
+controls_effect.classifier.Nicolaides-Baraitser syndrome	59.7%	results/tables/cross_disorder_matrix.tsv	classifier=Nicolaides-Baraitser syndrome: mean fraction_positive over other_disorder cells with n>=10
+controls_effect.classifier.Down syndrome	42.2%	results/tables/cross_disorder_matrix.tsv	classifier=Down syndrome: mean fraction_positive over other_disorder cells with n>=10
+controls_effect.classifier.CHARGE syndrome	33.1%	results/tables/cross_disorder_matrix.tsv	classifier=CHARGE syndrome: mean fraction_positive over other_disorder cells with n>=10
+controls_effect.within_max	42.2% (Down syndrome)	results/tables/cross_disorder_matrix.tsv	highest per-classifier mean among within_series
 bands.between_study	2	results/tables/evidence_bands.tsv	typical_case_score, prior 0.10: interpretation_scope
 bands.within_study	8	results/tables/evidence_bands.tsv	typical_case_score, prior 0.10: interpretation_scope
 band.Silver-Russell syndrome	No evidence (LR 3.1, interval 1.53-7.65)	results/tables/evidence_bands.tsv	Silver-Russell syndrome, typical_case_score, prior 0.10
@@ -109,6 +123,7 @@ byo.sig_sotos_true.z	125.4	results/tables/byo_fixture_results.tsv	sig_sotos_true
 byo.sig_sotos_true.runner_up	Claes-Jensen syndrome (z 31.4)	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: runner_up, runner_up_z
 byo.sig_sotos_true.effect	0.294 (0.286-0.300)	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: mean |delta beta| and interval
 byo.sig_sotos_true.outcomes	identifies Sotos: met; AUC > 0.95: met; clear margin over runner-up: met	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: expectation_outcomes
+byo.sig_sotos_true.ceiling	Strong (limited by cohort size; cohort ceiling Strong; conservative LR 36.6)	results/tables/byo_fixture_results.tsv	sig_sotos_true.csv: evidence ceiling columns
 byo.sig_random.verdict	no_match	results/tables/byo_fixture_results.tsv	sig_random.csv: verdict
 byo.sig_random.outcomes	no_match: met; 12 disorders searched: met; nothing above AUC 0.70: NOT met	results/tables/byo_fixture_results.tsv	sig_random.csv: expectation_outcomes
 byo.sig_sotos_flipped.verdict	match	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: verdict
@@ -117,12 +132,14 @@ byo.sig_sotos_flipped.z	125.4	results/tables/byo_fixture_results.tsv	sig_sotos_f
 byo.sig_sotos_flipped.runner_up	Claes-Jensen syndrome (z 31.4)	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: runner_up, runner_up_z
 byo.sig_sotos_flipped.effect	0.294 (0.286-0.300)	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: mean |delta beta| and interval
 byo.sig_sotos_flipped.outcomes	identifies Sotos: met; every direction flagged inconsistent: met	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: expectation_outcomes
+byo.sig_sotos_flipped.ceiling	Strong (limited by cohort size; cohort ceiling Strong; conservative LR 36.6)	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: evidence ceiling columns
 byo.sig_tiny.verdict	match	results/tables/byo_fixture_results.tsv	sig_tiny.csv: verdict
 byo.sig_tiny.auc	1.00	results/tables/byo_fixture_results.tsv	sig_tiny.csv: top_match_auc
 byo.sig_tiny.z	26.3	results/tables/byo_fixture_results.tsv	sig_tiny.csv: top_match_z_vs_random_probes
 byo.sig_tiny.runner_up	Claes-Jensen syndrome (z 10.9)	results/tables/byo_fixture_results.tsv	sig_tiny.csv: runner_up, runner_up_z
 byo.sig_tiny.effect	0.328 (0.281-0.372)	results/tables/byo_fixture_results.tsv	sig_tiny.csv: mean |delta beta| and interval
-byo.sig_tiny.outcomes	identifies Sotos: met; wider effect CI than the 500-probe signature: met; low evidence ceiling: NOT met	results/tables/byo_fixture_results.tsv	sig_tiny.csv: expectation_outcomes
+byo.sig_tiny.outcomes	identifies Sotos: met; wider effect CI than the 500-probe signature: met; evidence ceiling lower than the 500-probe signature's: met; evidence ceiling is Supporting or below: NOT met	results/tables/byo_fixture_results.tsv	sig_tiny.csv: expectation_outcomes
+byo.sig_tiny.ceiling	Moderate (limited by signature size; cohort ceiling Strong; conservative LR 9.5)	results/tables/byo_fixture_results.tsv	sig_tiny.csv: evidence ceiling columns
 byo.sig_low_coverage.verdict	refused	results/tables/byo_fixture_results.tsv	sig_low_coverage.csv: verdict
 byo.sig_low_coverage.outcomes	refused: insufficient_probe_coverage: met	results/tables/byo_fixture_results.tsv	sig_low_coverage.csv: expectation_outcomes
 byo.random.highest_auc	1.00 (Williams syndrome)	results/tables/byo_fixture_results.tsv	sig_random.csv: highest_auc

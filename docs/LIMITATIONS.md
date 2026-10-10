@@ -24,6 +24,11 @@ its published 7,085-probe list. `tests/test_corpus.py` fails if any re-derived r
 another threshold.
 
 **Controls that are not ordinary matched controls.**
+- **Named finding, the controls-source effect.** Classifiers trained against out-of-series
+  controls detect series membership, not disease. On other disorders' cases they score a mean
+  of 68.1% positive, against 11.9% for classifiers with in-series controls
+  (`results/tables/controls_source_summary.tsv`). Two classifiers, one borrowed control set: one
+  confound observed twice.
 - *Coffin-Siris* and half of *Nicolaides-Baraitser* come from GSE116992, which deposited no
   controls. Their signatures are derived against the 27 controls of GSE125367 (a different
   laboratory: SickKids, against Western Ontario for GSE116992; EPIC array). Case/control is
@@ -91,10 +96,15 @@ type 1 have a between-study bound. A match to any other cohort carries
 **The identification statistic is circular for the corpus's own signatures.** A signature
 derived from a cohort will, by construction, show excess difference in that cohort.
 
-**The evidence ceiling is a property of the matched cohort, not of the upload.** A 20-probe
-signature and a 500-probe signature matched to Sotos get the same ceiling. The fixture
-expectation "low evidence ceiling" for the tiny signature is recorded as NOT met for that
-reason; what does change with signature size is the width of the effect interval.
+**The evidence ceiling now accounts for signature size, by one particular definition.** It
+is the lower of the cohort ceiling and a bound from resampling the signature's probes together
+with the cohort's samples (200 replicates, 2.5th percentile). Twenty Sotos probes are capped at
+Moderate and 500 at Strong. The fixture expectation "Supporting or below" for the 20-probe
+signature is still recorded as NOT met. The bound uses sample-level resampling, so for the two
+disorders with a between-study cohort ceiling it can only lower the ceiling, never raise it.
+A signature with fewer than about 16 probes usually cannot be bounded at all (too few distinct
+probes survive resampling) and is reported as No evidence. An earlier version reported the
+cohort ceiling alone, which gave 20 probes and 500 probes the same answer.
 
 **Offline coverage.** The checked-in demo resource carries cohort-level effects for every probe
 but sample-level betas only for the corpus signature probes and the five example files. On a

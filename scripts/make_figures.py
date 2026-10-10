@@ -15,6 +15,8 @@ axis labels >= 14pt and titles >= 16pt, legible from the back of a room).
 
 from __future__ import annotations
 
+import textwrap
+
 import matplotlib
 
 matplotlib.use("Agg")
@@ -26,6 +28,11 @@ from matplotlib.colors import LinearSegmentedColormap  # noqa: E402
 from matplotlib.patches import Patch, Rectangle  # noqa: E402
 
 from epigrade import paths  # noqa: E402
+
+CONTROLS_NOTE = (
+    "Classifiers trained against out-of-series controls detect series membership, not "
+    "disease. Coffin-Siris and Nicolaides-Baraitser are both in that category."
+)
 
 # Colours by the job they do. Categorical slots are used in fixed order and were checked for
 # colour-vision-deficiency separation as a set; grey is reserved for "not computed".
@@ -149,6 +156,7 @@ def matrix_figure() -> None:
     rows = list(dict.fromkeys(m.classifier))
     cols = list(dict.fromkeys(m.scored_disorder))
     cell = {(r.classifier, r.scored_disorder): r for r in m.itertuples()}
+    source = m.groupby("classifier").controls_source.first().to_dict()
 
     def draw(fig, ax, scale):
         ax.grid(False)
@@ -178,7 +186,17 @@ def matrix_figure() -> None:
         ax.set_xticks(range(len(cols)))
         ax.set_xticklabels([SHORT[c] for c in cols], rotation=45, ha="right")
         ax.set_yticks(range(len(rows)))
-        ax.set_yticklabels([SHORT[r] for r in rows])
+        ax.set_yticklabels([
+            SHORT[r] + (" \u2021" if source[r] == "cross_series" else "") for r in rows
+        ])
+        for i, clf in enumerate(rows):
+            if source[clf] == "cross_series":
+                # the whole row is marked: these classifiers were trained against controls
+                # from another series
+                ax.add_patch(Rectangle((-0.5, i - 0.5), len(cols), 1, fill=False,
+                                       edgecolor=ORANGE, linewidth=2.6, zorder=5))
+                ax.get_yticklabels()[i].set_color(ORANGE)
+                ax.get_yticklabels()[i].set_fontweight("bold")
         ax.set_xlabel("Cohort scored (cases of each disorder; pooled controls)")
         ax.set_ylabel("Classifier")
         for spine in ax.spines.values():
@@ -197,7 +215,12 @@ def matrix_figure() -> None:
             Patch(facecolor=NOT_COMPUTED, hatch="////", edgecolor=SURFACE,
                   label="not computed (no classifier: < 10 cases)"),
             Patch(facecolor="none", edgecolor="none", label="* n < 10: too small to interpret"),
+            Patch(facecolor="none", edgecolor=ORANGE, linewidth=2.4,
+                  label="\u2021 trained against controls from another series"),
         ], loc="upper center", bbox_to_anchor=(0.5, -0.27), ncol=2)
+        ax.text(0.5, -0.5, "\n".join(textwrap.wrap(CONTROLS_NOTE, 95)),
+                transform=ax.transAxes, ha="center", va="top", fontsize=9.5 * scale,
+                color=ORANGE, fontweight="bold")
 
     render("cross_disorder_matrix.png", draw, (11.5, 8))
 

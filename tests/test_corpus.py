@@ -226,6 +226,35 @@ def test_matrix_case_counts_match_the_corpus():
         assert int(sotos_row.loc[disorder, "n"]) == n, disorder
 
 
+def test_every_matrix_row_carries_its_controls_source():
+    df = _table("tables/cross_disorder_matrix.tsv")
+    by_classifier = df.groupby("classifier").controls_source.agg(lambda s: set(s.fillna("NA")))
+    assert all(len(v) == 1 for v in by_classifier)
+    cross = {c for c, v in by_classifier.items() if v == {"cross_series"}}
+    assert cross == {"Coffin-Siris syndrome", "Nicolaides-Baraitser syndrome"}
+    within = {c for c, v in by_classifier.items() if v == {"within_series"}}
+    assert len(within) == 8
+    assert {c for c, v in by_classifier.items() if v == {"NA"}} == set(NO_SIGNATURE)
+
+
+def test_controls_source_summary_is_the_matrix_reduced_and_the_effect_is_large():
+    matrix = _table("tables/cross_disorder_matrix.tsv")
+    summary = _table("tables/controls_source_summary.tsv").set_index("controls_source")
+    off = matrix[(matrix.status == "computed") & (matrix.cell_type == "other_disorder")
+                 & matrix.interpretation.isna()]
+    for source, block in off.groupby("controls_source"):
+        row = summary.loc[source]
+        assert int(row.n_off_diagonal_cells) == len(block)
+        assert float(row.mean_off_diagonal_fraction_positive) == pytest.approx(
+            block.fraction_positive.astype(float).mean(), abs=1e-4)
+    assert int(summary.loc["within_series", "n_off_diagonal_cells"]) == 8 * 9
+    assert int(summary.loc["cross_series", "n_off_diagonal_cells"]) == 2 * 9
+    within = float(summary.loc["within_series", "mean_off_diagonal_fraction_positive"])
+    cross = float(summary.loc["cross_series", "mean_off_diagonal_fraction_positive"])
+    assert cross > 4 * within
+    assert "series membership, not disease" in summary.loc["cross_series", "note"]
+
+
 # --------------------------------------------------------------------------- calibration
 
 

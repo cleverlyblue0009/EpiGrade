@@ -124,6 +124,35 @@ def main() -> None:
         add(f"sensitivity.{disorder}", _frac(c),
             "cross_disorder_matrix.tsv", f"classifier=scored_disorder={disorder}")
 
+    summary = table("controls_source_summary.tsv").set_index("controls_source")
+    for source in ("within_series", "cross_series"):
+        r = summary.loc[source]
+        add(f"controls_effect.{source}.mean_off_diagonal",
+            pct(r.mean_off_diagonal_fraction_positive), "controls_source_summary.tsv",
+            f"{source}: mean_off_diagonal_fraction_positive")
+        add(f"controls_effect.{source}.cells",
+            f"{int(r.n_off_diagonal_cells)} cells from {int(r.n_classifiers)} classifiers",
+            "controls_source_summary.tsv", f"{source}: n_off_diagonal_cells, n_classifiers")
+        add(f"controls_effect.{source}.pooled_controls",
+            pct(r.mean_pooled_control_fraction_positive), "controls_source_summary.tsv",
+            f"{source}: mean_pooled_control_fraction_positive")
+        add(f"controls_effect.{source}.median", pct(r.median_off_diagonal_fraction_positive),
+            "controls_source_summary.tsv", f"{source}: median_off_diagonal_fraction_positive")
+    ratio = (summary.loc["cross_series", "mean_off_diagonal_fraction_positive"]
+             / summary.loc["within_series", "mean_off_diagonal_fraction_positive"])
+    add("controls_effect.ratio", f"{ratio:.1f} times", "controls_source_summary.tsv",
+        "cross_series mean / within_series mean")
+    off = matrix[(matrix.status == "computed") & (matrix.cell_type == "other_disorder")
+                 & matrix.interpretation.isna()]
+    by_clf = off.groupby("classifier").fraction_positive.mean()
+    for clf in ("Coffin-Siris syndrome", "Nicolaides-Baraitser syndrome", "Down syndrome",
+                "CHARGE syndrome"):
+        add(f"controls_effect.classifier.{clf}", pct(by_clf[clf]), "cross_disorder_matrix.tsv",
+            f"classifier={clf}: mean fraction_positive over other_disorder cells with n>=10")
+    within = by_clf.drop(["Coffin-Siris syndrome", "Nicolaides-Baraitser syndrome"])
+    add("controls_effect.within_max", f"{pct(within.max())} ({within.idxmax()})",
+        "cross_disorder_matrix.tsv", "highest per-classifier mean among within_series")
+
     evidence = table("evidence_bands.tsv")
     typical = evidence[(evidence.query_point == "typical_case_score") & (evidence.prior == 0.10)]
     add("bands.between_study", int((typical.interpretation_scope == "between_study").sum()),
@@ -167,6 +196,12 @@ def main() -> None:
                 "byo_fixture_results.tsv", f"{name}: mean |delta beta| and interval")
         add(f"byo.{short}.outcomes", r.expectation_outcomes, "byo_fixture_results.tsv",
             f"{name}: expectation_outcomes")
+        if isinstance(r.evidence_ceiling_band, str) and r.evidence_ceiling_band:
+            add(f"byo.{short}.ceiling",
+                f"{r.evidence_ceiling_band} (limited by {r.ceiling_limited_by}; cohort ceiling "
+                f"{r.cohort_ceiling_band}; conservative LR "
+                f"{float(r.signature_size_conservative_lr):.1f})",
+                "byo_fixture_results.tsv", f"{name}: evidence ceiling columns")
     rnd = byo.loc["sig_random.csv"]
     add("byo.random.highest_auc", f"{float(rnd.highest_auc):.2f} ({rnd.highest_auc_disorder})",
         "byo_fixture_results.tsv", "sig_random.csv: highest_auc")

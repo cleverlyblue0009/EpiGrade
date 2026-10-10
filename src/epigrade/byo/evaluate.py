@@ -7,7 +7,7 @@ Two input forms:
            routine the corpus uses, then evaluated as Form 1. -> signature_from_labelled_samples()
 
 What evaluate() reports: platform and corpus coverage, an identification verdict across all 12
-cohorts, the signature's own specificity row, the evidence ceiling of the matched cohort,
+cohorts, the signature's own specificity row, an evidence ceiling (cohort size and signature size),
 overlap with the 10 corpus signatures, and an attribution panel.
 
 HOW A MATCH IS DECIDED. Ranking cohorts by AUC alone does not work on this corpus: 500 random
@@ -36,10 +36,16 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import yaml
 from scipy.stats import rankdata
 
 from epigrade import paths
 from epigrade.byo import store
+from epigrade.calibrate.calibrate import (
+    local_likelihood_ratio,
+    lr_to_points,
+    points_to_band,
+)
 from epigrade.corpus.registry import POOLED_CONTROL_LABEL
 from epigrade.report.attribution import explain_score, format_explanation
 from epigrade.signature.generic import (
@@ -60,6 +66,7 @@ AUC_THRESHOLD = 0.70
 OVERLAP_FLAG = 0.5
 N_NULL = 1000
 N_BOOT = 500
+N_CEILING_BOOT = 200
 MIN_N_TO_INTERPRET = 10
 
 REFUSED_COVERAGE = "insufficient_probe_coverage"
@@ -551,15 +558,86 @@ def attribution(parsed: ParsedSignature, disorder: str, index: store.CorpusIndex
     return result
 
 
-def evidence_ceiling_for(disorder: str) -> dict:
+BAND_ORDER = ["NA", "No evidence", "Supporting", "Moderate", "Strong", "Very Strong"]
+
+
+def signature_size_bound(disorder: str, betas: pd.DataFrame, seed: int = 0) -> dict:
+    """The band this signature's SIZE can support in the matched cohort.
+
+    A cohort ceiling says what a perfect classifier could earn at that cohort's size. It says
+    nothing about how many probes the signature has: 20 probes and 500 probes matched to the
+    same cohort would get the same ceiling. This adds the missing part. Each replicate
+    resamples the signature's probes AND the cohort's samples, rescores the cohort with the
+    resampled probes (leave-one-out profiles), and takes the local likelihood ratio at the
+    typical case score. The band is read from the 2.5th percentile across replicates. Fewer
+    probes means more probe-sampling uncertainty, so a lower bound.
+
+    A replicate needs at least MIN_PROBES_TO_SCORE distinct probes. If fewer than half the
+    replicates are usable the signature is too small to bound and the result is No evidence.
+    """
+    cfg = _band_config()
+    rng = np.random.default_rng(seed)
+    cases, _ = _cohort_ids(disorder)
+    probes = betas.index.to_numpy()
+    ratios = []
+    for _ in range(N_CEILING_BOOT):
+        sub = np.unique(rng.choice(probes, len(probes)))
+        if len(sub) < MIN_PROBES_TO_SCORE:
+            continue
+        _, scores, _, _ = _score_cohort(disorder, sub, betas.loc[sub])
+        labels = scores.index.isin(cases).astype(int)
+        values = scores["score"].to_numpy()
+        pos, neg = np.where(labels == 1)[0], np.where(labels == 0)[0]
+        if len(pos) < 2 or len(neg) < 2:
+            continue
+        idx = np.r_[rng.choice(pos, len(pos)), rng.choice(neg, len(neg))]
+        ratio = local_likelihood_ratio(
+            values[idx], labels[idx], float(np.median(values[idx][labels[idx] == 1])),
+        )
+        if np.isfinite(ratio):
+            ratios.append(ratio)
+    base = {"n_probes": len(probes), "n_replicates": N_CEILING_BOOT,
+            "n_replicates_usable": len(ratios)}
+    if len(ratios) < N_CEILING_BOOT / 2:
+        return {**base, "band": "No evidence", "conservative_lr": float("nan"),
+                "reason": (f"too few probes to bound: only {len(ratios)} of {N_CEILING_BOOT} "
+                           f"resamples kept {MIN_PROBES_TO_SCORE} or more distinct probes")}
+    low = float(np.percentile(ratios, 2.5))
+    band = "No evidence" if low <= 1 else points_to_band(
+        lr_to_points(low, cfg["odds_path_base"]), cfg["bands"])
+    return {**base, "band": band, "conservative_lr": low, "reason": ""}
+
+
+@lru_cache(maxsize=1)
+def _band_config() -> dict:
+    with open(paths.repo_root() / "config" / "evidence_bands.yaml", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+def evidence_ceiling_for(disorder: str, betas: pd.DataFrame, seed: int = 0) -> dict:
+    """The strongest band this signature could support in the matched cohort: the lower of
+    the cohort ceiling (cohort size and study structure, from attainable_ceiling.tsv) and the
+    signature-size bound (see signature_size_bound)."""
     row = _tables()["ceiling"].loc[disorder]
+    size = signature_size_bound(disorder, betas, seed=seed)
+    cohort_band = row.attainable_band
+    limiting = min(cohort_band, size["band"], key=BAND_ORDER.index)
     return {
         "disorder": disorder, "n_case": int(row.n_case), "n_control": int(row.n_control),
-        "attainable_band": row.attainable_band,
+        "attainable_band": limiting,
+        "limited_by": ("signature size" if BAND_ORDER.index(size["band"])
+                       < BAND_ORDER.index(cohort_band) else "cohort size"),
+        "cohort_ceiling_band": cohort_band,
+        "signature_size_band": size["band"],
+        "signature_size_conservative_lr": size["conservative_lr"],
+        "n_probes_scored": size["n_probes"],
+        "n_replicates_usable": size["n_replicates_usable"],
+        "signature_size_reason": size["reason"],
         "between_study_bound_possible": bool(row.between_study_bound_possible),
         "interpretation_scope": row.interpretation_scope,
-        "note": ("the strongest band a perfect classifier could earn at this cohort's size; a "
-                 "property of the cohort, not of the submitted signature"),
+        "note": ("the lower of two bounds: what a perfect classifier could earn at this "
+                 "cohort's size, and what this signature's number of probes can support when "
+                 "probes and samples are both resampled"),
     }
 
 
@@ -714,7 +792,7 @@ def evaluate(parsed: ParsedSignature, index: store.CorpusIndex | None = None,
         betas.index.to_numpy())])]
     matched_betas = betas.loc[cohort_probes]
     evaluation.specificity = specificity_row(match, usable_ids, matched_betas)
-    evaluation.evidence_ceiling = evidence_ceiling_for(match)
+    evaluation.evidence_ceiling = evidence_ceiling_for(match, matched_betas, seed=seed)
     evaluation.attribution = attribution(parsed, match, index, matched_betas)
     if identification["interpretation_scope"] == "within_study_only":
         messages.append(

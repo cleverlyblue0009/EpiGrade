@@ -170,14 +170,21 @@ def _specificity(result: Evaluation) -> None:
 def _ceiling(result: Evaluation) -> None:
     ceiling = result.evidence_ceiling
     st.subheader("Evidence ceiling")
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Strongest band this cohort could support", ceiling["attainable_band"])
-    c2.metric("Cohort size", f"{ceiling['n_case']} case / {ceiling['n_control']} control")
-    c3.metric("Between-study bound possible",
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Strongest band supportable", ceiling["attainable_band"],
+              f"limited by {ceiling['limited_by']}", delta_color="off")
+    c2.metric("Cohort ceiling",
+              ceiling["cohort_ceiling_band"],
+              f"{ceiling['n_case']} case / {ceiling['n_control']} control", delta_color="off")
+    c3.metric("Signature-size bound", ceiling["signature_size_band"],
+              f"{ceiling['n_probes_scored']} probes", delta_color="off")
+    c4.metric("Between-study bound possible",
               "yes" if ceiling["between_study_bound_possible"] else "no")
     st.caption(
-        "This is what a perfect classifier could earn at the matched cohort's size and study "
-        "structure. It is a property of the cohort, not of the submitted signature."
+        "The ceiling is the lower of two bounds. The cohort ceiling is what a perfect "
+        "classifier could earn at the matched cohort's size and study structure. The "
+        "signature-size bound resamples this signature's probes together with the cohort's "
+        "samples: fewer probes give a lower bound. " + ceiling["signature_size_reason"]
     )
 
 

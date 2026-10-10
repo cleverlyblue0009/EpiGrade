@@ -12,7 +12,7 @@ import pandas as pd
 
 from epigrade import paths
 from epigrade.byo import store
-from epigrade.byo.evaluate import Evaluation, evaluate_file
+from epigrade.byo.evaluate import BAND_ORDER, Evaluation, evaluate_file
 
 FIXTURE_DIR = paths.repo_root() / "tests" / "fixtures"
 SOTOS = "Sotos syndrome"
@@ -49,7 +49,8 @@ EXPECTATIONS = {
         "identifies Sotos with a wide CI and a low evidence ceiling",
         [("identifies Sotos", lambda e: _matched(e, SOTOS)),
          ("wider effect CI than the 500-probe signature", None),  # filled in below
-         ("low evidence ceiling", lambda e: e.evidence_ceiling is not None
+         ("evidence ceiling lower than the 500-probe signature's", "ceiling"),
+         ("evidence ceiling is Supporting or below", lambda e: e.evidence_ceiling is not None
           and e.evidence_ceiling["attainable_band"] in ("No evidence", "Supporting"))],
     ),
     "sig_low_coverage.csv": (
@@ -65,12 +66,17 @@ def _relative_ci_width(e: Evaluation) -> float:
     return float((top.effect_ci_high - top.effect_ci_low) / top.mean_abs_delta_beta)
 
 
-def summarise(name: str, e: Evaluation, reference_width: float | None) -> dict:
+def summarise(name: str, e: Evaluation, reference_width: float | None,
+              reference_band: str | None = None) -> dict:
     expected, checks = EXPECTATIONS[name]
     ident = e.identification or {}
     outcomes = []
     for label, check in checks:
-        if check is None:
+        if check == "ceiling":
+            met = (e.evidence_ceiling is not None and reference_band is not None
+                   and BAND_ORDER.index(e.evidence_ceiling["attainable_band"])
+                   < BAND_ORDER.index(reference_band))
+        elif check is None:
             met = (ident.get("top_match") is not None and reference_width is not None
                    and _relative_ci_width(e) > reference_width)
         else:
@@ -105,6 +111,10 @@ def summarise(name: str, e: Evaluation, reference_width: float | None) -> dict:
         "n_directions_supplied": attribution.get("n_probes_with_direction"),
         "n_direction_inconsistent": attribution.get("n_direction_inconsistent"),
         "evidence_ceiling_band": ceiling.get("attainable_band", ""),
+        "ceiling_limited_by": ceiling.get("limited_by", ""),
+        "cohort_ceiling_band": ceiling.get("cohort_ceiling_band", ""),
+        "signature_size_band": ceiling.get("signature_size_band", ""),
+        "signature_size_conservative_lr": ceiling.get("signature_size_conservative_lr"),
         "between_study_bound_possible": ceiling.get("between_study_bound_possible"),
         "expectation_outcomes": "; ".join(outcomes),
         "all_expectations_met": all("NOT met" not in o for o in outcomes),
@@ -119,7 +129,9 @@ def main() -> None:
     reference = evaluations["sig_sotos_true.csv"]
     reference_width = (_relative_ci_width(reference)
                        if reference.identification.get("top_match") else None)
-    rows = [summarise(name, e, reference_width) for name, e in evaluations.items()]
+    reference_band = (reference.evidence_ceiling or {}).get("attainable_band")
+    rows = [summarise(name, e, reference_width, reference_band)
+            for name, e in evaluations.items()]
     df = pd.DataFrame(rows)
     out = paths.tables_dir() / "byo_fixture_results.tsv"
     df.to_csv(out, sep="\t", index=False)

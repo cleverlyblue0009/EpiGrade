@@ -31,6 +31,18 @@ const between = bands.filter((r) => r.interpretation_scope === "between_study");
 const fmt = (n) => Number(n).toLocaleString("en-US");
 const charge = cell("CHARGE syndrome", "Kabuki syndrome type 1");
 const css = cell("Coffin-Siris syndrome", "pooled_control");
+const effect = Object.fromEntries(tsv("controls_source_summary.tsv").map((r) => [r.controls_source, r]));
+const offDiagonal = matrix.filter((r) => r.status === "computed" && r.cell_type === "other_disorder"
+  && !r.interpretation);
+const perClassifier = [...new Set(offDiagonal.map((r) => r.classifier))].map((c) => {
+  const cells = offDiagonal.filter((r) => r.classifier === c);
+  return { name: c.replace(" syndrome", "").replace(" type 1", "").replace("7q11.23 duplication", "7q11.23 dup"),
+    source: cells[0].controls_source,
+    mean: cells.reduce((a, r) => a + Number(r.fraction_positive), 0) / cells.length };
+}).sort((a, b) => a.mean - b.mean);
+const random = byo.find((r) => r.fixture === "sig_random.csv");
+const tiny = byo.find((r) => r.fixture === "sig_tiny.csv");
+const full = byo.find((r) => r.fixture === "sig_sotos_true.csv");
 
 // ------------------------------------------------------------------ theme
 const THEME = {
@@ -288,14 +300,16 @@ pres.addSection({ title: "Findings" });
 // 9 ---------------------------------------------------------------- finding 2
 {
   const ok = losoOk[0];
+  const untested = new Set(loso.map((r) => r.disorder)).size
+    - new Set(losoOk.map((r) => r.disorder)).size;
   const s = content("Findings", `Finding 2: ${losoOk.length} of ${loso.length} cross-study tests could be run`);
   fit(s, path.join(FIG, "leave_one_study_out.png"), { x: M, y: 1.5, w: 8.3, h: 5.3 },
     "Leave-one-study-out results");
   stat(s, ok.test_case_sensitivity, `held-out Silver-Russell cases detected (${pct(ok.sensitivity)}); ${ok.test_control_specificity} controls correctly negative`,
     { x: 9.2, y: 1.6, w: 3.5, h: 2.75, color: C.accent1 });
-  text(s, "Transfer failure means a within-study result has not been shown to be about the disease.",
-    { x: 9.2, y: 4.6, w: 3.5, h: 2.1, fontSize: 20, bold: true });
-  s.addNotes("The real test is to build a signature in one study and try it in another. This is called leave-one-study-out. Across the three eligible disorders that gives six attempts. Only one could be run, and it found five of eighteen held-out cases. The other five could not be run because one study alone did not have enough samples to build a signature. So for these disorders, transfer between laboratories is not confirmed by public data.");
+  text(s, `We ran one cross-study test, not three: one disorder, one direction. ${untested} of 3 eligible disorders have no cross-study result at all.`,
+    { x: 9.2, y: 4.55, w: 3.5, h: 2.25, fontSize: 20, bold: true });
+  s.addNotes("The real test is to build a signature in one study and try it in another. This is called leave-one-study-out. Three disorders were eligible, which gives six possible directions. We want to be plain about this: only one of the six could be computed. That one test found five of eighteen held-out cases. Kabuki syndrome and Nicolaides-Baraitser syndrome have no cross-study result at all, because one study alone did not have enough samples to build a signature.");
 }
 
 // 10 --------------------------------------------------------------- finding 3
@@ -305,14 +319,44 @@ pres.addSection({ title: "Findings" });
     "Cross-disorder heatmap");
   stat(s, pct(charge.fraction_positive), `of Kabuki cases are flagged by the CHARGE classifier (${charge.n_positive} of ${charge.n})`,
     { x: 8.8, y: 1.6, w: 3.9, h: 2.45, color: C.accent2 });
-  stat(s, pct(css.fraction_positive), "of healthy controls flagged by a classifier built with another laboratory's controls",
-    { x: 8.8, y: 4.25, w: 3.9, h: 2.55, color: C.accent6 });
-  s.addNotes("Third, we scored every classifier against every disorder and against 273 healthy controls. A good classifier lights up only its own square on the diagonal. The CHARGE syndrome classifier also flags about 38 percent of Kabuki syndrome cases. And one classifier, built using controls borrowed from a different laboratory, flags 86 percent of healthy controls. It is detecting the laboratory, not the disease, yet its own-study numbers look excellent.");
+  card(s, { x: 8.8, y: 4.25, w: 3.9, h: 2.55 }, "outlined rows note");
+  text(s, "Outlined rows", { x: 9.05, y: 4.45, w: 3.4, h: 0.45, fontSize: 22, bold: true, color: C.accent2 });
+  text(s, "were trained against controls from another series. They light up almost everywhere.",
+    { x: 9.05, y: 4.95, w: 3.4, h: 1.7, fontSize: 20, color: C.text2 });
+  s.addNotes("Third, we scored every classifier against every disorder and against 273 healthy controls. A good classifier lights up only its own square on the diagonal. The CHARGE syndrome classifier also flags about 38 percent of Kabuki syndrome cases. Now look at the two rows outlined in orange. They light up almost everywhere. Those two classifiers were trained against controls from a different dataset, and the next slide shows what that does.");
+}
+
+// 11 --------------------------------------------------------------- finding 4
+{
+  const w = effect.within_series;
+  const x = effect.cross_series;
+  const s = content("Findings", "Finding 4: the controls-source effect");
+  stat(s, pct(w.mean_off_diagonal_fraction_positive), `of other disorders' cases flagged with same-series controls (${w.n_classifiers} classifiers)`,
+    { x: M, y: 1.6, w: 3.7, h: 2.5, color: C.accent1 });
+  stat(s, pct(x.mean_off_diagonal_fraction_positive), `flagged with controls from another series (${x.n_classifiers} classifiers)`,
+    { x: M, y: 4.3, w: 3.7, h: 2.5, color: C.accent2 });
+  s.addChart(pres.charts.BAR, [{ name: "Mean fraction of other disorders' cases flagged",
+    labels: perClassifier.map((r) => r.name), values: perClassifier.map((r) => r.mean) }], {
+    x: 4.6, y: 1.5, w: 8.1, h: 4.2, barDir: "bar", showLegend: false,
+    showTitle: true, title: "Other disorders' cases flagged, by classifier", titleFontSize: 16,
+    titleFontFace: "+mn-lt", titleColor: THEME.colors.dk1,
+    chartColors: perClassifier.map((r) => (r.source === "cross_series" ? THEME.colors.accent2 : THEME.colors.accent1)),
+    invertedColors: [], showValue: true, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
+    dataLabelFontSize: 14, dataLabelFontFace: "+mn-lt", dataLabelColor: THEME.colors.dk1,
+    catAxisLabelFontSize: 14, catAxisLabelFontFace: "+mn-lt", catAxisLabelColor: THEME.colors.dk2,
+    valAxisLabelFontSize: 12, valAxisLabelFontFace: "+mn-lt", valAxisLabelColor: THEME.colors.dk2,
+    valAxisLabelFormatCode: "0%", valAxisMaxVal: 1, valAxisMinVal: 0,
+    valGridLine: { color: "E4E3DF", size: 0.75 }, catGridLine: { style: "none" },
+    objectName: "off-diagonal mean by classifier", altText: "Bar chart of mean off-diagonal positive fraction per classifier",
+  });
+  text(s, "Classifiers trained against out-of-series controls detect series membership, not disease. Coffin-Siris and Nicolaides-Baraitser are both in that category.",
+    { x: 4.6, y: 5.8, w: 8.1, h: 1.0, fontSize: 20, bold: true, color: C.accent2 });
+  s.addNotes("This is the result in one comparison. When a classifier's controls come from its own dataset, it wrongly flags about 12 percent of patients who have a different disorder. When the controls come from another dataset, it flags about 68 percent. The two orange bars are Coffin-Siris and Nicolaides-Baraitser, whose source study deposited no controls. They learned to tell two laboratories apart, not to detect a disease. We keep them in the benchmark as a warning, not as signatures. One caution: both borrowed the same controls, so this is one problem seen twice.");
 }
 
 pres.addSection({ title: "Identification engine" });
 
-// 11 --------------------------------------------------------------- BYO table
+// 12 --------------------------------------------------------------- BYO table
 {
   const s = content("Identification engine", "Bring your own signature: five tests");
   const names = { "sig_sotos_true.csv": "500 real Sotos probes", "sig_random.csv": "500 random probes",
@@ -324,17 +368,18 @@ pres.addSection({ title: "Identification engine" });
     const extra = r.fixture === "sig_sotos_flipped.csv"
       ? `; ${parseInt(r.n_direction_inconsistent, 10)} of ${parseInt(r.n_directions_supplied, 10)} directions flagged as inverted`
       : `; score ${Number(r.top_match_z_vs_random_probes).toFixed(0)} against ${Number(r.runner_up_z).toFixed(0)} for the runner-up`;
-    return `${r.top_match.replace(" syndrome", "")}${extra}`;
+    const cap = r.fixture === "sig_tiny.csv" ? `; ceiling ${r.evidence_ceiling_band}` : "";
+    return `${r.top_match.replace(" syndrome", "")}${extra}${cap}`;
   };
   const rows = [["Signature submitted", "Result across 12 disorders"]];
   byo.forEach((r) => rows.push([names[r.fixture], result(r)]));
   table(s, rows, { x: M, y: 1.65, w: W - 2 * M, colW: [4.7, 7.43], rowH: 0.68, name: "fixture results table" });
-  text(s, "Random probes separate Sotos cases perfectly, so a match must also beat 1,000 random probe sets of the same size.",
+  text(s, `Random probes reach AUC ${Number(random.highest_auc).toFixed(2)} on ${random.highest_auc_disorder.replace(" syndrome", "")} and at least 0.70 on ${parseInt(random["n_cohorts_auc_at_or_above_0.70"], 10)} of 12 cohorts. AUC alone is unsafe here: the score against random probes is what makes "no match" work.`,
     { x: M, y: 5.95, w: W - 2 * M, h: 0.9, fontSize: 22, bold: true, color: C.accent5 });
-  s.addNotes("This is the feature our supervisor asked for. A laboratory uploads its own list of probes, and the engine searches all twelve disorders. We tested it with five signatures made from real data. The real Sotos probes identify Sotos, even when we flip every direction, which the tool flags. Five hundred random probes give no match. That last one taught us something: random probes separate Sotos cases perfectly by the usual measure, the area under the curve, so we added a comparison against random probe sets.");
+  s.addNotes("This is the feature our supervisor asked for. A laboratory uploads its own list of probes, and the engine searches all twelve disorders. We tested it with five signatures made from real data. The real Sotos probes identify Sotos, even when we flip every direction, which the tool flags. Five hundred random probes give no match. That last one is a finding about method. By the usual measure, the area under the curve or AUC, random probes score a perfect 1.0 on Williams syndrome and pass the usual threshold on seven of twelve cohorts. So AUC alone would have named a disorder for a random list. What makes the tool say no match is a second test: the probes must beat a thousand random probe sets. Also note the twenty-probe signature is capped at a lower evidence ceiling than the five-hundred-probe one.");
 }
 
-// 12 --------------------------------------------------------------- demo
+// 13 --------------------------------------------------------------- demo
 {
   const s = content("Identification engine", "Live demo: test your own signature");
   fit(s, path.join(__dirname, "assets", "byo_page_crop.png"), { x: M, y: 1.5, w: 7.2, h: 5.3 },
@@ -351,7 +396,7 @@ pres.addSection({ title: "Identification engine" });
 
 pres.addSection({ title: "Honest accounting" });
 
-// 13 --------------------------------------------------------------- ours / not ours
+// 14 --------------------------------------------------------------- ours / not ours
 {
   const s = content("Honest accounting", "What is ours and what is not");
   const cols = [
@@ -376,12 +421,12 @@ pres.addSection({ title: "Honest accounting" });
   s.addNotes("We want to be exact about our contribution. The calibration method is not ours: it follows Pejaver and colleagues, and a general package already exists. Testing one disorder against another is routine inside the private database. Using a language model to read dataset labels has published benchmarks. What is ours is that every result can be regenerated from public data with one command, the audit itself, and the identification tool.");
 }
 
-// 14 --------------------------------------------------------------- limitations
+// 15 --------------------------------------------------------------- limitations
 {
   const s = content("Honest accounting", "Limitations, before you ask");
   const items = [
-    ["Small numbers", "The headline cross-study result rests on 18 cases and 6 controls."],
-    ["Borrowed controls", "Two signatures used another laboratory's controls and one used siblings. They are flagged, not trusted."],
+    ["Small numbers", "That one cross-study result rests on 18 cases and 6 controls."],
+    ["One cross-study test", "Only 1 of 6 directions was computed. We are not claiming three disorders were tested across studies."],
     ["Optimistic self-scores", "Probes were chosen using all training samples, so own-disorder sensitivity is flattering."],
     ["Labels checked by AI only", "Two AI-written rule sets agree on 81 of 81 samples. Human curation is still pending."],
   ];
@@ -392,32 +437,33 @@ pres.addSection({ title: "Honest accounting" });
     text(s, head, { x: x + 0.35, y: y + 0.25, w: 5.15, h: 0.5, fontSize: 24, bold: true, color: C.accent6 });
     text(s, body, { x: x + 0.35, y: y + 0.85, w: 5.15, h: 1.4, fontSize: 20, color: C.text2 });
   });
-  s.addNotes("We would rather tell you the weaknesses ourselves. The main cross-study result is based on only eighteen cases and six controls. Three signatures used controls that are not ordinary matched controls, and we flag them rather than trust them. Scores on a classifier's own disorder are optimistic, because the probes were chosen using those same samples. And our label check compares two computer-written rule sets, so a human review is still needed.");
+  s.addNotes("We would rather tell you the weaknesses ourselves. Only one of six cross-study directions was computed, and it is based on only eighteen cases and six controls. We are not claiming that three disorders were tested across studies. Scores on a classifier's own disorder are optimistic, because the probes were chosen using those same samples. And our label check compares two computer-written rule sets, so a human review is still needed.");
 }
 
 pres.addSection({ title: "Close" });
 
-// 15 --------------------------------------------------------------- conclusion
+// 16 --------------------------------------------------------------- conclusion
 {
   const s = pres.addSlide({ masterName: "DARK", sectionTitle: "Close" });
   s.addText("Public data support far less than within-study numbers suggest", { placeholder: "title" });
   const points = [
-    `${losoOk.length} of ${loso.length} cross-study tests could be run`,
+    `${losoOk.length} of ${loso.length} cross-study tests could be run; 2 of 3 eligible disorders were never tested across studies`,
+    `Borrowed controls: ${pct(effect.cross_series.mean_off_diagonal_fraction_positive)} false positives on other disorders, against ${pct(effect.within_series.mean_off_diagonal_fraction_positive)}`,
     `${between.length} disorders have a between-study bound; both read "${between[0].band}"`,
     "What the field needs: the same disorder from more than one site, with each site's own controls",
   ];
   text(s, points.map((p, k) => ({ text: p, options: { bullet: true, breakLine: k < points.length - 1 } })),
-    { x: M, y: 4.0, w: W - 2 * M, h: 1.9, fontSize: 22, color: C.background1, paraSpaceAfter: 8 });
+    { x: M, y: 3.75, w: W - 2 * M, h: 2.25, fontSize: 20, color: C.background1, paraSpaceAfter: 6 });
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: 6.1, w: W - 2 * M, h: 0.85, rectRadius: 0.08,
     fill: { color: C.text2 }, line: { color: C.text2 }, objectName: "command panel" });
   text(s, [{ text: "python scripts/reproduce.py", options: { breakLine: true } },
     { text: "github.com/cleverlyblue0009/EpiGrade" }],
     { x: M + 0.3, y: 6.1, w: W - 2 * M - 0.6, h: 0.85, fontSize: 20, fontFace: "Courier New",
       color: C.background1, valign: "middle" });
-  s.addNotes("To conclude. Results measured inside one study look far stronger than public data can confirm. Only one cross-study test in six could be run, and the two disorders we could assess across studies earned no evidence. The fix is not a new method. It is data: the same disorder deposited by more than one site, each with its own controls. Everything we showed can be regenerated with the one command on this slide. Thank you.");
+  s.addNotes("To conclude. Results measured inside one study look far stronger than public data can confirm. Only one cross-study test in six could be run, and two of the three eligible disorders were never tested across studies. Classifiers built with borrowed controls flagged about two thirds of unrelated patients. The fix is not a new method. It is data: the same disorder deposited by more than one site, each with its own controls. Everything we showed can be regenerated with the one command on this slide. Thank you.");
 }
 
-// 16 --------------------------------------------------------------- backup
+// 17 --------------------------------------------------------------- backup
 {
   const s = content("Close", "Backup: methods, thresholds and data");
   const rows = [

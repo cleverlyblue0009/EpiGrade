@@ -29,10 +29,11 @@ def test_word_paper_has_the_nine_sections_and_the_authors():
 
 
 @pytest.mark.skipif(not PPTX.exists(), reason="deck not built")
-def test_deck_is_14_to_16_slides_each_with_speaker_notes():
+def test_deck_is_16_presented_slides_plus_backup_each_with_speaker_notes():
     slides = _members(PPTX, r"ppt/slides/slide\d+\.xml")
     notes = _members(PPTX, r"ppt/notesSlides/notesSlide\d+\.xml")
-    assert 14 <= len(slides) <= 16
+    # 16 presented slides (the controls-source finding has its own) plus one backup slide
+    assert len(slides) == 17
     assert len(notes) == len(slides)
     for name, xml in notes.items():
         spoken = " ".join(re.findall(r"<a:t>([^<]+)</a:t>", xml))
@@ -51,3 +52,14 @@ def test_deck_body_text_is_at_least_20_point_outside_the_backup_slide():
         # captions and the footer are the only text below 20 pt
         assert all(s >= 16 for s in small), (name, sorted(set(small)))
         assert len(small) <= 2, (name, small)
+
+
+@pytest.mark.skipif(not PPTX.exists(), reason="deck not built")
+def test_deck_states_the_cross_study_count_plainly_and_names_the_controls_finding():
+    slides = _members(PPTX, r"ppt/slides/slide\d+\.xml")
+    text = " ".join(" ".join(re.findall(r"<a:t>([^<]+)</a:t>", xml)) for xml in slides.values())
+    assert "1 of 6 cross-study tests could be run" in text
+    assert "one cross-study test, not three" in text
+    assert "controls-source effect" in text
+    assert "detect series membership, not disease" in text
+    assert "68.1%" in text and "11.9%" in text

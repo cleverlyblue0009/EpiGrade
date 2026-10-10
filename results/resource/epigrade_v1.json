@@ -1,9 +1,9 @@
 {
   "resource_version": "epigrade_v1",
   "generated_from": {
-    "git_sha": "5879edd1db294ff8fe558a8af36f0b503fbfe7e4",
+    "git_sha": "44a85937cfeca1e151927c2478becab722ead43b",
     "config_hash": "2f194cba8d4a8da6",
-    "generated_at_utc": "2026-10-10T07:41:31.774102+00:00"
+    "generated_at_utc": "2026-10-10T08:58:12.012576+00:00"
   },
   "disclaimer": "Research/benchmarking tool for laboratories and researchers. Not a diagnostic device. Never accepts patient data, raw arrays, or issues a diagnosis.",
   "confounding_gate": [
@@ -2782,6 +2782,7 @@
         "fraction_positive": 0.381,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "sensitivity. 19/21 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic. 5/42 cases not used in training positive (held out)"
       },
       {
@@ -2794,6 +2795,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2806,6 +2808,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2818,6 +2821,7 @@
         "fraction_positive": 0.483,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2830,6 +2834,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2842,6 +2847,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2854,6 +2860,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2866,6 +2873,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2878,6 +2886,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2890,6 +2899,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2902,6 +2912,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2914,6 +2925,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2926,6 +2938,7 @@
         "fraction_positive": 0.008,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 16 training controls excluded"
       },
       {
@@ -2938,6 +2951,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2950,6 +2964,7 @@
         "fraction_positive": 1.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": "sensitivity. 19/19 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic. 19/19 cases not used in training positive (held out)"
       },
       {
@@ -2962,6 +2977,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2974,6 +2990,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2986,6 +3003,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -2998,6 +3016,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3010,6 +3029,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3022,6 +3042,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3034,6 +3055,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3046,6 +3068,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3058,6 +3081,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3070,6 +3094,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3082,6 +3107,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "published_probe_list",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 53 training controls excluded"
       },
       {
@@ -3094,6 +3120,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3106,6 +3133,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3118,6 +3146,7 @@
         "fraction_positive": 0.946,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "sensitivity. 35/37 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -3130,6 +3159,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3142,6 +3172,7 @@
         "fraction_positive": 0.048,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3154,6 +3185,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3166,6 +3198,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3178,6 +3211,7 @@
         "fraction_positive": 0.062,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3190,6 +3224,7 @@
         "fraction_positive": 0.067,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3202,6 +3237,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3214,6 +3250,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3226,6 +3263,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3238,6 +3276,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 20 training controls excluded"
       },
       {
@@ -3250,6 +3289,7 @@
         "fraction_positive": 0.476,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3262,6 +3302,7 @@
         "fraction_positive": 0.289,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3274,6 +3315,7 @@
         "fraction_positive": 0.595,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3286,6 +3328,7 @@
         "fraction_positive": 0.966,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "sensitivity. 28/29 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -3298,6 +3341,7 @@
         "fraction_positive": 0.381,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3310,6 +3354,7 @@
         "fraction_positive": 0.3,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3322,6 +3367,7 @@
         "fraction_positive": 0.632,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3334,6 +3380,7 @@
         "fraction_positive": 0.562,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3346,6 +3393,7 @@
         "fraction_positive": 0.067,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3358,6 +3406,7 @@
         "fraction_positive": 0.5,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3370,6 +3419,7 @@
         "fraction_positive": 0.375,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3382,6 +3432,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3394,6 +3445,7 @@
         "fraction_positive": 0.535,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 9 series; this classifier's own 0 training controls excluded"
       },
       {
@@ -3406,6 +3458,7 @@
         "fraction_positive": 1.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3418,6 +3471,7 @@
         "fraction_positive": 0.921,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3430,6 +3484,7 @@
         "fraction_positive": 0.973,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3442,6 +3497,7 @@
         "fraction_positive": 0.966,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3454,6 +3510,7 @@
         "fraction_positive": 1.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": "sensitivity. 21/21 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -3466,6 +3523,7 @@
         "fraction_positive": 0.4,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3478,6 +3536,7 @@
         "fraction_positive": 0.947,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3490,6 +3549,7 @@
         "fraction_positive": 0.5,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3502,6 +3562,7 @@
         "fraction_positive": 0.667,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3514,6 +3575,7 @@
         "fraction_positive": 0.5,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3526,6 +3588,7 @@
         "fraction_positive": 0.875,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3538,6 +3601,7 @@
         "fraction_positive": 1.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3550,6 +3614,7 @@
         "fraction_positive": 0.858,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 27 training controls excluded"
       },
       {
@@ -3562,6 +3627,7 @@
         "fraction_positive": 0.048,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3574,6 +3640,7 @@
         "fraction_positive": 0.237,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3586,6 +3653,7 @@
         "fraction_positive": 0.027,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3598,6 +3666,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3610,6 +3679,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3622,6 +3692,7 @@
         "fraction_positive": 0.95,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "sensitivity. 19/20 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -3634,6 +3705,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3646,6 +3718,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3658,6 +3731,7 @@
         "fraction_positive": 0.067,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3670,6 +3744,7 @@
         "fraction_positive": 0.2,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3682,6 +3757,7 @@
         "fraction_positive": 0.125,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3694,6 +3770,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3706,6 +3783,7 @@
         "fraction_positive": 0.062,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 15 training controls excluded"
       },
       {
@@ -3718,6 +3796,7 @@
         "fraction_positive": 0.254,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3730,6 +3809,7 @@
         "fraction_positive": 0.211,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3742,6 +3822,7 @@
         "fraction_positive": 0.378,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3754,6 +3835,7 @@
         "fraction_positive": 0.862,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3766,6 +3848,7 @@
         "fraction_positive": 0.476,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3778,6 +3861,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3790,6 +3874,7 @@
         "fraction_positive": 0.895,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "sensitivity. 17/19 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -3802,6 +3887,7 @@
         "fraction_positive": 0.5,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3814,6 +3900,7 @@
         "fraction_positive": 0.2,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3826,6 +3913,7 @@
         "fraction_positive": 0.1,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3838,6 +3926,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3850,6 +3939,7 @@
         "fraction_positive": 0.833,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -3862,6 +3952,7 @@
         "fraction_positive": 0.287,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 9 series; this classifier's own 29 training controls excluded"
       },
       {
@@ -3874,6 +3965,7 @@
         "fraction_positive": 0.746,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3886,6 +3978,7 @@
         "fraction_positive": 0.605,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3898,6 +3991,7 @@
         "fraction_positive": 0.459,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3910,6 +4004,7 @@
         "fraction_positive": 0.966,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3922,6 +4017,7 @@
         "fraction_positive": 0.762,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3934,6 +4030,7 @@
         "fraction_positive": 0.05,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3946,6 +4043,7 @@
         "fraction_positive": 0.789,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3958,6 +4056,7 @@
         "fraction_positive": 0.875,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": "sensitivity. 14/16 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -3970,6 +4069,7 @@
         "fraction_positive": 0.6,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3982,6 +4082,7 @@
         "fraction_positive": 0.4,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -3994,6 +4095,7 @@
         "fraction_positive": 0.375,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -4006,6 +4108,7 @@
         "fraction_positive": 1.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": null
       },
       {
@@ -4018,6 +4121,7 @@
         "fraction_positive": 0.585,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "cross_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 27 training controls excluded"
       },
       {
@@ -4030,6 +4134,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4042,6 +4147,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4054,6 +4160,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4066,6 +4173,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4078,6 +4186,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4090,6 +4199,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4102,6 +4212,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4114,6 +4225,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4126,6 +4238,7 @@
         "fraction_positive": 0.867,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "sensitivity. 13/15 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -4138,6 +4251,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4150,6 +4264,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4162,6 +4277,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4174,6 +4290,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 10 training controls excluded"
       },
       {
@@ -4186,6 +4303,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4198,6 +4316,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4210,6 +4329,7 @@
         "fraction_positive": 0.162,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4222,6 +4342,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4234,6 +4355,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4246,6 +4368,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4258,6 +4381,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4270,6 +4394,7 @@
         "fraction_positive": 0.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4282,6 +4407,7 @@
         "fraction_positive": 0.4,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4294,6 +4420,7 @@
         "fraction_positive": 1.0,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "sensitivity. 10/10 training cases positive, each scored against median profiles rebuilt without it (leave-one-out); probe selection still used every training case, so this is optimistic"
       },
       {
@@ -4306,6 +4433,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4318,6 +4446,7 @@
         "fraction_positive": 0.0,
         "interpretation": "too small to interpret",
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": null
       },
       {
@@ -4330,6 +4459,7 @@
         "fraction_positive": 0.062,
         "interpretation": null,
         "signature_source": "rederived_not_published",
+        "controls_source": "within_series",
         "reason": "false-positive rate over matched controls from 8 series; this classifier's own 15 training controls excluded"
       }
     ],
@@ -4344,6 +4474,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4356,6 +4487,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4368,6 +4500,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4380,6 +4513,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4392,6 +4526,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4404,6 +4539,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4416,6 +4552,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4428,6 +4565,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4440,6 +4578,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4452,6 +4591,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4464,6 +4604,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4476,6 +4617,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4488,6 +4630,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Weaver syndrome classifier: only 8 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4500,6 +4643,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4512,6 +4656,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4524,6 +4669,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4536,6 +4682,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4548,6 +4695,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4560,6 +4708,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4572,6 +4721,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4584,6 +4734,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4596,6 +4747,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4608,6 +4760,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4620,6 +4773,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4632,6 +4786,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       },
       {
@@ -4644,6 +4799,7 @@
         "fraction_positive": null,
         "interpretation": null,
         "signature_source": "NA",
+        "controls_source": "NA",
         "reason": "no Claes-Jensen syndrome classifier: only 6 confirmed cases (< 10 minimum): no signature can be derived; this cohort is scored by the other classifiers only"
       }
     ]
@@ -6572,6 +6728,32 @@
       "fraction_positive": 0.056,
       "interpretation": null,
       "signature_source": "rederived_not_published"
+    }
+  ],
+  "controls_source_summary": [
+    {
+      "controls_source": "within_series",
+      "n_classifiers": 8,
+      "classifiers": "Silver-Russell syndrome, Sotos syndrome, Kabuki syndrome type 1, Down syndrome, Williams syndrome, CHARGE syndrome, ICF syndrome, 7q11.23 duplication syndrome",
+      "n_off_diagonal_cells": 72,
+      "mean_off_diagonal_fraction_positive": 0.1192,
+      "median_off_diagonal_fraction_positive": 0.0,
+      "pooled_off_diagonal_fraction_positive": 0.1223,
+      "n_off_diagonal_samples_scored": 1913,
+      "mean_pooled_control_fraction_positive": 0.1192,
+      "note": "includes Down syndrome, whose comparators are unaffected siblings from its own series"
+    },
+    {
+      "controls_source": "cross_series",
+      "n_classifiers": 2,
+      "classifiers": "Coffin-Siris syndrome, Nicolaides-Baraitser syndrome",
+      "n_off_diagonal_cells": 18,
+      "mean_off_diagonal_fraction_positive": 0.6806,
+      "median_off_diagonal_fraction_positive": 0.7065,
+      "pooled_off_diagonal_fraction_positive": 0.7435,
+      "n_off_diagonal_samples_scored": 499,
+      "mean_pooled_control_fraction_positive": 0.7215,
+      "note": "Classifiers trained against out-of-series controls detect series membership, not disease. Coffin-Siris and Nicolaides-Baraitser are both in that category."
     }
   ],
   "attainable_ceiling_curve": [

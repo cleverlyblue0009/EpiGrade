@@ -333,6 +333,28 @@ def page_cross_disorder(resource: dict) -> None:
         "Every built classifier scored against every disorder's cases and the pooled "
         "controls. The diagonal is sensitivity; anything else is cross-reactivity."
     )
+    summary = {r["controls_source"]: r for r in resource.get("controls_source_summary", [])}
+    st.error(
+        "**Classifiers trained against out-of-series controls detect series membership, not "
+        "disease. Coffin-Siris and Nicolaides-Baraitser are both in that category.** Their "
+        "rows are outlined in the heatmap and tagged `cross_series` in the `controls_source` "
+        "column.", icon="📌",
+    )
+    if summary:
+        c1, c2 = st.columns(2)
+        for col, key, label in ((c1, "within_series", "Controls from the same series"),
+                                (c2, "cross_series", "Controls from another series")):
+            row = summary[key]
+            col.metric(
+                f"{label}: other disorders' cases scored positive",
+                f"{row['mean_off_diagonal_fraction_positive']:.1%}",
+                f"{row['n_classifiers']} classifiers, {row['n_off_diagonal_cells']} cells",
+                delta_color="off",
+            )
+        st.caption(
+            "Mean fraction positive over off-diagonal cells with at least 10 samples: cases "
+            "of a different disorder, so every positive is a false positive."
+        )
     st.image(str(paths.figures_dir() / "cross_disorder_matrix.png"))
     computed = pd.DataFrame(resource["cross_disorder_matrix"]["computed"])
     if not computed.empty:
@@ -341,7 +363,8 @@ def page_cross_disorder(resource: dict) -> None:
         worst = off.sort_values("fraction_positive", ascending=False).head(8)
         st.subheader("Strongest cross-reactivity")
         st.dataframe(
-            worst[["classifier", "scored_disorder", "n", "n_positive", "fraction_positive"]],
+            worst[["classifier", "controls_source", "scored_disorder", "n", "n_positive",
+                   "fraction_positive"]],
             use_container_width=True, hide_index=True,
         )
         st.caption(

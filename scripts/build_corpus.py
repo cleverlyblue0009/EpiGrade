@@ -57,8 +57,21 @@ DERIVATION_COLUMNS = [
 ]
 MATRIX_COLUMNS = [
     "classifier", "scored_disorder", "cell_type", "status", "n", "n_positive",
-    "fraction_positive", "interpretation", "signature_source", "reason",
+    "fraction_positive", "interpretation", "signature_source", "controls_source", "reason",
 ]
+WITHIN_SERIES, CROSS_SERIES = "within_series", "cross_series"
+# Shown wherever the matrix is displayed.
+CONTROLS_NOTE = (
+    "Classifiers trained against out-of-series controls detect series membership, not "
+    "disease. Coffin-Siris and Nicolaides-Baraitser are both in that category."
+)
+
+
+def controls_source(result: BuildResult) -> str:
+    """cross_series if any study the canonical classifier trains on had to take its controls
+    from another series; within_series otherwise."""
+    borrowed = any(a.controls_borrowed for a in result.resolved.train_arms())
+    return CROSS_SERIES if borrowed else WITHIN_SERIES
 
 
 def _write(df: pd.DataFrame, name: str) -> None:
@@ -214,7 +227,7 @@ def matrix_rows(result: BuildResult, scores: pd.DataFrame | None,
         return [{
             "classifier": name, "scored_disorder": target,
             "cell_type": "self" if target == name else "not_built",
-            "status": "not_computed", "signature_source": "NA",
+            "status": "not_computed", "signature_source": "NA", "controls_source": "NA",
             "reason": f"no {name} classifier: {result.failure_reason}",
         } for target in targets]
 
@@ -250,6 +263,7 @@ def matrix_rows(result: BuildResult, scores: pd.DataFrame | None,
         base = {
             "classifier": name, "scored_disorder": target, "cell_type": cell_type,
             "signature_source": clf.signature_source,
+            "controls_source": controls_source(result),
         }
         if block.empty:
             rows.append({
@@ -287,6 +301,37 @@ def control_rows(name: str, clf: Classifier, scores: pd.DataFrame) -> list[dict]
             "signature_source": clf.signature_source,
         })
     return rows
+
+
+def controls_source_summary(matrix_df: pd.DataFrame) -> pd.DataFrame:
+    """The batch-detector finding as numbers: how often a classifier scores OTHER disorders'
+    cases positive, by where its training controls came from. Off-diagonal cells only, and
+    only cells with n >= 10. The mean is taken over cells (each classifier-cohort pair counts
+    once); the pooled figure weights by samples."""
+    computed = matrix_df[matrix_df.status == "computed"]
+    rows = []
+    for source in (WITHIN_SERIES, CROSS_SERIES):
+        block = computed[computed.controls_source == source]
+        off = block[(block.cell_type == "other_disorder") & block.interpretation.isna()
+                    | (block.cell_type == "other_disorder") & (block.interpretation == "")]
+        controls = block[block.cell_type == "pooled_control"]
+        rows.append({
+            "controls_source": source,
+            "n_classifiers": block.classifier.nunique(),
+            "classifiers": ", ".join(dict.fromkeys(block.classifier)),
+            "n_off_diagonal_cells": len(off),
+            "mean_off_diagonal_fraction_positive": round(off.fraction_positive.mean(), 4),
+            "median_off_diagonal_fraction_positive": round(off.fraction_positive.median(), 4),
+            "pooled_off_diagonal_fraction_positive": round(
+                off.n_positive.sum() / off.n.sum(), 4),
+            "n_off_diagonal_samples_scored": int(off.n.sum()),
+            "mean_pooled_control_fraction_positive": round(
+                controls.fraction_positive.mean(), 4),
+            "note": CONTROLS_NOTE if source == CROSS_SERIES else (
+                "includes Down syndrome, whose comparators are unaffected siblings from its "
+                "own series"),
+        })
+    return pd.DataFrame(rows)
 
 
 # --------------------------------------------------------------------------- calibration
@@ -460,6 +505,7 @@ def main() -> None:
     for col in ("n", "n_positive"):
         matrix_df[col] = matrix_df[col].astype("Int64")
     _write(matrix_df, "cross_disorder_matrix.tsv")
+    _write(controls_source_summary(matrix_df), "controls_source_summary.tsv")
     _write(pd.DataFrame(controls), "control_specificity_by_series.tsv")
     evidence_df = pd.DataFrame(evidence)
     _write(evidence_df, "evidence_bands.tsv")

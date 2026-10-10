@@ -56,9 +56,9 @@ Every number here comes from a file in `results/tables/`. None is typed by hand.
 | Twelve disorders, four verdicts | 3 graded (cases in two studies), 7 single-study, 2 with too few cases, 0 not downloaded. `disorder_verdicts.tsv` |
 | Leave-one-study-out | **1 of 6 directions could be tested.** Silver-Russell trained on GSE104451 and tested on GSE55491: 5 of 18 cases positive, 6 of 6 controls negative. The reverse direction and both Kabuki directions find no significant probes. Neither Nicolaides-Baraitser study has 10 cases. `leave_one_study_out.tsv` |
 | Cross-disorder matrix | A complete 12 by 13 grid: 130 computed cells and 26 reasoned gaps. CHARGE scores 14 of 37 Kabuki type 1 cases positive (37.8%). `cross_disorder_matrix.tsv` |
-| Borrowed controls behave like batch detectors | Coffin-Siris, derived against another series' controls, scores 86% of pooled controls and 63 of 63 Silver-Russell cases positive. Nicolaides-Baraitser scores 58% of pooled controls positive. |
+| The controls-source effect | Classifiers trained against out-of-series controls detect series membership, not disease. Coffin-Siris and Nicolaides-Baraitser are both in that category: on other disorders' cases they score a mean of 68.1% positive, against 11.9% for the eight classifiers with in-series controls. `controls_source_summary.tsv` |
 | Evidence bands | Only Silver-Russell and Kabuki type 1 have a between-study bound, and both read "No evidence" at a typical case score. The other eight bands are within-study only. `evidence_bands.tsv` |
-| Random probes separate cases | 500 random probes separate Sotos cases from controls at AUC 1.00. Within-study AUC alone cannot identify a signature, so the identification engine also requires the probes to beat random probe sets. `byo_fixture_results.tsv` |
+| AUC alone is unsafe for identification | 500 random probes reach AUC 1.00 on Williams syndrome and at least 0.70 on 7 of 12 cohorts. The z-score against random probe sets is what makes no_match work. `byo_fixture_results.tsv` |
 | Label check | Two AI-written implementations of the labelling rules agree on 81 of 81 scoreable samples. This is an AI-vs-AI consistency check. Human curation is still pending. |
 
 One threshold change was made in the whole project. Choufani's Bonferroni correction with a
@@ -75,7 +75,8 @@ Five pages, each carrying the not-for-patient-use banner:
   supports, or why grading is limited.
 - **Test your own signature**: upload a probe list (or pick one of five examples). Reports
   platform and corpus coverage, the identification verdict across all 12 cohorts, the
-  signature's specificity row, the matched cohort's evidence ceiling, overlap with the corpus
+  signature's specificity row, an evidence ceiling that accounts for cohort size and signature
+  size, overlap with the corpus
   signatures, and a "Why this result" panel. Download the evaluation as TSV.
 - **Calibration curves**: evidence bands and attainable ceilings.
 - **Cohort audit**: the 12-disorder verdict table, leave-one-study-out, the confounding gate,
