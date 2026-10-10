@@ -208,6 +208,25 @@ def build(disorder: Disorder) -> BuildResult:
     return BuildResult(resolved, clf, [row])
 
 
+def corpus_groups(resolved_disorders: list[ResolvedDisorder]) -> pd.DataFrame:
+    """Every sample that gets scored, labelled once for the whole corpus: a disorder name for
+    its cases, pooled_control for matched controls, comparator_sibling for Down's siblings.
+    Indexed by GSM with columns series_id, group."""
+    rows = {}
+    for series_id in registry.BETA_SERIES:
+        for gsm in registry.pooled_control_ids(loader.series_meta(series_id)):
+            rows[gsm] = {"series_id": series_id, "group": registry.POOLED_CONTROL_LABEL}
+    for resolved in resolved_disorders:
+        for arm in resolved.arms:
+            for gsm in arm.control_ids:
+                rows.setdefault(
+                    gsm, {"series_id": arm.control_series, "group": registry.SIBLING_LABEL},
+                )
+            for gsm in arm.case_ids:
+                rows[gsm] = {"series_id": arm.series_id, "group": resolved.name}
+    return pd.DataFrame.from_dict(rows, orient="index")
+
+
 def loso_arms(resolved: ResolvedDisorder) -> list[StudyArm]:
     """Study arms for epigrade.audit.loso, each carrying its own betas (cases plus the controls
     it is compared against, borrowed or not)."""

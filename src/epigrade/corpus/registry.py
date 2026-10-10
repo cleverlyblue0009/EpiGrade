@@ -211,6 +211,8 @@ BETA_SERIES: tuple[str, ...] = (
     "GSE108423", "GSE116992", "GSE125367", "GSE52588",
 )
 POOLED_CONTROL_LABEL = "pooled_control"
+# Down syndrome's sibling comparators: scored, but never part of the pooled controls.
+SIBLING_LABEL = "comparator_sibling"
 
 
 def pooled_control_ids(meta: pd.DataFrame) -> list[str]:

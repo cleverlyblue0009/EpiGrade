@@ -47,7 +47,7 @@ from epigrade.signature.generic import (
 MIN_N_TO_INTERPRET = 10
 TOO_SMALL = "too small to interpret"
 PRIOR_GRID = [0.05, 0.10, 0.20]
-SIBLING_LABEL = "comparator_sibling"
+SIBLING_LABEL = registry.SIBLING_LABEL
 
 DERIVATION_COLUMNS = [
     "disorder", "derivation_scope", "status", "multiple_testing_method", "alpha",
@@ -176,22 +176,6 @@ def write_signatures(results: dict[str, BuildResult]) -> pd.DataFrame:
 
 
 # --------------------------------------------------------------------------- scoring
-
-
-def corpus_groups(results: dict[str, BuildResult]) -> pd.DataFrame:
-    """Every sample that gets scored, labelled once for the whole corpus: a disorder name for
-    its cases, pooled_control for matched controls, comparator_sibling for Down's siblings."""
-    rows = {}
-    for series_id in registry.BETA_SERIES:
-        for gsm in registry.pooled_control_ids(loader.series_meta(series_id)):
-            rows[gsm] = {"series_id": series_id, "group": registry.POOLED_CONTROL_LABEL}
-    for result in results.values():
-        for arm in result.resolved.arms:
-            for gsm in arm.control_ids:
-                rows.setdefault(gsm, {"series_id": arm.control_series, "group": SIBLING_LABEL})
-            for gsm in arm.case_ids:
-                rows[gsm] = {"series_id": arm.series_id, "group": result.resolved.name}
-    return pd.DataFrame.from_dict(rows, orient="index")
 
 
 def scoring_store(groups: pd.DataFrame, results: dict[str, BuildResult]) -> dict:
@@ -453,7 +437,7 @@ def main() -> None:
     write_signatures(results)
 
     print("Scoring every classifier against every cohort...")
-    groups = corpus_groups(results)
+    groups = build.corpus_groups([r.resolved for r in results.values()])
     group_sizes = groups["group"].value_counts().to_dict()
     store = scoring_store(groups, results)
     matrix, controls, evidence = [], [], []

@@ -71,6 +71,50 @@ separate cases under this scoring rule.
 **Small cohorts.** Weaver (8) and Claes-Jensen (6) have no signature and never will at this
 size. Their columns in the cross-disorder matrix are marked "too small to interpret".
 
+## Bring your own signature (identification engine)
+
+**The match rule is not the one originally specified, and the reason is a finding.** The
+original rule was "rank cohorts by AUC; match if AUC exceeds 0.70". On this corpus 500 random
+probes separate Sotos cases from their controls at AUC 1.00 (Williams 0.99, ICF 0.99, Down
+0.90), because those disorders shift methylation genome-wide inside one study. Under the
+original rule a random probe list "identifies" Sotos. A match therefore also requires the
+submitted probes to show a larger mean absolute case-control difference than every one of 1,000
+random probe sets of the same size. AUC is still reported for every cohort.
+`results/tables/byo_fixture_results.tsv` records this honestly: the random fixture returns
+no_match, and its sub-expectation "nothing above AUC 0.70" is marked NOT met.
+
+**A match is within-study for every disorder except two.** Only Silver-Russell and Kabuki
+type 1 have a between-study bound. A match to any other cohort carries
+`interpretation_scope=within_study_only`.
+
+**The identification statistic is circular for the corpus's own signatures.** A signature
+derived from a cohort will, by construction, show excess difference in that cohort.
+
+**The evidence ceiling is a property of the matched cohort, not of the upload.** A 20-probe
+signature and a 500-probe signature matched to Sotos get the same ceiling. The fixture
+expectation "low evidence ceiling" for the tiny signature is recorded as NOT met for that
+reason; what does change with signature size is the width of the effect interval.
+
+**Offline coverage.** The checked-in demo resource carries cohort-level effects for every probe
+but sample-level betas only for the corpus signature probes and the five example files. On a
+clean clone an arbitrary upload gets a full identification statistic, while AUC, the
+specificity row and attribution use only the probes that have sample-level betas. With the
+corpus downloaded, `scripts/build_byo_resource.py` builds a full local store and removes that
+limit.
+
+**Weights** affect the identification statistic only, not the correlation score behind AUC.
+
+**Overlap.** Jaccard overlap above 0.5 is flagged as specified. A subset of a known signature
+has a low Jaccard (500 of 7,085 Sotos probes gives 0.07), so the fraction of submitted probes
+inside each corpus signature is reported and flagged as well.
+
+**Labelled-sample input (Form 2)** is implemented in the module
+(`signature_from_labelled_samples`) but is not exposed in the app, which accepts probe IDs
+only and never sample data.
+
+**EPIC v2 probe IDs** come from the GEO platform record GPL33022; replicate suffixes such as
+`_TC21` are stripped before matching.
+
 ## Phase 1: label harmonization
 
 - The "100-sample hand curation" agreement check (`results/tables/harmonisation_agreement.tsv`)

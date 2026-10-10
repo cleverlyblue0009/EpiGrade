@@ -12,9 +12,9 @@ reported plainly and does NOT stop the rest of the pipeline - a partial, honestl
 beats an all-or-nothing one, consistent with the rest of this project.
 
 Stages that need the downloaded data (GEO access on first run): harvest, download_matrices,
-sotos_demo, build_corpus.
-Table-only stages (--quick runs only these): triage_report, ceilings, figures, attribution,
-confounding_gate, provenance, resource_export.
+sotos_demo, build_corpus, test_signatures, byo_resource.
+Table-only stages (--quick runs only these): triage_report, ceilings, figures, byo_fixtures,
+attribution, confounding_gate, provenance, resource_export.
 """
 
 from __future__ import annotations
@@ -37,6 +37,9 @@ STAGES = [
     ("build_corpus", "build_corpus", True),
     ("ceilings", "compute_ceilings", False),
     ("figures", "make_figures", False),
+    ("test_signatures", "make_test_signatures", True),
+    ("byo_resource", "build_byo_resource", True),
+    ("byo_fixtures", "run_byo_fixtures", False),
     ("attribution", "compute_attribution", False),
     ("confounding_gate", "phase6_confounding_gate", False),
     ("provenance", "generate_provenance", False),

@@ -10,6 +10,7 @@ import pandas as pd
 import streamlit as st
 
 from epigrade import paths
+from epigrade.app import byo_page
 
 st.set_page_config(page_title="EpiGrade", layout="wide")
 
@@ -315,10 +316,13 @@ def main() -> None:
     )
 
     page = st.sidebar.radio(
-        "Page", ["Grade a score", "Calibration curves", "Cohort audit", "Cross-disorder matrix"],
+        "Page", ["Grade a score", "Test your own signature", "Calibration curves",
+                 "Cohort audit", "Cross-disorder matrix"],
     )
     if page == "Grade a score":
         page_grade(resource)
+    elif page == "Test your own signature":
+        byo_page.render()
     elif page == "Calibration curves":
         page_calibration(resource)
     elif page == "Cohort audit":

@@ -1,0 +1,585 @@
+gsm_accession	series_id	group
+GSM1920348	GSE74432	pooled_control
+GSM1920349	GSE74432	pooled_control
+GSM1920350	GSE74432	pooled_control
+GSM1920351	GSE74432	pooled_control
+GSM1920352	GSE74432	pooled_control
+GSM1920353	GSE74432	pooled_control
+GSM1920354	GSE74432	pooled_control
+GSM1920355	GSE74432	pooled_control
+GSM1920356	GSE74432	pooled_control
+GSM1920357	GSE74432	pooled_control
+GSM1920358	GSE74432	pooled_control
+GSM1920359	GSE74432	pooled_control
+GSM1920360	GSE74432	pooled_control
+GSM1920361	GSE74432	pooled_control
+GSM1920362	GSE74432	pooled_control
+GSM1920363	GSE74432	pooled_control
+GSM1920364	GSE74432	pooled_control
+GSM1920365	GSE74432	pooled_control
+GSM1920366	GSE74432	pooled_control
+GSM1920367	GSE74432	pooled_control
+GSM1920368	GSE74432	pooled_control
+GSM1920369	GSE74432	pooled_control
+GSM1920370	GSE74432	pooled_control
+GSM1920371	GSE74432	pooled_control
+GSM1920372	GSE74432	pooled_control
+GSM1920373	GSE74432	pooled_control
+GSM1920374	GSE74432	pooled_control
+GSM1920375	GSE74432	pooled_control
+GSM1920376	GSE74432	pooled_control
+GSM1920377	GSE74432	pooled_control
+GSM1920378	GSE74432	pooled_control
+GSM1920379	GSE74432	pooled_control
+GSM1920380	GSE74432	pooled_control
+GSM1920381	GSE74432	pooled_control
+GSM1920382	GSE74432	pooled_control
+GSM1920383	GSE74432	pooled_control
+GSM1920384	GSE74432	pooled_control
+GSM1920385	GSE74432	pooled_control
+GSM1920386	GSE74432	pooled_control
+GSM1920387	GSE74432	pooled_control
+GSM1920388	GSE74432	pooled_control
+GSM1920389	GSE74432	pooled_control
+GSM1920390	GSE74432	pooled_control
+GSM1920391	GSE74432	pooled_control
+GSM1920392	GSE74432	pooled_control
+GSM1920393	GSE74432	pooled_control
+GSM1920394	GSE74432	pooled_control
+GSM1920395	GSE74432	pooled_control
+GSM1920396	GSE74432	pooled_control
+GSM1920397	GSE74432	pooled_control
+GSM1920398	GSE74432	pooled_control
+GSM1920399	GSE74432	pooled_control
+GSM1920400	GSE74432	pooled_control
+GSM2800708	GSE104451	pooled_control
+GSM2800709	GSE104451	pooled_control
+GSM2800710	GSE104451	pooled_control
+GSM2800711	GSE104451	pooled_control
+GSM2800712	GSE104451	pooled_control
+GSM2800713	GSE104451	pooled_control
+GSM2800714	GSE104451	pooled_control
+GSM2800715	GSE104451	pooled_control
+GSM2800716	GSE104451	pooled_control
+GSM2800717	GSE104451	pooled_control
+GSM2800718	GSE104451	pooled_control
+GSM2800719	GSE104451	pooled_control
+GSM2800720	GSE104451	pooled_control
+GSM2800721	GSE104451	pooled_control
+GSM2800722	GSE104451	pooled_control
+GSM2800723	GSE104451	pooled_control
+GSM1338100	GSE55491	pooled_control
+GSM1338102	GSE55491	pooled_control
+GSM1338103	GSE55491	pooled_control
+GSM1338104	GSE55491	pooled_control
+GSM1338105	GSE55491	pooled_control
+GSM1338107	GSE55491	pooled_control
+GSM3227755	GSE116300	pooled_control
+GSM3227756	GSE116300	pooled_control
+GSM3227757	GSE116300	pooled_control
+GSM3227758	GSE116300	pooled_control
+GSM3227759	GSE116300	pooled_control
+GSM3227760	GSE116300	pooled_control
+GSM3227761	GSE116300	pooled_control
+GSM3227762	GSE116300	pooled_control
+GSM3227763	GSE116300	pooled_control
+GSM2562809	GSE97362	pooled_control
+GSM2562810	GSE97362	pooled_control
+GSM2562811	GSE97362	pooled_control
+GSM2562812	GSE97362	pooled_control
+GSM2562813	GSE97362	pooled_control
+GSM2562814	GSE97362	pooled_control
+GSM2562815	GSE97362	pooled_control
+GSM2562816	GSE97362	pooled_control
+GSM2562817	GSE97362	pooled_control
+GSM2562818	GSE97362	pooled_control
+GSM2562819	GSE97362	pooled_control
+GSM2562820	GSE97362	pooled_control
+GSM2562821	GSE97362	pooled_control
+GSM2562822	GSE97362	pooled_control
+GSM2562823	GSE97362	pooled_control
+GSM2562824	GSE97362	pooled_control
+GSM2562825	GSE97362	pooled_control
+GSM2562826	GSE97362	pooled_control
+GSM2562827	GSE97362	pooled_control
+GSM2562828	GSE97362	pooled_control
+GSM2562829	GSE97362	pooled_control
+GSM2562830	GSE97362	pooled_control
+GSM2562831	GSE97362	pooled_control
+GSM2562832	GSE97362	pooled_control
+GSM2562833	GSE97362	pooled_control
+GSM2562834	GSE97362	pooled_control
+GSM2562835	GSE97362	pooled_control
+GSM2562836	GSE97362	pooled_control
+GSM2562837	GSE97362	pooled_control
+GSM2562838	GSE97362	pooled_control
+GSM2562839	GSE97362	pooled_control
+GSM2562840	GSE97362	pooled_control
+GSM2562841	GSE97362	pooled_control
+GSM2562842	GSE97362	pooled_control
+GSM2562843	GSE97362	pooled_control
+GSM2562844	GSE97362	pooled_control
+GSM2562845	GSE97362	pooled_control
+GSM2562846	GSE97362	pooled_control
+GSM2562847	GSE97362	pooled_control
+GSM2562848	GSE97362	pooled_control
+GSM2562849	GSE97362	pooled_control
+GSM2562850	GSE97362	pooled_control
+GSM2562851	GSE97362	pooled_control
+GSM2562852	GSE97362	pooled_control
+GSM2562853	GSE97362	pooled_control
+GSM2562854	GSE97362	pooled_control
+GSM2562855	GSE97362	pooled_control
+GSM2562856	GSE97362	pooled_control
+GSM2562857	GSE97362	pooled_control
+GSM2562858	GSE97362	pooled_control
+GSM2562859	GSE97362	pooled_control
+GSM2562860	GSE97362	pooled_control
+GSM2562861	GSE97362	pooled_control
+GSM2562862	GSE97362	pooled_control
+GSM2562863	GSE97362	pooled_control
+GSM2562864	GSE97362	pooled_control
+GSM2562865	GSE97362	pooled_control
+GSM2562866	GSE97362	pooled_control
+GSM2562867	GSE97362	pooled_control
+GSM2562868	GSE97362	pooled_control
+GSM2562869	GSE97362	pooled_control
+GSM2562870	GSE97362	pooled_control
+GSM2562871	GSE97362	pooled_control
+GSM2562872	GSE97362	pooled_control
+GSM2562873	GSE97362	pooled_control
+GSM2562874	GSE97362	pooled_control
+GSM2562875	GSE97362	pooled_control
+GSM2562876	GSE97362	pooled_control
+GSM2562877	GSE97362	pooled_control
+GSM2562878	GSE97362	pooled_control
+GSM2562879	GSE97362	pooled_control
+GSM2562880	GSE97362	pooled_control
+GSM2562881	GSE97362	pooled_control
+GSM2562882	GSE97362	pooled_control
+GSM2562883	GSE97362	pooled_control
+GSM2562884	GSE97362	pooled_control
+GSM2562885	GSE97362	pooled_control
+GSM2562886	GSE97362	pooled_control
+GSM2562887	GSE97362	pooled_control
+GSM2562888	GSE97362	pooled_control
+GSM2562889	GSE97362	pooled_control
+GSM2562890	GSE97362	pooled_control
+GSM2562891	GSE97362	pooled_control
+GSM2562892	GSE97362	pooled_control
+GSM2562893	GSE97362	pooled_control
+GSM2562894	GSE97362	pooled_control
+GSM2562895	GSE97362	pooled_control
+GSM2562896	GSE97362	pooled_control
+GSM2562897	GSE97362	pooled_control
+GSM2562898	GSE97362	pooled_control
+GSM2562899	GSE97362	pooled_control
+GSM2562900	GSE97362	pooled_control
+GSM2562901	GSE97362	pooled_control
+GSM2562902	GSE97362	pooled_control
+GSM2562903	GSE97362	pooled_control
+GSM2562904	GSE97362	pooled_control
+GSM2562905	GSE97362	pooled_control
+GSM2562906	GSE97362	pooled_control
+GSM2562907	GSE97362	pooled_control
+GSM2562908	GSE97362	pooled_control
+GSM2562909	GSE97362	pooled_control
+GSM2562910	GSE97362	pooled_control
+GSM2562911	GSE97362	pooled_control
+GSM2562912	GSE97362	pooled_control
+GSM2562913	GSE97362	pooled_control
+GSM2562914	GSE97362	pooled_control
+GSM2562915	GSE97362	pooled_control
+GSM2562916	GSE97362	pooled_control
+GSM2562917	GSE97362	pooled_control
+GSM2562918	GSE97362	pooled_control
+GSM2562919	GSE97362	pooled_control
+GSM2562922	GSE97362	pooled_control
+GSM2562923	GSE97362	pooled_control
+GSM2562924	GSE97362	pooled_control
+GSM2562925	GSE97362	pooled_control
+GSM2562926	GSE97362	pooled_control
+GSM2562927	GSE97362	pooled_control
+GSM2562928	GSE97362	pooled_control
+GSM2562929	GSE97362	pooled_control
+GSM2562930	GSE97362	pooled_control
+GSM2562931	GSE97362	pooled_control
+GSM2562932	GSE97362	pooled_control
+GSM2562933	GSE97362	pooled_control
+GSM2562934	GSE97362	pooled_control
+GSM2562935	GSE97362	pooled_control
+GSM1624830	GSE66552	pooled_control
+GSM1624831	GSE66552	pooled_control
+GSM1624846	GSE66552	pooled_control
+GSM1624847	GSE66552	pooled_control
+GSM1624848	GSE66552	pooled_control
+GSM1624849	GSE66552	pooled_control
+GSM1624850	GSE66552	pooled_control
+GSM1624851	GSE66552	pooled_control
+GSM1624852	GSE66552	pooled_control
+GSM1624853	GSE66552	pooled_control
+GSM1624854	GSE66552	pooled_control
+GSM1624855	GSE66552	pooled_control
+GSM1624872	GSE66552	pooled_control
+GSM1624873	GSE66552	pooled_control
+GSM1624874	GSE66552	pooled_control
+GSM2495036	GSE95040	pooled_control
+GSM2495037	GSE95040	pooled_control
+GSM2495038	GSE95040	pooled_control
+GSM2495046	GSE95040	pooled_control
+GSM2495047	GSE95040	pooled_control
+GSM2495048	GSE95040	pooled_control
+GSM2495049	GSE95040	pooled_control
+GSM2495050	GSE95040	pooled_control
+GSM2495054	GSE95040	pooled_control
+GSM2495059	GSE95040	pooled_control
+GSM2897983	GSE108423	pooled_control
+GSM2897984	GSE108423	pooled_control
+GSM2897985	GSE108423	pooled_control
+GSM2897986	GSE108423	pooled_control
+GSM2897987	GSE108423	pooled_control
+GSM2897988	GSE108423	pooled_control
+GSM2897989	GSE108423	pooled_control
+GSM2897990	GSE108423	pooled_control
+GSM2897991	GSE108423	pooled_control
+GSM2897992	GSE108423	pooled_control
+GSM2897993	GSE108423	pooled_control
+GSM2897994	GSE108423	pooled_control
+GSM3572680	GSE125367	pooled_control
+GSM3572681	GSE125367	pooled_control
+GSM3572682	GSE125367	pooled_control
+GSM3572683	GSE125367	pooled_control
+GSM3572684	GSE125367	pooled_control
+GSM3572685	GSE125367	pooled_control
+GSM3572686	GSE125367	pooled_control
+GSM3572687	GSE125367	pooled_control
+GSM3572688	GSE125367	pooled_control
+GSM3572689	GSE125367	pooled_control
+GSM3572690	GSE125367	pooled_control
+GSM3572691	GSE125367	pooled_control
+GSM3572692	GSE125367	pooled_control
+GSM3572693	GSE125367	pooled_control
+GSM3572694	GSE125367	pooled_control
+GSM3572695	GSE125367	pooled_control
+GSM3572696	GSE125367	pooled_control
+GSM3572697	GSE125367	pooled_control
+GSM3572698	GSE125367	pooled_control
+GSM3572699	GSE125367	pooled_control
+GSM3572700	GSE125367	pooled_control
+GSM3572701	GSE125367	pooled_control
+GSM3572702	GSE125367	pooled_control
+GSM3572703	GSE125367	pooled_control
+GSM3572704	GSE125367	pooled_control
+GSM3572705	GSE125367	pooled_control
+GSM3572706	GSE125367	pooled_control
+GSM2800663	GSE104451	Silver-Russell syndrome
+GSM2800664	GSE104451	Silver-Russell syndrome
+GSM2800665	GSE104451	Silver-Russell syndrome
+GSM2800666	GSE104451	Silver-Russell syndrome
+GSM2800667	GSE104451	Silver-Russell syndrome
+GSM2800668	GSE104451	Silver-Russell syndrome
+GSM2800669	GSE104451	Silver-Russell syndrome
+GSM2800670	GSE104451	Silver-Russell syndrome
+GSM2800671	GSE104451	Silver-Russell syndrome
+GSM2800672	GSE104451	Silver-Russell syndrome
+GSM2800673	GSE104451	Silver-Russell syndrome
+GSM2800674	GSE104451	Silver-Russell syndrome
+GSM2800675	GSE104451	Silver-Russell syndrome
+GSM2800676	GSE104451	Silver-Russell syndrome
+GSM2800677	GSE104451	Silver-Russell syndrome
+GSM2800678	GSE104451	Silver-Russell syndrome
+GSM2800679	GSE104451	Silver-Russell syndrome
+GSM2800680	GSE104451	Silver-Russell syndrome
+GSM2800681	GSE104451	Silver-Russell syndrome
+GSM2800682	GSE104451	Silver-Russell syndrome
+GSM2800683	GSE104451	Silver-Russell syndrome
+GSM2800684	GSE104451	Silver-Russell syndrome
+GSM2800685	GSE104451	Silver-Russell syndrome
+GSM2800686	GSE104451	Silver-Russell syndrome
+GSM2800687	GSE104451	Silver-Russell syndrome
+GSM2800688	GSE104451	Silver-Russell syndrome
+GSM2800689	GSE104451	Silver-Russell syndrome
+GSM2800690	GSE104451	Silver-Russell syndrome
+GSM2800691	GSE104451	Silver-Russell syndrome
+GSM2800692	GSE104451	Silver-Russell syndrome
+GSM2800693	GSE104451	Silver-Russell syndrome
+GSM2800694	GSE104451	Silver-Russell syndrome
+GSM2800695	GSE104451	Silver-Russell syndrome
+GSM2800696	GSE104451	Silver-Russell syndrome
+GSM2800697	GSE104451	Silver-Russell syndrome
+GSM2800698	GSE104451	Silver-Russell syndrome
+GSM2800699	GSE104451	Silver-Russell syndrome
+GSM2800700	GSE104451	Silver-Russell syndrome
+GSM2800701	GSE104451	Silver-Russell syndrome
+GSM2800702	GSE104451	Silver-Russell syndrome
+GSM2800703	GSE104451	Silver-Russell syndrome
+GSM2800704	GSE104451	Silver-Russell syndrome
+GSM2800705	GSE104451	Silver-Russell syndrome
+GSM2800706	GSE104451	Silver-Russell syndrome
+GSM2800707	GSE104451	Silver-Russell syndrome
+GSM1338101	GSE55491	Silver-Russell syndrome
+GSM1338106	GSE55491	Silver-Russell syndrome
+GSM1338108	GSE55491	Silver-Russell syndrome
+GSM1338109	GSE55491	Silver-Russell syndrome
+GSM1338110	GSE55491	Silver-Russell syndrome
+GSM1338111	GSE55491	Silver-Russell syndrome
+GSM1338112	GSE55491	Silver-Russell syndrome
+GSM1338113	GSE55491	Silver-Russell syndrome
+GSM1338114	GSE55491	Silver-Russell syndrome
+GSM1338115	GSE55491	Silver-Russell syndrome
+GSM1338116	GSE55491	Silver-Russell syndrome
+GSM1338117	GSE55491	Silver-Russell syndrome
+GSM1338118	GSE55491	Silver-Russell syndrome
+GSM1338119	GSE55491	Silver-Russell syndrome
+GSM1338120	GSE55491	Silver-Russell syndrome
+GSM1338121	GSE55491	Silver-Russell syndrome
+GSM1338122	GSE55491	Silver-Russell syndrome
+GSM1338123	GSE55491	Silver-Russell syndrome
+GSM1920405	GSE74432	Sotos syndrome
+GSM1920406	GSE74432	Sotos syndrome
+GSM1920407	GSE74432	Sotos syndrome
+GSM1920408	GSE74432	Sotos syndrome
+GSM1920409	GSE74432	Sotos syndrome
+GSM1920410	GSE74432	Sotos syndrome
+GSM1920411	GSE74432	Sotos syndrome
+GSM1920412	GSE74432	Sotos syndrome
+GSM1920413	GSE74432	Sotos syndrome
+GSM1920414	GSE74432	Sotos syndrome
+GSM1920415	GSE74432	Sotos syndrome
+GSM1920416	GSE74432	Sotos syndrome
+GSM1920417	GSE74432	Sotos syndrome
+GSM1920418	GSE74432	Sotos syndrome
+GSM1920419	GSE74432	Sotos syndrome
+GSM1920420	GSE74432	Sotos syndrome
+GSM1920421	GSE74432	Sotos syndrome
+GSM1920422	GSE74432	Sotos syndrome
+GSM1920423	GSE74432	Sotos syndrome
+GSM1920427	GSE74432	Sotos syndrome
+GSM1920428	GSE74432	Sotos syndrome
+GSM1920429	GSE74432	Sotos syndrome
+GSM1920430	GSE74432	Sotos syndrome
+GSM1920431	GSE74432	Sotos syndrome
+GSM1920432	GSE74432	Sotos syndrome
+GSM1920433	GSE74432	Sotos syndrome
+GSM1920434	GSE74432	Sotos syndrome
+GSM1920435	GSE74432	Sotos syndrome
+GSM1920436	GSE74432	Sotos syndrome
+GSM1920437	GSE74432	Sotos syndrome
+GSM1920438	GSE74432	Sotos syndrome
+GSM1920439	GSE74432	Sotos syndrome
+GSM1920440	GSE74432	Sotos syndrome
+GSM1920441	GSE74432	Sotos syndrome
+GSM1920442	GSE74432	Sotos syndrome
+GSM1920443	GSE74432	Sotos syndrome
+GSM1920444	GSE74432	Sotos syndrome
+GSM1920445	GSE74432	Sotos syndrome
+GSM3227764	GSE116300	Kabuki syndrome type 1
+GSM3227765	GSE116300	Kabuki syndrome type 1
+GSM3227769	GSE116300	Kabuki syndrome type 1
+GSM3227770	GSE116300	Kabuki syndrome type 1
+GSM3227771	GSE116300	Kabuki syndrome type 1
+GSM3227772	GSE116300	Kabuki syndrome type 1
+GSM3227773	GSE116300	Kabuki syndrome type 1
+GSM3227774	GSE116300	Kabuki syndrome type 1
+GSM3227775	GSE116300	Kabuki syndrome type 1
+GSM3227776	GSE116300	Kabuki syndrome type 1
+GSM3227777	GSE116300	Kabuki syndrome type 1
+GSM3227778	GSE116300	Kabuki syndrome type 1
+GSM3227779	GSE116300	Kabuki syndrome type 1
+GSM3227780	GSE116300	Kabuki syndrome type 1
+GSM3227781	GSE116300	Kabuki syndrome type 1
+GSM3227782	GSE116300	Kabuki syndrome type 1
+GSM3227783	GSE116300	Kabuki syndrome type 1
+GSM3227784	GSE116300	Kabuki syndrome type 1
+GSM3227785	GSE116300	Kabuki syndrome type 1
+GSM3227786	GSE116300	Kabuki syndrome type 1
+GSM3227787	GSE116300	Kabuki syndrome type 1
+GSM3227788	GSE116300	Kabuki syndrome type 1
+GSM3227789	GSE116300	Kabuki syndrome type 1
+GSM3227790	GSE116300	Kabuki syndrome type 1
+GSM3227791	GSE116300	Kabuki syndrome type 1
+GSM3227792	GSE116300	Kabuki syndrome type 1
+GSM2562771	GSE97362	Kabuki syndrome type 1
+GSM2562772	GSE97362	Kabuki syndrome type 1
+GSM2562773	GSE97362	Kabuki syndrome type 1
+GSM2562774	GSE97362	Kabuki syndrome type 1
+GSM2562775	GSE97362	Kabuki syndrome type 1
+GSM2562776	GSE97362	Kabuki syndrome type 1
+GSM2562777	GSE97362	Kabuki syndrome type 1
+GSM2562778	GSE97362	Kabuki syndrome type 1
+GSM2562779	GSE97362	Kabuki syndrome type 1
+GSM2562780	GSE97362	Kabuki syndrome type 1
+GSM2562781	GSE97362	Kabuki syndrome type 1
+GSM1272151	GSE52588	comparator_sibling
+GSM1272152	GSE52588	comparator_sibling
+GSM1272153	GSE52588	comparator_sibling
+GSM1272154	GSE52588	comparator_sibling
+GSM1272155	GSE52588	comparator_sibling
+GSM1272156	GSE52588	comparator_sibling
+GSM1272157	GSE52588	comparator_sibling
+GSM1272158	GSE52588	comparator_sibling
+GSM1272159	GSE52588	comparator_sibling
+GSM1272160	GSE52588	comparator_sibling
+GSM1272161	GSE52588	comparator_sibling
+GSM1272162	GSE52588	comparator_sibling
+GSM1272163	GSE52588	comparator_sibling
+GSM1272164	GSE52588	comparator_sibling
+GSM1272165	GSE52588	comparator_sibling
+GSM1272166	GSE52588	comparator_sibling
+GSM1272167	GSE52588	comparator_sibling
+GSM1272168	GSE52588	comparator_sibling
+GSM1272169	GSE52588	comparator_sibling
+GSM1272170	GSE52588	comparator_sibling
+GSM1272171	GSE52588	comparator_sibling
+GSM1272172	GSE52588	comparator_sibling
+GSM1272173	GSE52588	comparator_sibling
+GSM1272174	GSE52588	comparator_sibling
+GSM1272175	GSE52588	comparator_sibling
+GSM1272176	GSE52588	comparator_sibling
+GSM1272177	GSE52588	comparator_sibling
+GSM1272178	GSE52588	comparator_sibling
+GSM1272179	GSE52588	comparator_sibling
+GSM1272122	GSE52588	Down syndrome
+GSM1272123	GSE52588	Down syndrome
+GSM1272124	GSE52588	Down syndrome
+GSM1272125	GSE52588	Down syndrome
+GSM1272126	GSE52588	Down syndrome
+GSM1272127	GSE52588	Down syndrome
+GSM1272128	GSE52588	Down syndrome
+GSM1272129	GSE52588	Down syndrome
+GSM1272130	GSE52588	Down syndrome
+GSM1272131	GSE52588	Down syndrome
+GSM1272132	GSE52588	Down syndrome
+GSM1272133	GSE52588	Down syndrome
+GSM1272134	GSE52588	Down syndrome
+GSM1272135	GSE52588	Down syndrome
+GSM1272136	GSE52588	Down syndrome
+GSM1272137	GSE52588	Down syndrome
+GSM1272138	GSE52588	Down syndrome
+GSM1272139	GSE52588	Down syndrome
+GSM1272140	GSE52588	Down syndrome
+GSM1272141	GSE52588	Down syndrome
+GSM1272142	GSE52588	Down syndrome
+GSM1272143	GSE52588	Down syndrome
+GSM1272144	GSE52588	Down syndrome
+GSM1272145	GSE52588	Down syndrome
+GSM1272146	GSE52588	Down syndrome
+GSM1272147	GSE52588	Down syndrome
+GSM1272148	GSE52588	Down syndrome
+GSM1272149	GSE52588	Down syndrome
+GSM1272150	GSE52588	Down syndrome
+GSM3267080	GSE116992	Coffin-Siris syndrome
+GSM3267081	GSE116992	Coffin-Siris syndrome
+GSM3267082	GSE116992	Coffin-Siris syndrome
+GSM3267083	GSE116992	Coffin-Siris syndrome
+GSM3267084	GSE116992	Coffin-Siris syndrome
+GSM3267085	GSE116992	Coffin-Siris syndrome
+GSM3267086	GSE116992	Coffin-Siris syndrome
+GSM3267112	GSE116992	Coffin-Siris syndrome
+GSM3267113	GSE116992	Coffin-Siris syndrome
+GSM3267114	GSE116992	Coffin-Siris syndrome
+GSM3267115	GSE116992	Coffin-Siris syndrome
+GSM3267116	GSE116992	Coffin-Siris syndrome
+GSM3267117	GSE116992	Coffin-Siris syndrome
+GSM3267118	GSE116992	Coffin-Siris syndrome
+GSM3267126	GSE116992	Coffin-Siris syndrome
+GSM3267127	GSE116992	Coffin-Siris syndrome
+GSM3267128	GSE116992	Coffin-Siris syndrome
+GSM3267129	GSE116992	Coffin-Siris syndrome
+GSM3267130	GSE116992	Coffin-Siris syndrome
+GSM3267131	GSE116992	Coffin-Siris syndrome
+GSM3267132	GSE116992	Coffin-Siris syndrome
+GSM1624832	GSE66552	Williams syndrome
+GSM1624833	GSE66552	Williams syndrome
+GSM1624834	GSE66552	Williams syndrome
+GSM1624835	GSE66552	Williams syndrome
+GSM1624836	GSE66552	Williams syndrome
+GSM1624837	GSE66552	Williams syndrome
+GSM1624838	GSE66552	Williams syndrome
+GSM1624839	GSE66552	Williams syndrome
+GSM1624840	GSE66552	Williams syndrome
+GSM1624841	GSE66552	Williams syndrome
+GSM1624842	GSE66552	Williams syndrome
+GSM1624843	GSE66552	Williams syndrome
+GSM1624844	GSE66552	Williams syndrome
+GSM1624845	GSE66552	Williams syndrome
+GSM1624856	GSE66552	Williams syndrome
+GSM1624857	GSE66552	Williams syndrome
+GSM1624858	GSE66552	Williams syndrome
+GSM1624859	GSE66552	Williams syndrome
+GSM1624860	GSE66552	Williams syndrome
+GSM1624861	GSE66552	Williams syndrome
+GSM2562699	GSE97362	CHARGE syndrome
+GSM2562700	GSE97362	CHARGE syndrome
+GSM2562701	GSE97362	CHARGE syndrome
+GSM2562702	GSE97362	CHARGE syndrome
+GSM2562703	GSE97362	CHARGE syndrome
+GSM2562704	GSE97362	CHARGE syndrome
+GSM2562705	GSE97362	CHARGE syndrome
+GSM2562706	GSE97362	CHARGE syndrome
+GSM2562707	GSE97362	CHARGE syndrome
+GSM2562708	GSE97362	CHARGE syndrome
+GSM2562709	GSE97362	CHARGE syndrome
+GSM2562710	GSE97362	CHARGE syndrome
+GSM2562711	GSE97362	CHARGE syndrome
+GSM2562712	GSE97362	CHARGE syndrome
+GSM2562713	GSE97362	CHARGE syndrome
+GSM2562714	GSE97362	CHARGE syndrome
+GSM2562715	GSE97362	CHARGE syndrome
+GSM2562716	GSE97362	CHARGE syndrome
+GSM2562717	GSE97362	CHARGE syndrome
+GSM3267111	GSE116992	Nicolaides-Baraitser syndrome
+GSM3267119	GSE116992	Nicolaides-Baraitser syndrome
+GSM3267120	GSE116992	Nicolaides-Baraitser syndrome
+GSM3267121	GSE116992	Nicolaides-Baraitser syndrome
+GSM3267122	GSE116992	Nicolaides-Baraitser syndrome
+GSM3267123	GSE116992	Nicolaides-Baraitser syndrome
+GSM3267124	GSE116992	Nicolaides-Baraitser syndrome
+GSM3267125	GSE116992	Nicolaides-Baraitser syndrome
+GSM3572707	GSE125367	Nicolaides-Baraitser syndrome
+GSM3572708	GSE125367	Nicolaides-Baraitser syndrome
+GSM3572710	GSE125367	Nicolaides-Baraitser syndrome
+GSM3572711	GSE125367	Nicolaides-Baraitser syndrome
+GSM3572712	GSE125367	Nicolaides-Baraitser syndrome
+GSM3572713	GSE125367	Nicolaides-Baraitser syndrome
+GSM3572714	GSE125367	Nicolaides-Baraitser syndrome
+GSM3572716	GSE125367	Nicolaides-Baraitser syndrome
+GSM2495039	GSE95040	ICF syndrome
+GSM2495040	GSE95040	ICF syndrome
+GSM2495041	GSE95040	ICF syndrome
+GSM2495042	GSE95040	ICF syndrome
+GSM2495043	GSE95040	ICF syndrome
+GSM2495044	GSE95040	ICF syndrome
+GSM2495045	GSE95040	ICF syndrome
+GSM2495051	GSE95040	ICF syndrome
+GSM2495052	GSE95040	ICF syndrome
+GSM2495053	GSE95040	ICF syndrome
+GSM2495055	GSE95040	ICF syndrome
+GSM2495056	GSE95040	ICF syndrome
+GSM2495057	GSE95040	ICF syndrome
+GSM2495058	GSE95040	ICF syndrome
+GSM2495060	GSE95040	ICF syndrome
+GSM1624862	GSE66552	7q11.23 duplication syndrome
+GSM1624863	GSE66552	7q11.23 duplication syndrome
+GSM1624864	GSE66552	7q11.23 duplication syndrome
+GSM1624865	GSE66552	7q11.23 duplication syndrome
+GSM1624866	GSE66552	7q11.23 duplication syndrome
+GSM1624867	GSE66552	7q11.23 duplication syndrome
+GSM1624868	GSE66552	7q11.23 duplication syndrome
+GSM1624869	GSE66552	7q11.23 duplication syndrome
+GSM1624870	GSE66552	7q11.23 duplication syndrome
+GSM1624871	GSE66552	7q11.23 duplication syndrome
+GSM1920446	GSE74432	Weaver syndrome
+GSM1920447	GSE74432	Weaver syndrome
+GSM1920448	GSE74432	Weaver syndrome
+GSM1920449	GSE74432	Weaver syndrome
+GSM1920450	GSE74432	Weaver syndrome
+GSM1920451	GSE74432	Weaver syndrome
+GSM1920452	GSE74432	Weaver syndrome
+GSM1920453	GSE74432	Weaver syndrome
+GSM2897974	GSE108423	Claes-Jensen syndrome
+GSM2897975	GSE108423	Claes-Jensen syndrome
+GSM2897976	GSE108423	Claes-Jensen syndrome
+GSM2897977	GSE108423	Claes-Jensen syndrome
+GSM2897978	GSE108423	Claes-Jensen syndrome
+GSM2897979	GSE108423	Claes-Jensen syndrome
