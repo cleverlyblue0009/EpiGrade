@@ -1,0 +1,12 @@
+{
+  "attempts": 2,
+  "created_utc": "2026-10-11T04:21:09+00:00",
+  "fact_hash": "08f26de2936eb4d8d542f8b9de4dd7ba4d368ed7ee7553cf4632b6b9588e9dc4",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [
+    "interpretive claim: 'association with'"
+  ],
+  "source": "model",
+  "text": "The analysis gave a strong result for Sotos syndrome. The finding is limited to the single study GSE74432 and should be interpreted only within that study. The test used 7,085 probes and compared 38 cases with 53 training controls from the same series. The confounding gate failed, and the overall verdict is that the finding applies only to this single study."
+}

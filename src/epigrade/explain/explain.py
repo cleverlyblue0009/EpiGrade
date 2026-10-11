@@ -42,6 +42,15 @@ FORBIDDEN = [
     (r"\blikely pathogenic\b|\bpathogenic\b|\blikely benign\b|\bbenign\b",
      "pathogenicity language"),
     (r"\binterpret(?:s|ed)? the biology\b|\bunderstands?\b", "claims of understanding"),
+    # Wrong data type or method name. Added after the second evaluation run, where outputs that
+    # passed every other check called a methylation signature "gene-expression" and renamed
+    # leave-one-study-out; these are errors of fact, not style.
+    (r"\bgene[- ]expression\b|\bexpression signature\b|\btranscript", "wrong data type"),
+    (r"\bleave[- ]one[- ](?:subject|sample|patient|case)[- ]out\b", "wrong method name"),
+    (r"\bassociation with\b|\blink(?:ed)? to\b|\bsupports? a link\b|\bcorrelat",
+     "interpretive claim"),
+    (r"\bperformed (?:strongly|well|poorly)\b|\breliable\b|\brobust\b",
+     "unsupported quality claim"),
 ]
 SYSTEM_PROMPT = (
     "You convert a precomputed analysis result into plain language for a reader who is not a "
@@ -67,6 +76,53 @@ class Explanation:
     fallback_reason: str = ""   # why the template was used, if it was
 
 
+# Typographic hyphens and spaces some models emit (e.g. U+2011 in "Coffin‑Siris"). They are
+# replaced before validation and display so names and numbers match the facts exactly.
+_TYPOGRAPHY = str.maketrans({
+    "\u2010": "-", "\u2011": "-", "\u2012": "-", "\u2013": "-", "\u2014": "-",
+    "\u2212": "-", "\u00a0": " ", "\u202f": " ", "\u2009": " ",
+})
+
+
+def normalise(text: str) -> str:
+    # "8\u202f053" is a thousands separator, not two numbers: make it "8,053" first.
+    text = re.sub(r"(\d)[\u202f\u2009\u00a0](\d{3})(?!\d)", r"\1,\2", text)
+    return " ".join(text.translate(_TYPOGRAPHY).split())
+
+
+_UNITS = {w: i for i, w in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen "
+    "fifteen sixteen seventeen eighteen nineteen".split())}
+_TENS = {w: 10 * (i + 2) for i, w in enumerate(
+    "twenty thirty forty fifty sixty seventy eighty ninety".split())}
+_SCALES = {"hundred": 100, "thousand": 1000}
+_WORD = "|".join(list(_UNITS) + list(_TENS) + list(_SCALES))
+_WORD_NUMBER = re.compile(rf"\b(?:{_WORD})(?:(?:[\s-]+|\s+and\s+)(?:{_WORD}))*\b", re.I)
+
+
+def _words_to_int(phrase: str) -> int:
+    total = current = 0
+    for word in re.split(r"[\s-]+", phrase.lower()):
+        if word == "and":
+            continue
+        if word in _UNITS:
+            current += _UNITS[word]
+        elif word in _TENS:
+            current += _TENS[word]
+        elif word == "hundred":
+            current = max(current, 1) * 100
+        elif word == "thousand":
+            total += max(current, 1) * 1000
+            current = 0
+    return total + current
+
+
+def _spelled_numbers(text: str) -> list[tuple[str, int]]:
+    """Numbers written in words ("four hundred and sixty-four"), which the digit check would
+    otherwise never see."""
+    return [(m.group(0), _words_to_int(m.group(0))) for m in _WORD_NUMBER.finditer(text)]
+
+
 def fact_hash(facts: dict) -> str:
     return hashlib.sha256(json.dumps(facts, sort_keys=True).encode("utf-8")).hexdigest()
 
@@ -87,7 +143,8 @@ def _as_float(token: str) -> float:
 
 def _walk(value):
     if isinstance(value, dict):
-        for v in value.values():
+        for k, v in value.items():
+            yield k
             yield from _walk(v)
     elif isinstance(value, list):
         for v in value:
@@ -126,6 +183,11 @@ def validate(text: str, facts: dict) -> list[str]:
             continue
         if not any(abs(value - a) < 1e-9 for a in allowed):
             problems.append(f"number not in the fact sheet: {token}")
+    for phrase, value in _spelled_numbers(text):
+        if value < SMALL_COUNT:
+            continue
+        if not any(abs(value - a) < 1e-9 for a in allowed):
+            problems.append(f"number not in the fact sheet: '{phrase}' ({value})")
     lowered = text.lower()
     for pattern, label in FORBIDDEN:
         for m in re.finditer(pattern, lowered):
@@ -192,6 +254,24 @@ def _log_failure(facts: dict, h: str, attempt: int, model: str, reasons: list[st
         ])
 
 
+def _text_hash(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _blocked_by_review() -> dict[tuple[str, str], str]:
+    """Model outputs that passed the validator but were found wrong on review
+    (results/tables/explanation_review.tsv). Keyed by fact sheet and exact text, so a
+    regenerated text is not blocked by a review of a different one."""
+    path = paths.tables_dir() / "explanation_review.tsv"
+    if not path.exists():
+        return {}
+    import pandas as pd
+
+    review = pd.read_csv(path, sep="\t", keep_default_na=False)
+    rejected = review[review.review_verdict == "error"]
+    return {(r.fact_hash, r.text_sha256): r.issue for r in rejected.itertuples()}
+
+
 # --------------------------------------------------------------------------- main entry
 
 
@@ -202,6 +282,13 @@ def explain(facts: dict, use_cache: bool = True, allow_model: bool = True) -> Ex
     if use_cache:
         hit = _cached(h)
         if hit is not None:
+            blocked = _blocked_by_review().get((h, _text_hash(hit.text)))
+            if hit.source == SOURCE_MODEL and blocked:
+                return Explanation(
+                    text=template.explain(facts), source=SOURCE_TEMPLATE, model=None,
+                    fact_hash=h, created_utc=hit.created_utc,
+                    fallback_reason=f"model text blocked after review: {blocked}",
+                )
             return hit
 
     model = groq_client.config()["model"]
@@ -220,6 +307,7 @@ def explain(facts: dict, use_cache: bool = True, allow_model: bool = True) -> Ex
             if text is None:
                 fallback = status
                 break
+            text = normalise(text)
             attempts += 1
             problems = validate(text, facts)
             if not problems:

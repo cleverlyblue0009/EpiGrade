@@ -43,7 +43,7 @@ Independent checks are rare and sobering. Husson and colleagues generated new da
 3. **Nine re-derived signatures under one fixed threshold**, each labelled as re-derived and never presented as a reproduction of a published signature.
 4. **A structural audit**: a confounding gate, leave-one-study-out in both directions for every disorder with two studies, and a complete cross-disorder matrix.
 5. **Calibrated evidence bands with an attainable ceiling**, separating between-study bounds from within-study ones.
-6. **An identification engine** that evaluates a user-supplied signature against all 12 cohorts, with a match rule that we changed after the originally specified rule failed on real data.
+6. **An identification engine** that evaluates a user-supplied signature against all 12 cohorts, with a match rule that we changed after the originally specified rule failed on real data, and an optional plain-language summary whose every output is checked against the computed facts.
 7. **One-command reproduction** of every table and figure.
 
 We do not claim the calibration method is new. It is Pejaver-style calibration [8] applied to a data type that had not been calibrated in public, and a general implementation is available on CRAN [11]. We do not claim cross-disorder specificity testing is new; it is routine inside the private database [3]. The claim is that this version can be checked.
@@ -64,7 +64,7 @@ We do not claim the calibration method is new. It is Pejaver-style calibration [
 
 **Kerkhof et al. (2024)** reported the clinical experience of the EpiSign network and published reporting recommendations [4]. The assay compares each profile with the EpiSign Knowledge Database. The diagnostic yield is substantial. The reference set is not public.
 
-**Aref-Eshghi et al. (2019)** had earlier shown the diagnostic value of genome-wide methylation testing in genetically unsolved individuals [12], and **Sadikovic et al. (2020)** reviewed episignatures as a tool for functional annotation of variants [2].
+**Aref-Eshghi et al. (2019)** showed the diagnostic value of genome-wide methylation testing in genetically unsolved individuals [12], and **Sadikovic et al. (2020)** reviewed episignatures as a tool for variant annotation [2].
 
 ### 2.3 Independent evaluation
 
@@ -303,7 +303,7 @@ Per classifier, the off-diagonal means are 76.4% for Coffin-Siris and 59.7% for 
 
 A classifier that calls two thirds of unrelated patients positive is not detecting its disorder. Both cross-series classifiers were derived from cases deposited by one laboratory and controls deposited by another, so the probes that separate cases from controls are largely the probes that separate the two laboratories. Any sample from a third series then falls on one side or the other for reasons unrelated to disease.
 
-Two cautions. There are only two cross-series classifiers and they share one set of controls, so this is one confound observed twice, not two independent observations. And within-series is not a guarantee: the Down classifier uses siblings from its own series and still has the highest within-series value.
+Two cautions. Both cross-series classifiers share one set of controls, so this is one confound observed twice. And within-series is no guarantee: the Down classifier, using siblings from its own series, has the highest within-series value.
 
 ### 5.6 Evidence bands and ceilings
 
@@ -346,11 +346,23 @@ Five test signatures were built from the real corpus (Table 6). All searched 12 
 
 Two expectations were not met, and we report them as not met.
 
-**Methodological finding: AUC alone is unsafe for identification in this corpus.** The original design ranked cohorts by AUC and called a match above 0.70. Five hundred random probes achieve an AUC of 1.00 on Williams syndrome, and 0.70 or more on 7 of the 12 cohorts. Under the original rule a random probe list would have been reported as identifying a disorder. Disorders that shift methylation across the genome separate from their own study's controls on almost any probe set, so a high AUC shows that cases and controls differ, not that the submitted probes are the reason. The criterion that makes no_match work is the comparison with random probes: a submitted set must show a larger case-control difference than every one of 1,000 random sets of the same size, summarised as a z-score. The random signature fails that test in all 12 cohorts and correctly returns no match. We report the expectation "nothing above AUC 0.70" as not met, because it is not, and we regard the reason as a result: any identification or validation claim based on within-study AUC needs a random-probe control beside it.
+**Methodological finding: AUC alone is unsafe for identification in this corpus.** Five hundred random probes achieve an AUC of 1.00 on Williams syndrome, and 0.70 or more on 7 of the 12 cohorts, so the original rule (match above AUC 0.70) would have named a disorder for a random list. Disorders that shift methylation genome-wide separate from their own study's controls on almost any probes. What makes no_match work is the comparison with 1,000 random probe sets of the same size, summarised as a z-score: the random signature fails it in all 12 cohorts. We record "nothing above AUC 0.70" as not met, and treat the reason as a result: any claim based on within-study AUC needs a random-probe control beside it.
 
-**The ceiling now depends on signature size.** In the first version of the engine the ceiling was a property of the matched cohort alone, so 20 probes and 500 probes both received Strong. That was a defect. With the signature-size bound of Section 3.10, the 20-probe signature is capped at Moderate, limited by signature size, while the 500-probe signature remains at Strong, limited by cohort size. The stricter expectation, a ceiling of Supporting or below for 20 probes, is not met: twenty well-chosen probes still separate this cohort reliably.
+**The ceiling now depends on signature size.** Earlier, 20 and 500 probes both received Strong, because the ceiling described only the cohort. With the bound of Section 3.10 the 20-probe signature is capped at Moderate (limited by signature size) and the 500-probe one stays Strong. The stricter expectation, Supporting or below, is not met.
 
-### 5.8 Label consistency
+### 5.8 The plain-language layer
+
+The app can add a short plain-language summary to each result. A language model (openai/gpt-oss-120b, served by Groq) is used only as a formatter: it receives a fact sheet built deterministically from the result tables and must restate it. Each output is checked before it is shown. It is rejected if it contains a number that is not in the fact sheet (written in digits or in words), clinical or mechanistic language the facts did not supply, a disorder the facts do not name, a wrong data type or method name, an interpretive claim, or fewer than 2 or more than 8 sentences. A rejected output gets one retry with the reasons attached; a second rejection falls back to a fixed template. This pattern, constrained generation from a structured fact sheet, is not new. What we report is how often it failed.
+
+**Rejections.** Over 17 subjects (the five test signatures and the twelve disorders), 12 outputs passed first time, 4 passed after the retry and 1 fell back to the template. 6 model outputs were rejected in all, for: wrong method name (3), interpretive claim (2), wrong data type (1).
+
+**Passing the check is not the same as being right.** We read every accepted output. 7 of 16 contained an error of meaning that no automatic check caught: calling the submitted probes "samples", misreading the band name "No evidence" as an absence of a band (twice), describing a cohort-level band as "a moderate-scoring case", adding "not intended for broader clinical use" (twice), and attributing a refusal to an array platform. These 7 are blocked in the app, which shows the template instead. The review was carried out by an AI assistant, not a person, and is recorded with every output in `results/tables/explanation_review.tsv`.
+
+**The checker had to be fixed as well.** In the first run, most of the 6 rejections were validator errors: "450K" in a platform name and a thin-space thousands separator were read as invented numbers. A second run then passed 17 of 17, yet called a methylation signature "gene-expression" and renamed leave-one-study-out; those terms were added to the check. All three runs are kept in `results/tables/`.
+
+The model cannot change a band, score or verdict, and the app works without it.
+
+### 5.9 Label consistency
 
 The two implementations of the labelling rules agreed on 81 of 81 scoreable samples; 19 of the 100 sampled were unresolvable from public metadata and were excluded from the denominator. This is an AI-versus-AI consistency figure. Human curation: human curation pending.
 
@@ -376,15 +388,13 @@ Second, the Coffin-Siris classifier, trained against out-of-series controls, has
 
 Third, random probes reach an AUC of 1.00. A laboratory that validates a new signature by showing high AUC against its own controls has not shown that the signature is specific. It may have shown only that cases and controls differ broadly.
 
-A perfect simulated classifier earns "Strong" at every real cohort size, including 6 cases. Small cohorts can produce confident-looking within-study evidence, which is why the scope label travels with every band we report.
-
 ### 6.3 The controls-source effect
 
-The second result in Section 6.2 deserves to be stated as a rule. A classifier trained against controls from another series learns the difference between two series. Its sensitivity on its own cases will look excellent, because its own cases all come from one of those series. Its evidence band will look respectable for the same reason. Nothing computed inside the training data can reveal the problem.
+A classifier trained against controls from another series learns the difference between two series. Its own cases all come from one of them, so its sensitivity and its evidence band look good, and nothing inside the training data reveals the problem.
 
-What reveals it is scoring samples from a third series. Here the mean positive rate on other disorders' cases is 68.1% for cross-series classifiers and 11.9% for within-series ones. We built the cross-series classifiers knowingly, because one public study deposited no controls, and we report them as a negative control for the whole approach rather than as signatures of Coffin-Siris or Nicolaides-Baraitser syndrome.
+Scoring samples from a third series does: 68.1% of other disorders' cases score positive under cross-series classifiers, against 11.9% under within-series ones. We built the cross-series classifiers knowingly, because one public study deposited no controls, and report them as a negative control, not as signatures of those disorders.
 
-The practical consequence reaches beyond this corpus. Borrowing reference controls is common when a rare-disease cohort is small. A signature built that way should be assumed to carry a series component until it has been scored on unrelated samples from elsewhere, and the cross-disorder matrix is a cheap way to do that.
+Borrowing reference controls is common when a rare-disease cohort is small. A signature built that way should be assumed to carry a series component until it has been scored on unrelated samples from elsewhere.
 
 ### 6.4 The circularity of benign labels for *NSD1*
 
@@ -393,8 +403,6 @@ The 16 *NSD1* missense variants split 9 positive and 7 negative, exactly as publ
 ### 6.5 What the identification engine lets a laboratory do
 
 A laboratory that has derived a signature can now ask, without sharing patient data: which platforms carry these probes; does the signature pick out a public cohort; how does it behave on eleven other disorders and 273 controls; is it largely a known signature; and what is the strongest claim the matched public cohort and the signature's own size could support. The answer arrives with the number of cohorts searched and the scope of the match stated, and with refusal when coverage is too low.
-
-The engine also showed us something we had not planned to find, which is that the obvious match rule is wrong. The control it needed, comparison with random probes, costs almost nothing and should be standard when a signature's separating power is reported.
 
 ### 6.6 Threats to validity
 
@@ -413,6 +421,8 @@ The engine also showed us something we had not planned to find, which is that th
 **Small numbers throughout.** The headline transfer result rests on 18 cases and 6 controls.
 
 **Labels.** The label check is AI-versus-AI. No human has curated the sample.
+
+**Plain-language summaries.** The validator catches invented numbers and listed terms, not errors of meaning: 7 of 16 outputs it accepted were wrong on review, and that review was itself done by an AI assistant.
 
 **Scope.** Blood, array-based methylation, twelve disorders. The pooled controls are the disease studies' own controls; the population collections were harvested for metadata only.
 

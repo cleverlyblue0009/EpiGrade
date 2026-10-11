@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:12+00:00",
+  "fact_hash": "a7b987b6964f1a96812ed1941a5b377bb08d7dd8b5540d860fb9115d0c06e5f8",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis found no evidence of a band at the typical case score for Kabuki syndrome type 1. The result was assessed across two studies, with 37 cases and 20 training controls, using a signature built from 278 probes that was rederived and not published. The interpretation scope was between-study, and the overall verdict was graded. Both leave-one-study-out directions were not computed."
+}

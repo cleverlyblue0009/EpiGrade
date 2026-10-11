@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:07+00:00",
+  "fact_hash": "49d05fe415f7aa55869698fc970dc554b7c44758641f8be67db486053339f7d0",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis found no evidence of a band at the typical case score for Silver-Russell syndrome. The study used controls from within the same series and the interpretation was made between studies, with a pass-structural confounding gate. A signature was built from 64 probes using data from two studies (GSE104451 and GSE55491), involving 63 cases and 16 training controls, and the signature source is rederived and not published. In the leave-one-study-out assessment, one direction was computed, showing a sensitivity of 5/18 and a specificity of 6/6, while the other direction was not computed. The overall verdict was graded."
+}

@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:41+00:00",
+  "fact_hash": "b7931a29b727bdd02a0f75fe330851c5817c367b9d9e2f9b7acb14793933c9c2",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis gave a moderate score for the typical case. The study was limited to a single study and the result applies only within that study. It involved 15 cases and 10 training controls, using 7,740 probes from one dataset (GSE95040). The signature was successfully built from a rederived, unpublished source, but the confounding gate failed. This assessment pertains to ICF syndrome and is not intended for broader clinical use."
+}

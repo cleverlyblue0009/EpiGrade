@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:06+00:00",
+  "fact_hash": "94e345fd4b4a160528e49f2bddfc9707f33fbfb15561defa72d1092a039ef460",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis was refused because none of the 500 submitted probes were present in any corpus cohort, so nothing could be scored. All 500 probes were missing, giving a 100 % missing rate. Only a tiny fraction of probes were found on the EPIC v1 platform (0.4 %) and none on the 450K platform, while the EPIC v2 platform contained all 500 probes but still did not meet the minimum requirement. The refusal code is \u201cinsufficient_probe_coverage\u201d. No matches or scores were reported."
+}

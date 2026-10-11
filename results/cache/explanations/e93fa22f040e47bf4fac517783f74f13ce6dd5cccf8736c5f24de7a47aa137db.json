@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:39+00:00",
+  "fact_hash": "e93fa22f040e47bf4fac517783f74f13ce6dd5cccf8736c5f24de7a47aa137db",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis gives a supporting result for Nicolaides-Baraitser syndrome, but it is limited to the study itself. The signature was built from 4,911 probes using data from two studies, GSE116992 and GSE125367, with 16 cases and 27 training controls. The approach passed the structural quality check and used cross-series controls. No leave-one-study-out directions were computed, and the overall verdict is graded."
+}

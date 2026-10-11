@@ -210,3 +210,58 @@ def test_env_file_is_gitignored():
                             capture_output=True, text=True)
     assert result.returncode == 0
 
+
+def test_typographic_hyphens_are_normalised_before_validation():
+    assert E.normalise("Coffin\u2011Siris\u00a0syndrome") == "Coffin-Siris syndrome"
+
+
+def test_platform_names_and_thin_space_thousands_are_not_false_rejections(byo_facts):
+    """Both were rejected by the first evaluation run although nothing was invented."""
+    f = byo_facts["sig_sotos_true.csv"]
+    text = E.normalise("All 500 probes are on the 450K array. The match used 7\u202f085 "
+                       "published probes in total.")
+    sotos = F.facts_for_disorder("Sotos syndrome")
+    assert E.validate(text.replace("7,085 published probes in total", "12 cohorts"), f) == []
+    assert "7,085" in text and E.validate("Sotos syndrome has 7,085 probes. It has 38 cases.",
+                                          sotos) == []
+
+
+def test_spelled_out_numbers_are_checked_too(byo_facts):
+    f = byo_facts["sig_random.csv"]
+    ok = "Five hundred probes were submitted. Twelve cohorts were searched."
+    assert E.validate(ok, f) == []
+    bad = "Five hundred probes were submitted. Four hundred and sixty-five were on one array."
+    assert any("465" in p for p in E.validate(bad, f))
+
+
+@pytest.mark.parametrize("sentence, label", [
+    ("A gene-expression signature was built from 9,537 probes.", "wrong data type"),
+    ("No leave-one-subject-out directions were computed.", "wrong method name"),
+    ("The analysis found a strong association with Sotos syndrome.", "interpretive claim"),
+    ("The signature performed strongly across the platforms tested.", "unsupported quality"),
+])
+def test_terminology_errors_seen_in_real_outputs_are_rejected(sentence, label):
+    f = F.facts_for_disorder("Williams syndrome")
+    f2 = F.facts_for_disorder("Sotos syndrome")
+    problems = E.validate(sentence + " It has 20 cases.", f) + E.validate(
+        sentence + " It has 38 cases.", f2)
+    assert any(label in p for p in problems), problems
+
+
+def test_outputs_found_wrong_on_review_never_reach_the_app():
+    review = pd.read_csv(paths.repo_root() / "results" / "tables" / "explanation_review.tsv",
+                         sep="\t", keep_default_na=False)
+    assert set(review.reviewer) == {"AI assistant (Claude), not a human"}
+    blocked = review[review.review_verdict == "error"]
+    assert len(blocked)
+    names = {r.subject: r for r in blocked.itertuples()}
+    for name, row in names.items():
+        facts = (F.facts_for_disorder(name) if row.kind == "disorder" else None)
+        if facts is None:
+            continue
+        cache = paths.repo_root() / "results" / "cache" / "explanations"
+        E.cache_dir = lambda cache=cache: cache  # read the committed cache for this check
+        result = E.explain(facts, allow_model=False)
+        assert result.source == E.SOURCE_TEMPLATE, name
+        assert result.fallback_reason.startswith("model text blocked after review"), name
+

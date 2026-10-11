@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:50+00:00",
+  "fact_hash": "a0fab1f4e288faf9bbbb2a00b09002f4d5fe00e7727cb0dfd93b350528a4063d",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis was aimed at Weaver syndrome but could not be completed because there were too few cases, with only eight affected individuals available. The study used data from the GSE74432 dataset and compared the eight cases to fifty-three training controls. The confounding gate was marked as not-testable, meaning the analysis could not be reliably performed. Consequently, no signature was built and no interpretation scope was assigned."
+}

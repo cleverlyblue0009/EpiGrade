@@ -1,0 +1,12 @@
+{
+  "attempts": 2,
+  "created_utc": "2026-10-11T04:21:14+00:00",
+  "fact_hash": "30c158bb428b8a908e3c7f4d0e31be744b7c19471bc883b3c1ba4ac22e048d05",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [
+    "wrong data type: 'gene-expression'"
+  ],
+  "source": "model",
+  "text": "The analysis was carried out on a single study of Down syndrome, involving 29 cases and 29 training controls taken from within the same series. A signature was built from 3,753 probes, rederived rather than taken from a published source. The typical-case score was moderate, but the confounding gate failed, so the result is limited to the study itself. No leave-one-out directions were computed. The overall verdict is that the findings apply only within this single study."
+}

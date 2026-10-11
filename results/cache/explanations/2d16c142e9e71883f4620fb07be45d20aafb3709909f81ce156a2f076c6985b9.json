@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:28:46+00:00",
+  "fact_hash": "2d16c142e9e71883f4620fb07be45d20aafb3709909f81ce156a2f076c6985b9",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis found no evidence linking the genetic variant to Kabuki syndrome type 1. The likelihood ratio is 0.5, with a confidence interval ranging from 0.2 to 2.5, which includes 1, indicating no clear effect. This result is based on 37 cases and 20 controls drawn from two studies each. The posterior probability is 4.9 % compared with a prior probability of 10 %. The bootstrap confidence interval spans a likelihood ratio of 1, confirming the lack of evidence."
+}

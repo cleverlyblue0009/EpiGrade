@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:20:59+00:00",
+  "fact_hash": "47305c1d65fd92c780c53d33719032f2016a3ec68d966a6f417851c2eecb397f",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis found a perfect match to the Sotos syndrome signature, with an AUC of 1.0 and a Z-score of 125.4. All 500 submitted probes overlapped with the Sotos syndrome signature, giving a Jaccard similarity of 0.07 and 100 % overlap. The result is limited to the study itself and does not imply transferability to other studies. The runner-up was Claes-Jensen syndrome with a Z-score of 31.4. No data were missing or refused."
+}

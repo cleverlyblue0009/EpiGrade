@@ -146,6 +146,19 @@ byo.random.highest_auc	1.00 (Williams syndrome)	results/tables/byo_fixture_resul
 byo.random.n_auc_over	7	results/tables/byo_fixture_results.tsv	sig_random.csv: n_cohorts_auc_at_or_above_0.70
 byo.flipped.inconsistent	500 of 500	results/tables/byo_fixture_results.tsv	sig_sotos_flipped.csv: n_direction_inconsistent
 byo.searched	12	results/tables/byo_fixture_results.tsv	n_disorders_searched
+explain.n_subjects	17	results/tables/explanation_eval_summary.tsv	measure=n_subjects
+explain.passed_first_time	12	results/tables/explanation_eval_summary.tsv	measure=passed_first_time
+explain.passed_after_retry	4	results/tables/explanation_eval_summary.tsv	measure=passed_after_retry
+explain.fell_back_after_two_rejections	1	results/tables/explanation_eval_summary.tsv	measure=fell_back_after_two_rejections
+explain.model_outputs_rejected_total	6	results/tables/explanation_eval_summary.tsv	measure=model_outputs_rejected_total
+explain.model	openai/gpt-oss-120b	results/tables/explanation_eval_summary.tsv	measure=model
+explain.rejection_reason: wrong method name	wrong method name (3)	results/tables/explanation_eval_summary.tsv	measure=rejection_reason: wrong method name
+explain.rejection_reason: interpretive claim	interpretive claim (2)	results/tables/explanation_eval_summary.tsv	measure=rejection_reason: interpretive claim
+explain.rejection_reason: wrong data type	wrong data type (1)	results/tables/explanation_eval_summary.tsv	measure=rejection_reason: wrong data type
+explain.review_errors	7 of 16	results/tables/explanation_review.tsv	review_verdict=error among source=model
+explain.review_ok	9	results/tables/explanation_review.tsv	review_verdict=ok among source=model
+explain.run2_passed	17 of 17	results/tables/explanation_eval_summary_run2.tsv	passed_first_time, run 2
+explain.run1_rejections	6	results/tables/explain_failures_run1.tsv	row count, run 1
 labels.ai_vs_ai	81 of 81	results/tables/harmonisation_agreement.tsv	agree, scoreable rows
 labels.unresolvable	19	results/tables/harmonisation_agreement.tsv	rows with no agree value
 labels.human	human curation pending	results/tables/human_curation_agreement.tsv	status

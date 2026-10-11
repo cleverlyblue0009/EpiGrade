@@ -70,6 +70,7 @@ def chat(messages: list[dict]) -> tuple[str | None, str]:
     payload = {
         "model": cfg["model"], "messages": messages,
         "temperature": cfg["temperature"], "max_tokens": cfg["max_tokens"],
+        **(cfg.get("request_options") or {}),
     }
     headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
     attempts = 1 + int(cfg.get("retry_on_rate_limit", 1))

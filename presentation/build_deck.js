@@ -394,6 +394,25 @@ pres.addSection({ title: "Identification engine" });
   s.addNotes("This is the page itself, and we will now show it live. You upload a probe list or choose one of the five examples. It reports how many probes exist on each array type, then the verdict, and it always says how many disorders it searched. Here it identifies Sotos syndrome and warns that the match is within a single study. The page runs offline and only ever takes probe identifiers, never patient data.");
 }
 
+// --------------------------------------------------------------- plain-language layer
+{
+  const ev = Object.fromEntries(tsv("explanation_eval_summary.tsv").map((r) => [r.measure, r.value]));
+  const review = tsv("explanation_review.tsv").filter((r) => r.source === "model");
+  const wrong = review.filter((r) => r.review_verdict === "error").length;
+  const s = content("Identification engine", "A language model as a formatter, checked");
+  stat(s, `${ev.passed_first_time} of ${ev.n_subjects}`, "summaries passed the automatic check first time",
+    { x: M, y: 1.6, w: 3.8, h: 2.3, color: C.accent1 });
+  stat(s, `${ev.passed_after_retry} + ${ev.fell_back_after_two_rejections}`, "passed after one retry, and fell back to a fixed template",
+    { x: M + 4.1, y: 1.6, w: 3.8, h: 2.3, color: C.accent5 });
+  stat(s, `${wrong} of ${review.length}`, "accepted summaries were still wrong on review, and are blocked",
+    { x: M + 8.2, y: 1.6, w: 3.8, h: 2.3, color: C.accent6 });
+  text(s, [
+    { text: "The model only restates a fact sheet built from our tables. Any number not in it, any clinical or mechanistic word, or a wrong term means rejection.", options: { breakLine: true } },
+    { text: "Passing that check is not the same as being right: it misses errors of meaning. The review was done by an AI assistant, not a person.", options: { bold: true } },
+  ], { x: M, y: 4.25, w: W - 2 * M, h: 2.5, fontSize: 20, paraSpaceAfter: 10 });
+  s.addNotes(`The app can add a plain-language summary to each result, written by a language model. We use the model only as a formatter: it gets a fact sheet built from our tables, and every output is checked before it is shown. Of ${ev.n_subjects} summaries, ${ev.passed_first_time} passed first time, ${ev.passed_after_retry} needed one retry, and ${ev.fell_back_after_two_rejections} fell back to a fixed template. But when every accepted summary was read through, ${wrong} of ${review.length} still contained a mistake of meaning, such as calling probes samples, so those are blocked. The point is that an automatic check catches invented numbers, not misreadings, and the app works fully without the model.`);
+}
+
 pres.addSection({ title: "Honest accounting" });
 
 // 14 --------------------------------------------------------------- ours / not ours

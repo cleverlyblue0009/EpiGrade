@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:46+00:00",
+  "fact_hash": "6ae2f0b9bc84890fac1725bccd6863bb7ac2d3f51fec167a7d783ca168a70468",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis was performed on a moderate-scoring case of 7q11.23 duplication syndrome using data from a single study (GSE66552). The result is limited to the study itself and should not be applied beyond that context. The test used 10 cases and 15 control samples, with a signature built from 1,827 probes. The overall assessment is that the finding is based on one study only."
+}

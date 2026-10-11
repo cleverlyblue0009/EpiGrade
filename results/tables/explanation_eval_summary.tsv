@@ -1,0 +1,11 @@
+measure	value
+model_available	True
+model	openai/gpt-oss-120b
+n_subjects	17
+passed_first_time	12
+passed_after_retry	4
+fell_back_after_two_rejections	1
+model_outputs_rejected_total	6
+rejection_reason: wrong method name	3
+rejection_reason: interpretive claim	2
+rejection_reason: wrong data type	1

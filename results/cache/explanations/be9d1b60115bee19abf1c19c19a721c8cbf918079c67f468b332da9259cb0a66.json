@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:31:32+00:00",
+  "fact_hash": "be9d1b60115bee19abf1c19c19a721c8cbf918079c67f468b332da9259cb0a66",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis identified a perfect match to the Sotos syndrome signature, with an AUC of 1.0 and all 20 submitted probes overlapping the known Sotos signature. This result is limited to the study it was derived from and does not imply broader applicability. The next-best match was Claes-Jensen syndrome, with a Z-score of 10.9. In the specificity check, 100 % of the Sotos cohort samples were positive, while other cohorts showed low or zero positivity. No data were missing or refused."
+}

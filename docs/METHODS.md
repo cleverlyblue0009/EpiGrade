@@ -233,3 +233,28 @@ more probe-sampling uncertainty and a lower bound: 20 Sotos probes are capped at
 AUC of 1.00 on Williams syndrome and at least 0.70 on 7 of 12 cohorts. The z-score against
 random probe sets is what makes `no_match` work; AUC is reported but never decides a match by
 itself.
+
+## Plain-language summaries (explanation layer)
+
+`src/epigrade/explain/`. The language model is a formatter, never an analyst.
+
+1. **Fact sheet** (`facts.py`): built deterministically from the result tables or the BYO
+   evaluation, rounded once. No model call.
+2. **Model** (`groq_client.py`): `openai/gpt-oss-120b` on Groq (`config/explain.yaml`; the id is
+   checked against the live model list for the key in use). Key from `GROQ_API_KEY` or the
+   gitignored `.env`. Timeout 15 s, one retry on HTTP 429; any failure returns nothing.
+3. **Validator** (`explain.py`): rejects a number not in the fact sheet (digits or words),
+   clinical or mechanistic language, an unnamed disorder, a wrong data type or method name, an
+   interpretive or quality claim, or a length outside 2-8 sentences. One retry with the
+   reasons, then the template. Rejections are logged to `results/tables/explain_failures.tsv`.
+4. **Template** (`template.py`): a fixed text from the same fact sheet; every template passes
+   the validator. Used with no key, on any network failure, and after two rejections.
+5. **Review gate**: outputs that passed the validator but were found wrong on review
+   (`results/tables/explanation_review.tsv`) are replaced by the template in the app.
+
+Measured (`scripts/eval_explanations.py`, final run): of 17 subjects, 12 passed first time, 4
+after the retry, 1 fell back. On review, 7 of the 16 accepted outputs contained an error of
+meaning and are blocked. The review was done by an AI assistant, not a person. Earlier runs,
+including one that exposed two validator false positives, are kept as `*_run1.tsv` and
+`*_run2.tsv`.
+

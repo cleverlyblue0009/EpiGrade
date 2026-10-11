@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:28:45+00:00",
+  "fact_hash": "c34f8f29d8951022e7ac4ae2571e2fdbf87e4e9548fd042d2bb26db7ebea98b5",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis found no evidence linking the genetic band to Kabuki syndrome type 1. The likelihood ratio is 6.5, with a confidence interval ranging from 2.0 to 32.4. This result is based on 37 cases and 20 controls drawn from two studies each. The posterior probability is 42 % compared with a prior probability of 10 %. The score assigned was 0.0593, using a conservative approach based on the bootstrap confidence interval."
+}

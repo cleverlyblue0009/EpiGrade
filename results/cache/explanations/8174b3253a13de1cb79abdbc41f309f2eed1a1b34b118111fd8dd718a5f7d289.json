@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:01+00:00",
+  "fact_hash": "8174b3253a13de1cb79abdbc41f309f2eed1a1b34b118111fd8dd718a5f7d289",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "A total of five hundred samples were submitted and all were present on the 450K platform, with most also represented on the EPIC arrays. None of the twelve cohorts examined met the required criteria, so no best-of-set match could be made. The highest raw area-under-the-curve score was 1.0 for Williams syndrome, but this did not result in a match. Consequently, the overall verdict is \u201cno match\u201d."
+}

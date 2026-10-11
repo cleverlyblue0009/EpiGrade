@@ -1,0 +1,9 @@
+measure	value
+model_available	True
+model	openai/gpt-oss-120b
+n_subjects	17
+passed_first_time	12
+passed_after_retry	3
+fell_back_after_two_rejections	2
+model_outputs_rejected_total	6
+rejection_reason: number not in the fact sheet	6

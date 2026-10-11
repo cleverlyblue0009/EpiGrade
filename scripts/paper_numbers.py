@@ -214,6 +214,27 @@ def main() -> None:
     add("byo.searched", int(byo.n_disorders_searched.dropna().iloc[0]),
         "byo_fixture_results.tsv", "n_disorders_searched")
 
+    ev = table("explanation_eval_summary.tsv").set_index("measure")["value"]
+    for key in ("n_subjects", "passed_first_time", "passed_after_retry",
+                "fell_back_after_two_rejections", "model_outputs_rejected_total", "model"):
+        add(f"explain.{key}", ev[key], "explanation_eval_summary.tsv", f"measure={key}")
+    for key in ev.index:
+        if key.startswith("rejection_reason: "):
+            add(f"explain.{key}", f"{key.split(': ', 1)[1]} ({ev[key]})",
+                "explanation_eval_summary.tsv", f"measure={key}")
+    review = table("explanation_review.tsv")
+    model_rows = review[review.source == "model"]
+    n_err = int((model_rows.review_verdict == "error").sum())
+    add("explain.review_errors", f"{n_err} of {len(model_rows)}", "explanation_review.tsv",
+        "review_verdict=error among source=model")
+    add("explain.review_ok", int((model_rows.review_verdict == "ok").sum()),
+        "explanation_review.tsv", "review_verdict=ok among source=model")
+    run2 = table("explanation_eval_summary_run2.tsv").set_index("measure")["value"]
+    add("explain.run2_passed", f"{run2['passed_first_time']} of {run2['n_subjects']}",
+        "explanation_eval_summary_run2.tsv", "passed_first_time, run 2")
+    run1 = table("explain_failures_run1.tsv")
+    add("explain.run1_rejections", len(run1), "explain_failures_run1.tsv", "row count, run 1")
+
     agreement = table("harmonisation_agreement.tsv")
     scoreable = agreement[agreement.agree.notna()]
     add("labels.ai_vs_ai", f"{int(scoreable.agree.astype(str).str.lower().eq('true').sum())} of "

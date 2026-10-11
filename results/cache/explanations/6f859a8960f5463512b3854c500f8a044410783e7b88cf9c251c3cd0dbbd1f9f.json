@@ -1,0 +1,10 @@
+{
+  "attempts": 1,
+  "created_utc": "2026-10-11T04:21:54+00:00",
+  "fact_hash": "6f859a8960f5463512b3854c500f8a044410783e7b88cf9c251c3cd0dbbd1f9f",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [],
+  "source": "model",
+  "text": "The analysis was for Claes-Jensen syndrome and used data from one study (GSE108423). It included six cases and twelve control samples from within the same series. No genetic signature was built and no probes were used. Because there were only a few cases, the result was deemed \u201ctoo-few-cases\u201d. The test could not be evaluated further."
+}

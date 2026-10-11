@@ -1,0 +1,12 @@
+{
+  "attempts": 2,
+  "created_utc": "2026-10-11T04:21:31+00:00",
+  "fact_hash": "1beb91f3192e87edd2a6f8e6125a27a922ce447a72d3b220992d89550d2e3e39",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [
+    "interpretive claim: 'supports a link'"
+  ],
+  "source": "model",
+  "text": "The result is listed as \u201cSupporting\u201d for CHARGE syndrome, but the confounding gate failed. The interpretation is limited to the single study GSE97362 and applies only within that study. The signature was built from rederived, unpublished data using 907 probes, with 19 cases and 29 training controls. No leave-one-out directions were computed. This finding is not intended for broader clinical use."
+}

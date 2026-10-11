@@ -133,6 +133,25 @@ only and never sample data.
 **EPIC v2 probe IDs** come from the GEO platform record GPL33022; replicate suffixes such as
 `_TC21` are stripped before matching.
 
+## Plain-language summaries
+
+- **The validator checks numbers and listed terms, not meaning.** In the final run it accepted
+  16 of 17 outputs, and on review 7 of those 16 were wrong: "samples" for probes, the band
+  "No evidence" read as "no evidence of a band" (twice), a cohort band described as one
+  patient's case, an unsupported "not intended for broader clinical use" (twice), and a
+  refusal blamed on a platform. They are blocked in the app.
+- **The review was done by an AI assistant, not a person** (`explanation_review.tsv`).
+- **The rules were tuned on the outputs they then judged.** Three term rules (data type,
+  method name, interpretive claims) were added after the second run produced those errors, so
+  the final run's rejection rate is not an unbiased estimate for new text.
+- **The validator itself had bugs**, found by the first run: it misread "450K" and thin-space
+  thousands separators as invented numbers. Fixed and covered by tests.
+- **Grade a score summaries are not pre-generated.** The five test signatures and twelve
+  disorders are cached; a graded score's summary is generated on first view if a key is set,
+  validated, and otherwise comes from the template. These have not been reviewed.
+- **Model availability changes.** The originally specified Llama model was no longer served;
+  `openai/gpt-oss-120b` is used. Without a key, or with Groq unreachable, the template is shown.
+
 ## Verification status of the one-command path
 
 - A fresh clone was installed into a new virtualenv from `requirements.txt` and pointed at an

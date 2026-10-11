@@ -1,0 +1,12 @@
+{
+  "attempts": 2,
+  "created_utc": "2026-10-11T04:21:20+00:00",
+  "fact_hash": "16473b96f6822b2599c1ee9b673ab31b847d59be989388b980fadaf50a817242",
+  "fallback_reason": "",
+  "model": "openai/gpt-oss-120b",
+  "rejections": [
+    "wrong method name: 'leave-one-sample-out'"
+  ],
+  "source": "model",
+  "text": "The analysis examined Williams syndrome in a single study (GSE66552) with 20 cases and 15 training controls, using a rederived, unpublished signature based on 9,537 probes. The overall assessment was moderate, but the confounding gate failed, so the result is limited to this study only. No leave-out directions were computed."
+}

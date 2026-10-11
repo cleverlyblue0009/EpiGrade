@@ -1,0 +1,13 @@
+{
+  "attempts": 2,
+  "created_utc": "2026-10-11T04:21:17+00:00",
+  "fact_hash": "33a61b556acf3f1b2410677ba3ac5e59d0ca2cab3bd32cbbeee5136159562e49",
+  "fallback_reason": "validator rejected the model output twice",
+  "model": null,
+  "rejections": [
+    "wrong method name: 'leave-one-subject-out'",
+    "wrong method name: 'leave-one-subject-out'"
+  ],
+  "source": "template",
+  "text": "Coffin-Siris syndrome has 21 cases in this corpus, from 1 study, and its verdict is single-study. Its classifier uses a signature re-derived here, with 8,053 probes. Its controls were taken from another series, so it detects series membership rather than disease. With one study, no cross-study test is possible. At a typical case score the evidence band is Moderate, within one study only."
+}

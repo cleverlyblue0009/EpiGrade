@@ -1,12 +1,19 @@
 # Plain-language explanation layer (src/epigrade/explain). The model only formats facts the
 # pipeline already computed; every output is validated against them before it is shown.
 #
-# The model id is checked against Groq's live production list before each change of this file
-# (https://console.groq.com/docs/models). llama-3.3-70b-versatile was a production model when
-# this was set.
+# The model id is checked against the live list GET /openai/v1/models returns for the key in use,
+# not only the docs page: on 2026-10-11 the docs still listed llama-3.3-70b-versatile, but the
+# API returned model_not_found for it and no Llama chat model was available. openai/gpt-oss-120b
+# is a production model on Groq's list; qwen/qwen3.8-27b also worked but is not listed as
+# production, so it may be withdrawn at short notice.
 provider: groq
 endpoint: https://api.groq.com/openai/v1/chat/completions
-model: llama-3.3-70b-versatile
+model: openai/gpt-oss-120b
+# Extra request fields for this model. gpt-oss is a reasoning model: keep its reasoning short
+# and out of the reply, so the reply is only the summary.
+request_options:
+  reasoning_effort: low
+  include_reasoning: false
 temperature: 0.2
 max_tokens: 400
 timeout_seconds: 15

@@ -29,11 +29,12 @@ def test_word_paper_has_the_nine_sections_and_the_authors():
 
 
 @pytest.mark.skipif(not PPTX.exists(), reason="deck not built")
-def test_deck_is_16_presented_slides_plus_backup_each_with_speaker_notes():
+def test_deck_is_17_presented_slides_plus_backup_each_with_speaker_notes():
     slides = _members(PPTX, r"ppt/slides/slide\d+\.xml")
     notes = _members(PPTX, r"ppt/notesSlides/notesSlide\d+\.xml")
-    # 16 presented slides (the controls-source finding has its own) plus one backup slide
-    assert len(slides) == 17
+    # 17 presented slides (the controls-source finding and the explanation layer each have
+    # their own) plus one backup slide
+    assert len(slides) == 18
     assert len(notes) == len(slides)
     for name, xml in notes.items():
         spoken = " ".join(re.findall(r"<a:t>([^<]+)</a:t>", xml))
