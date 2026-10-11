@@ -32,6 +32,8 @@ def isolated_outputs(tmp_path, monkeypatch):
     """Keep tests from writing to the real cache or failure log."""
     monkeypatch.setattr(E, "cache_dir", lambda: tmp_path)
     monkeypatch.setattr(E, "failures_path", lambda: tmp_path / "explain_failures.tsv")
+    # Never let a developer's real .env reach a test.
+    monkeypatch.setattr(groq_client, "ENV_FILE", tmp_path / "missing.env")
     return tmp_path
 
 
@@ -186,3 +188,25 @@ def test_key_never_reaches_the_repository():
     for path in (paths.repo_root() / "results" / "cache").rglob("*.json"):
         text = path.read_text(encoding="utf-8")
         assert "gsk_" not in text and "Bearer" not in text
+
+
+def test_key_is_read_from_the_env_file_when_the_variable_is_unset(monkeypatch, tmp_path):
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
+    env = tmp_path / ".env"
+    env.write_text("# comment\nOTHER=1\nGROQ_API_KEY = \"from-file\"\n", encoding="utf-8")
+    monkeypatch.setattr(groq_client, "ENV_FILE", env)
+    assert groq_client.api_key() == "from-file" and groq_client.has_key()
+    monkeypatch.setenv("GROQ_API_KEY", "from-shell")
+    assert groq_client.api_key() == "from-shell"
+    env.write_text("GROQ_API_KEY=\n", encoding="utf-8")
+    monkeypatch.delenv("GROQ_API_KEY")
+    assert not groq_client.has_key()
+
+
+def test_env_file_is_gitignored():
+    import subprocess
+
+    result = subprocess.run(["git", "check-ignore", ".env"], cwd=paths.repo_root(),
+                            capture_output=True, text=True)
+    assert result.returncode == 0
+

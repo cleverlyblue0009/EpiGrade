@@ -2,8 +2,9 @@
 does not justify an SDK dependency.
 
 Every failure (no key, timeout, HTTP error, rate limit, malformed reply) returns None so the
-caller falls back to the deterministic template. The API key is read from GROQ_API_KEY and is
-never logged, cached or returned.
+caller falls back to the deterministic template. The API key is read from the GROQ_API_KEY
+environment variable or, failing that, from the gitignored .env file at the repository root. It
+is never logged, cached or returned.
 """
 
 from __future__ import annotations
@@ -18,6 +19,35 @@ import yaml
 from epigrade import paths
 
 KEY_VARIABLE = "GROQ_API_KEY"
+# A gitignored file at the repository root, so the key does not have to be set in every new
+# terminal. An environment variable, if set, takes precedence over it.
+ENV_FILE = paths.repo_root() / ".env"
+
+
+def _read_env_file(path) -> dict[str, str]:
+    """KEY=VALUE lines; blank lines, comments and surrounding quotes are ignored. No new
+    dependency for something this small."""
+    values = {}
+    try:
+        lines = path.read_text(encoding="utf-8-sig").splitlines()
+    except OSError:
+        return values
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        name, _, value = line.partition("=")
+        name = name.strip().removeprefix("export ").strip()
+        values[name] = value.strip().strip('"').strip("'")
+    return values
+
+
+def api_key() -> str:
+    """The Groq key from the environment, else from .env, else an empty string."""
+    from_env = os.environ.get(KEY_VARIABLE, "").strip()
+    if from_env:
+        return from_env
+    return _read_env_file(ENV_FILE).get(KEY_VARIABLE, "").strip()
 
 
 @lru_cache(maxsize=1)
@@ -27,13 +57,13 @@ def config() -> dict:
 
 
 def has_key() -> bool:
-    return bool(os.environ.get(KEY_VARIABLE, "").strip())
+    return bool(api_key())
 
 
 def chat(messages: list[dict]) -> tuple[str | None, str]:
     """Returns (text, status). status is "ok", or the reason text is None: "no_api_key",
     "timeout", "rate_limited", "http_<code>", "network_error", "bad_response"."""
-    key = os.environ.get(KEY_VARIABLE, "").strip()
+    key = api_key()
     if not key:
         return None, "no_api_key"
     cfg = config()

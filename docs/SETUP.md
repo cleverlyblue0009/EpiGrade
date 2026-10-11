@@ -51,12 +51,9 @@ With a key, a language model writes the summary instead, and every output is che
 the computed numbers before it is shown (see `src/epigrade/explain/`). To enable it:
 
 1. Create a free account at https://console.groq.com and create an API key.
-2. Set it as an environment variable, never in a file inside the repository:
-   - PowerShell, for the current session: `$env:GROQ_API_KEY = "<your key>"`
-   - Windows, permanently: `setx GROQ_API_KEY "<your key>"`, then open a new terminal
-   - macOS/Linux: `export GROQ_API_KEY=<your key>`
-3. Restart the app. A "Regenerate" button appears under each summary.
-
-`.env.example` lists the variable; `.env` is gitignored. The model id is in
+2. Paste it into `.env` at the repository root, after `GROQ_API_KEY=`, and save. If `.env`
+   does not exist, copy `.env.example` to `.env` first. `.env` is gitignored and is never
+   committed. (An environment variable named `GROQ_API_KEY`, if set, takes precedence.)
+3. Restart the app. A "Regenerate" button appears under each summary. The model id is in
 `config/explain.yaml`. Accepted model outputs are cached in `results/cache/explanations/`, so
 once `scripts/eval_explanations.py` has been run the app shows them with no network call.
