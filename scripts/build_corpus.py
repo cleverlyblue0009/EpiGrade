@@ -32,9 +32,9 @@ import pandas as pd
 from epigrade import paths
 from epigrade.audit.loso import leave_one_study_out
 from epigrade.audit.loso import to_frame as loso_to_frame
-from epigrade.calibrate.calibrate import evaluate_score, posterior_probability
 from epigrade.corpus import build, loader, registry
 from epigrade.corpus.build import BuildResult
+from epigrade.corpus.calibration import PRIOR_GRID, calibration_frame, evidence_rows_at
 from epigrade.signature.generic import (
     MIN_CASES_TO_BUILD_CLASSIFIER,
     Classifier,
@@ -46,7 +46,6 @@ from epigrade.signature.generic import (
 
 MIN_N_TO_INTERPRET = 10
 TOO_SMALL = "too small to interpret"
-PRIOR_GRID = [0.05, 0.10, 0.20]
 SIBLING_LABEL = registry.SIBLING_LABEL
 
 DERIVATION_COLUMNS = [
@@ -343,16 +342,9 @@ def evidence_rows(result: BuildResult, scores: pd.DataFrame) -> list[dict]:
     only when both sides span >= 2 studies (epigrade.calibrate decides); a single-study side
     yields a within_study_only band, never a between-study bound."""
     resolved = result.resolved
-    control_series = resolved.control_series_of()
-    by_gsm = scores.set_index("gsm_accession")
-    case_ids = [s for s in resolved.case_ids if s in by_gsm.index]
-    control_ids = [s for s in control_series if s in by_gsm.index]
-    df = pd.DataFrame({
-        "score": by_gsm.loc[case_ids + control_ids, "score"].to_numpy(),
-        "label": [1] * len(case_ids) + [0] * len(control_ids),
-        "study_id": [resolved.case_series[s] for s in case_ids]
-                    + [control_series[s] for s in control_ids],
-    })
+    by_gsm = scores.set_index("gsm_accession")["score"]
+    case_series = {s: resolved.case_series[s] for s in resolved.case_ids}
+    df = calibration_frame(by_gsm, case_series, resolved.control_series_of())
 
     queries = [("typical_case_score", float(df.loc[df.label == 1, "score"].median()))]
     sotos_path = paths.tables_dir() / "sotos_scores.tsv"
@@ -365,25 +357,7 @@ def evidence_rows(result: BuildResult, scores: pd.DataFrame) -> list[dict]:
 
     rows = []
     for query_name, query_score in queries:
-        result_ = evaluate_score(resolved.name, df, query_score, prior=PRIOR_GRID[0])
-        for prior in PRIOR_GRID:
-            rows.append({
-                "disorder": resolved.name, "query_point": query_name,
-                "query_score": round(query_score, 4), "prior": prior,
-                "lr_point_estimate": result_.lr_point_estimate,
-                "lr_ci_low": result_.lr_ci_low, "lr_ci_high": result_.lr_ci_high,
-                "points_conservative": result_.points, "band": result_.band,
-                "posterior_prob": posterior_probability(result_.lr_point_estimate, prior),
-                "evidence_anchor": result_.evidence_anchor,
-                "n_case": result_.n_case, "n_control": result_.n_control,
-                "n_studies_case": result_.n_studies_case,
-                "n_studies_control": result_.n_studies_control,
-                "confounded_by_design": result_.confounded_by_design,
-                "reason": result_.reason,
-                "within_study_ci_low": result_.within_study_ci_low,
-                "within_study_ci_high": result_.within_study_ci_high,
-                "interpretation_scope": result_.interpretation_scope,
-            })
+        rows += evidence_rows_at(resolved.name, df, query_name, query_score, PRIOR_GRID)
     return rows
 
 

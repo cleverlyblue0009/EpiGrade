@@ -167,11 +167,18 @@ def facts_for_disorder(disorder: str) -> dict:
 
 
 def facts_for_grade(disorder: str, score: float, prior: float) -> dict:
-    """For one row of evidence_bands.tsv. `score` must be one of the query scores the pipeline
-    actually evaluated - this layer never computes a new likelihood ratio."""
-    bands = _table("evidence_bands.tsv")
-    rows = bands[(bands.disorder == disorder) & (bands.prior.astype(float) == float(prior))]
-    rows = rows[(rows.query_score.astype(float) - float(score)).abs() < 5e-5]
+    """For one computed row: a reference point in evidence_bands.tsv, else a grid point in
+    calibration_grid.tsv. `score` must be a query score the pipeline actually evaluated - this
+    layer never computes a new likelihood ratio."""
+    rows = pd.DataFrame()
+    for name in ("evidence_bands.tsv", "calibration_grid.tsv"):
+        if not (paths.tables_dir() / name).exists():
+            continue
+        bands = _table(name)
+        rows = bands[(bands.disorder == disorder) & (bands.prior.astype(float) == float(prior))]
+        rows = rows[(rows.query_score.astype(float) - float(score)).abs() < 5e-5]
+        if not rows.empty:
+            break
     if rows.empty:
         raise ValueError(
             f"no computed evidence row for {disorder} at score {score} and prior {prior}"

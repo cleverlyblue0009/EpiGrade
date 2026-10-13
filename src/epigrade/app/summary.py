@@ -5,7 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from epigrade.explain import groq_client
-from epigrade.explain.explain import SOURCE_MODEL, explain, fact_hash
+from epigrade.explain.explain import SOURCE_MODEL, explain, fact_hash, was_reviewed
 
 LABEL = ("Generated from the computed numbers above by a language model, then checked against "
          "them. It adds no information of its own.")
@@ -26,6 +26,9 @@ def render(facts: dict, key: str) -> None:
         st.markdown(f":blue-badge[Language model: {result.model}] :green-badge[Passed the "
                     "number check]")
         st.caption(LABEL)
+        if not was_reviewed(result.fact_hash):
+            st.caption("This text has passed the automatic check only; it has not been "
+                       "reviewed. Earlier reviews found errors of meaning the check misses.")
     else:
         st.markdown(":gray-badge[Deterministic template]")
         st.caption(TEMPLATE_LABEL)

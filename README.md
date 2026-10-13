@@ -71,8 +71,12 @@ retry, and has not been touched since. All nine re-derived signatures use it
 
 Five pages, each carrying the not-for-patient-use banner:
 
-- **Grade a score**: enter a classifier score for a disorder and see the evidence band it
-  supports, or why grading is limited.
+- **Grade a score**: pick a disorder and type a classifier score. The page shows the
+  likelihood ratio, evidence band, posterior at the chosen prior and the band's scope, taken
+  from a grid of 41 scores per disorder calibrated in advance (the nearest grid point is used
+  and named). The fixed reference points (typical case score, score 0, and for Sotos the
+  typical missense-variant score) are listed below it. Disorders with too few cases are
+  refused, and single-study disorders carry a within-study warning first.
 - **Test your own signature**: upload a probe list (or pick one of five examples). Reports
   platform and corpus coverage, the identification verdict across all 12 cohorts, the
   signature's specificity row, an evidence ceiling that accounts for cohort size and signature
@@ -116,6 +120,7 @@ python scripts/make_figures.py             # every figure, plus slides/ versions
 python scripts/make_test_signatures.py     # the five test signatures, from the real corpus
 python scripts/build_byo_resource.py       # data behind "Test your own signature"
 python scripts/run_byo_fixtures.py         # the five test signatures through the engine
+python scripts/build_calibration_grid.py   # evidence bands on a score grid, for Grade a score
 python scripts/compute_attribution.py      # "Why this result" examples
 python scripts/phase6_confounding_gate.py  # confounding gate
 python scripts/generate_provenance.py      # docs/DATA_PROVENANCE.md

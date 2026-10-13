@@ -258,18 +258,46 @@ def _text_hash(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def _blocked_by_review() -> dict[tuple[str, str], str]:
-    """Model outputs that passed the validator but were found wrong on review
-    (results/tables/explanation_review.tsv). Keyed by fact sheet and exact text, so a
-    regenerated text is not blocked by a review of a different one."""
+def _review() -> tuple[dict[tuple[str, str], str], set[tuple[str, str]], set[str]]:
+    """From results/tables/explanation_review.tsv: texts found wrong (with the issue), texts
+    approved, and every fact sheet that went through review. Keyed by fact sheet and exact text.
+    """
     path = paths.tables_dir() / "explanation_review.tsv"
     if not path.exists():
-        return {}
+        return {}, set(), set()
     import pandas as pd
 
     review = pd.read_csv(path, sep="\t", keep_default_na=False)
-    rejected = review[review.review_verdict == "error"]
-    return {(r.fact_hash, r.text_sha256): r.issue for r in rejected.itertuples()}
+    rows = review[review.source == SOURCE_MODEL]
+    wrong = {(r.fact_hash, r.text_sha256): r.issue
+             for r in rows[rows.review_verdict == "error"].itertuples()}
+    approved = {(r.fact_hash, r.text_sha256)
+                for r in rows[rows.review_verdict == "ok"].itertuples()}
+    return wrong, approved, set(review.fact_hash)
+
+
+def was_reviewed(fact_sheet_hash: str) -> bool:
+    return fact_sheet_hash in _review()[2]
+
+
+def review_gate(facts: dict, result: Explanation) -> Explanation:
+    """For a subject that went through review, show model text only if that exact text was
+    approved. A text found wrong, or a regenerated text nobody has reviewed, is replaced by the
+    template. Subjects never reviewed (e.g. graded scores) pass through: the validator is all
+    that stands between them and the page, and the page says so."""
+    if result.source != SOURCE_MODEL:
+        return result
+    wrong, approved, reviewed = _review()
+    key = (result.fact_hash, _text_hash(result.text))
+    if result.fact_hash not in reviewed or key in approved:
+        return result
+    reason = (f"model text blocked after review: {wrong[key]}" if key in wrong
+              else "model text not reviewed (regenerated after review); template shown")
+    return Explanation(
+        text=template.explain(facts), source=SOURCE_TEMPLATE, model=None,
+        fact_hash=result.fact_hash, created_utc=result.created_utc,
+        attempts=result.attempts, rejections=result.rejections, fallback_reason=reason,
+    )
 
 
 # --------------------------------------------------------------------------- main entry
@@ -282,14 +310,7 @@ def explain(facts: dict, use_cache: bool = True, allow_model: bool = True) -> Ex
     if use_cache:
         hit = _cached(h)
         if hit is not None:
-            blocked = _blocked_by_review().get((h, _text_hash(hit.text)))
-            if hit.source == SOURCE_MODEL and blocked:
-                return Explanation(
-                    text=template.explain(facts), source=SOURCE_TEMPLATE, model=None,
-                    fact_hash=h, created_utc=hit.created_utc,
-                    fallback_reason=f"model text blocked after review: {blocked}",
-                )
-            return hit
+            return review_gate(facts, hit)
 
     model = groq_client.config()["model"]
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -314,7 +335,7 @@ def explain(facts: dict, use_cache: bool = True, allow_model: bool = True) -> Ex
                 result = Explanation(text=text, source=SOURCE_MODEL, model=model, fact_hash=h,
                                      created_utc=now, attempts=attempts, rejections=rejections)
                 _store(result)
-                return result
+                return review_gate(facts, result)
             rejections.append("; ".join(problems))
             _log_failure(facts, h, attempt + 1, model, problems, text)
             fallback = "validator rejected the model output twice"

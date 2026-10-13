@@ -40,6 +40,8 @@ STAGES = [
     ("test_signatures", "make_test_signatures", DATA),
     ("byo_resource", "build_byo_resource", DATA),
     ("byo_fixtures", "run_byo_fixtures", TABLES),
+    # after build_corpus (scores) and byo_resource (cohort membership), before the resource
+    ("calibration_grid", "build_calibration_grid", TABLES),
     ("attribution", "compute_attribution", DATA),
     ("confounding_gate", "phase6_confounding_gate", DATA),
     ("provenance", "generate_provenance", DATA),

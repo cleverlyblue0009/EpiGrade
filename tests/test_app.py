@@ -52,3 +52,28 @@ def test_every_example_runs_without_an_exception(example):
     else:
         assert "identifies Sotos syndrome" in text and "12 disorder cohorts" in text
         assert "Within-study only" in text
+
+
+def test_grade_page_takes_a_score_and_shows_the_nearest_grid_point():
+    at = _run("Grade a score")
+    at.selectbox[0].set_value(next(o for o in at.selectbox[0].options
+                                   if "Silver-Russell" in o)).run()
+    assert at.number_input, "no score input on the Grade a score page"
+    box = at.number_input[0]
+    box.set_value(round((box.min + box.max) / 2, 4)).run()
+    assert not at.exception, at.exception
+    headers = [str(h.value) for h in at.subheader]
+    assert any(h.startswith("Your score:") for h in headers)
+    assert "Reference points for this disorder" in headers
+    assert any("Grid point used" in str(c.value) or "nearest grid point" in str(c.value)
+               for c in at.caption)
+    labels = [m.label for m in at.metric]
+    assert "LR (point estimate)" in labels and "Posterior probability" in labels
+
+
+def test_grade_page_still_refuses_disorders_with_too_few_cases():
+    at = _run("Grade a score")
+    at.selectbox[0].set_value(next(o for o in at.selectbox[0].options if "Weaver" in o)).run()
+    assert any("Grading refused" in str(e.value) for e in at.error)
+    assert not at.number_input
+

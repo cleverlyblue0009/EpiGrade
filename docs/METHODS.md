@@ -258,3 +258,22 @@ meaning and are blocked. The review was done by an AI assistant, not a person. E
 including one that exposed two validator false positives, are kept as `*_run1.tsv` and
 `*_run2.tsv`.
 
+## Calibration grid (Grade a score)
+
+`scripts/build_calibration_grid.py`, after `build_corpus.py` and `build_byo_resource.py` and
+before the resource export. The app recomputes nothing, so a typed score is graded by lookup:
+
+- **Frame.** For each of the 10 disorders with a classifier, the same (score, label, study)
+  frame as `evidence_bands.tsv`: built by the shared helper
+  `epigrade.corpus.calibration.calibration_frame` (which `build_corpus.py` also uses) from the
+  checked-in per-sample scores and cohort membership.
+- **Grid.** 41 evenly spaced scores from the lowest to the highest score in that frame, padded
+  by 10% of the range at each end, rounded to 4 decimals; the point nearest zero is replaced by
+  exactly 0.0.
+- **Calibration.** `evaluate_score()` at each grid point, unchanged method and thresholds. The
+  likelihood ratio, its intervals and the band do not depend on the prior, so each call is
+  expanded to the three priors (0.05, 0.10, 0.20) with the posterior computed per prior.
+- **Output.** `results/tables/calibration_grid.tsv`, 1,230 rows, the same columns as
+  `evidence_bands.tsv` with `query_point = grid`. The app snaps a typed score to the nearest
+  grid point and says which point it used.
+

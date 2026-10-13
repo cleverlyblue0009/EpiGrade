@@ -47,8 +47,10 @@ def confounding_status(resource: dict, disorder: str) -> dict | None:
 def page_grade(resource: dict) -> None:
     st.header("Grade a score")
     st.caption(
-        "Enter a classifier score for a disorder in this corpus and see what evidence "
-        "strength it can honestly support - or why grading is refused."
+        "Pick a disorder and enter a classifier score for it. The page shows the evidence "
+        "strength that score can honestly support against this corpus, or why grading is "
+        "refused. Results come from a grid of scores calibrated in advance; the app looks up "
+        "the nearest grid point and recomputes nothing."
     )
 
     # Cohorts that pass the gate first (so the default selection - index 0 - is a disorder that
@@ -107,46 +109,83 @@ def page_grade(resource: dict) -> None:
         )
         return
 
+    grid = [r for r in resource.get("calibration_grid", []) if r["disorder"] == disorder]
+    typical = next(r["query_score"] for r in evidence_rows
+                   if r["query_point"] == "typical_case_score")
+    entered = None
+    if grid:
+        points = sorted({r["query_score"] for r in grid})
+        entered = st.number_input(
+            "Classifier score", min_value=points[0], max_value=points[-1], value=typical,
+            step=0.001, format="%.4f", key=f"score-{disorder}",
+            help=f"Range of the precomputed grid for {disorder}: {points[0]:.4f} to "
+                 f"{points[-1]:.4f}. The default is the typical case score.",
+        )
+    else:
+        st.info("No calibration grid in this resource for this disorder, so only the "
+                "reference points below are available.")
+
     prior = st.select_slider(
         "Assumed disease prior", options=sorted({r["prior"] for r in evidence_rows}),
         value=0.10,
     )
+
+    if grid:
+        snapped = min(points, key=lambda x: abs(x - entered))
+        step = (points[-1] - points[0]) / (len(points) - 1)
+        row = next(r for r in grid if r["query_score"] == snapped and r["prior"] == prior)
+        st.subheader(f"Your score: {entered:.4f}")
+        if abs(snapped - entered) > step / 2:
+            st.caption(
+                f"Shown for the nearest grid point, {snapped:.4f}. Results are precomputed on "
+                "a fixed grid so the app recomputes nothing."
+            )
+        else:
+            st.caption(f"Grid point used: {snapped:.4f} (grid spacing {step:.4f}).")
+        _render_evidence_row(resource, disorder, row, key="entered")
+
+    st.subheader("Reference points for this disorder")
     for row in evidence_rows:
         if row["prior"] != prior:
             continue
-        st.subheader(row["query_point"].replace("_", " "))
+        st.markdown(f"**{row['query_point'].replace('_', ' ')}** (score {row['query_score']})")
+        _render_evidence_row(resource, disorder, row, key=row["query_point"])
 
-        if row["band"] == "NA":
-            # A per-row refusal: even the within-study bootstrap failed to converge (or, for a
-            # non-confounded cohort, the between-study one did) - there is truly no band here,
-            # not just a scoping caveat on one.
-            st.error(f"**No band assigned.** {row['reason']}", icon="🚫")
-            continue
 
-        scope = row.get("interpretation_scope", "between_study")
-        if scope == "within_study_only":
-            st.warning(
-                "**Within-study only** - no between-study confidence bound exists for this "
-                "single-study cohort. The band below describes how stable the estimate is "
-                "inside this one dataset, not whether it would generalize to an independent "
-                "study.",
-                icon="⚠️",
-            )
+def _render_evidence_row(resource: dict, disorder: str, row: dict, key: str) -> None:
+    """The metric block for one computed row of evidence_bands or calibration_grid."""
+    if row["band"] == "NA":
+        # A per-row refusal: even the within-study bootstrap failed to converge (or, for a
+        # non-confounded cohort, the between-study one did) - there is truly no band here,
+        # not just a scoping caveat on one.
+        st.error(f"**No band assigned.** {row['reason']}", icon="🚫")
+        return
 
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("LR (point estimate)", f"{row['lr_point_estimate']:.2f}")
-        c2.metric(
-            "Evidence band" + (" (within-study)" if scope == "within_study_only" else ""),
-            row["band"],
+    scope = row.get("interpretation_scope", "between_study")
+    if scope == "within_study_only":
+        st.warning(
+            "**Within-study only** - no between-study confidence bound exists for this "
+            "single-study cohort. The band below describes how stable the estimate is "
+            "inside this one dataset, not whether it would generalize to an independent "
+            "study.",
+            icon="⚠️",
         )
-        c3.metric("Posterior probability", f"{row['posterior_prob']:.1%}"
-                  if row["posterior_prob"] is not None else "NA")
-        c4.metric("Cohort size", f"{row['n_case']} case / {row['n_control']} control")
-        st.caption(row["reason"])
 
-        render_why_this_result(resource, disorder, row["query_point"])
-        summary.render(facts_for_grade(disorder, row["query_score"], row["prior"]),
-                       key=f"grade-{row['query_point']}")
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("LR (point estimate)", f"{row['lr_point_estimate']:.2f}"
+              if row["lr_point_estimate"] is not None else "NA")
+    c2.metric(
+        "Evidence band" + (" (within-study)" if scope == "within_study_only" else ""),
+        row["band"],
+    )
+    c3.metric("Posterior probability", f"{row['posterior_prob']:.1%}"
+              if row["posterior_prob"] is not None else "NA")
+    c4.metric("Cohort size", f"{row['n_case']} case / {row['n_control']} control")
+    st.caption(row["reason"])
+
+    render_why_this_result(resource, disorder, row["query_point"], row["query_score"])
+    summary.render(facts_for_grade(disorder, row["query_score"], row["prior"]),
+                   key=f"grade-{key}")
 
 
 # Which attribution exemplar cohort(s) a given query point corresponds to - matches how
@@ -157,19 +196,26 @@ _QUERY_POINT_COHORTS = {
 }
 
 
-def render_why_this_result(resource: dict, disorder: str, query_point: str) -> None:
+def render_why_this_result(resource: dict, disorder: str, query_point: str,
+                           query_score: float | None = None) -> None:
     """Task 5: an expandable panel explaining a real, computed exemplar sample's score using
     only quantities the pipeline already worked out (epigrade.report.attribution) - no LLM
-    narrative, no biological inference beyond what was computed."""
+    narrative, no biological inference beyond what was computed. For an entered (grid) score
+    it shows the computed example sample whose score is closest to it."""
     attribution = resource.get("attribution")
     if not attribution or attribution.get("disorder") != disorder:
         return
-    wanted_cohorts = _QUERY_POINT_COHORTS.get(query_point, ())
-    examples = [e for e in attribution["examples"] if e["cohort_label"] in wanted_cohorts]
+    if query_point == "grid" and query_score is not None and attribution["examples"]:
+        examples = [min(attribution["examples"], key=lambda e: abs(e["score"] - query_score))]
+    else:
+        wanted_cohorts = _QUERY_POINT_COHORTS.get(query_point, ())
+        examples = [e for e in attribution["examples"] if e["cohort_label"] in wanted_cohorts]
     if not examples:
         return
 
-    with st.expander(f"Why this result? ({len(examples)} example sample(s))"):
+    label = ("nearest computed example sample" if query_point == "grid"
+             else f"{len(examples)} example sample(s)")
+    with st.expander(f"Why this result? ({label})"):
         st.caption(
             "Computed numbers only - no language model, no biological inference beyond what "
             "was directly derived from the classifier and the beta values below."

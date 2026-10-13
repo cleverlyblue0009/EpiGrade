@@ -139,9 +139,12 @@ class _Reply:
         return {"choices": [{"message": {"content": self._text}}]}
 
 
-def test_a_valid_model_reply_is_shown_and_cached(monkeypatch, isolated_outputs, byo_facts):
+def test_a_valid_model_reply_is_shown_and_cached(monkeypatch, isolated_outputs):
     monkeypatch.setenv("GROQ_API_KEY", "test-key-not-real")
-    f = byo_facts["sig_tiny.csv"]
+    bands = pd.read_csv(paths.repo_root() / "results" / "tables" / "evidence_bands.tsv",
+                        sep="	")
+    r = bands.iloc[3]  # a graded score: never reviewed, so validated model text is shown
+    f = F.facts_for_grade(r.disorder, r.query_score, r.prior)
     good = template.explain(f)
     monkeypatch.setattr(requests, "post", lambda *a, **k: _Reply(200, good))
     result = E.explain(f)
@@ -264,4 +267,30 @@ def test_outputs_found_wrong_on_review_never_reach_the_app():
         result = E.explain(facts, allow_model=False)
         assert result.source == E.SOURCE_TEMPLATE, name
         assert result.fallback_reason.startswith("model text blocked after review"), name
+
+
+def test_regenerating_a_reviewed_subject_cannot_bypass_the_review(monkeypatch, isolated_outputs):
+    """Regression: pressing Regenerate on a reviewed subject replaced its reviewed text with an
+    unreviewed one that repeated the error review had blocked."""
+    monkeypatch.setenv("GROQ_API_KEY", "test-key-not-real")
+    review = pd.read_csv(paths.repo_root() / "results" / "tables" / "explanation_review.tsv",
+                         sep="\t", keep_default_na=False)
+    facts = F.facts_for_disorder("Silver-Russell syndrome")
+    assert E.fact_hash(facts) in set(review.fact_hash)
+    new_text = template.explain(facts).replace("has 63 cases", "has 63 cases in total")
+    monkeypatch.setattr(requests, "post", lambda *a, **k: _Reply(200, new_text))
+    result = E.explain(facts, use_cache=False)
+    assert result.source == E.SOURCE_TEMPLATE
+    assert "not reviewed" in result.fallback_reason
+
+
+def test_unreviewed_subjects_still_show_validated_model_text(monkeypatch, isolated_outputs):
+    monkeypatch.setenv("GROQ_API_KEY", "test-key-not-real")
+    bands = pd.read_csv(paths.repo_root() / "results" / "tables" / "evidence_bands.tsv",
+                        sep="\t")
+    r = bands.iloc[0]
+    facts = F.facts_for_grade(r.disorder, r.query_score, r.prior)
+    good = template.explain(facts)
+    monkeypatch.setattr(requests, "post", lambda *a, **k: _Reply(200, good))
+    assert E.explain(facts, use_cache=False).source == E.SOURCE_MODEL
 
